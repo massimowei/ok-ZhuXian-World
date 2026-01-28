@@ -1,0 +1,19 @@
+[
+  {
+    "id": "danqing",
+    "name": "丹青模拟器",
+    "type": "python",
+    "entry": "tools/danqing/entry.py",
+    "action": "run_demo"
+  },
+  {
+    "id": "rili",
+    "name": "游戏日历",
+    "type": "webview",
+    "entry": "tools/rili/entry.py",
+    "pages": {
+      "task_manager": "https://zxsj.cosiamo.cn/tools/task-manager",
+      "activity_calendar": "https://zxsj.cosiamo.cn/tools/activity-calendar"
+    }
+  }
+]

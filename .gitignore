@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+
+.vscode/
+.idea/
+
+tools/rili/storage/
+
+dist/
+build/

@@ -1,0 +1,417 @@
+{
+  "statsTable": {
+    "1": [
+      { "core": 224, "body": 162 },
+      { "core": 235, "body": 173 },
+      { "core": 246, "body": 184 },
+      { "core": 258, "body": 196 },
+      { "core": 269, "body": 207 },
+      { "core": 280, "body": 218 },
+      { "core": 291, "body": 227 }
+    ],
+    "2": [
+      { "core": 449, "body": 323 },
+      { "core": 471, "body": 345 },
+      { "core": 493, "body": 367 },
+      { "core": 516, "body": 390 },
+      { "core": 538, "body": 410 },
+      { "core": 560, "body": 432 },
+      { "core": 583, "body": 455 }
+    ],
+    "3": [
+      { "core": 674, "body": 484 },
+      { "core": 707, "body": 517 },
+      { "core": 740, "body": 550 },
+      { "core": 773, "body": 583 },
+      { "core": 806, "body": 616 },
+      { "core": 839, "body": 649 },
+      { "core": 873, "body": 680 }
+    ],
+    "4": [
+      { "core": 899, "body": 645 },
+      { "core": 943, "body": 689 },
+      { "core": 987, "body": 733 },
+      { "core": 1031, "body": 777 },
+      { "core": 1075, "body": 821 },
+      { "core": 1119, "body": 863 },
+      { "core": 1164, "body": 908 }
+    ],
+    "5": [
+      { "core": 1122, "body": 809 },
+      { "core": 1178, "body": 863 },
+      { "core": 1233, "body": 918 },
+      { "core": 1289, "body": 974 },
+      { "core": 1344, "body": 1029 },
+      { "core": 1399, "body": 1084 },
+      { "core": 1455, "body": 1140 }
+    ]
+  },
+  "formulaNote": "value = scaling.base + level * scaling.step",
+  "cards": [
+    {
+      "id": "xiaohuan",
+      "name": "小环",
+      "category": "human",
+      "image": "img/小环.png",
+      "cost": 1,
+      "skillDescription": "增加会心值 (280 + lv * 20)",
+      "dpsModel": {
+        "type": "ATTRIBUTE_CONVERSION",
+        "scaling": { "base": 280, "step": 20 },
+        "params": { "attribute": "crit" }
+      },
+      "tags": ["ATTRIBUTE"]
+    },
+    {
+      "id": "wilddog",
+      "name": "野狗道人",
+      "category": "human",
+      "image": "img/野狗道人.png",
+      "cost": 1,
+      "skillDescription": "增加化伤和秽灭 (56 + lv * 4)",
+      "dpsModel": {
+        "type": "ATTRIBUTE_CONVERSION",
+        "scaling": { "base": 56, "step": 4 },
+        "params": { "attribute": "special" }
+      },
+      "tags": ["ATTRIBUTE"]
+    },
+    {
+      "id": "yanhong",
+      "name": "燕虹",
+      "category": "human",
+      "image": "img/燕虹.png",
+      "cost": 1,
+      "skillDescription": "释放技能时，向目标发射一枚冰箭，造成 (0.4 + lv * 0.02) * atk 固定伤害 （6秒冷却）",
+      "dpsModel": {
+        "type": "ATTACK_SCALING",
+        "scaling": { "base": 0.4, "step": 0.02 },
+        "params": { "cd": 6 }
+      },
+      "tags": ["ICE_ARROW_SOURCE"]
+    },
+    {
+      "id": "zhouyixian",
+      "name": "周一仙",
+      "category": "human",
+      "image": "img/周一仙.png",
+      "cost": 2,
+      "skillDescription": "每装备一张人族卡片，物理和法术攻击力提高 (0.56% + lv * 0.04%)",
+      "dpsModel": {
+        "type": "GLOBAL_MULTIPLIER",
+        "scaling": { "base": 0.0056, "step": 0.0004 }
+      },
+      "tags": ["GLOBAL_BUFF"]
+    },
+    {
+      "id": "wenmin",
+      "name": "文敏",
+      "category": "human",
+      "image": "img/文敏.png",
+      "cost": 2,
+      "skillDescription": "战斗中每间隔 (16 - lv * 1) 秒,向目标发射3枚冰箭",
+      "dpsModel": {
+        "type": "FLAT_DPS",
+        "scaling": { "base": 0, "step": 0 },
+        "intervalBase": 16,
+        "intervalStep": -1
+      },
+      "tags": ["ICE_ARROW_SOURCE"]
+    },
+    {
+      "id": "shangguance",
+      "name": "上官策",
+      "category": "human",
+      "image": "img/上官策.png",
+      "cost": 2,
+      "skillDescription": "冰箭有 (38% + lv * 2%) 概率赋予目标1层燃烧",
+      "dpsModel": {
+        "type": "MECHANISM",
+        "scaling": { "base": 0, "step": 0 }
+      },
+      "tags": ["ICE_ARROW_SYNERGY", "BURN_SOURCE"]
+    },
+    {
+      "id": "linfeng",
+      "name": "林峰",
+      "category": "human",
+      "image": "img/林峰.png",
+      "cost": 3,
+      "skillDescription": "附加燃烧效果时有 (42% + lv * 3%) 概率额外叠加1层燃烧，召唤冰箭时有 (70% + lv * 5%) 概率额外召唤一枚冰箭",
+      "dpsModel": {
+        "type": "SYNERGY_MULTIPLIER",
+        "scaling": { "base": 1.42, "step": 0.03 },
+        "condition": { "requires": ["BURN_SOURCE"] }
+      },
+      "tags": ["BURN_SYNERGY"]
+    },
+    {
+      "id": "zuogui",
+      "name": "左归",
+      "category": "human",
+      "image": "img/左归.png",
+      "cost": 4,
+      "skillDescription": "冰箭/玄冰风暴/燃烧/脉冲造成的伤害和气血恢复效果提高 (28% + lv * 2%)",
+      "dpsModel": {
+        "type": "SPECIAL_DMG_MULTIPLIER",
+        "scaling": { "base": 0.28, "step": 0.02 }
+      },
+      "tags": ["SPECIAL_DMG_BUFF"]
+    },
+    {
+      "id": "qihao",
+      "name": "齐昊",
+      "category": "human",
+      "image": "img/齐昊.png",
+      "cost": 5,
+      "skillDescription": "召唤一只冰霜元素，向目标发射玄冰风暴，造成 (10.4 + lv * 0.6) * atk 固定伤害,每间隔60秒仅可触发一次:每召唤一枚冰箭,冰霜元素的冷却时间缩短1秒",
+      "dpsModel": {
+        "type": "ATTACK_SCALING",
+        "scaling": { "base": 10.4, "step": 0.6 },
+        "params": { "cd": 60 }
+      },
+      "tags": ["CD_REDUCTION"]
+    },
+    {
+      "id": "haigui",
+      "name": "海龟",
+      "category": "beast",
+      "image": "img/海龟.png",
+      "cost": 1,
+      "skillDescription": "增加专精值 (280 + lv * 20)",
+      "dpsModel": {
+        "type": "ATTRIBUTE_CONVERSION",
+        "scaling": { "base": 280, "step": 20 },
+        "params": { "attribute": "mastery" }
+      },
+      "tags": ["ATTRIBUTE"]
+    },
+    {
+      "id": "ant",
+      "name": "猩红巨蚁",
+      "category": "beast",
+      "image": "img/猩红巨蚁.png",
+      "cost": 1,
+      "skillDescription": "造成伤害时，引燃目标和目标周围的所有敌人，添加燃烧，每3秒造成 (1.4% + lv * 0.1%) * atk 伤害，持续18秒，燃烧最多可以叠加12层（8秒内置冷却）",
+      "dpsModel": {
+        "type": "ATTACK_SCALING",
+        "scaling": { "base": 0.168, "step": 0.012 },
+        "params": { "cd": 3 }
+      },
+      "tags": ["BURN_SOURCE", "STACK_ADD"]
+    },
+    {
+      "id": "tiger",
+      "name": "猛虎",
+      "category": "beast",
+      "image": "img/猛虎.png",
+      "cost": 2,
+      "skillDescription": "每装备一张兽族卡片，物理和法术攻击力提高 (0.56% + lv * 0.04%)",
+      "dpsModel": {
+        "type": "GLOBAL_MULTIPLIER",
+        "scaling": { "base": 0.0056, "step": 0.0004 }
+      },
+      "tags": ["GLOBAL_BUFF"]
+    },
+    {
+      "id": "twotails",
+      "name": "二尾妖狐",
+      "category": "beast",
+      "image": "img/二尾妖狐.png",
+      "cost": 2,
+      "skillDescription": "当自身尝试为目标添加燃烧时，立刻对目标造成 (0.32 + lv * 0.02) * atk 伤害",
+      "dpsModel": {
+        "type": "TRIGGER_DAMAGE",
+        "scaling": { "base": 0.32, "step": 0.02 },
+        "params": { "trigger": "BURN_ADD" }
+      },
+      "tags": ["BURN_SYNERGY"]
+    },
+    {
+      "id": "dog",
+      "name": "幽冥犬",
+      "category": "beast",
+      "image": "img/幽冥犬.png",
+      "cost": 2,
+      "skillDescription": "受到伤害时会引燃周围的敌人，对周围的所有敌人添加燃烧（(10 - lv * 1) 秒内置冷却）",
+      "dpsModel": {
+        "type": "MECHANISM",
+        "scaling": { "base": 0, "step": 0 }
+      },
+      "tags": ["BURN_SOURCE", "ON_HIT"]
+    },
+    {
+      "id": "suishou",
+      "name": "岁兽",
+      "category": "beast",
+      "image": "img/岁兽.png",
+      "cost": 3,
+      "skillDescription": "脉冲命中敌人时,有 (70% + lv * 5%) 概率为其添加3层燃烧效果",
+      "dpsModel": {
+        "type": "MECHANISM",
+        "scaling": { "base": 0, "step": 0 }
+      },
+      "tags": ["PULSE_SYNERGY", "BURN_STACK"]
+    },
+    {
+      "id": "threetails",
+      "name": "三尾妖狐",
+      "category": "beast",
+      "image": "img/三尾妖狐.png",
+      "cost": 4,
+      "skillDescription": "每个激活的燃烧使自身防御提高 (140 + lv * 10)",
+      "dpsModel": {
+        "type": "ATTRIBUTE_CONVERSION",
+        "scaling": { "base": 140, "step": 10 },
+        "params": { "attribute": "def" }
+      },
+      "tags": ["ATTRIBUTE"]
+    },
+    {
+      "id": "bear",
+      "name": "雪地熊",
+      "category": "beast",
+      "image": "img/雪地熊.png",
+      "cost": 4,
+      "skillDescription": "召唤冰箭时，造成的伤害额外提高 (0.38% + lv * 0.02%)，持续10秒，可多次召唤，每层效果独立计算持续时间",
+      "dpsModel": {
+        "type": "SYNERGY_MULTIPLIER",
+        "scaling": { "base": 1.0038, "step": 0.0002 },
+        "condition": { "requires": ["ICE_ARROW_SOURCE"] }
+      },
+      "tags": ["ICE_ARROW_SYNERGY"]
+    },
+    {
+      "id": "sixtails",
+      "name": "六尾魔狐",
+      "category": "beast",
+      "image": "img/六尾魔狐.png",
+      "cost": 5,
+      "skillDescription": "燃烧叠加至8层以上时，触发爆燃：1.5秒后，引爆目标身上所有的燃烧效果，每引爆1层燃烧效果，对目标和目标周围的敌人造成 (0.52 + lv * 0.03) * atk 伤害",
+      "dpsModel": {
+        "type": "STACK_EXPLODE",
+        "scaling": { "base": 4.16, "step": 0.24 },
+        "params": { "threshold": 8 }
+      },
+      "tags": ["BURN_EXPLODE"]
+    },
+    {
+      "id": "woodsword",
+      "name": "木剑",
+      "category": "item",
+      "image": "img/木剑.png",
+      "cost": 1,
+      "skillDescription": "主属性提高 (0.56% + lv * 0.04%)",
+      "dpsModel": {
+        "type": "GLOBAL_MULTIPLIER",
+        "scaling": { "base": 0.0056, "step": 0.0004 }
+      },
+      "tags": ["GLOBAL_BUFF"]
+    },
+    {
+      "id": "kite",
+      "name": "风筝",
+      "category": "item",
+      "image": "img/风筝.png",
+      "cost": 1,
+      "skillDescription": "增加调息值 (280 + lv * 20)",
+      "dpsModel": {
+        "type": "ATTRIBUTE_CONVERSION",
+        "scaling": { "base": 280, "step": 20 },
+        "params": { "attribute": "mastery" }
+      },
+      "tags": ["ATTRIBUTE"]
+    },
+    {
+      "id": "fan",
+      "name": "折扇",
+      "category": "item",
+      "image": "img/折扇.png",
+      "cost": 1,
+      "skillDescription": "战斗每经过15秒，触发脉冲，对周围敌人造成 (0.52 + lv * 0.02) * atk 伤害，为周围最多10名队友造成 (0.06 + lv * 0.002) * atk 治疗。承伤和输出职能造成的气血恢复效果降低50%",
+      "dpsModel": {
+        "type": "FLAT_DPS",
+        "scaling": { "base": 213, "step": 10 }
+      },
+      "tags": ["FLAT_DMG"]
+    },
+    {
+      "id": "banner",
+      "name": "仙人布幡",
+      "category": "item",
+      "image": "img/仙人布幡.png",
+      "cost": 2,
+      "skillDescription": "每装备一张器物卡片，物理和法术攻击力提高 (0.56% + lv * 0.04%)",
+      "dpsModel": {
+        "type": "GLOBAL_MULTIPLIER",
+        "scaling": { "base": 0.0056, "step": 0.0004 }
+      },
+      "tags": ["GLOBAL_BUFF"]
+    },
+    {
+      "id": "dice",
+      "name": "神木骰",
+      "category": "item",
+      "image": "img/神木骰.png",
+      "cost": 2,
+      "skillDescription": "脉冲造成伤害或气血恢复效果时，在10秒内额外造成 (0.7 + lv * 0.05) * atk 伤害或 (0.09 + lv * 0.005) * atk 气血恢复，进入战斗时立刻触发3次脉冲。承伤和输出职能造成的气血恢复效果降低50%",
+      "dpsModel": {
+        "type": "MECHANISM",
+        "scaling": { "base": 0, "step": 0 }
+      },
+      "tags": ["RANDOM"]
+    },
+    {
+      "id": "cleanbead",
+      "name": "清凉珠",
+      "category": "item",
+      "image": "img/清凉珠.png",
+      "cost": 3,
+      "skillDescription": "触发脉冲时，自身气血恢复效果提高 (2.8% + lv * 0.2%)，持续10秒",
+      "dpsModel": {
+        "type": "GLOBAL_MULTIPLIER",
+        "scaling": { "base": 0.028, "step": 0.002 }
+      },
+      "tags": ["BUFF"]
+    },
+    {
+      "id": "icearrow_card",
+      "name": "寒冰剑",
+      "category": "item",
+      "image": "img/寒冰箭.png",
+      "cost": 3,
+      "skillDescription": "召唤 (16 - lv * 1) 枚冰箭后，触发脉冲",
+      "dpsModel": {
+        "type": "MECHANISM",
+        "scaling": { "base": 0, "step": 0 }
+      },
+      "tags": ["ICE_ARROW_SOURCE"]
+    },
+    {
+      "id": "bell",
+      "name": "合欢铃",
+      "category": "item",
+      "image": "img/合欢铃.png",
+      "cost": 4,
+      "skillDescription": "气血低于30%时，受到伤害立刻恢复自身 (0.35 + lv * 0.009) * hp 气血，但接下来10秒内，自身受到总计3604伤害，此效果有120秒冷却",
+      "dpsModel": {
+        "type": "MECHANISM",
+        "scaling": { "base": 0, "step": 0 }
+      },
+      "tags": ["HEAL"]
+    },
+    {
+      "id": "mirror",
+      "name": "六合镜",
+      "category": "item",
+      "image": "img/六合镜.png",
+      "cost": 5,
+      "skillDescription": "触发脉冲时，有50%概率使自身获得回响效果，持续6秒 回响：每1秒以 (140% + lv * 10%) 效率释放脉冲，回响效果释放的脉冲无法附加脉冲造成的额外效果",
+      "dpsModel": {
+        "type": "FLAT_DPS",
+        "scaling": { "base": 0, "step": 0 }
+      },
+      "tags": ["FLAT_DMG"]
+    }
+  ]
+}
