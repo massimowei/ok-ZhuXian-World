@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import sys
 import time
 import traceback
@@ -7,7 +8,8 @@ import uuid
 from datetime import datetime, timedelta, time as dt_time
 from dataclasses import dataclass
 
-from PyQt6.QtCore import QObject, Qt, QThread, QTimer, pyqtSignal
+from PyQt6.QtCore import QObject, Qt, QThread, QTimer, pyqtSignal, QPointF, QRectF
+from PyQt6.QtGui import QBrush, QColor, QCursor, QFont, QPainter, QPen
 from PyQt6.QtWidgets import (
     QApplication,
     QCheckBox,
@@ -17,8 +19,14 @@ from PyQt6.QtWidgets import (
     QHBoxLayout,
     QLabel,
     QPushButton,
+    QGraphicsEllipseItem,
+    QGraphicsLineItem,
+    QGraphicsScene,
+    QGraphicsSimpleTextItem,
+    QGraphicsView,
     QScrollArea,
     QSplitter,
+    QToolTip,
     QVBoxLayout,
     QWidget,
 )
@@ -97,6 +105,132 @@ def _format_time_left(now: datetime, target: datetime) -> str:
     if days > 0:
         return f"{days}天 {hours}小时"
     return f"{hours}小时 {minutes}分"
+
+
+def _parse_desc_lines(desc: str, max_rank: int) -> list[str]:
+    if not isinstance(desc, str):
+        return ["" for _ in range(max(1, int(max_rank)))]
+    max_rank = max(1, int(max_rank))
+    pieces = [s.strip() for s in re.split(r";\s*\n|\n|；", desc) if s and s.strip()]
+    if max_rank <= 1:
+        return [pieces[0] if pieces else desc]
+    if len(pieces) >= max_rank:
+        return pieces[:max_rank]
+    first = pieces[0] if pieces else desc
+    return [pieces[i] if i < len(pieces) else first for i in range(max_rank)]
+
+
+def _normalize_stat(stat: dict) -> dict:
+    if not isinstance(stat, dict):
+        return {"key": "unknown", "label": "unknown", "value": 0, "suffix": ""}
+    type_key = str(stat.get("type_key") or stat.get("type") or "unknown")
+    label = str(stat.get("type") or type_key)
+    display = str(stat.get("display_string") or "")
+    suffix = "%" if "%" in display else ""
+    value = stat.get("value", 0)
+    if suffix == "%" and isinstance(value, (int, float)) and value <= 1:
+        value = round(float(value) * 100, 2)
+    return {"key": type_key, "label": label, "value": value, "suffix": suffix}
+
+
+def _normalize_stats_by_rank(stats, max_rank: int) -> list[list[dict]]:
+    max_rank = max(1, int(max_rank))
+    result: list[list[dict]] = [[] for _ in range(max_rank)]
+    if not isinstance(stats, list) or not stats:
+        return result
+    is_nested = isinstance(stats[0], list)
+    normalized = stats if is_nested else [stats]
+    for i in range(max_rank):
+        rank_stats = normalized[i] if i < len(normalized) else (normalized[0] if normalized else [])
+        if not isinstance(rank_stats, list):
+            rank_stats = []
+        result[i] = [_normalize_stat(s) for s in rank_stats]
+    return result
+
+
+def _build_tianshu_tree_data(tree_id: str, data: list[dict]) -> dict:
+    first = data[0] if data else {}
+    profession = str(first.get("class") or "未知")
+    sub_class = str(first.get("sub_class") or "未知")
+
+    nodes = []
+    for item in data:
+        tid = str(item.get("talent_point_id") or "")
+        if not tid:
+            continue
+        max_rank = int(item.get("talent_point_max") or 1)
+        row_index = int(item.get("row_index") or 0)
+        col_index = int(item.get("col_index") or 0)
+        nodes.append(
+            {
+                "id": tid,
+                "name": str(item.get("talent_point_name") or tid),
+                "maxRank": max_rank,
+                "rowIndex": row_index,
+                "colIndex": col_index,
+                "x": (row_index - 1) * 120 + 60,
+                "y": (col_index - 1) * 100 + 60,
+                "prereqs": [],
+                "descLines": _parse_desc_lines(str(item.get("talent_point_desc") or ""), max_rank),
+                "statsByRank": _normalize_stats_by_rank(item.get("stats"), max_rank),
+            }
+        )
+
+    prereq_map: dict[str, list[str]] = {}
+    for item in data:
+        parent_id = str(item.get("talent_point_id") or "")
+        if not parent_id:
+            continue
+        for child in item.get("child") or []:
+            if not isinstance(child, dict):
+                continue
+            child_id = str(child.get("child_id") or "")
+            if not child_id:
+                continue
+            prereq_map.setdefault(child_id, []).append(parent_id)
+
+    for n in nodes:
+        n["prereqs"] = prereq_map.get(n["id"], [])
+
+    max_points = sum(int(n.get("maxRank") or 1) for n in nodes)
+    return {
+        "id": tree_id,
+        "name": f"{profession}-{sub_class}",
+        "profession": profession,
+        "subClass": sub_class,
+        "maxPoints": max_points,
+        "nodes": nodes,
+    }
+
+
+def _load_tianshu_data(talents_dir: str) -> tuple[dict[str, dict], list[dict]]:
+    files = []
+    try:
+        for name in os.listdir(talents_dir):
+            if re.fullmatch(r"p\d+_s\d+\.json", name):
+                files.append(name)
+    except Exception:
+        files = []
+    files.sort()
+
+    data_map: dict[str, dict] = {}
+    tree_list: list[dict] = []
+    for name in files:
+        tree_id = os.path.splitext(name)[0]
+        raw = _read_json(os.path.join(talents_dir, name), [])
+        if not isinstance(raw, list) or not raw:
+            continue
+        tree = _build_tianshu_tree_data(tree_id, raw)
+        data_map[tree_id] = tree
+        tree_list.append(
+            {
+                "id": tree_id,
+                "name": tree.get("name", tree_id),
+                "profession": tree.get("profession", "未知"),
+                "subClass": tree.get("subClass", "未知"),
+            }
+        )
+    return data_map, tree_list
 
 
 ACTIVITY_CALENDAR_TASKS = [
@@ -227,6 +361,20 @@ class RiliStorage:
 
     def save_activity_calendar(self, data: dict):
         _write_json(self.activity_calendar_path, data)
+
+
+class TianshuStorage:
+    def __init__(self, storage_dir: str):
+        self.storage_dir = storage_dir
+        os.makedirs(self.storage_dir, exist_ok=True)
+        self.path = os.path.join(self.storage_dir, "tianshu-v1.json")
+
+    def load(self) -> dict:
+        raw = _read_json(self.path, {})
+        return raw if isinstance(raw, dict) else {}
+
+    def save(self, data: dict):
+        _write_json(self.path, data)
 
 
 @dataclass(frozen=True)
@@ -1035,6 +1183,630 @@ class RiliInterface(QWidget):
         self.stack_layout.addWidget(widget, 1)
 
 
+class _TianshuEdgeItem(QGraphicsLineItem):
+    def __init__(self, parent_id: str, child_id: str, parent_pos: QPointF, child_pos: QPointF):
+        super().__init__(parent_pos.x(), parent_pos.y(), child_pos.x(), child_pos.y())
+        self.parent_id = parent_id
+        self.child_id = child_id
+        self.setZValue(0)
+        self.setAcceptedMouseButtons(Qt.MouseButton.NoButton)
+
+
+class _TianshuNodeItem(QGraphicsEllipseItem):
+    def __init__(self, node_id: str, radius: float, graph):
+        super().__init__(-radius, -radius, radius * 2, radius * 2)
+        self.node_id = node_id
+        self.radius = radius
+        self.graph = graph
+        self.setAcceptHoverEvents(True)
+        self.setZValue(10)
+
+        self._rank_text = QGraphicsSimpleTextItem("", self)
+        self._rank_text.setFont(QFont("Segoe UI", 9))
+        self._rank_text.setBrush(QBrush(QColor("#ffffff")))
+
+        self._name_text = QGraphicsSimpleTextItem("", self)
+        self._name_text.setFont(QFont("Segoe UI", 8))
+        self._name_text.setBrush(QBrush(QColor("#d0d0d0")))
+
+    def _center_text(self, item: QGraphicsSimpleTextItem, dy: float = 0):
+        rect = item.boundingRect()
+        item.setPos(-rect.width() / 2, -rect.height() / 2 + dy)
+
+    def set_rank_text(self, text: str):
+        self._rank_text.setText(text)
+        self._center_text(self._rank_text, dy=0)
+
+    def set_name_text(self, text: str):
+        self._name_text.setText(text)
+        rect = self._name_text.boundingRect()
+        self._name_text.setPos(-rect.width() / 2, self.radius + 4)
+
+    def hoverEnterEvent(self, event):
+        self.graph._on_node_hover_enter(event, self.node_id)
+
+    def hoverLeaveEvent(self, event):
+        self.graph._on_node_hover_leave(event)
+
+    def mousePressEvent(self, event):
+        self.graph._on_node_mouse(event, self.node_id)
+
+
+class _TianshuGraphView(QGraphicsView):
+    def __init__(self, owner, parent=None):
+        super().__init__(parent=parent)
+        self.owner = owner
+        self._scene = QGraphicsScene(self)
+        self.setScene(self._scene)
+        self.setRenderHint(QPainter.RenderHint.Antialiasing, True)
+        self.setViewportUpdateMode(QGraphicsView.ViewportUpdateMode.BoundingRectViewportUpdate)
+
+        self._tree_id: str | None = None
+        self._nodes: dict[str, _TianshuNodeItem] = {}
+        self._edges: list[_TianshuEdgeItem] = []
+
+        self._panning = False
+        self._pan_last = QPointF(0, 0)
+        self.setMouseTracking(True)
+
+    def wheelEvent(self, event):
+        if event.modifiers() & Qt.KeyboardModifier.ControlModifier:
+            delta = event.angleDelta().y()
+            if delta == 0:
+                return
+            steps = delta / 120.0
+            factor = 1.15 ** steps
+            self.setTransformationAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
+            self.scale(factor, factor)
+            return
+        super().wheelEvent(event)
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            item = self.itemAt(int(event.position().x()), int(event.position().y()))
+            if item is None:
+                self._panning = True
+                self._pan_last = event.position()
+                self.setCursor(Qt.CursorShape.ClosedHandCursor)
+                event.accept()
+                return
+        super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event):
+        if self._panning:
+            delta = event.position() - self._pan_last
+            self._pan_last = event.position()
+            self.translate(delta.x(), delta.y())
+            event.accept()
+            return
+        super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event):
+        if self._panning and event.button() == Qt.MouseButton.LeftButton:
+            self._panning = False
+            self.unsetCursor()
+            event.accept()
+            return
+        super().mouseReleaseEvent(event)
+
+    def load_tree(self, tree_id: str, tree: dict, ranks: dict[str, int]):
+        if self._tree_id == tree_id:
+            self.update_state(ranks)
+            return
+
+        self._tree_id = tree_id
+        self._scene.clear()
+        self._nodes = {}
+        self._edges = []
+
+        nodes = tree.get("nodes", []) if isinstance(tree, dict) else []
+        nodes = [n for n in nodes if isinstance(n, dict) and n.get("id")]
+
+        radius = 28
+        for node in nodes:
+            node_id = str(node.get("id"))
+            item = _TianshuNodeItem(node_id=node_id, radius=radius, graph=self)
+            item.setPos(float(node.get("x") or 0), float(node.get("y") or 0))
+            item.set_name_text(str(node.get("name") or node_id))
+
+            self._scene.addItem(item)
+            self._nodes[node_id] = item
+
+        for node in nodes:
+            child_id = str(node.get("id"))
+            child_item = self._nodes.get(child_id)
+            if child_item is None:
+                continue
+            child_pos = child_item.pos()
+            for pid in node.get("prereqs") or []:
+                parent_id = str(pid)
+                parent_item = self._nodes.get(parent_id)
+                if parent_item is None:
+                    continue
+                parent_pos = parent_item.pos()
+                edge = _TianshuEdgeItem(parent_id=parent_id, child_id=child_id, parent_pos=parent_pos, child_pos=child_pos)
+                self._scene.addItem(edge)
+                self._edges.append(edge)
+
+        if self._nodes:
+            rect = self._scene.itemsBoundingRect().adjusted(-120, -120, 120, 120)
+        else:
+            rect = QRectF(0, 0, 2000, 2000)
+        self._scene.setSceneRect(rect)
+        self.resetTransform()
+        self.scale(0.65, 0.65)
+        self.centerOn(rect.center())
+
+        self.update_state(ranks)
+
+    def _on_node_hover_enter(self, _event, node_id: str):
+        text = self.owner._get_node_tooltip(node_id)
+        if text:
+            QToolTip.showText(QCursor.pos(), text)
+
+    def _on_node_hover_leave(self, _event):
+        QToolTip.hideText()
+
+    def _on_node_mouse(self, event, node_id: str):
+        if event.button() == Qt.MouseButton.LeftButton:
+            current = int(self.owner.ranks.get(node_id, 0))
+            self.owner._apply_rank_change(node_id, current + 1)
+            event.accept()
+            return
+        if event.button() == Qt.MouseButton.RightButton:
+            current = int(self.owner.ranks.get(node_id, 0))
+            self.owner._apply_rank_change(node_id, current - 1)
+            event.accept()
+            return
+        event.ignore()
+
+    def update_state(self, ranks: dict[str, int]):
+        for node_id, item in self._nodes.items():
+            node = self.owner._node_by_id.get(node_id)
+            if not isinstance(node, dict):
+                continue
+            max_rank = int(node.get("maxRank") or 1)
+            rank = int(ranks.get(node_id, 0))
+            unlocked = self.owner._is_unlocked(node_id)
+
+            if rank >= max_rank and max_rank > 0:
+                brush = QBrush(QColor("#2ea043"))
+                pen = QPen(QColor("#3fb950"), 2)
+            elif rank > 0:
+                brush = QBrush(QColor("#1f6feb"))
+                pen = QPen(QColor("#58a6ff"), 2)
+            elif unlocked:
+                brush = QBrush(QColor("#2b2b2b"))
+                pen = QPen(QColor("#58a6ff"), 2)
+            else:
+                brush = QBrush(QColor("#1f1f1f"))
+                pen = QPen(QColor("#555555"), 2)
+
+            item.setBrush(brush)
+            item.setPen(pen)
+            item.set_rank_text("" if rank <= 0 else f"{rank}/{max_rank}")
+
+        for edge in self._edges:
+            parent = self.owner._node_by_id.get(edge.parent_id)
+            if isinstance(parent, dict):
+                parent_max = int(parent.get("maxRank") or 1)
+            else:
+                parent_max = 1
+            parent_rank = int(ranks.get(edge.parent_id, 0))
+            active = parent_rank >= parent_max and parent_max > 0
+            pen = QPen(QColor("#58a6ff" if active else "#555555"), 2 if active else 1)
+            edge.setPen(pen)
+
+
+class TianshuInterface(QWidget):
+    MAX_POINTS = 31
+
+    def __init__(self, storage_dir: str, talents_dir: str | None, parent=None):
+        super().__init__(parent=parent)
+        self.setObjectName("tianshu")
+        self.storage = TianshuStorage(storage_dir=storage_dir)
+        self.talents_dir = talents_dir
+
+        self.tianshu_data: dict[str, dict] = {}
+        self.tianshu_list: list[dict] = []
+        self.current_tree_id: str | None = None
+        self.ranks: dict[str, int] = {}
+
+        self._node_by_id: dict[str, dict] = {}
+        self._dependents: dict[str, list[str]] = {}
+        self._updating = False
+        self._refresh_scheduled = False
+
+        root = QVBoxLayout(self)
+        root.setContentsMargins(24, 18, 24, 18)
+        root.setSpacing(12)
+
+        root.addWidget(SubtitleLabel("天书模拟器"), 0)
+        root.addWidget(BodyLabel("离线版：本地加点 + 本地存档（上限 31 点）"), 0)
+
+        header_card = CardWidget()
+        header_layout = QGridLayout(header_card)
+        header_layout.setContentsMargins(16, 16, 16, 16)
+        header_layout.setHorizontalSpacing(10)
+        header_layout.setVerticalSpacing(10)
+
+        header_layout.addWidget(BodyLabel("流派选择"), 0, 0, 1, 1)
+        self.tree_combo = QComboBox()
+        header_layout.addWidget(self.tree_combo, 0, 1, 1, 3)
+
+        self.reset_btn = PrimaryPushButton("重置当前流派")
+        header_layout.addWidget(self.reset_btn, 1, 1, 1, 1)
+
+        self.points_label = BodyLabel("")
+        header_layout.addWidget(self.points_label, 1, 2, 1, 2)
+
+        root.addWidget(header_card, 0)
+
+        splitter = QSplitter(Qt.Orientation.Horizontal, self)
+        splitter.setChildrenCollapsible(False)
+        root.addWidget(splitter, 1)
+
+        left = QWidget()
+        left_layout = QVBoxLayout(left)
+        left_layout.setContentsMargins(0, 0, 0, 0)
+        left_layout.setSpacing(10)
+
+        left_layout.addWidget(BodyLabel("节点图：左键加点，右键减点；拖动空白处平移；Ctrl+滚轮缩放"), 0)
+        self.graph = _TianshuGraphView(owner=self, parent=left)
+        self.graph.setFrameShape(QFrame.Shape.NoFrame)
+        left_layout.addWidget(self.graph, 1)
+
+        right = QWidget()
+        right_layout = QVBoxLayout(right)
+        right_layout.setContentsMargins(0, 0, 0, 0)
+        right_layout.setSpacing(10)
+        right_layout.addWidget(BodyLabel("效果/属性汇总"), 0)
+        self.summary = TextEdit()
+        self.summary.setReadOnly(True)
+        right_layout.addWidget(self.summary, 1)
+
+        splitter.addWidget(left)
+        splitter.addWidget(right)
+        splitter.setStretchFactor(0, 3)
+        splitter.setStretchFactor(1, 2)
+
+        self.tree_combo.currentIndexChanged.connect(self._on_tree_changed)
+        self.reset_btn.clicked.connect(self._reset_current_tree)
+
+        self._init_data()
+
+    def _init_data(self):
+        if not self.talents_dir or not os.path.isdir(self.talents_dir):
+            InfoBar.error(
+                "缺少数据",
+                "找不到 talents 数据目录，天书模拟器无法加载",
+                parent=self,
+                position=InfoBarPosition.TOP,
+                duration=3500,
+            )
+            self.tree_combo.setEnabled(False)
+            self.reset_btn.setEnabled(False)
+            self.points_label.setText("数据未加载")
+            self.summary.setPlainText("请确认 zxsj/src/data/talents 目录存在。")
+            return
+
+        self.tianshu_data, self.tianshu_list = _load_tianshu_data(self.talents_dir)
+        if not self.tianshu_list:
+            self.tree_combo.setEnabled(False)
+            self.reset_btn.setEnabled(False)
+            self.points_label.setText("未找到天书数据")
+            self.summary.setPlainText("talents 目录为空或数据格式不正确。")
+            return
+
+        self.tree_combo.blockSignals(True)
+        self.tree_combo.clear()
+        for t in self.tianshu_list:
+            self.tree_combo.addItem(str(t.get("name") or t.get("id") or ""), t.get("id"))
+        self.tree_combo.blockSignals(False)
+
+        state = self.storage.load()
+        last_tree_id = state.get("lastTreeId")
+        if not isinstance(last_tree_id, str) or last_tree_id not in self.tianshu_data:
+            last_tree_id = self.tianshu_list[0]["id"]
+        self._switch_tree(last_tree_id)
+
+        idx = self.tree_combo.findData(last_tree_id)
+        if idx >= 0:
+            self.tree_combo.setCurrentIndex(idx)
+
+    def _load_all_ranks(self) -> dict[str, dict[str, int]]:
+        raw = self.storage.load()
+        ranks_by_tree = raw.get("ranksByTree")
+        if not isinstance(ranks_by_tree, dict):
+            return {}
+        cleaned: dict[str, dict[str, int]] = {}
+        for tree_id, ranks in ranks_by_tree.items():
+            if not isinstance(tree_id, str) or not isinstance(ranks, dict):
+                continue
+            cleaned[tree_id] = {str(k): int(v) for k, v in ranks.items() if str(k) and isinstance(v, (int, float))}
+        return cleaned
+
+    def _save_state(self):
+        ranks_by_tree = self._load_all_ranks()
+        if self.current_tree_id:
+            ranks_by_tree[self.current_tree_id] = {k: int(v) for k, v in self.ranks.items() if int(v) > 0}
+        payload = {
+            "version": "tianshu_v1",
+            "lastTreeId": self.current_tree_id,
+            "ranksByTree": ranks_by_tree,
+            "meta": {"updatedAt": datetime.now().isoformat()},
+        }
+        self.storage.save(payload)
+
+    def _total_points(self, ranks: dict[str, int] | None = None) -> int:
+        if ranks is None:
+            ranks = self.ranks
+        return sum(int(v) for v in ranks.values() if isinstance(v, int))
+
+    def _on_tree_changed(self, index: int):
+        tree_id = self.tree_combo.itemData(index)
+        if isinstance(tree_id, str) and tree_id:
+            self._switch_tree(tree_id)
+
+    def _switch_tree(self, tree_id: str):
+        tree = self.tianshu_data.get(tree_id)
+        if not isinstance(tree, dict):
+            return
+        self.current_tree_id = tree_id
+
+        self._node_by_id = {str(n.get("id")): n for n in tree.get("nodes", []) if isinstance(n, dict) and n.get("id")}
+        self._dependents = {}
+        for node in self._node_by_id.values():
+            for pid in node.get("prereqs") or []:
+                if not pid:
+                    continue
+                self._dependents.setdefault(str(pid), []).append(str(node.get("id")))
+
+        all_ranks = self._load_all_ranks()
+        ranks = all_ranks.get(tree_id, {})
+        if not isinstance(ranks, dict):
+            ranks = {}
+        cleaned: dict[str, int] = {}
+        for nid, val in ranks.items():
+            node = self._node_by_id.get(str(nid))
+            if node is None:
+                continue
+            max_rank = int(node.get("maxRank") or 1)
+            cleaned[str(nid)] = max(0, min(max_rank, int(val)))
+
+        cleaned = self._normalize_ranks(cleaned)
+        self.ranks = cleaned
+        self._save_state()
+        self._refresh_now()
+
+    def _reset_current_tree(self):
+        if not self.current_tree_id:
+            return
+        self.ranks = {}
+        self._save_state()
+        InfoBar.success("完成", "已重置当前流派", parent=self, position=InfoBarPosition.TOP, duration=1500)
+        self._refresh_now()
+
+    def _normalize_ranks(self, ranks: dict[str, int]) -> dict[str, int]:
+        changed = True
+        while changed:
+            changed = False
+            for node_id, val in list(ranks.items()):
+                if int(val) <= 0:
+                    ranks.pop(node_id, None)
+                    changed = True
+                    continue
+                if not self._is_unlocked(node_id, ranks):
+                    ranks.pop(node_id, None)
+                    changed = True
+        return {k: int(v) for k, v in ranks.items() if int(v) > 0}
+
+    def _is_unlocked(self, node_id: str, ranks: dict[str, int] | None = None) -> bool:
+        if ranks is None:
+            ranks = self.ranks
+        node = self._node_by_id.get(node_id)
+        if node is None:
+            return False
+        prereqs = node.get("prereqs") or []
+        if not prereqs:
+            return True
+        for pid in prereqs:
+            parent = self._node_by_id.get(str(pid))
+            if parent is None:
+                continue
+            parent_rank = int(ranks.get(str(pid), 0))
+            if parent_rank >= int(parent.get("maxRank") or 1):
+                return True
+        return False
+
+    def _can_upgrade(self, node_id: str) -> tuple[bool, str]:
+        node = self._node_by_id.get(node_id)
+        if node is None:
+            return False, "节点不存在"
+        current_rank = int(self.ranks.get(node_id, 0))
+        max_rank = int(node.get("maxRank") or 1)
+        if current_rank >= max_rank:
+            return False, "已点满"
+        if not self._is_unlocked(node_id):
+            return False, "未解锁（需要点满前置）"
+        if self._total_points() >= self.MAX_POINTS:
+            return False, f"点数已满（{self.MAX_POINTS}）"
+        return True, ""
+
+    def _can_downgrade(self, node_id: str) -> tuple[bool, str]:
+        current_rank = int(self.ranks.get(node_id, 0))
+        if current_rank <= 0:
+            return False, "未加点"
+        if current_rank == 1:
+            for dep_id in self._dependents.get(node_id, []):
+                if int(self.ranks.get(dep_id, 0)) > 0:
+                    return False, "后置节点已加点，不能清零"
+        return True, ""
+
+    def _apply_rank_change(self, node_id: str, target_rank: int):
+        if self._updating:
+            return
+        node = self._node_by_id.get(node_id)
+        if node is None:
+            return
+
+        self._updating = True
+        try:
+            current = int(self.ranks.get(node_id, 0))
+            target_rank = max(0, min(int(node.get("maxRank") or 1), int(target_rank)))
+
+            if target_rank > current:
+                for _ in range(target_rank - current):
+                    ok, msg = self._can_upgrade(node_id)
+                    if not ok:
+                        InfoBar.warning("提示", msg, parent=self, position=InfoBarPosition.TOP, duration=1500)
+                        break
+                    self.ranks[node_id] = int(self.ranks.get(node_id, 0)) + 1
+            elif target_rank < current:
+                for _ in range(current - target_rank):
+                    ok, msg = self._can_downgrade(node_id)
+                    if not ok:
+                        InfoBar.warning("提示", msg, parent=self, position=InfoBarPosition.TOP, duration=1500)
+                        break
+                    next_rank = int(self.ranks.get(node_id, 0)) - 1
+                    if next_rank <= 0:
+                        self.ranks.pop(node_id, None)
+                    else:
+                        self.ranks[node_id] = next_rank
+
+            self.ranks = self._normalize_ranks(self.ranks)
+            self._save_state()
+        finally:
+            self._updating = False
+        self._schedule_refresh()
+
+    def _schedule_refresh(self):
+        if self._refresh_scheduled:
+            return
+        self._refresh_scheduled = True
+        QTimer.singleShot(0, self._refresh_now)
+
+    def _refresh_now(self):
+        self._refresh_scheduled = False
+        tree = self.tianshu_data.get(self.current_tree_id or "")
+        if isinstance(tree, dict) and self.current_tree_id:
+            self.graph.load_tree(self.current_tree_id, tree, self.ranks)
+        self._render_summary()
+
+    def _get_node_tooltip(self, node_id: str) -> str:
+        node = self._node_by_id.get(node_id)
+        if not isinstance(node, dict):
+            return ""
+        name = str(node.get("name") or node_id)
+        max_rank = int(node.get("maxRank") or 1)
+        rank = int(self.ranks.get(node_id, 0))
+        unlocked = self._is_unlocked(node_id)
+
+        prereqs = node.get("prereqs") or []
+        prereq_names = []
+        for pid in prereqs:
+            parent = self._node_by_id.get(str(pid))
+            if isinstance(parent, dict):
+                prereq_names.append(str(parent.get("name") or pid))
+        prereq_text = " / ".join(prereq_names)
+
+        desc_lines = node.get("descLines") or []
+        desc = ""
+        if isinstance(desc_lines, list) and desc_lines:
+            idx = max(0, rank - 1)
+            desc = str(desc_lines[idx] if idx < len(desc_lines) else desc_lines[0])
+
+        stats_lines = []
+        stats_by_rank = node.get("statsByRank") or []
+        if isinstance(stats_by_rank, list) and rank > 0 and rank - 1 < len(stats_by_rank):
+            for s in stats_by_rank[rank - 1] or []:
+                if not isinstance(s, dict):
+                    continue
+                label = str(s.get("label") or s.get("key") or "")
+                if not label:
+                    continue
+                val = s.get("value", 0)
+                suffix = str(s.get("suffix") or "")
+                if isinstance(val, float):
+                    val_str = f"{val:.2f}".rstrip("0").rstrip(".")
+                else:
+                    val_str = str(val)
+                stats_lines.append(f"{label} {val_str}{suffix}")
+
+        lines = [name, f"点数：{rank}/{max_rank}", f"状态：{'已解锁' if unlocked else '未解锁'}"]
+        if prereq_text:
+            lines.append(f"前置：{prereq_text}（满足其一即可）")
+        if stats_lines:
+            lines.append("属性：")
+            lines.extend(stats_lines[:12])
+        if desc:
+            lines.append("描述：")
+            lines.append(desc)
+        return "\n".join(lines)
+
+    def _render_summary(self):
+        points = self._total_points()
+        self.points_label.setText(f"已投入点数：{points} / {self.MAX_POINTS}")
+
+        tree = self.tianshu_data.get(self.current_tree_id or "")
+        nodes = tree.get("nodes", []) if isinstance(tree, dict) else []
+
+        stats: dict[str, dict] = {}
+        special: list[str] = []
+        for node in nodes:
+            if not isinstance(node, dict):
+                continue
+            node_id = str(node.get("id") or "")
+            rank = int(self.ranks.get(node_id, 0))
+            if rank <= 0:
+                continue
+            stats_by_rank = node.get("statsByRank") or []
+            stat_list = []
+            if isinstance(stats_by_rank, list) and 0 <= rank - 1 < len(stats_by_rank):
+                stat_list = stats_by_rank[rank - 1] or []
+            if isinstance(stat_list, list) and stat_list:
+                for s in stat_list:
+                    if not isinstance(s, dict):
+                        continue
+                    key = str(s.get("key") or "")
+                    if not key:
+                        continue
+                    if key not in stats:
+                        stats[key] = {"label": str(s.get("label") or key), "value": 0.0, "suffix": str(s.get("suffix") or "")}
+                    val = s.get("value", 0)
+                    if isinstance(val, (int, float)):
+                        stats[key]["value"] = float(stats[key]["value"]) + float(val)
+            else:
+                desc_lines = node.get("descLines") or []
+                if isinstance(desc_lines, list) and desc_lines:
+                    idx = max(0, rank - 1)
+                    text = str(desc_lines[idx] if idx < len(desc_lines) else (desc_lines[0] if desc_lines else ""))
+                else:
+                    text = ""
+                if text:
+                    special.append(f"{node.get('name') or node_id}：{text}")
+
+        lines = [f"流派：{(tree or {}).get('name', self.current_tree_id or '')}", f"点数：{points} / {self.MAX_POINTS}", ""]
+        if stats:
+            lines.append("属性汇总：")
+            for key in sorted(stats.keys()):
+                entry = stats[key]
+                val = entry.get("value", 0)
+                if isinstance(val, float):
+                    val_str = f"{val:.2f}".rstrip("0").rstrip(".")
+                else:
+                    val_str = str(val)
+                lines.append(f"- {entry.get('label')}: {val_str}{entry.get('suffix')}")
+            lines.append("")
+        if special:
+            lines.append("效果汇总：")
+            for s in special:
+                lines.append(f"- {s}")
+        if not stats and not special:
+            lines.append("还没有加点。")
+        self.summary.setPlainText("\n".join(lines))
+
+
 class PlaceholderInterface(QWidget):
     def __init__(self, title: str, desc: str, parent=None):
         super().__init__(parent=parent)
@@ -1048,7 +1820,7 @@ class PlaceholderInterface(QWidget):
 
 
 class MainWindow(FluentWindow):
-    def __init__(self, app_name: str, version: str, rili_storage_dir: str):
+    def __init__(self, app_name: str, version: str, rili_storage_dir: str, tianshu_storage_dir: str, tianshu_talents_dir: str | None):
         super().__init__()
         self.setWindowTitle(f"{app_name} v{version}")
         self.resize(1180, 720)
@@ -1058,6 +1830,9 @@ class MainWindow(FluentWindow):
 
         rili = RiliInterface(storage_dir=rili_storage_dir, parent=self)
         self.addSubInterface(rili, FluentIcon.CALENDAR, "游戏日历", position=NavigationItemPosition.TOP)
+
+        tianshu = TianshuInterface(storage_dir=tianshu_storage_dir, talents_dir=tianshu_talents_dir, parent=self)
+        self.addSubInterface(tianshu, FluentIcon.DOCUMENT, "天书模拟器", position=NavigationItemPosition.TOP)
 
         webview_placeholder = PlaceholderInterface("WebView 小工具", "后续会接入 WebView 工具", self)
         webview_placeholder.setObjectName("webview")
@@ -1075,6 +1850,16 @@ def start(app_name: str = "OK-ZhuXian World", version: str = "0.1.0"):
     setTheme(Theme.DARK)
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     rili_storage_dir = os.path.join(project_root, "tools", "rili", "storage")
-    w = MainWindow(app_name=app_name, version=version, rili_storage_dir=rili_storage_dir)
+    tianshu_storage_dir = os.path.join(project_root, "tools", "tianshu", "storage")
+    tianshu_talents_dir = os.path.abspath(os.path.join(project_root, "..", "zxsj", "src", "data", "talents"))
+    if not os.path.isdir(tianshu_talents_dir):
+        tianshu_talents_dir = None
+    w = MainWindow(
+        app_name=app_name,
+        version=version,
+        rili_storage_dir=rili_storage_dir,
+        tianshu_storage_dir=tianshu_storage_dir,
+        tianshu_talents_dir=tianshu_talents_dir,
+    )
     w.show()
     app.exec()

@@ -341,6 +341,16 @@ def start():
                 style="Muted.TLabel",
             ).pack(anchor="w", pady=(6, 0))
             return
+        if tool_id == "tianshu":
+            ttk.Label(content.inner, text="天书模拟器需要 Qt 版本（请用 python main.py 启动）", style="Panel.TLabel").pack(
+                anchor="w"
+            )
+            ttk.Label(
+                content.inner,
+                text="如果你看到这里，说明 Qt 启动失败并回退到了 Tkinter。",
+                style="Muted.TLabel",
+            ).pack(anchor="w", pady=(6, 0))
+            return
         ttk.Label(content.inner, text="该工具暂未实现", style="Panel.TLabel").pack(anchor="w")
 
     def on_select(tool_id):

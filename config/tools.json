@@ -15,5 +15,12 @@
       "task_manager": "https://zxsj.cosiamo.cn/tools/task-manager",
       "activity_calendar": "https://zxsj.cosiamo.cn/tools/activity-calendar"
     }
+  },
+  {
+    "id": "tianshu",
+    "name": "天书模拟器",
+    "type": "qt",
+    "entry": "app/ui/qt_toolbox.py",
+    "action": "open"
   }
 ]
