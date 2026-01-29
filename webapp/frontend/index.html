@@ -1,0 +1,3535 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OK-ZhuXian World</title>
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --panel: #0f1722;
+        --card: rgba(255, 255, 255, 0.06);
+        --card2: rgba(255, 255, 255, 0.04);
+        --border: rgba(255, 255, 255, 0.1);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.66);
+        --muted2: rgba(255, 255, 255, 0.5);
+        --primary: #5b8cff;
+        --danger: #ff5b74;
+        --success: #35d07f;
+        --shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+        --radius: 14px;
+        --radius-sm: 10px;
+        --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft Yahei", Arial,
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font);
+        background: radial-gradient(1200px 800px at 20% -10%, rgba(91, 140, 255, 0.28), transparent 55%),
+          radial-gradient(900px 600px at 120% 10%, rgba(53, 208, 127, 0.18), transparent 55%),
+          radial-gradient(800px 600px at 60% 120%, rgba(255, 91, 116, 0.12), transparent 60%), var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .app {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        overflow: hidden;
+      }
+
+      .sidebar {
+        border-right: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+        padding: 18px 14px;
+      }
+
+      .brand {
+        padding: 10px 10px 14px;
+        border-radius: var(--radius);
+        background: rgba(0, 0, 0, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+      }
+
+      .brandTitle {
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      .brandSub {
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .nav {
+        margin-top: 14px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .navItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 10px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        user-select: none;
+        min-height: 44px;
+        background: rgba(255, 255, 255, 0.02);
+        transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+      }
+
+      .navItem:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .navItem:active {
+        transform: translateY(1px);
+      }
+
+      .navItemActive {
+        background: rgba(91, 140, 255, 0.18);
+        border-color: rgba(91, 140, 255, 0.35);
+      }
+
+      .navIcon {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        opacity: 0.95;
+      }
+
+      .navText {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .navMeta {
+        margin-left: auto;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .main {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-width: 0;
+        min-height: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .topbar {
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(12px);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        min-height: 36px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 99px;
+        background: var(--muted2);
+      }
+
+      .dotOk {
+        background: var(--success);
+        box-shadow: 0 0 0 4px rgba(53, 208, 127, 0.15);
+      }
+
+      .badgeText {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .spacer {
+        flex: 1;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        padding: 10px 12px;
+        min-height: 44px;
+        cursor: pointer;
+        user-select: none;
+        transition: background 180ms ease, transform 180ms ease, border-color 180ms ease;
+      }
+
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btnPrimary {
+        background: rgba(91, 140, 255, 0.18);
+        border-color: rgba(91, 140, 255, 0.35);
+      }
+
+      .content {
+        padding: 18px;
+        display: grid;
+        gap: 14px;
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 14px;
+        min-width: 0;
+        min-height: 0;
+        height: 100%;
+      }
+
+      .gridTool {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        gap: 14px;
+        min-width: 0;
+        min-height: 0;
+        height: 100%;
+      }
+
+      .card {
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, var(--card), var(--card2));
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        min-width: 0;
+        min-height: 0;
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+
+      .cardHeader {
+        padding: 14px 14px 12px;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .cardTitle {
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .cardSub {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .cardBody {
+        padding: 14px;
+        min-height: 0;
+      }
+
+      .cardBodyFill {
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 12px;
+        min-height: 0;
+      }
+
+      .cardBodyScroll {
+        overflow: auto;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .label {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .input {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.22);
+        color: var(--text);
+        padding: 11px 12px;
+        min-height: 44px;
+        outline: none;
+      }
+
+      .input:focus {
+        border-color: rgba(91, 140, 255, 0.55);
+        box-shadow: 0 0 0 4px rgba(91, 140, 255, 0.14);
+      }
+
+      .hint {
+        margin-top: 8px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .log {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.55;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .logLine {
+        padding: 8px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .logLine:last-child {
+        border-bottom: none;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-size: 11px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.05);
+        margin-right: 8px;
+      }
+
+      .pillInfo {
+        border-color: rgba(91, 140, 255, 0.35);
+        background: rgba(91, 140, 255, 0.12);
+      }
+
+      .pillError {
+        border-color: rgba(255, 91, 116, 0.35);
+        background: rgba(255, 91, 116, 0.12);
+      }
+
+      .tianshuHeaderRow {
+        display: flex;
+        gap: 10px;
+        align-items: stretch;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+
+      .tianshuSelect {
+        flex: 0 1 260px;
+        min-width: 220px;
+      }
+
+      .tianshuHeaderCenter {
+        flex: 1 1 260px;
+        min-width: 220px;
+        display: grid;
+        align-content: center;
+        gap: 4px;
+      }
+
+      .tianshuBuildTitle {
+        font-size: 13px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.92);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .tianshuPointsInfo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .tianshuPointsNum {
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 800;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+
+      .tianshuHeaderActions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .tianshuLayout {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 12px;
+        height: 100%;
+        min-height: 0;
+      }
+
+      .tianshuStage {
+        height: 100%;
+        min-height: 360px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.18);
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        touch-action: none;
+        cursor: grab;
+      }
+
+      .tianshuStageDragging {
+        cursor: grabbing;
+      }
+
+      .tianshuLayer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 0 0;
+      }
+
+      .tianshuLines {
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: visible;
+      }
+
+      .tianshuNode {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 110px;
+        min-height: 54px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        display: grid;
+        align-content: center;
+        gap: 4px;
+        padding: 8px 10px;
+        cursor: pointer;
+        transition: transform 120ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .tianshuNode:hover {
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      .tianshuNode:active {
+        transform: translate(-50%, -50%) scale(0.99);
+      }
+
+      .tianshuNodeLocked {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .tianshuNodeUpgradable {
+        border-color: rgba(53, 208, 127, 0.45);
+        background: rgba(53, 208, 127, 0.1);
+      }
+
+      .tianshuNodeMaxed {
+        border-color: rgba(91, 140, 255, 0.55);
+        background: rgba(91, 140, 255, 0.14);
+      }
+
+      .tianshuNodeTitle {
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .tianshuNodeRank {
+        font-size: 12px;
+        color: var(--muted);
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .tianshuNodeDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.35);
+      }
+
+      .tianshuNodeDotOn {
+        background: rgba(91, 140, 255, 0.9);
+        box-shadow: 0 0 0 4px rgba(91, 140, 255, 0.15);
+      }
+
+      .tianshuSideSection {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 12px;
+        margin-bottom: 12px;
+      }
+
+      .tianshuSideTitle {
+        font-size: 12px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      .tianshuKv {
+        display: grid;
+        gap: 6px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .tianshuList {
+        display: grid;
+        gap: 6px;
+      }
+
+      .tianshuListItem {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+        border-radius: 10px;
+        padding: 8px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.12);
+      }
+
+      .tianshuListKey {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 12px;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .tianshuListVal {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 12px;
+        font-weight: 800;
+        flex: 0 0 auto;
+      }
+
+      .tianshuSpecialList {
+        display: grid;
+        gap: 8px;
+      }
+
+      .tianshuSpecialItem {
+        border-radius: 10px;
+        padding: 8px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.12);
+        font-size: 12px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .tianshuTooltip {
+        position: fixed;
+        z-index: 2000;
+        pointer-events: none;
+        min-width: 220px;
+        max-width: 340px;
+        background: rgba(18, 22, 29, 0.94);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        padding: 12px;
+        backdrop-filter: blur(10px);
+      }
+
+      .tianshuTooltipHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 8px;
+      }
+
+      .tianshuTooltipName {
+        font-weight: 900;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.92);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .tianshuTooltipRank {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.66);
+        flex: 0 0 auto;
+      }
+
+      .tianshuTooltipDesc {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
+
+      .tianshuTooltipStats {
+        display: grid;
+        gap: 6px;
+      }
+
+      .tianshuTooltipStat {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .tianshuTooltipReq {
+        margin-top: 8px;
+        font-size: 12px;
+        color: rgba(255, 91, 116, 0.92);
+        font-weight: 800;
+      }
+
+      .tianshuModalOverlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 3000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        backdrop-filter: blur(6px);
+      }
+
+      .tianshuModal {
+        width: min(820px, 100%);
+        max-height: min(86vh, 900px);
+        overflow: auto;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+      }
+
+      .tianshuModalHeader {
+        padding: 14px 14px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .tianshuModalTitle {
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .tianshuModalBody {
+        padding: 14px;
+      }
+
+      .textarea {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.22);
+        color: var(--text);
+        padding: 11px 12px;
+        min-height: 120px;
+        outline: none;
+        resize: vertical;
+      }
+
+      .textarea:focus {
+        border-color: rgba(91, 140, 255, 0.55);
+        box-shadow: 0 0 0 4px rgba(91, 140, 255, 0.14);
+      }
+
+      .riliMain {
+        height: 100%;
+        min-height: 0;
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+        gap: 12px;
+      }
+
+      .riliPanel {
+        min-height: 0;
+        min-width: 0;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        overflow: hidden;
+      }
+
+      .riliPanelBody {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .riliPanelScroll {
+        overflow: auto;
+        min-height: 0;
+      }
+
+      .riliLayout {
+        height: 100%;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .riliCol {
+        min-width: 0;
+        min-height: 0;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 10px;
+      }
+
+      .riliHeaderRow {
+        display: flex;
+        gap: 10px;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 0;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .riliTimers {
+        display: flex;
+        gap: 8px;
+        flex-wrap: nowrap;
+        align-items: center;
+        min-width: 0;
+      }
+
+      .riliTimerPill {
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        min-height: 30px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 11px;
+        white-space: nowrap;
+      }
+
+      .riliTimerVal {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 800;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+
+      .riliRoleRow {
+        display: flex;
+        gap: 8px;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        min-width: 0;
+      }
+
+      .riliRoleSelect {
+        width: 180px;
+        min-width: 140px;
+      }
+
+      .riliBody {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .riliStack {
+        min-height: 0;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .riliMiniForm {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .riliSectionTitle {
+        font-size: 13px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .riliCard {
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.18);
+        overflow: hidden;
+        min-height: 0;
+        min-width: 0;
+      }
+
+      .riliCardHeader {
+        padding: 12px 12px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .riliCardTitle {
+        font-size: 13px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .riliCardSub {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .riliCardBody {
+        padding: 12px;
+        min-height: 0;
+      }
+
+      .riliCardSplit {
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+
+      .riliScrollY {
+        overflow: auto;
+        min-height: 0;
+      }
+
+      .riliCheckGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 12px;
+      }
+
+      .riliCheckRow {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        min-height: 40px;
+        padding: 8px 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .riliCheckRow input {
+        width: 16px;
+        height: 16px;
+        accent-color: var(--primary);
+      }
+
+      .riliCheckText {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.88);
+        user-select: none;
+      }
+
+      .riliInlineChecks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .riliInlineChecks .riliCheckRow {
+        min-height: 34px;
+        padding: 6px 10px;
+        max-width: 220px;
+        min-width: 0;
+      }
+
+      .riliInlineChecks .riliCheckText {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+
+      .riliInlineChecksCompact {
+        gap: 8px;
+      }
+
+      .riliInlineChecksCompact .riliCheckRow {
+        min-height: 32px;
+        padding: 6px 10px;
+        border-radius: 999px;
+      }
+
+      .riliMiniStatRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .riliMiniStat {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 32px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        min-width: 0;
+      }
+
+      .riliMiniStatName {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.86);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 0;
+        max-width: 140px;
+      }
+
+      .riliMiniStatVal {
+        font-size: 12px;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        flex: 0 0 auto;
+      }
+
+      .riliWeeklyGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .riliGroupHeader {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .riliGroupTitle {
+        font-size: 13px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .riliGroupMeta {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .riliSubRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 8px 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        min-height: 40px;
+      }
+
+      .riliSubName {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.88);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .riliCounter {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 0 0 auto;
+      }
+
+      .riliCounterVal {
+        min-width: 56px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+
+      .riliMiniBtn {
+        appearance: none;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        min-width: 34px;
+        min-height: 34px;
+        padding: 0 10px;
+        cursor: pointer;
+        transition: background 180ms ease, transform 180ms ease, border-color 180ms ease;
+      }
+
+      .riliMiniBtn:hover {
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      .riliMiniBtn:active {
+        transform: translateY(1px);
+      }
+
+      .riliMiniBtn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .riliCalendarWrap {
+        min-height: 0;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: 1fr;
+      }
+
+      .riliCalendarScroll {
+        overflow: auto;
+        min-height: 0;
+      }
+
+      .riliCalendarRow {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 12px;
+        padding-bottom: 6px;
+        min-width: 0;
+      }
+
+      .riliDayCard {
+        width: auto;
+        min-width: 0;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.18);
+        overflow: hidden;
+        cursor: pointer;
+        transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+        outline: none;
+      }
+
+      .riliDayCard:hover {
+        border-color: rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.22);
+      }
+
+      .riliDayCard:active {
+        transform: translateY(1px);
+      }
+
+      .riliDayCard:focus-visible {
+        box-shadow: 0 0 0 4px rgba(91, 140, 255, 0.18);
+      }
+
+      .riliDayHeader {
+        padding: 12px 12px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .riliDayTitle {
+        font-size: 13px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .riliDaySub {
+        margin-top: 4px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .riliDayBody {
+        padding: 10px 12px 12px;
+        display: grid;
+        gap: 8px;
+        min-height: 0;
+      }
+
+      .riliDaySection {
+        display: grid;
+        gap: 8px;
+      }
+
+      .riliDaySectionHead {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .riliDaySectionTitle {
+        font-size: 12px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .riliLinkBtn {
+        appearance: none;
+        border: none;
+        background: transparent;
+        color: rgba(91, 140, 255, 0.92);
+        font-weight: 800;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .riliLinkBtn:hover {
+        text-decoration: underline;
+      }
+
+      .riliRoleList {
+        display: grid;
+        gap: 10px;
+      }
+
+      .riliRoleItem {
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.18);
+        padding: 12px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .riliRoleItemActive {
+        border-color: rgba(91, 140, 255, 0.35);
+        box-shadow: 0 0 0 4px rgba(91, 140, 255, 0.12);
+      }
+
+      .riliRoleItemTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .riliRoleName {
+        font-weight: 900;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.92);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .riliRoleActions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .riliActivityRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 8px 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        min-height: 40px;
+      }
+
+      .riliActivityText {
+        display: grid;
+        gap: 2px;
+        min-width: 0;
+      }
+
+      .riliActivityName {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.88);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .riliActivityTime {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .riliTag {
+        font-size: 11px;
+        border-radius: 999px;
+        padding: 2px 8px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.78);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .riliTagView {
+        border-color: rgba(255, 255, 255, 0.16);
+        opacity: 0.65;
+      }
+
+      .riliToday {
+        border-color: rgba(53, 208, 127, 0.35);
+        box-shadow: 0 0 0 4px rgba(53, 208, 127, 0.12);
+      }
+
+      @media (max-width: 980px) {
+        .app {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          display: none;
+        }
+        .tianshuStage {
+          min-height: 300px;
+        }
+        .riliLayout {
+          grid-template-columns: 1fr;
+        }
+        .riliMain {
+          grid-template-rows: 1fr 2fr;
+        }
+        .riliWeeklyGrid {
+          grid-template-columns: 1fr;
+        }
+        .riliCheckGrid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brandTitle">{{ appTitle }}</div>
+          <div class="brandSub">壳 + 通信 + UI 骨架（本地离线运行，后续逐步接入功能）</div>
+        </div>
+
+        <nav class="nav" aria-label="主导航">
+          <div
+            class="navItem"
+            :class="{ navItemActive: activeNav === 'home' }"
+            role="button"
+            tabindex="0"
+            @click="setActive('home')"
+            @keydown.enter="setActive('home')"
+          >
+            <svg class="navIcon" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M3 10.5 12 3l9 7.5V21a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 21V10.5Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <path d="M9.5 22v-7h5v7" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+            <div class="navText">首页</div>
+            <div class="navMeta">Home</div>
+          </div>
+
+          <div
+            v-for="t in tools"
+            :key="t.id"
+            class="navItem"
+            :class="{ navItemActive: activeNav === t.id }"
+            role="button"
+            tabindex="0"
+            @click="setActive(t.id)"
+            @keydown.enter="setActive(t.id)"
+          >
+            <svg class="navIcon" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4.5 6.5A2.5 2.5 0 0 1 7 4h10a2.5 2.5 0 0 1 2.5 2.5v11A2.5 2.5 0 0 1 17 20H7a2.5 2.5 0 0 1-2.5-2.5v-11Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <path d="M8 8h8M8 12h8M8 16h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            <div class="navText">{{ t.name }}</div>
+            <div class="navMeta">{{ t.type }}</div>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="badge" aria-label="连接状态">
+            <div class="dot" :class="{ dotOk: connected }"></div>
+            <div class="badgeText">{{ connected ? '已连接本地服务' : '正在连接…' }}</div>
+          </div>
+          <div class="badge" v-if="urls.http || urls.ws" aria-label="本地地址">
+            <div class="badgeText">HTTP: {{ urls.http || '-' }}</div>
+          </div>
+          <div class="badge" v-if="urls.ws" aria-label="WebSocket 地址">
+            <div class="badgeText">WS: {{ urls.ws }}</div>
+          </div>
+          <div class="spacer"></div>
+          <div class="btn" role="button" tabindex="0" @click="openLogModal" @keydown.enter="openLogModal">查看日志</div>
+          <div class="btn btnPrimary" role="button" tabindex="0" @click="sendTestLog" @keydown.enter="sendTestLog">
+            发送测试消息
+          </div>
+        </header>
+
+        <section class="content">
+          <div class="gridTool">
+            <div class="card">
+              <div class="cardHeader">
+                <div class="cardTitle">{{ pageTitle }}</div>
+                <div class="cardSub">{{ pageDesc }}</div>
+              </div>
+              <div class="cardBody" :class="{ cardBodyFill: activeNav === 'tianshu' || activeNav === 'rili' }">
+                <template v-if="activeNav === 'home'">
+                  <div class="field">
+                    <div class="label">下一步要做什么</div>
+                    <div class="hint">
+                      - 先把左侧工具导航接到 tools.json<br />
+                      - 逐个工具补齐表单与结果展示<br />
+                      - 最后做 setup.exe 打包与在线更新
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="label">当前状态</div>
+                    <div class="hint">UI：骨架就绪；通信：WebSocket RPC；壳：pywebview（桌面窗口）。</div>
+                  </div>
+                </template>
+
+                <template v-else-if="activeNav === 'rili'">
+                  <div class="riliHeaderRow">
+                    <div class="riliTimers">
+                      <div class="riliTimerPill">
+                        <div>日常（07:00）</div>
+                        <div class="riliTimerVal">{{ riliTimers.daily }}</div>
+                      </div>
+                      <div class="riliTimerPill">
+                        <div>周常（周三 07:00）</div>
+                        <div class="riliTimerVal">{{ riliTimers.weekly }}</div>
+                      </div>
+                    </div>
+
+                    <div class="riliRoleRow">
+                      <select
+                        class="input riliRoleSelect"
+                        v-model="rili.activeRoleId"
+                        @change="riliSelectRole"
+                        aria-label="选择角色"
+                      >
+                        <option v-for="r in rili.roles" :key="r.id" :value="r.id">{{ r.name }}</option>
+                      </select>
+                      <div class="btn" role="button" tabindex="0" @click="openRiliPlaystyleModal(false)" @keydown.enter="openRiliPlaystyleModal(false)">
+                        玩法类型
+                      </div>
+                      <div class="btn" role="button" tabindex="0" @click="openRiliRoleModal" @keydown.enter="openRiliRoleModal">多角色管理</div>
+                      <div class="btn" role="button" tabindex="0" @click="riliReload" @keydown.enter="riliReload">重新加载</div>
+                    </div>
+                  </div>
+
+                  <div class="riliBody">
+                    <div v-if="rili.loading" class="hint" style="margin: 0">正在加载…</div>
+                    <div v-else-if="rili.error" class="hint" style="margin: 0; color: rgba(255, 91, 116, 0.92)">{{ rili.error }}</div>
+
+                    <div v-else class="riliMain">
+                      <div class="riliCard riliPanel">
+                        <div class="riliCardHeader">
+                          <div class="riliCardTitle">今日必做</div>
+                          <div class="riliCardSub">{{ riliActiveRole ? riliActiveRole.name : '' }}</div>
+                        </div>
+                        <div class="riliPanelBody">
+                          <div class="riliCardBody riliPanelScroll">
+                            <div class="riliInlineChecks">
+                              <label class="riliCheckRow" v-for="t in riliDailyTasks" :key="t.id">
+                                <input type="checkbox" :checked="!!t.completed" @change="riliToggleDaily(t.id)" />
+                                <div class="riliCheckText">{{ t.name }}</div>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="riliCard riliPanel">
+                        <div class="riliCardHeader">
+                          <div class="riliCardTitle">本周周历（周三 → 周三）</div>
+                          <div class="riliCardSub">{{ riliWeekRangeText }}</div>
+                        </div>
+                        <div class="riliPanelBody">
+                          <div class="riliCalendarScroll">
+                            <div class="riliCalendarRow">
+                              <div
+                                v-for="d in riliWeekDays"
+                                :key="d.key"
+                                class="riliDayCard"
+                                :class="{ riliToday: d.isToday }"
+                                role="button"
+                                tabindex="0"
+                                @click="openRiliDayModal(d)"
+                                @keydown.enter="openRiliDayModal(d)"
+                              >
+                                <div class="riliDayHeader">
+                                  <div class="riliDayTitle">{{ d.title }}</div>
+                                  <div class="riliDaySub">{{ d.dateText }}</div>
+                                </div>
+                                <div class="riliDayBody">
+                                  <div v-if="d.isToday" class="riliDaySection">
+                                    <div class="riliDaySectionHead">
+                                      <div class="riliDaySectionTitle">待办</div>
+                                      <button type="button" class="riliLinkBtn" @click.stop="openRiliDayModal(d)">展开</button>
+                                    </div>
+                                    <div class="riliInlineChecks riliInlineChecksCompact">
+                                      <label
+                                        class="riliCheckRow"
+                                        v-for="t in riliDailyTasks.slice(0, 2)"
+                                        :key="t.id"
+                                        style="min-height: 36px"
+                                      >
+                                        <input type="checkbox" :checked="!!t.completed" @click.stop @change="riliToggleDaily(t.id)" />
+                                        <div class="riliCheckText">{{ t.name }}</div>
+                                      </label>
+                                      <button
+                                        v-if="riliDailyTasks.length > 2"
+                                        type="button"
+                                        class="riliLinkBtn"
+                                        style="justify-self: start"
+                                        @click.stop="openRiliDayModal(d)"
+                                      >
+                                        查看全部
+                                      </button>
+                                    </div>
+                                  </div>
+
+                                  <div v-if="d.isWeekStart" class="riliDaySection">
+                                    <div class="riliDaySectionHead">
+                                      <div class="riliDaySectionTitle">
+                                        本周待办（{{ riliWeeklyGroups.reduce((s, g) => s + Number(g.done || 0), 0) }}/{{
+                                          riliWeeklyGroups.reduce((s, g) => s + Number(g.total || 0), 0)
+                                        }}）
+                                      </div>
+                                      <button type="button" class="riliLinkBtn" @click.stop="openRiliDayModal(d)">编辑</button>
+                                    </div>
+                                    <div class="riliMiniStatRow">
+                                      <div v-for="g in riliWeeklyGroups.slice(0, 4)" :key="g.id" class="riliMiniStat">
+                                        <div class="riliMiniStatName">{{ g.name }}</div>
+                                        <div class="riliMiniStatVal">{{ g.done }}/{{ g.total }}</div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="riliDaySection">
+                                    <div class="riliDaySectionHead">
+                                      <div class="riliDaySectionTitle">活动</div>
+                                      <button v-if="d.tasks.length > 2" type="button" class="riliLinkBtn" @click.stop="openRiliDayModal(d)">
+                                        更多
+                                      </button>
+                                    </div>
+                                    <div v-if="d.tasks.length === 0" class="hint" style="margin: 0">无活动</div>
+                                    <div v-for="t in d.tasks.slice(0, 2)" :key="t.key" class="riliActivityRow" @click.stop style="min-height: 34px">
+                                      <div class="riliActivityText">
+                                        <div class="riliActivityName">{{ t.name }}</div>
+                                        <div class="riliActivityTime">{{ t.time }}</div>
+                                      </div>
+                                      <div v-if="t.displayOnly" class="riliTag riliTagView">仅展示</div>
+                                      <input
+                                        v-else
+                                        type="checkbox"
+                                        :checked="!!rili.activity.completed[t.key]"
+                                        @click.stop
+                                        @change="riliToggleActivity(t)"
+                                        aria-label="标记完成"
+                                        style="width: 16px; height: 16px; accent-color: var(--primary)"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+
+                <template v-else-if="activeNav === 'tianshu'">
+                  <div class="tianshuLayout">
+                    <div class="tianshuHeaderRow">
+                      <select class="input tianshuSelect" v-model="tianshu.treeId" @change="tianshuSelectTree">
+                        <option value="" disabled>选择流派（职业-分支）</option>
+                        <option v-for="t in tianshu.trees" :key="t.id" :value="t.id">
+                          {{ t.name || (t.profession + '-' + t.subClass) }}
+                        </option>
+                      </select>
+
+                      <div class="tianshuHeaderCenter">
+                        <div class="tianshuBuildTitle">{{ tianshu.buildName ? tianshu.buildName : '未命名方案' }}</div>
+                        <div class="tianshuPointsInfo">
+                          <div>
+                            已投入点数：
+                            <span class="tianshuPointsNum">{{ tianshuTotalPoints }}/{{ tianshu.maxPoints }}</span>
+                          </div>
+                          <div>Ctrl+滚轮缩放，拖动空白区域平移</div>
+                        </div>
+                      </div>
+
+                      <div class="tianshuHeaderActions">
+                        <div
+                          class="btn btnPrimary"
+                          role="button"
+                          tabindex="0"
+                          @click="tianshuOpenBuildModal"
+                          @keydown.enter="tianshuOpenBuildModal"
+                        >
+                          方案 / 导入导出
+                        </div>
+                        <div class="btn" role="button" tabindex="0" @click="tianshuOpenGainsModal" @keydown.enter="tianshuOpenGainsModal">
+                          增益预览
+                        </div>
+                        <div class="btn" role="button" tabindex="0" @click="tianshuReset" @keydown.enter="tianshuReset">
+                          清空加点
+                        </div>
+                        <div class="btn" role="button" tabindex="0" @click="tianshuCenter" @keydown.enter="tianshuCenter">
+                          视图复位
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="tianshuStage"
+                      :class="{ tianshuStageDragging: tianshu.view.dragging }"
+                      ref="tianshuStageEl"
+                      @mousedown="tianshuStageDown"
+                      @mousemove="tianshuStageMove"
+                      @mouseup="tianshuStageUp"
+                      @mouseleave="tianshuStageUp"
+                      @wheel.prevent="tianshuStageWheel"
+                    >
+                      <div
+                        class="tianshuLayer"
+                        :style="{
+                          width: tianshuBounds.width + 'px',
+                          height: tianshuBounds.height + 'px',
+                          transform:
+                            'translate(' + tianshu.view.panX + 'px,' + tianshu.view.panY + 'px) scale(' + tianshu.view.scale + ')',
+                        }"
+                      >
+                        <svg class="tianshuLines" :width="tianshuBounds.width" :height="tianshuBounds.height">
+                          <line
+                            v-for="e in tianshuEdges"
+                            :key="e.key"
+                            :x1="e.x1"
+                            :y1="e.y1"
+                            :x2="e.x2"
+                            :y2="e.y2"
+                            :stroke="e.active ? 'rgba(91,140,255,.75)' : 'rgba(255,255,255,.18)'"
+                            stroke-width="2"
+                          />
+                        </svg>
+
+                        <div
+                          v-for="n in (tianshu.tree ? tianshu.tree.nodes : [])"
+                          :key="n.id"
+                          class="tianshuNode"
+                          :class="{
+                            tianshuNodeLocked: !tianshuIsUnlocked(n.id),
+                            tianshuNodeUpgradable: tianshuCanUpgrade(n),
+                            tianshuNodeMaxed: (tianshu.ranks[n.id] || 0) >= n.maxRank,
+                          }"
+                          :style="{ left: n.x + 'px', top: n.y + 'px' }"
+                          role="button"
+                          tabindex="0"
+                          @mousedown.stop
+                          @mouseenter="tianshuTooltipEnter($event, n)"
+                          @mousemove="tianshuTooltipMove($event)"
+                          @mouseleave="tianshuTooltipLeave"
+                          @click="tianshuUpgrade(n)"
+                          @contextmenu.prevent="tianshuDowngrade(n)"
+                          @keydown.enter="tianshuUpgrade(n)"
+                        >
+                          <div class="tianshuNodeTitle">{{ n.name }}</div>
+                          <div class="tianshuNodeRank">
+                            <div class="tianshuNodeDot" :class="{ tianshuNodeDotOn: (tianshu.ranks[n.id] || 0) > 0 }"></div>
+                            <div>{{ (tianshu.ranks[n.id] || 0) }}/{{ n.maxRank }}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+
+                <template v-else>
+                  <div class="field">
+                    <div class="label">占位表单</div>
+                    <input class="input" v-model="form.input" placeholder="这里后续会变成具体工具的输入项" />
+                    <div class="hint">现在只是骨架：先跑通“导航切换 + 通信 + 统一卡片布局”。</div>
+                  </div>
+
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                    <div class="btn btnPrimary" role="button" tabindex="0" @click="sendPing" @keydown.enter="sendPing">
+                      Ping
+                    </div>
+                    <div class="btn" role="button" tabindex="0" @click="sendTestLog" @keydown.enter="sendTestLog">
+                      写一条日志
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div
+        v-if="activeNav === 'tianshu' && tianshuTooltip.visible && tianshuTooltipNode"
+        class="tianshuTooltip"
+        :style="{ left: tianshuTooltip.x + 'px', top: tianshuTooltip.y + 'px' }"
+        ref="tianshuTooltipEl"
+      >
+        <div class="tianshuTooltipHeader">
+          <div class="tianshuTooltipName">{{ tianshuTooltipNode.name }}</div>
+          <div class="tianshuTooltipRank">
+            {{ (tianshu.ranks[tianshuTooltipNode.id] || 0) }}/{{ tianshuTooltipNode.maxRank }}
+          </div>
+        </div>
+        <div class="tianshuTooltipDesc" v-if="tianshuTooltipDesc">{{ tianshuTooltipDesc }}</div>
+        <div class="tianshuTooltipStats" v-if="tianshuTooltipStats.length">
+          <div
+            class="tianshuTooltipStat"
+            v-for="s in tianshuTooltipStats"
+            :key="s.key + ':' + s.value + ':' + (s.suffix || '')"
+          >
+            <div>{{ s.label }}</div>
+            <div>+{{ s.value }}{{ s.suffix || '' }}</div>
+          </div>
+        </div>
+        <div class="tianshuTooltipReq" v-if="tianshuTooltipReq">{{ tianshuTooltipReq }}</div>
+      </div>
+
+      <div
+        v-if="activeNav === 'tianshu' && tianshuBuildModalOpen"
+        class="tianshuModalOverlay"
+        @click.self="tianshuCloseBuildModal"
+      >
+        <div class="tianshuModal" role="dialog" aria-modal="true" aria-label="天书方案管理">
+          <div class="tianshuModalHeader">
+            <div class="tianshuModalTitle">方案管理 / 导入导出</div>
+            <div
+              class="btn"
+              role="button"
+              tabindex="0"
+              @click="tianshuCloseBuildModal"
+              @keydown.enter="tianshuCloseBuildModal"
+            >
+              关闭
+            </div>
+          </div>
+          <div class="tianshuModalBody">
+            <div class="field">
+              <div class="label">方案名（保存用）</div>
+              <input class="input" v-model="tianshu.buildName" placeholder="例如：PVE-爆发-31点" />
+            </div>
+            <div class="field">
+              <div class="label">已保存方案（当前流派）</div>
+              <select class="input" v-model="tianshu.selectedBuildId">
+                <option value="" disabled>选择一个方案</option>
+                <option v-for="b in tianshuBuildsForTree" :key="b.id" :value="b.id">{{ b.name }}</option>
+              </select>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px">
+              <div class="btn btnPrimary" role="button" tabindex="0" @click="tianshuSaveBuild" @keydown.enter="tianshuSaveBuild">
+                保存当前加点为新方案
+              </div>
+              <div class="btn" role="button" tabindex="0" @click="tianshuLoadBuild" @keydown.enter="tianshuLoadBuild">
+                加载所选方案
+              </div>
+              <div class="btn" role="button" tabindex="0" @click="tianshuDeleteBuild" @keydown.enter="tianshuDeleteBuild">
+                删除所选方案
+              </div>
+              <div class="btn" role="button" tabindex="0" @click="tianshuExport" @keydown.enter="tianshuExport">导出</div>
+              <div class="btn" role="button" tabindex="0" @click="tianshuImport" @keydown.enter="tianshuImport">导入并应用</div>
+            </div>
+            <div class="field" style="margin-bottom: 0">
+              <div class="label">导入导出文本（JSON）</div>
+              <textarea
+                class="textarea"
+                v-model="tianshu.shareText"
+                placeholder="导出后会生成文本；也可粘贴别人分享的文本再点“导入并应用”"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        v-if="activeNav === 'tianshu' && tianshuGainsModalOpen"
+        class="tianshuModalOverlay"
+        @click.self="tianshuCloseGainsModal"
+      >
+        <div class="tianshuModal" role="dialog" aria-modal="true" aria-label="天书增益预览">
+          <div class="tianshuModalHeader">
+            <div class="tianshuModalTitle">天书增益预览</div>
+            <div class="btn" role="button" tabindex="0" @click="tianshuCloseGainsModal" @keydown.enter="tianshuCloseGainsModal">
+              关闭
+            </div>
+          </div>
+          <div class="tianshuModalBody">
+            <div class="tianshuSideSection">
+              <div class="tianshuSideTitle">属性加成</div>
+              <div class="tianshuList" v-if="tianshuGains.stats.length">
+                <div class="tianshuListItem" v-for="s in tianshuGains.stats" :key="s.key">
+                  <div class="tianshuListKey">{{ s.label }}</div>
+                  <div class="tianshuListVal">+{{ s.value }}{{ s.suffix || '' }}</div>
+                </div>
+              </div>
+              <div class="hint" v-else>暂无属性加成（部分天书点是“特殊效果”，会在下面显示）。</div>
+            </div>
+
+            <div class="tianshuSideSection" style="margin-bottom: 0">
+              <div class="tianshuSideTitle">特殊效果</div>
+              <div class="tianshuSpecialList" v-if="tianshuGains.special.length">
+                <div class="tianshuSpecialItem" v-for="(t, i) in tianshuGains.special" :key="i">• {{ t }}</div>
+              </div>
+              <div class="hint" v-else>暂无特殊效果。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        v-if="activeNav === 'rili' && riliPlaystyleModalOpen"
+        class="tianshuModalOverlay"
+        @click.self="riliPlaystyleRequired ? null : closeRiliPlaystyleModal()"
+      >
+        <div class="tianshuModal" role="dialog" aria-modal="true" aria-label="选择玩法类型">
+          <div class="tianshuModalHeader">
+            <div class="tianshuModalTitle">选择主要玩法类型</div>
+            <div
+              v-if="!riliPlaystyleRequired"
+              class="btn"
+              role="button"
+              tabindex="0"
+              @click="closeRiliPlaystyleModal"
+              @keydown.enter="closeRiliPlaystyleModal"
+            >
+              关闭
+            </div>
+          </div>
+          <div class="tianshuModalBody">
+            <div class="hint" style="margin: 0 0 12px">
+              这会用来筛选周历“活动”。可单选也可多选（至少选 1 个）。
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px">
+              <label class="riliTimerPill" style="cursor: pointer; user-select: none">
+                <input type="checkbox" v-model="riliPlaystylePick.PVE" style="margin-right: 8px" />
+                PVE
+              </label>
+              <label class="riliTimerPill" style="cursor: pointer; user-select: none">
+                <input type="checkbox" v-model="riliPlaystylePick.PVP" style="margin-right: 8px" />
+                PVP
+              </label>
+              <label class="riliTimerPill" style="cursor: pointer; user-select: none">
+                <input type="checkbox" v-model="riliPlaystylePick.PVX" style="margin-right: 8px" />
+                PVX
+              </label>
+              <label class="riliTimerPill" style="cursor: pointer; user-select: none">
+                <input type="checkbox" v-model="riliPlaystylePick.GVG" style="margin-right: 8px" />
+                GVG
+              </label>
+            </div>
+            <div class="btn btnPrimary" role="button" tabindex="0" @click="saveRiliPlaystyles" @keydown.enter="saveRiliPlaystyles">
+              保存
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="activeNav === 'rili' && riliDayModalOpen" class="tianshuModalOverlay" @click.self="closeRiliDayModal">
+        <div class="tianshuModal" role="dialog" aria-modal="true" aria-label="周历详情">
+          <div class="tianshuModalHeader">
+            <div class="tianshuModalTitle">
+              {{ (riliDayModalDay ? riliDayModalDay.title : '') + (riliActiveRole ? ' · ' + riliActiveRole.name : '') }}
+            </div>
+            <div class="btn" role="button" tabindex="0" @click="closeRiliDayModal" @keydown.enter="closeRiliDayModal">关闭</div>
+          </div>
+          <div class="tianshuModalBody">
+            <template v-if="riliDayModalDay">
+              <div class="field">
+                <div class="label">日常（今天）</div>
+                <div v-if="!riliDayModalDay.isToday" class="hint" style="margin: 0">只在“今天”支持勾选日常完成情况。</div>
+                <div v-else style="display: grid; gap: 10px">
+                  <label class="riliCheckRow" v-for="t in riliDailyTasks" :key="t.id">
+                    <input type="checkbox" :checked="!!t.completed" @change="riliToggleDaily(t.id)" />
+                    <div class="riliCheckText">{{ t.name }}</div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="label">周常（本周）</div>
+                <div class="riliWeeklyGrid">
+                  <div v-for="g in riliWeeklyGroups" :key="g.id" style="min-width: 0">
+                    <div class="riliGroupHeader">
+                      <div class="riliGroupTitle">{{ g.name }}</div>
+                      <div class="riliGroupMeta">{{ g.done }}/{{ g.total }}</div>
+                    </div>
+                    <div style="display: grid; gap: 8px">
+                      <div v-for="s in g.subTasks" :key="s.id" class="riliSubRow">
+                        <div class="riliSubName">{{ s.name }}</div>
+                        <div class="riliCounter">
+                          <button type="button" class="riliMiniBtn" @click="riliDecWeeklySub(g.id, s.id)">-</button>
+                          <div class="riliCounterVal">{{ Number(s.completed || 0) }}/{{ Number(s.total || 1) }}</div>
+                          <button type="button" class="riliMiniBtn" @click="riliIncWeeklySub(g.id, s.id)">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field" style="margin-bottom: 0">
+                <div class="label">活动（{{ riliDayModalDay.dateText }}）</div>
+                <div v-if="riliDayModalDay.tasks.length === 0" class="hint" style="margin: 0">无活动</div>
+                <div v-else style="display: grid; gap: 10px">
+                  <div v-for="t in riliDayModalDay.tasks" :key="t.key" class="riliActivityRow">
+                    <div class="riliActivityText">
+                      <div class="riliActivityName">{{ t.name }}</div>
+                      <div class="riliActivityTime">{{ t.time }}</div>
+                    </div>
+                    <div v-if="t.displayOnly" class="riliTag riliTagView">仅展示</div>
+                    <input
+                      v-else
+                      type="checkbox"
+                      :checked="!!rili.activity.completed[t.key]"
+                      @change="riliToggleActivity(t)"
+                      aria-label="标记完成"
+                      style="width: 16px; height: 16px; accent-color: var(--primary)"
+                    />
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="activeNav === 'rili' && riliRoleModalOpen" class="tianshuModalOverlay" @click.self="closeRiliRoleModal">
+        <div class="tianshuModal" role="dialog" aria-modal="true" aria-label="角色管理">
+          <div class="tianshuModalHeader">
+            <div class="tianshuModalTitle">角色管理</div>
+            <div class="btn" role="button" tabindex="0" @click="closeRiliRoleModal" @keydown.enter="closeRiliRoleModal">关闭</div>
+          </div>
+          <div class="tianshuModalBody">
+            <div class="field">
+              <div class="label">角色列表</div>
+              <div class="riliRoleList">
+                <div
+                  v-for="role in rili.roles"
+                  :key="role.id"
+                  class="riliRoleItem"
+                  :class="{ riliRoleItemActive: role.id === rili.activeRoleId }"
+                >
+                  <div class="riliRoleItemTop">
+                    <input
+                      class="input"
+                      v-model="role.name"
+                      @change="riliUpdateRoleName(role)"
+                      @keydown.enter="riliUpdateRoleName(role)"
+                      aria-label="角色名"
+                    />
+                  </div>
+                  <div class="riliRoleActions">
+                    <div v-if="role.id === rili.activeRoleId" class="riliTag">当前</div>
+                    <div
+                      v-else
+                      class="btn btnPrimary"
+                      role="button"
+                      tabindex="0"
+                      @click="riliSetActiveRole(role.id)"
+                      @keydown.enter="riliSetActiveRole(role.id)"
+                    >
+                      设为当前
+                    </div>
+                    <div
+                      v-if="rili.roles.length > 1"
+                      class="btn"
+                      role="button"
+                      tabindex="0"
+                      @click="riliDeleteRoleById(role.id)"
+                      @keydown.enter="riliDeleteRoleById(role.id)"
+                    >
+                      删除
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="label">新增角色</div>
+              <input class="input" v-model="rili.roleNewName" placeholder="例如：摆烂号" aria-label="新增角色名" />
+            </div>
+            <div class="btn btnPrimary" role="button" tabindex="0" @click="riliAddRole" @keydown.enter="riliAddRole">新增</div>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="logModalOpen" class="tianshuModalOverlay" @click.self="closeLogModal">
+        <div class="tianshuModal" role="dialog" aria-modal="true" aria-label="运行日志">
+          <div class="tianshuModalHeader">
+            <div class="tianshuModalTitle">运行日志</div>
+            <div class="btn" role="button" tabindex="0" @click="closeLogModal" @keydown.enter="closeLogModal">关闭</div>
+          </div>
+          <div class="tianshuModalBody" style="padding: 0">
+            <div v-if="logs.length === 0" class="logLine" style="color: rgba(255,255,255,.6)">暂无日志</div>
+            <div v-for="l in logs" :key="l.id" class="logLine">
+              <span class="pill" :class="{ pillInfo: l.level !== 'error', pillError: l.level === 'error' }">
+                {{ l.level }}
+              </span>
+              <span class="log">{{ l.message }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.4.38/dist/vue.global.prod.js"></script>
+    <script>
+      const { createApp, computed, nextTick, onMounted, reactive, ref, watch } = Vue
+
+      function uuid() {
+        return Math.random().toString(16).slice(2) + Date.now().toString(16)
+      }
+
+      const RILI_WEEK_DAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+      const RILI_PLAYSTYLES = ['PVE', 'PVP', 'PVX', 'GVG']
+
+      const RILI_DEFAULT_TASKS = {
+        daily: [
+          { id: 'd1', name: '每日签到', type: 'check' },
+          { id: 'd2', name: '帮派打坐', type: 'check' },
+          { id: 'd3', name: '单双爬塔', type: 'check' },
+        ],
+        weekly: [
+          {
+            id: 'w_map',
+            name: '大地图活动',
+            type: 'group',
+            subTasks: [
+              { id: 'w1', name: '世界boss', total: 1 },
+              { id: 'w2', name: '邪枭', total: 3 },
+              { id: 'w12', name: '风云任务', total: 1 },
+            ],
+          },
+          {
+            id: 'w_wuxiangling',
+            name: '无相岭活动',
+            type: 'group',
+            subTasks: [
+              { id: 'w3', name: '光头boss', total: 1 },
+              { id: 'w4', name: '大老虎', total: 2 },
+              { id: 'w5', name: '小老虎', total: 5 },
+              { id: 'w17', name: '轮回乱境', total: 6 },
+            ],
+          },
+          {
+            id: 'w_guild',
+            name: '帮派活动',
+            type: 'group',
+            subTasks: [
+              { id: 'w6', name: '钓鱼', total: 1 },
+              { id: 'w7', name: '联赛', total: 2 },
+              { id: 'w8', name: 'BOSS', total: 1 },
+            ],
+          },
+          {
+            id: 'w_leisure',
+            name: '休闲活动',
+            type: 'group',
+            subTasks: [
+              { id: 'w9', name: '钓鱼', total: 1 },
+              { id: 'w10', name: '宠物boss', total: 1 },
+              { id: 'w11', name: '鸿雁行', total: 1 },
+              { id: 'w18', name: '挖宝', total: 50 },
+            ],
+          },
+          {
+            id: 'w_pvp',
+            name: 'PVP活动',
+            type: 'group',
+            subTasks: [
+              { id: 'w13', name: '乱武', total: 1 },
+              { id: 'w14', name: '天玺', total: 1 },
+              { id: 'w15', name: '鸿钧', total: 1 },
+              { id: 'w16', name: '北荒', total: 1 },
+            ],
+          },
+        ],
+      }
+
+      const RILI_ACTIVITY_TASKS = [
+        {
+          id: 'guild_meditate',
+          name: '帮派打坐&补灵',
+          type: 'daily',
+          playstyles: ['PVX'],
+          schedule: [
+            { day: 1, time: '12:00' },
+            { day: 2, time: '12:00' },
+            { day: 3, time: '12:00' },
+            { day: 4, time: '12:00' },
+            { day: 5, time: '12:00' },
+            { day: 6, time: '12:00' },
+            { day: 7, time: '12:00' },
+          ],
+        },
+        {
+          id: 'pvp_tian_xi',
+          name: '天玺',
+          type: 'display_only',
+          playstyles: ['PVP', 'GVG'],
+          schedule: [
+            { day: 1, time: '19:00' },
+            { day: 3, time: '19:00' },
+            { day: 5, time: '19:00' },
+          ],
+        },
+        {
+          id: 'world_boss',
+          name: '世界BOSS',
+          type: 'once_weekly',
+          playstyles: ['PVE'],
+          schedule: [
+            { day: 2, time: '19:00' },
+            { day: 4, time: '19:00' },
+            { day: 6, time: '19:00' },
+          ],
+        },
+        {
+          id: 'pvp_luan_wu',
+          name: '乱武',
+          type: 'unlimited',
+          playstyles: ['PVP'],
+          schedule: [
+            { day: 2, time: '20:00' },
+            { day: 4, time: '20:00' },
+          ],
+        },
+        {
+          id: 'guild_league',
+          name: '帮派联赛',
+          type: 'unlimited',
+          playstyles: ['GVG'],
+          schedule: [
+            { day: 5, time: '20:00' },
+            { day: 5, time: '21:00' },
+          ],
+        },
+        {
+          id: 'hong_jun',
+          name: '鸿钧',
+          type: 'unlimited',
+          playstyles: ['PVP'],
+          schedule: [
+            { day: 6, time: '13:00' },
+            { day: 6, time: '20:00' },
+            { day: 7, time: '13:00' },
+            { day: 7, time: '20:00' },
+          ],
+        },
+      ]
+
+      const RILI_LINK_RULES = {
+        guild_meditate: { type: 'daily_check', dailyTaskId: 'd2' },
+        world_boss: { type: 'weekly_sub', groupId: 'w_map', subId: 'w1' },
+        pvp_luan_wu: { type: 'weekly_sub', groupId: 'w_pvp', subId: 'w13' },
+        hong_jun: { type: 'weekly_sub', groupId: 'w_pvp', subId: 'w15' },
+      }
+
+      function pad2(n) {
+        const s = String(n)
+        return s.length >= 2 ? s : '0' + s
+      }
+
+      function toLocalIso(d) {
+        return (
+          d.getFullYear() +
+          '-' +
+          pad2(d.getMonth() + 1) +
+          '-' +
+          pad2(d.getDate()) +
+          'T' +
+          pad2(d.getHours()) +
+          ':' +
+          pad2(d.getMinutes()) +
+          ':' +
+          pad2(d.getSeconds())
+        )
+      }
+
+      function isoWeekday(d) {
+        return ((d.getDay() + 6) % 7) + 1
+      }
+
+      function addDays(d, days) {
+        return new Date(d.getTime() + days * 24 * 60 * 60 * 1000)
+      }
+
+      function dailyCycleStart(now) {
+        const effective = new Date(now.getTime() - 7 * 60 * 60 * 1000)
+        return new Date(effective.getFullYear(), effective.getMonth(), effective.getDate(), 7, 0, 0, 0)
+      }
+
+      function weeklyCycleStart(now) {
+        const effective = new Date(now.getTime() - 7 * 60 * 60 * 1000)
+        const iso = isoWeekday(effective)
+        const daysSinceWed = (iso - 3 + 7) % 7
+        const anchor = addDays(effective, -daysSinceWed)
+        return new Date(anchor.getFullYear(), anchor.getMonth(), anchor.getDate(), 7, 0, 0, 0)
+      }
+
+      function nextDailyReset(now) {
+        const todayReset = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0, 0)
+        if (now < todayReset) return todayReset
+        return addDays(todayReset, 1)
+      }
+
+      function nextWeeklyReset(now) {
+        const anchor = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0, 0)
+        const iso = isoWeekday(now)
+        const daysUntilWed = (3 - iso + 7) % 7
+        let candidate = addDays(anchor, daysUntilWed)
+        if (candidate <= now) candidate = addDays(candidate, 7)
+        return candidate
+      }
+
+      function formatTimeLeft(now, target) {
+        const diffMs = Math.max(0, target.getTime() - now.getTime())
+        const totalMinutes = Math.floor(diffMs / 60000)
+        const days = Math.floor(totalMinutes / (60 * 24))
+        const hours = Math.floor((totalMinutes % (60 * 24)) / 60)
+        const minutes = totalMinutes % 60
+        if (days > 0) return `${days}天 ${hours}小时`
+        return `${hours}小时 ${minutes}分`
+      }
+
+      function riliActivityKey(task, dayIndex, timeIndex) {
+        const id = String((task && task.id) || '')
+        if (!id) return ''
+        if (task && String(task.type || '') === 'once_weekly') return `weekly_${id}`
+        return `${id}_d${dayIndex}_t${timeIndex}`
+      }
+
+      createApp({
+        setup() {
+          const appTitle = ref('OK-ZhuXian World')
+          const connected = ref(false)
+          const activeNav = ref('home')
+          const tools = ref([])
+          const logs = ref([])
+          const urls = reactive({ http: '', ws: '' })
+          const form = reactive({ input: '' })
+          const tianshuStageEl = ref(null)
+          const tianshuTooltipEl = ref(null)
+          const tianshuBuildModalOpen = ref(false)
+          const tianshuGainsModalOpen = ref(false)
+          const logModalOpen = ref(false)
+          const riliRoleModalOpen = ref(false)
+          const riliDayModalOpen = ref(false)
+          const riliDayModalDay = ref(null)
+          const riliPlaystyleModalOpen = ref(false)
+          const riliPlaystyleRequired = ref(false)
+          const riliPlaystylePick = reactive({ PVE: true, PVP: false, PVX: true, GVG: false })
+
+          const rili = reactive({
+            loading: false,
+            loaded: false,
+            error: '',
+            roles: [],
+            activeRoleId: '',
+            meta: {},
+            roleNewName: '',
+            roleRename: '',
+            activity: { completed: {}, lastUpdated: '' },
+            activityDefs: [],
+          })
+
+          const riliTimers = reactive({ daily: '-', weekly: '-' })
+          let riliSaveTaskTimer = null
+          let riliSaveActivityTimer = null
+
+          const tianshu = reactive({
+            trees: [],
+            treeId: '',
+            tree: null,
+            ranks: {},
+            maxPoints: 31,
+            hoverNodeId: '',
+            buildName: '',
+            selectedBuildId: '',
+            shareText: '',
+            builds: [],
+            view: {
+              panX: 40,
+              panY: 40,
+              scale: 1,
+              dragging: false,
+              dragStartX: 0,
+              dragStartY: 0,
+              panStartX: 0,
+              panStartY: 0,
+            },
+            saveTimer: null,
+          })
+
+          const tianshuTooltip = reactive({
+            visible: false,
+            x: 0,
+            y: 0,
+            nodeId: '',
+          })
+
+          let ws = null
+          const pending = new Map()
+
+          const pageTitle = computed(() => {
+            if (activeNav.value === 'home') return '首页'
+            const t = tools.value.find((x) => x.id === activeNav.value)
+            return t ? t.name : '工具'
+          })
+
+          const pageDesc = computed(() => {
+            if (activeNav.value === 'home') return '整体骨架与通信已打通'
+            if (activeNav.value === 'tianshu') return '选择流派并进行加点模拟（自动存档）'
+            if (activeNav.value === 'rili') return '今日工作台：任务管理 + 活动日历（离线保存）'
+            return '这里会逐步接入具体功能'
+          })
+
+          const riliActiveRole = computed(() => {
+            const id = String(rili.activeRoleId || '')
+            return rili.roles.find((x) => x && x.id === id) || null
+          })
+
+          const riliDailyTasks = computed(() => {
+            const role = riliActiveRole.value
+            const list = role && Array.isArray(role.dailyTasks) ? role.dailyTasks : []
+            return list
+          })
+
+          const riliWeeklyGroups = computed(() => {
+            const role = riliActiveRole.value
+            const list = role && Array.isArray(role.weeklyTasks) ? role.weeklyTasks : []
+            const out = []
+            for (const g of list) {
+              if (!g || g.type !== 'group') continue
+              const subs = Array.isArray(g.subTasks) ? g.subTasks : []
+              const done = subs.filter((s) => Number(s.completed || 0) >= Number(s.total || 1)).length
+              out.push({ ...g, done, total: subs.length, subTasks: subs })
+            }
+            return out
+          })
+
+          const riliWeekRangeText = computed(() => {
+            const now = new Date()
+            const start = weeklyCycleStart(now)
+            const startDate = new Date(start.getFullYear(), start.getMonth(), start.getDate(), 0, 0, 0, 0)
+            const endDate = addDays(startDate, 6)
+            return `${startDate.getMonth() + 1}/${startDate.getDate()} - ${endDate.getMonth() + 1}/${endDate.getDate()}`
+          })
+
+          const riliWeekDays = computed(() => {
+            const now = new Date()
+            const start = weeklyCycleStart(now)
+            const startDate = new Date(start.getFullYear(), start.getMonth(), start.getDate(), 0, 0, 0, 0)
+            const todayText = now.toDateString()
+            const role = riliActiveRole.value
+            const selectedStyles = role && Array.isArray(role.playstyles) ? role.playstyles.map((s) => String(s)) : []
+            const activityDefs =
+              Array.isArray(rili.activityDefs) && rili.activityDefs.length ? rili.activityDefs : RILI_ACTIVITY_TASKS
+            const week = []
+            for (let i = 0; i < 7; i++) {
+              const date = addDays(startDate, i)
+              const dayIndex = isoWeekday(date)
+              const tasks = []
+              for (const task of activityDefs) {
+                const styles = Array.isArray(task.playstyles) && task.playstyles.length ? task.playstyles.map((s) => String(s)) : ['PVX']
+                if (selectedStyles.length) {
+                  let ok = false
+                  for (const s of selectedStyles) {
+                    if (styles.includes(s)) {
+                      ok = true
+                      break
+                    }
+                  }
+                  if (!ok) continue
+                }
+                const schedule = Array.isArray(task.schedule) ? task.schedule : []
+                for (let idx = 0; idx < schedule.length; idx++) {
+                  const slot = schedule[idx]
+                  if (Number(slot.day) !== dayIndex) continue
+                  const displayOnly = String(task.type || '') === 'display_only'
+                  const key = riliActivityKey(task, dayIndex, idx)
+                  tasks.push({
+                    key,
+                    id: task.id,
+                    name: String(task.name || ''),
+                    type: String(task.type || ''),
+                    time: String(slot.time || ''),
+                    dayIndex,
+                    timeIndex: idx,
+                    displayOnly,
+                  })
+                }
+              }
+              tasks.sort((a, b) => {
+                const ta = a.time === '全天' ? '99:99' : a.time
+                const tb = b.time === '全天' ? '99:99' : b.time
+                if (ta < tb) return -1
+                if (ta > tb) return 1
+                return a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+              })
+              const isToday = date.toDateString() === todayText
+              const iso = isoWeekday(date)
+              week.push({
+                key: `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`,
+                day: dayIndex,
+                title: isToday ? `${RILI_WEEK_DAYS[iso - 1]}（今天）` : RILI_WEEK_DAYS[iso - 1],
+                dateText: `${date.getMonth() + 1}/${date.getDate()}`,
+                isToday,
+                isWeekStart: i === 0,
+                tasks,
+              })
+            }
+            return week
+          })
+
+          const tianshuNodesById = computed(() => {
+            const map = new Map()
+            const tree = tianshu.tree
+            if (tree && Array.isArray(tree.nodes)) {
+              for (const n of tree.nodes) {
+                map.set(String(n.id), n)
+              }
+            }
+            return map
+          })
+
+          const tianshuChildrenMap = computed(() => {
+            const map = new Map()
+            const tree = tianshu.tree
+            if (!tree || !Array.isArray(tree.nodes)) return map
+            for (const n of tree.nodes) {
+              const prereqs = Array.isArray(n.prereqs) ? n.prereqs : []
+              for (const p of prereqs) {
+                const pid = String(p)
+                if (!map.has(pid)) map.set(pid, [])
+                map.get(pid).push(String(n.id))
+              }
+            }
+            return map
+          })
+
+          const tianshuTotalPoints = computed(() => {
+            let sum = 0
+            for (const v of Object.values(tianshu.ranks || {})) {
+              const iv = Number(v) || 0
+              if (iv > 0) sum += iv
+            }
+            return sum
+          })
+
+          const tianshuBounds = computed(() => {
+            const tree = tianshu.tree
+            const nodes = tree && Array.isArray(tree.nodes) ? tree.nodes : []
+            if (!nodes.length) return { width: 1200, height: 900 }
+            let minX = nodes[0].x
+            let minY = nodes[0].y
+            let maxX = nodes[0].x
+            let maxY = nodes[0].y
+            for (const n of nodes) {
+              const x = Number(n.x) || 0
+              const y = Number(n.y) || 0
+              if (x < minX) minX = x
+              if (y < minY) minY = y
+              if (x > maxX) maxX = x
+              if (y > maxY) maxY = y
+            }
+            const pad = 160
+            return { width: Math.max(800, maxX + pad), height: Math.max(640, maxY + pad) }
+          })
+
+          const tianshuEdges = computed(() => {
+            const tree = tianshu.tree
+            const nodes = tree && Array.isArray(tree.nodes) ? tree.nodes : []
+            const out = []
+            for (const n of nodes) {
+              const prereqs = Array.isArray(n.prereqs) ? n.prereqs : []
+              for (const p of prereqs) {
+                const parent = tianshuNodesById.value.get(String(p))
+                if (!parent) continue
+                const parentRank = Number(tianshu.ranks[String(parent.id)]) || 0
+                const active = parentRank >= Number(parent.maxRank || 1)
+                out.push({
+                  key: `${parent.id}->${n.id}`,
+                  x1: parent.x,
+                  y1: parent.y,
+                  x2: n.x,
+                  y2: n.y,
+                  active,
+                })
+              }
+            }
+            return out
+          })
+
+          const tianshuHoverNode = computed(() => {
+            if (!tianshu.hoverNodeId) return null
+            return tianshuNodesById.value.get(String(tianshu.hoverNodeId)) || null
+          })
+
+          const tianshuHoverDesc = computed(() => {
+            const n = tianshuHoverNode.value
+            if (!n) return ''
+            const r = Number(tianshu.ranks[String(n.id)]) || 0
+            const lines = Array.isArray(n.descLines) ? n.descLines : []
+            if (!lines.length) return ''
+            if (r <= 0) return String(lines[0] || '')
+            return String(lines[Math.min(r - 1, lines.length - 1)] || '')
+          })
+
+          function tianshuGetNodeDesc(node, rank) {
+            if (!node) return ''
+            const lines = Array.isArray(node.descLines) ? node.descLines : []
+            if (!lines.length) return ''
+            const r = Number(rank) || 0
+            if (r <= 0) return String(lines[0] || '')
+            return String(lines[Math.min(r - 1, lines.length - 1)] || '')
+          }
+
+          function tianshuGetNodeStats(node, rank) {
+            if (!node) return []
+            const statsByRank = Array.isArray(node.statsByRank) ? node.statsByRank : []
+            if (!statsByRank.length) return []
+            const r = Number(rank) || 0
+            if (r <= 0) return []
+            const pick = statsByRank[Math.min(r - 1, statsByRank.length - 1)]
+            return Array.isArray(pick) ? pick.filter((x) => x && x.key) : []
+          }
+
+          const tianshuGains = computed(() => {
+            const tree = tianshu.tree
+            const nodes = tree && Array.isArray(tree.nodes) ? tree.nodes : []
+            const agg = new Map()
+            const special = []
+            for (const n of nodes) {
+              const r = Number(tianshu.ranks[String(n.id)]) || 0
+              if (r <= 0) continue
+              const pick = tianshuGetNodeStats(n, r)
+              if (pick.length) {
+                for (const s of pick) {
+                  if (!s || !s.key) continue
+                  const key = String(s.key)
+                  const prev = agg.get(key) || { key, label: s.label || key, value: 0, suffix: s.suffix || '' }
+                  const v = Number(s.value)
+                  prev.value = Number.isFinite(v) ? prev.value + v : prev.value
+                  if (!prev.suffix && s.suffix) prev.suffix = s.suffix
+                  if (!prev.label && s.label) prev.label = s.label
+                  agg.set(key, prev)
+                }
+              } else {
+                const text = tianshuGetNodeDesc(n, r)
+                if (text) special.push(`${n.name}：${text}`)
+              }
+            }
+            const out = Array.from(agg.values())
+            out.sort((a, b) => String(a.label || '').localeCompare(String(b.label || ''), 'zh-Hans-CN'))
+            for (const i of out) {
+              i.value = Math.round((i.value + Number.EPSILON) * 10000) / 10000
+            }
+            return { stats: out, special }
+          })
+
+          const tianshuBuildsForTree = computed(() => {
+            const treeId = String(tianshu.treeId || '')
+            return (tianshu.builds || []).filter((b) => b && String(b.treeId) === treeId)
+          })
+
+          const tianshuTooltipNode = computed(() => {
+            if (!tianshuTooltip.nodeId) return null
+            return tianshuNodesById.value.get(String(tianshuTooltip.nodeId)) || null
+          })
+
+          const tianshuTooltipDesc = computed(() => {
+            const n = tianshuTooltipNode.value
+            if (!n) return ''
+            const r = Number(tianshu.ranks[String(n.id)]) || 0
+            return tianshuGetNodeDesc(n, r)
+          })
+
+          const tianshuTooltipStats = computed(() => {
+            const n = tianshuTooltipNode.value
+            if (!n) return []
+            const r = Number(tianshu.ranks[String(n.id)]) || 0
+            const pick = tianshuGetNodeStats(n, r)
+            return pick.map((s) => ({
+              key: String(s.key),
+              label: s.label || String(s.key),
+              value: Number(s.value),
+              suffix: s.suffix || '',
+            }))
+          })
+
+          const tianshuTooltipReq = computed(() => {
+            const n = tianshuTooltipNode.value
+            if (!n) return ''
+            if (tianshuIsUnlocked(String(n.id))) return ''
+            const prereqs = Array.isArray(n.prereqs) ? n.prereqs : []
+            const names = []
+            for (const pid of prereqs) {
+              const p = tianshuNodesById.value.get(String(pid))
+              if (!p) continue
+              const pr = Number(tianshu.ranks[String(p.id)]) || 0
+              names.push(`${p.name}（${pr}/${p.maxRank}）`)
+            }
+            if (!names.length) return '未解锁：需要前置节点点满'
+            return `未解锁：需点满任意前置节点：${names.join(' / ')}`
+          })
+
+          function pushLog(level, message) {
+            const entry = { id: uuid(), level: level || 'info', message: String(message || '') }
+            logs.value = [...logs.value, entry].slice(-200)
+          }
+
+          function rpc(method, params) {
+            const id = uuid()
+            const payload = { type: 'rpc', id, method, params: params || {} }
+            return new Promise((resolve, reject) => {
+              pending.set(id, { resolve, reject })
+              try {
+                ws && ws.send(JSON.stringify(payload))
+              } catch (e) {
+                pending.delete(id)
+                reject(e)
+              }
+              setTimeout(() => {
+                if (pending.has(id)) {
+                  pending.delete(id)
+                  reject(new Error('RPC 超时'))
+                }
+              }, 5000)
+            })
+          }
+
+          function connect(wsUrl) {
+            urls.ws = wsUrl
+            ws = new WebSocket(wsUrl)
+
+            ws.onopen = () => {
+              connected.value = true
+              pushLog('info', 'WebSocket 已连接')
+              rpc('app.getInfo').then((info) => {
+                const app = info && info.app ? info.app : {}
+                appTitle.value = `${app.name || 'OK-ZhuXian World'} v${app.version || 'dev'}`
+                document.title = appTitle.value
+                urls.http = info && info.urls && info.urls.http ? info.urls.http : urls.http
+                urls.ws = info && info.urls && info.urls.ws ? info.urls.ws : urls.ws
+                tools.value = Array.isArray(info.tools) ? info.tools.filter((x) => x && x.id) : []
+                pushLog('info', '已加载 tools.json')
+                ensureTianshuTrees().catch(() => {})
+              })
+            }
+
+            ws.onclose = () => {
+              connected.value = false
+              pushLog('error', 'WebSocket 已断开，2 秒后重试')
+              setTimeout(() => connect(wsUrl), 2000)
+            }
+
+            ws.onerror = () => {
+              connected.value = false
+            }
+
+            ws.onmessage = (ev) => {
+              let msg
+              try {
+                msg = JSON.parse(ev.data)
+              } catch (e) {
+                pushLog('error', '收到非 JSON 消息')
+                return
+              }
+
+              if (msg && msg.type === 'rpc.result') {
+                const p = pending.get(msg.id)
+                pending.delete(msg.id)
+                p && p.resolve(msg.result)
+                return
+              }
+
+              if (msg && msg.type === 'rpc.error') {
+                const p = pending.get(msg.id)
+                pending.delete(msg.id)
+                p && p.reject(new Error(msg.error || 'RPC 错误'))
+                return
+              }
+
+              if (msg && msg.type === 'event') {
+                if (msg.event === 'hello' && msg.data && msg.data.state) {
+                  activeNav.value = msg.data.state.activeNav || 'home'
+                  if (Array.isArray(msg.data.state.logs)) logs.value = msg.data.state.logs
+                }
+                if (msg.event === 'state.changed' && msg.data) {
+                  if (msg.data.activeNav) activeNav.value = msg.data.activeNav
+                }
+                if (msg.event === 'log.append' && msg.data && msg.data.entry) {
+                  logs.value = [...logs.value, msg.data.entry].slice(-200)
+                }
+              }
+            }
+          }
+
+          async function bootstrap() {
+            try {
+              const r = await fetch('/__app_config', { cache: 'no-store' })
+              const cfg = await r.json()
+              urls.http = cfg.http || `${location.origin}/`
+              connect(cfg.ws)
+            } catch (e) {
+              urls.http = `${location.origin}/`
+              connect(`ws://${location.hostname}:8765/`)
+            }
+          }
+
+          function setActive(key) {
+            activeNav.value = key
+            rpc('nav.setActive', { key }).catch((e) => pushLog('error', e.message || String(e)))
+          }
+
+          function riliCreateNewRole(name) {
+            return {
+              id: uuid(),
+              name: String(name || '未命名'),
+              playstyles: [],
+              dailyTasks: RILI_DEFAULT_TASKS.daily.map((t) => ({ ...t, completed: false })),
+              weeklyTasks: RILI_DEFAULT_TASKS.weekly.map((t) => ({
+                id: t.id,
+                name: t.name,
+                type: t.type,
+                subTasks: Array.isArray(t.subTasks) ? t.subTasks.map((s) => ({ ...s, completed: 0 })) : [],
+              })),
+            }
+          }
+
+          function riliSyncRole(role) {
+            const dailyById = new Map()
+            const weeklyById = new Map()
+            if (role && Array.isArray(role.dailyTasks)) {
+              for (const t of role.dailyTasks) {
+                if (t && t.id) dailyById.set(String(t.id), t)
+              }
+            }
+            if (role && Array.isArray(role.weeklyTasks)) {
+              for (const t of role.weeklyTasks) {
+                if (t && t.id) weeklyById.set(String(t.id), t)
+              }
+            }
+
+            const syncedDaily = RILI_DEFAULT_TASKS.daily.map((def) => {
+              const saved = dailyById.get(String(def.id))
+              return { ...def, completed: saved ? !!saved.completed : false }
+            })
+
+            const syncedWeekly = RILI_DEFAULT_TASKS.weekly.map((def) => {
+              const saved = weeklyById.get(String(def.id))
+              if (def.type === 'group') {
+                const savedSub = new Map()
+                if (saved && Array.isArray(saved.subTasks)) {
+                  for (const s of saved.subTasks) {
+                    if (s && s.id) savedSub.set(String(s.id), s)
+                  }
+                }
+                const subTasks = (def.subTasks || []).map((sub) => {
+                  const sv = savedSub.get(String(sub.id))
+                  const completed = sv ? Number(sv.completed || 0) : 0
+                  return { id: sub.id, name: sub.name, total: Number(sub.total || 1), completed: Math.max(0, Math.floor(completed)) }
+                })
+                return { id: def.id, name: def.name, type: 'group', subTasks }
+              }
+              const total = Number(def.total || 1)
+              const completed = saved ? Number(saved.completed || 0) : 0
+              return { id: def.id, name: def.name, type: String(def.type || ''), total, completed: Math.max(0, Math.floor(completed)) }
+            })
+
+            const rawStyles = role && Array.isArray(role.playstyles) ? role.playstyles : []
+            const styles = rawStyles.map((s) => String(s)).filter((s) => RILI_PLAYSTYLES.includes(s))
+            return {
+              id: role && role.id ? String(role.id) : uuid(),
+              name: role && role.name ? String(role.name) : '未命名',
+              playstyles: styles,
+              dailyTasks: syncedDaily,
+              weeklyTasks: syncedWeekly,
+            }
+          }
+
+          function riliApplyResetsIfNeeded() {
+            const now = new Date()
+            const currentDaily = toLocalIso(dailyCycleStart(now))
+            const currentWeekly = toLocalIso(weeklyCycleStart(now))
+            const meta = rili.meta && typeof rili.meta === 'object' ? { ...rili.meta } : {}
+
+            let changed = false
+            if (meta.dailyCycleStart !== currentDaily) {
+              for (const role of rili.roles) {
+                if (!role || !Array.isArray(role.dailyTasks)) continue
+                for (const t of role.dailyTasks) t.completed = false
+              }
+              meta.dailyCycleStart = currentDaily
+              changed = true
+            }
+
+            if (meta.weeklyCycleStart !== currentWeekly) {
+              for (const role of rili.roles) {
+                if (!role || !Array.isArray(role.weeklyTasks)) continue
+                for (const g of role.weeklyTasks) {
+                  if (!g) continue
+                  if (g.type === 'group' && Array.isArray(g.subTasks)) {
+                    for (const s of g.subTasks) s.completed = 0
+                  } else {
+                    g.completed = 0
+                  }
+                }
+              }
+              meta.weeklyCycleStart = currentWeekly
+              changed = true
+            }
+
+            if (changed) {
+              rili.meta = meta
+              riliScheduleSaveTaskManager()
+            }
+          }
+
+          function riliUpdateTimers() {
+            const now = new Date()
+            riliTimers.daily = formatTimeLeft(now, nextDailyReset(now))
+            riliTimers.weekly = formatTimeLeft(now, nextWeeklyReset(now))
+          }
+
+          function riliScheduleSaveTaskManager() {
+            if (!connected.value) return
+            if (riliSaveTaskTimer) clearTimeout(riliSaveTaskTimer)
+            riliSaveTaskTimer = setTimeout(() => {
+              const payload = { roles: rili.roles, activeRoleId: rili.activeRoleId, meta: rili.meta || {} }
+              rpc('rili.saveTaskManager', { data: payload }).catch((e) => pushLog('error', e.message || String(e)))
+            }, 300)
+          }
+
+          function riliScheduleSaveActivity() {
+            if (!connected.value) return
+            if (riliSaveActivityTimer) clearTimeout(riliSaveActivityTimer)
+            riliSaveActivityTimer = setTimeout(() => {
+              const payload = { completed: rili.activity.completed || {}, lastUpdated: toLocalIso(new Date()) }
+              rpc('rili.saveActivityCalendar', { data: payload }).catch((e) => pushLog('error', e.message || String(e)))
+            }, 300)
+          }
+
+          async function ensureRiliLoaded(force) {
+            if (rili.loaded && !force) return
+            if (!connected.value) return
+            rili.loading = true
+            rili.error = ''
+            try {
+              const [tm, ac, defs] = await Promise.all([
+                rpc('rili.getTaskManager'),
+                rpc('rili.getActivityCalendar'),
+                rpc('rili.getActivityDefinitions'),
+              ])
+              const rawRoles = tm && Array.isArray(tm.roles) ? tm.roles : []
+              const synced = rawRoles.filter((x) => x && typeof x === 'object').map((x) => riliSyncRole(x))
+              rili.roles = synced.length ? synced : [riliCreateNewRole('默认角色')]
+              const activeId = tm && tm.activeRoleId ? String(tm.activeRoleId) : ''
+              rili.activeRoleId = rili.roles.some((x) => x.id === activeId) ? activeId : rili.roles[0].id
+              rili.meta = tm && typeof tm.meta === 'object' && tm.meta ? tm.meta : {}
+              const completed = ac && typeof ac.completed === 'object' && ac.completed ? ac.completed : {}
+              rili.activity = { completed: { ...completed }, lastUpdated: (ac && ac.lastUpdated) || '' }
+              rili.activityDefs = defs && Array.isArray(defs.activities) ? defs.activities : []
+              riliApplyResetsIfNeeded()
+              rili.loaded = true
+              riliUpdateTimers()
+              ensureRiliPlaystylesSelected(true)
+            } catch (e) {
+              rili.error = e && e.message ? e.message : String(e)
+            } finally {
+              rili.loading = false
+            }
+          }
+
+          function riliReload() {
+            ensureRiliLoaded(true).catch(() => {})
+          }
+
+          function openRiliRoleModal() {
+            riliRoleModalOpen.value = true
+          }
+
+          function closeRiliRoleModal() {
+            riliRoleModalOpen.value = false
+          }
+
+          function riliSetActiveRole(roleId) {
+            const id = String(roleId || '')
+            if (!rili.roles.some((x) => x && x.id === id)) return
+            rili.activeRoleId = id
+            riliScheduleSaveTaskManager()
+            ensureRiliPlaystylesSelected(true)
+          }
+
+          function riliUpdateRoleName(role) {
+            if (!role) return
+            const name = String(role.name || '').trim()
+            role.name = name ? name : '未命名'
+            riliScheduleSaveTaskManager()
+          }
+
+          function riliDeleteRoleById(roleId) {
+            if (rili.roles.length <= 1) {
+              pushLog('error', '至少需要保留 1 个角色')
+              return
+            }
+            const id = String(roleId || '')
+            rili.roles = rili.roles.filter((x) => x && x.id !== id)
+            if (!rili.roles.some((x) => x && x.id === String(rili.activeRoleId || ''))) {
+              rili.activeRoleId = rili.roles.length ? rili.roles[0].id : ''
+            }
+            riliScheduleSaveTaskManager()
+            pushLog('info', '已删除角色')
+          }
+
+          function openRiliDayModal(day) {
+            riliDayModalDay.value = day || null
+            riliDayModalOpen.value = true
+          }
+
+          function closeRiliDayModal() {
+            riliDayModalOpen.value = false
+          }
+
+          function riliSelectRole() {
+            const id = String(rili.activeRoleId || '')
+            if (!rili.roles.some((x) => x.id === id) && rili.roles.length) rili.activeRoleId = rili.roles[0].id
+            riliScheduleSaveTaskManager()
+            ensureRiliPlaystylesSelected(true)
+          }
+
+          function riliAddRole() {
+            const name = String(rili.roleNewName || '').trim()
+            if (!name) {
+              pushLog('error', '请输入新增角色名')
+              return
+            }
+            const role = riliCreateNewRole(name)
+            rili.roles = [...rili.roles, role]
+            rili.activeRoleId = role.id
+            rili.roleNewName = ''
+            riliScheduleSaveTaskManager()
+            pushLog('info', `已新增角色：${role.name}`)
+            ensureRiliPlaystylesSelected(true)
+          }
+
+          function openRiliPlaystyleModal(required) {
+            const role = riliActiveRole.value
+            const styles = role && Array.isArray(role.playstyles) ? role.playstyles.map((s) => String(s)) : []
+            riliPlaystylePick.PVE = styles.includes('PVE')
+            riliPlaystylePick.PVP = styles.includes('PVP')
+            riliPlaystylePick.PVX = styles.includes('PVX')
+            riliPlaystylePick.GVG = styles.includes('GVG')
+            riliPlaystyleRequired.value = !!required
+            riliPlaystyleModalOpen.value = true
+          }
+
+          function closeRiliPlaystyleModal() {
+            riliPlaystyleModalOpen.value = false
+            riliPlaystyleRequired.value = false
+          }
+
+          function saveRiliPlaystyles() {
+            const selected = []
+            if (riliPlaystylePick.PVE) selected.push('PVE')
+            if (riliPlaystylePick.PVP) selected.push('PVP')
+            if (riliPlaystylePick.PVX) selected.push('PVX')
+            if (riliPlaystylePick.GVG) selected.push('GVG')
+            if (!selected.length) {
+              pushLog('error', '至少选择 1 个玩法类型')
+              return
+            }
+            const role = riliActiveRole.value
+            if (!role) return
+            role.playstyles = selected
+            riliScheduleSaveTaskManager()
+            closeRiliPlaystyleModal()
+          }
+
+          function ensureRiliPlaystylesSelected(required) {
+            const role = riliActiveRole.value
+            const styles = role && Array.isArray(role.playstyles) ? role.playstyles.filter((s) => typeof s === 'string' && s.trim()) : []
+            if (!styles.length) openRiliPlaystyleModal(required)
+          }
+
+          function riliRenameRole() {
+            const name = String(rili.roleRename || '').trim()
+            if (!name) {
+              pushLog('error', '请输入新角色名')
+              return
+            }
+            const role = riliActiveRole.value
+            if (!role) return
+            role.name = name
+            rili.roleRename = ''
+            riliScheduleSaveTaskManager()
+            pushLog('info', '已修改角色名')
+          }
+
+          function riliDeleteRole() {
+            if (rili.roles.length <= 1) {
+              pushLog('error', '至少需要保留 1 个角色')
+              return
+            }
+            const id = String(rili.activeRoleId || '')
+            rili.roles = rili.roles.filter((x) => x && x.id !== id)
+            rili.activeRoleId = rili.roles.length ? rili.roles[0].id : ''
+            riliScheduleSaveTaskManager()
+            pushLog('info', '已删除当前角色')
+          }
+
+          function riliToggleDaily(taskId) {
+            const role = riliActiveRole.value
+            if (!role || !Array.isArray(role.dailyTasks)) return
+            const t = role.dailyTasks.find((x) => x && String(x.id) === String(taskId))
+            if (!t) return
+            t.completed = !t.completed
+            riliScheduleSaveTaskManager()
+          }
+
+          function riliFindWeeklySub(groupId, subId) {
+            const role = riliActiveRole.value
+            if (!role || !Array.isArray(role.weeklyTasks)) return null
+            const g = role.weeklyTasks.find((x) => x && String(x.id) === String(groupId))
+            if (!g || !Array.isArray(g.subTasks)) return null
+            const s = g.subTasks.find((x) => x && String(x.id) === String(subId))
+            if (!s) return null
+            return { g, s }
+          }
+
+          function riliIncWeeklySub(groupId, subId) {
+            const pick = riliFindWeeklySub(groupId, subId)
+            if (!pick) return
+            const total = Number(pick.s.total || 1)
+            const completed = Number(pick.s.completed || 0)
+            pick.s.completed = Math.min(total, completed + 1)
+            riliScheduleSaveTaskManager()
+          }
+
+          function riliDecWeeklySub(groupId, subId) {
+            const pick = riliFindWeeklySub(groupId, subId)
+            if (!pick) return
+            const total = Number(pick.s.total || 1)
+            const completed = Number(pick.s.completed || 0)
+            if (total === 1) {
+              pick.s.completed = 0
+            } else {
+              pick.s.completed = Math.max(0, completed - 1)
+            }
+            riliScheduleSaveTaskManager()
+          }
+
+          function riliApplyLinkFromActivity(task) {
+            const rule = RILI_LINK_RULES[String(task.id || '')]
+            if (!rule) return
+            const role = riliActiveRole.value
+            if (!role) return
+            if (rule.type === 'daily_check') {
+              const t = role.dailyTasks.find((x) => x && x.id === rule.dailyTaskId)
+              if (!t) return
+              t.completed = !!rili.activity.completed[task.key]
+              riliScheduleSaveTaskManager()
+              return
+            }
+            if (rule.type === 'weekly_sub') {
+              const pick = riliFindWeeklySub(rule.groupId, rule.subId)
+              if (!pick) return
+              const total = Number(pick.s.total || 1)
+              const done = !!rili.activity.completed[task.key]
+              pick.s.completed = done ? total : 0
+              riliScheduleSaveTaskManager()
+              return
+            }
+          }
+
+          function riliToggleActivity(task) {
+            if (!task || task.displayOnly) return
+            const key = String(task.key || '')
+            if (!key) return
+            const next = !rili.activity.completed[key]
+            rili.activity.completed = { ...rili.activity.completed, [key]: next }
+            riliScheduleSaveActivity()
+            riliApplyLinkFromActivity(task)
+          }
+
+          async function ensureTianshuTrees() {
+            if (!connected.value) return
+            if (Array.isArray(tianshu.trees) && tianshu.trees.length) return
+            try {
+              const res = await rpc('tianshu.listTrees')
+              const trees = res && Array.isArray(res.trees) ? res.trees : []
+              tianshu.trees = trees
+              tianshu.maxPoints = Number(res && res.maxPoints) || 31
+              loadTianshuBuilds()
+              if (activeNav.value === 'tianshu' && !tianshu.treeId && trees.length) {
+                tianshu.treeId = String(trees[0].id)
+                await tianshuSelectTree()
+              }
+            } catch (e) {
+              pushLog('error', e.message || String(e))
+            }
+          }
+
+          async function tianshuSelectTree() {
+            const treeId = String(tianshu.treeId || '').trim()
+            if (!treeId) return
+            try {
+              const res = await rpc('tianshu.getTree', { treeId })
+              tianshu.tree = res && res.tree ? res.tree : null
+              const r = await rpc('tianshu.getRanks', { treeId })
+              tianshu.ranks = r && typeof r.ranks === 'object' && r.ranks ? { ...r.ranks } : {}
+              tianshu.hoverNodeId = ''
+              tianshu.view.panX = 40
+              tianshu.view.panY = 40
+              tianshu.view.scale = 1
+              await nextTick()
+              tianshuFitToStage()
+            } catch (e) {
+              pushLog('error', e.message || String(e))
+            }
+          }
+
+          function tianshuIsUnlockedWithRanks(nodeId, ranksObj) {
+            const node = tianshuNodesById.value.get(String(nodeId))
+            if (!node) return false
+            const prereqs = Array.isArray(node.prereqs) ? node.prereqs : []
+            if (!prereqs.length) return true
+            for (const pid of prereqs) {
+              const p = tianshuNodesById.value.get(String(pid))
+              if (!p) continue
+              const pr = Number(ranksObj[String(pid)]) || 0
+              if (pr >= Number(p.maxRank || 1)) return true
+            }
+            return false
+          }
+
+          function tianshuIsUnlocked(nodeId) {
+            return tianshuIsUnlockedWithRanks(nodeId, tianshu.ranks || {})
+          }
+
+          function tianshuCanUpgrade(node) {
+            if (!node) return false
+            const id = String(node.id)
+            const cur = Number(tianshu.ranks[id]) || 0
+            const maxRank = Number(node.maxRank || 1)
+            if (cur >= maxRank) return false
+            if (!tianshuIsUnlocked(id)) return false
+            if (tianshuTotalPoints.value >= tianshu.maxPoints) return false
+            return true
+          }
+
+          function tianshuCanDowngrade(node) {
+            if (!node) return false
+            const id = String(node.id)
+            const cur = Number(tianshu.ranks[id]) || 0
+            if (cur <= 0) return false
+            const nextRanks = { ...(tianshu.ranks || {}) }
+            if (cur - 1 <= 0) delete nextRanks[id]
+            else nextRanks[id] = cur - 1
+            const tree = tianshu.tree
+            const nodes = tree && Array.isArray(tree.nodes) ? tree.nodes : []
+            for (const n of nodes) {
+              const r = Number(nextRanks[String(n.id)]) || 0
+              if (r <= 0) continue
+              if (!tianshuIsUnlockedWithRanks(String(n.id), nextRanks)) return false
+            }
+            return true
+          }
+
+          function scheduleTianshuSave() {
+            if (tianshu.saveTimer) clearTimeout(tianshu.saveTimer)
+            tianshu.saveTimer = setTimeout(() => {
+              const treeId = String(tianshu.treeId || '').trim()
+              if (!treeId) return
+              rpc('tianshu.saveRanks', { treeId, ranks: tianshu.ranks || {} }).catch((e) =>
+                pushLog('error', e.message || String(e)),
+              )
+            }, 350)
+          }
+
+          function tianshuUpgrade(node) {
+            if (!tianshuCanUpgrade(node)) return
+            const id = String(node.id)
+            const cur = Number(tianshu.ranks[id]) || 0
+            tianshu.ranks = { ...(tianshu.ranks || {}), [id]: cur + 1 }
+            scheduleTianshuSave()
+          }
+
+          function tianshuDowngrade(node) {
+            if (!tianshuCanDowngrade(node)) return
+            const id = String(node.id)
+            const cur = Number(tianshu.ranks[id]) || 0
+            const next = { ...(tianshu.ranks || {}) }
+            if (cur - 1 <= 0) delete next[id]
+            else next[id] = cur - 1
+            tianshu.ranks = next
+            scheduleTianshuSave()
+          }
+
+          function tianshuReset() {
+            tianshu.ranks = {}
+            scheduleTianshuSave()
+          }
+
+          function tianshuCenter() {
+            tianshuFitToStage()
+          }
+
+          function tianshuHover(id) {
+            tianshu.hoverNodeId = String(id || '')
+          }
+
+          function tianshuFitToStage() {
+            const el = tianshuStageEl.value
+            if (!el) {
+              tianshu.view.panX = 40
+              tianshu.view.panY = 40
+              tianshu.view.scale = 1
+              return
+            }
+            const rect = el.getBoundingClientRect()
+            const w = Math.max(1, rect.width)
+            const h = Math.max(1, rect.height)
+            const bounds = tianshuBounds.value
+            const pad = 60
+            const scaleW = (w - pad) / Math.max(1, bounds.width)
+            const scaleH = (h - pad) / Math.max(1, bounds.height)
+            const next = Math.min(1.2, Math.max(0.55, Math.min(scaleW, scaleH)))
+            tianshu.view.scale = next
+            tianshu.view.panX = Math.round((w - bounds.width * next) / 2)
+            tianshu.view.panY = Math.round((h - bounds.height * next) / 2)
+          }
+
+          function tianshuStageDown(ev) {
+            if (ev.button !== 0) return
+            tianshu.view.dragging = true
+            tianshu.view.dragStartX = ev.clientX
+            tianshu.view.dragStartY = ev.clientY
+            tianshu.view.panStartX = tianshu.view.panX
+            tianshu.view.panStartY = tianshu.view.panY
+          }
+
+          function tianshuStageMove(ev) {
+            if (!tianshu.view.dragging) return
+            const dx = ev.clientX - tianshu.view.dragStartX
+            const dy = ev.clientY - tianshu.view.dragStartY
+            tianshu.view.panX = tianshu.view.panStartX + dx
+            tianshu.view.panY = tianshu.view.panStartY + dy
+          }
+
+          function tianshuStageUp() {
+            tianshu.view.dragging = false
+          }
+
+          function tianshuStageWheel(ev) {
+            if (!ev.ctrlKey) return
+            const stage = ev.currentTarget
+            if (!stage) return
+            const rect = stage.getBoundingClientRect()
+            const mx = ev.clientX - rect.left
+            const my = ev.clientY - rect.top
+
+            const prev = tianshu.view.scale
+            const delta = ev.deltaY > 0 ? 0.92 : 1.08
+            const next = Math.min(1.8, Math.max(0.55, prev * delta))
+            if (Math.abs(next - prev) < 0.0001) return
+
+            const worldX = (mx - tianshu.view.panX) / prev
+            const worldY = (my - tianshu.view.panY) / prev
+
+            tianshu.view.scale = next
+            tianshu.view.panX = mx - worldX * next
+            tianshu.view.panY = my - worldY * next
+          }
+
+          function tianshuTooltipEnter(ev, node) {
+            if (!node || !ev) return
+            tianshuTooltip.nodeId = String(node.id)
+            tianshuTooltip.visible = true
+            tianshuTooltipMove(ev)
+          }
+
+          async function tianshuTooltipMove(ev) {
+            if (!tianshuTooltip.visible || !ev) return
+            const margin = 12
+            const offset = 14
+            const baseX = Number(ev.clientX) + offset
+            const baseY = Number(ev.clientY) + offset
+            let maxW = 340
+            let maxH = 260
+            await nextTick()
+            const el = tianshuTooltipEl.value
+            if (el && el.getBoundingClientRect) {
+              const r = el.getBoundingClientRect()
+              maxW = r.width || maxW
+              maxH = r.height || maxH
+            }
+            const vw = window.innerWidth || 1000
+            const vh = window.innerHeight || 800
+            const x = Math.min(vw - maxW - margin, Math.max(margin, baseX))
+            const y = Math.min(vh - maxH - margin, Math.max(margin, baseY))
+            tianshuTooltip.x = Math.round(x)
+            tianshuTooltip.y = Math.round(y)
+          }
+
+          function tianshuTooltipLeave() {
+            tianshuTooltip.visible = false
+            tianshuTooltip.nodeId = ''
+          }
+
+          function tianshuOpenBuildModal() {
+            tianshuBuildModalOpen.value = true
+          }
+
+          function tianshuCloseBuildModal() {
+            tianshuBuildModalOpen.value = false
+          }
+
+          function tianshuOpenGainsModal() {
+            tianshuGainsModalOpen.value = true
+          }
+
+          function tianshuCloseGainsModal() {
+            tianshuGainsModalOpen.value = false
+          }
+
+          function openLogModal() {
+            logModalOpen.value = true
+          }
+
+          function closeLogModal() {
+            logModalOpen.value = false
+          }
+
+          function loadTianshuBuilds() {
+            try {
+              const raw = localStorage.getItem('tianshu.builds.v1') || '[]'
+              const list = JSON.parse(raw)
+              tianshu.builds = Array.isArray(list) ? list.filter((x) => x && x.id && x.treeId && x.ranks) : []
+            } catch (e) {
+              tianshu.builds = []
+            }
+          }
+
+          function saveTianshuBuilds() {
+            try {
+              localStorage.setItem('tianshu.builds.v1', JSON.stringify(tianshu.builds || []))
+            } catch (e) {}
+          }
+
+          function tianshuSaveBuild() {
+            const treeId = String(tianshu.treeId || '').trim()
+            if (!treeId) return
+            const name = String(tianshu.buildName || '').trim()
+            if (!name) {
+              pushLog('error', '请先输入方案名')
+              return
+            }
+            const entry = {
+              id: uuid(),
+              treeId,
+              name,
+              ranks: { ...(tianshu.ranks || {}) },
+              createdAt: Date.now(),
+            }
+            tianshu.builds = [entry, ...(tianshu.builds || [])].slice(0, 80)
+            tianshu.selectedBuildId = entry.id
+            saveTianshuBuilds()
+            pushLog('info', `已保存方案：${name}`)
+          }
+
+          function tianshuLoadBuild() {
+            const id = String(tianshu.selectedBuildId || '')
+            const entry = (tianshu.builds || []).find((b) => b && b.id === id)
+            if (!entry) {
+              pushLog('error', '请先选择一个方案')
+              return
+            }
+            if (String(entry.treeId) !== String(tianshu.treeId || '')) {
+              pushLog('error', '所选方案不属于当前流派')
+              return
+            }
+            tianshu.ranks = { ...(entry.ranks || {}) }
+            tianshu.buildName = entry.name || tianshu.buildName
+            scheduleTianshuSave()
+            pushLog('info', `已加载方案：${entry.name}`)
+          }
+
+          function tianshuDeleteBuild() {
+            const id = String(tianshu.selectedBuildId || '')
+            if (!id) {
+              pushLog('error', '请先选择一个方案')
+              return
+            }
+            const before = tianshu.builds || []
+            const next = before.filter((b) => b && b.id !== id)
+            if (next.length === before.length) return
+            tianshu.builds = next
+            tianshu.selectedBuildId = ''
+            saveTianshuBuilds()
+            pushLog('info', '已删除所选方案')
+          }
+
+          function tianshuExport() {
+            const treeId = String(tianshu.treeId || '').trim()
+            if (!treeId) return
+            const payload = { treeId, ranks: tianshu.ranks || {} }
+            tianshu.shareText = JSON.stringify(payload)
+            pushLog('info', '已导出到文本框（可复制分享）')
+          }
+
+          async function tianshuImport() {
+            const raw = String(tianshu.shareText || '').trim()
+            if (!raw) {
+              pushLog('error', '请先粘贴要导入的文本')
+              return
+            }
+            let obj
+            try {
+              obj = JSON.parse(raw)
+            } catch (e) {
+              pushLog('error', '导入失败：不是合法 JSON')
+              return
+            }
+            const treeId = String(obj && obj.treeId ? obj.treeId : tianshu.treeId || '').trim()
+            const ranks = obj && typeof obj.ranks === 'object' && obj.ranks ? obj.ranks : null
+            if (!treeId || !ranks) {
+              pushLog('error', '导入失败：缺少 treeId 或 ranks')
+              return
+            }
+            if (treeId !== String(tianshu.treeId || '')) {
+              tianshu.treeId = treeId
+              await tianshuSelectTree()
+            }
+            tianshu.ranks = { ...ranks }
+            scheduleTianshuSave()
+            pushLog('info', '已导入并应用加点')
+          }
+
+          function sendPing() {
+            try {
+              ws && ws.send(JSON.stringify({ type: 'ping' }))
+              pushLog('info', '已发送 ping')
+            } catch (e) {
+              pushLog('error', '发送失败')
+            }
+          }
+
+          function sendTestLog() {
+            rpc('log.add', { level: 'info', message: `测试消息：${form.input || 'hello'}` }).catch((e) =>
+              pushLog('error', e.message || String(e)),
+            )
+          }
+
+          onMounted(() => {
+            bootstrap()
+            riliUpdateTimers()
+            setInterval(() => riliUpdateTimers(), 60_000)
+            window.addEventListener('resize', () => {
+              if (activeNav.value !== 'tianshu') return
+              nextTick().then(() => tianshuFitToStage())
+            })
+          })
+
+          watch(
+            () => activeNav.value,
+            (key) => {
+              if (key === 'tianshu') ensureTianshuTrees().catch(() => {})
+              if (key === 'rili') ensureRiliLoaded(false).catch(() => {})
+            },
+          )
+
+          return {
+            appTitle,
+            connected,
+            activeNav,
+            tools,
+            logs,
+            urls,
+            form,
+            pageTitle,
+            pageDesc,
+            setActive,
+            sendPing,
+            sendTestLog,
+            openLogModal,
+            closeLogModal,
+            logModalOpen,
+            rili,
+            riliTimers,
+            riliWeekRangeText,
+            riliWeekDays,
+            riliActiveRole,
+            riliDailyTasks,
+            riliWeeklyGroups,
+            riliSelectRole,
+            riliAddRole,
+            riliRenameRole,
+            riliDeleteRole,
+            riliReload,
+            riliRoleModalOpen,
+            openRiliRoleModal,
+            closeRiliRoleModal,
+            riliSetActiveRole,
+            riliUpdateRoleName,
+            riliDeleteRoleById,
+            riliPlaystyleModalOpen,
+            riliPlaystyleRequired,
+            riliPlaystylePick,
+            openRiliPlaystyleModal,
+            closeRiliPlaystyleModal,
+            saveRiliPlaystyles,
+            riliDayModalOpen,
+            riliDayModalDay,
+            openRiliDayModal,
+            closeRiliDayModal,
+            riliToggleDaily,
+            riliIncWeeklySub,
+            riliDecWeeklySub,
+            riliToggleActivity,
+            tianshuStageEl,
+            tianshuTooltipEl,
+            tianshu,
+            tianshuTotalPoints,
+            tianshuBounds,
+            tianshuEdges,
+            tianshuHoverNode,
+            tianshuHoverDesc,
+            tianshuGains,
+            tianshuBuildsForTree,
+            tianshuSelectTree,
+            tianshuReset,
+            tianshuCenter,
+            tianshuIsUnlocked,
+            tianshuCanUpgrade,
+            tianshuUpgrade,
+            tianshuDowngrade,
+            tianshuHover,
+            tianshuFitToStage,
+            tianshuStageDown,
+            tianshuStageMove,
+            tianshuStageUp,
+            tianshuStageWheel,
+            tianshuTooltip,
+            tianshuTooltipNode,
+            tianshuTooltipDesc,
+            tianshuTooltipStats,
+            tianshuTooltipReq,
+            tianshuTooltipEnter,
+            tianshuTooltipMove,
+            tianshuTooltipLeave,
+            tianshuBuildModalOpen,
+            tianshuOpenBuildModal,
+            tianshuCloseBuildModal,
+            tianshuGainsModalOpen,
+            tianshuOpenGainsModal,
+            tianshuCloseGainsModal,
+            tianshuSaveBuild,
+            tianshuLoadBuild,
+            tianshuDeleteBuild,
+            tianshuExport,
+            tianshuImport,
+          }
+        },
+      }).mount('#app')
+    </script>
+  </body>
+</html>
