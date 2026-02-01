@@ -12,8 +12,17 @@ def _read_json(path: str, default):
         return default
 
 
+def _runtime_root() -> str:
+    meipass = getattr(sys, "_MEIPASS", None)
+    if isinstance(meipass, str) and meipass and os.path.isdir(meipass):
+        return os.path.abspath(meipass)
+    if getattr(sys, "frozen", False):
+        return os.path.abspath(os.path.dirname(sys.executable))
+    return os.path.abspath(os.path.dirname(__file__))
+
+
 def main():
-    project_root = os.path.abspath(os.path.dirname(__file__))
+    project_root = _runtime_root()
     app_cfg = _read_json(os.path.join(project_root, "config", "app.json"), {"name": "OK-ZhuXian World", "version": "dev"})
 
     try:

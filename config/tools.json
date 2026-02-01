@@ -15,5 +15,10 @@
     "id": "tianshu",
     "name": "天书模拟器",
     "type": "qt"
+  },
+  {
+    "id": "wiki",
+    "name": "资料库",
+    "type": "qt"
   }
 ]

@@ -12,3 +12,4 @@ tools/tianshu/storage/
 
 dist/
 build/
+*.spec

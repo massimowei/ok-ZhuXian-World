@@ -1,38 +1,39 @@
 import os
-import importlib.util
+import sys
 
 _VER1_MODULE = None
+
+
+def _runtime_root() -> str:
+    meipass = getattr(sys, "_MEIPASS", None)
+    if isinstance(meipass, str) and meipass and os.path.isdir(meipass):
+        return os.path.abspath(meipass)
+    if getattr(sys, "frozen", False):
+        return os.path.abspath(os.path.dirname(sys.executable))
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
 
 def _load_ver1_module():
     global _VER1_MODULE
     if _VER1_MODULE is not None:
         return _VER1_MODULE
-    ver1_path = os.path.join(
-        os.path.dirname(__file__),
-        'core',
-        'cards_sim_ver1.py'
-    )
-    ver1_path = os.path.abspath(ver1_path)
-    spec = importlib.util.spec_from_file_location("cards_sim_ver1", ver1_path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError(f"无法加载模拟核心: {ver1_path}")
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
+    from tools.danqing.core import cards_sim_ver1 as mod
+
     _VER1_MODULE = mod
     return mod
 
 def load_cards_export() -> dict:
-    local_json = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), 'data', 'cards_export.json')
-    )
+    local_json = os.path.join(_runtime_root(), "tools", "danqing", "data", "cards_export.json")
+    if not os.path.exists(local_json):
+        local_json = os.path.abspath(os.path.join(os.path.dirname(__file__), "data", "cards_export.json"))
     if not os.path.exists(local_json):
         raise FileNotFoundError(f"找不到数据文件: {local_json}")
     import json
-    with open(local_json, 'r', encoding='utf-8') as f:
+    with open(local_json, "r", encoding="utf-8") as f:
         data = json.load(f)
     if not isinstance(data, dict):
         raise ValueError("cards_export.json 格式不正确：根节点应为对象")
-    cards = data.get('cards')
+    cards = data.get("cards")
     if not isinstance(cards, list) or not cards:
         raise ValueError("cards_export.json 格式不正确：缺少 cards 数组或为空")
     return data

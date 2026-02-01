@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 import threading
 import time
 import traceback
@@ -256,7 +257,13 @@ def _render_danqing_page(parent, log, set_status):
 
 
 def start():
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    meipass = getattr(sys, "_MEIPASS", None)
+    if isinstance(meipass, str) and meipass and os.path.isdir(meipass):
+        project_root = os.path.abspath(meipass)
+    elif getattr(sys, "frozen", False):
+        project_root = os.path.abspath(os.path.dirname(sys.executable))
+    else:
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     app_cfg = _load_app_config(project_root)
     tools_cfg = _load_tools_config(project_root)
 
@@ -345,6 +352,14 @@ def start():
             ttk.Label(content.inner, text="天书模拟器需要 Qt 版本（请用 python main.py 启动）", style="Panel.TLabel").pack(
                 anchor="w"
             )
+            ttk.Label(
+                content.inner,
+                text="如果你看到这里，说明 Qt 启动失败并回退到了 Tkinter。",
+                style="Muted.TLabel",
+            ).pack(anchor="w", pady=(6, 0))
+            return
+        if tool_id == "wiki":
+            ttk.Label(content.inner, text="资料库需要 Qt 版本（请用 python main.py 启动）", style="Panel.TLabel").pack(anchor="w")
             ttk.Label(
                 content.inner,
                 text="如果你看到这里，说明 Qt 启动失败并回退到了 Tkinter。",

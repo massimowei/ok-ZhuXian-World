@@ -1,4 +1,5 @@
 import os
+import csv
 import json
 import re
 import sys
@@ -9,9 +10,10 @@ from datetime import datetime, timedelta, time as dt_time
 from dataclasses import dataclass
 
 from PyQt6.QtCore import QObject, Qt, QThread, QTimer, pyqtSignal, pyqtSlot, QPointF, QRectF, QUrl
-from PyQt6.QtGui import QBrush, QColor, QCursor, QFont, QPainter, QPen
+from PyQt6.QtGui import QBrush, QColor, QCursor, QFont, QPainter, QPen, QPixmap
 from PyQt6.QtWidgets import (
     QApplication,
+    QAbstractItemView,
     QCheckBox,
     QComboBox,
     QDialog,
@@ -19,6 +21,7 @@ from PyQt6.QtWidgets import (
     QFrame,
     QGridLayout,
     QHBoxLayout,
+    QHeaderView,
     QLabel,
     QPushButton,
     QGraphicsDropShadowEffect,
@@ -29,6 +32,8 @@ from PyQt6.QtWidgets import (
     QGraphicsView,
     QScrollArea,
     QSplitter,
+    QTableWidget,
+    QTableWidgetItem,
     QToolTip,
     QVBoxLayout,
     QWidget,
@@ -73,6 +78,87 @@ def _write_json(file_path: str, data):
     with open(tmp_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     os.replace(tmp_path, file_path)
+
+
+def _is_frozen() -> bool:
+    return bool(getattr(sys, "frozen", False))
+
+
+def _runtime_root() -> str:
+    meipass = getattr(sys, "_MEIPASS", None)
+    if isinstance(meipass, str) and meipass and os.path.isdir(meipass):
+        return os.path.abspath(meipass)
+    if _is_frozen():
+        return os.path.abspath(os.path.dirname(sys.executable))
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
+
+def _user_data_root(app_name: str) -> str:
+    base = os.environ.get("LOCALAPPDATA") or os.environ.get("APPDATA") or os.path.expanduser("~")
+    safe = re.sub(r"[^0-9A-Za-z._ -]+", "", str(app_name or "").strip()) or "OK-ZhuXian World"
+    return os.path.join(base, safe)
+
+
+
+def _show_text_dialog(parent: QWidget, title: str, content: str) -> None:
+    dialog = QDialog(parent)
+    dialog.setWindowTitle(str(title or ""))
+    dialog.setModal(True)
+    dialog.setStyleSheet(
+        "QDialog{background:#121212;}"
+        "QLabel{color:#E0E0E0;}"
+        "QTextEdit,QPlainTextEdit{background:#0B0F14;color:#E0E0E0;border:1px solid rgba(0,229,255,0.16);border-radius:12px;padding:12px;}"
+    )
+    root = QVBoxLayout(dialog)
+    root.setContentsMargins(18, 16, 18, 16)
+    root.setSpacing(12)
+
+    title_label = SubtitleLabel(str(title or ""))
+    title_label.setStyleSheet("color:#E0E0E0;")
+    root.addWidget(title_label, 0)
+
+    text = TextEdit()
+    text.setReadOnly(True)
+    text.setPlainText(str(content or "").strip())
+    root.addWidget(text, 1)
+
+    btn_row = QHBoxLayout()
+    btn_row.setContentsMargins(0, 0, 0, 0)
+    btn_row.setSpacing(10)
+    btn_row.addStretch(1)
+    ok_btn = PrimaryPushButton("关闭")
+    btn_row.addWidget(ok_btn, 0)
+    root.addLayout(btn_row, 0)
+
+    ok_btn.clicked.connect(dialog.accept)
+    dialog.exec()
+
+
+def _make_help_button(parent: QWidget, title: str, content: str) -> QPushButton:
+    btn = QPushButton("?")
+    btn.setFixedSize(26, 26)
+    btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+    btn.setStyleSheet(
+        "QPushButton{color:#E0E0E0;background:rgba(255,255,255,0.06);border:1px solid rgba(0,229,255,0.22);border-radius:13px;}"
+        "QPushButton:hover{background:rgba(0,229,255,0.10);border:1px solid rgba(0,229,255,0.55);}"
+        "QPushButton:pressed{background:rgba(0,229,255,0.16);border:1px solid rgba(0,229,255,0.70);}"
+    )
+    btn.clicked.connect(lambda: _show_text_dialog(parent, title, content))
+    return btn
+
+
+def _make_page_header(parent: QWidget, title: str, help_title: str, help_content: str, title_qss: str | None = None) -> QWidget:
+    wrapper = QWidget(parent)
+    layout = QHBoxLayout(wrapper)
+    layout.setContentsMargins(0, 0, 0, 0)
+    layout.setSpacing(10)
+    title_label = SubtitleLabel(str(title or ""))
+    if title_qss:
+        title_label.setStyleSheet(title_qss)
+    layout.addWidget(title_label, 0)
+    layout.addStretch(1)
+    layout.addWidget(_make_help_button(parent, help_title, help_content), 0)
+    return wrapper
 
 
 def _daily_cycle_start(now: datetime) -> datetime:
@@ -572,12 +658,16 @@ class DanqingInterface(QWidget):
         root.setContentsMargins(24, 18, 24, 18)
         root.setSpacing(12)
 
-        title = SubtitleLabel("丹青模拟器")
-        desc = BodyLabel("输入卡组 ID，运行本地计算并查看结果")
-        title.setStyleSheet(f"color:{self._text};")
-        desc.setStyleSheet(f"color:{self._muted};")
-        root.addWidget(title)
-        root.addWidget(desc)
+        root.addWidget(
+            _make_page_header(
+                self,
+                "丹青模拟器",
+                "丹青模拟器 - 使用说明",
+                "1. 在卡组输入框中填写卡牌 ID（逗号分隔）。\n2. 设置等级、战斗时长、种子（可留空）。\n3. 点击开始运行，结果在输出区展示，日志在下方展示。",
+                title_qss=f"color:{self._text};",
+            ),
+            0,
+        )
 
         main_splitter = QSplitter(Qt.Orientation.Horizontal, self)
         main_splitter.setChildrenCollapsible(False)
@@ -2059,7 +2149,7 @@ class OfflineActivityCalendar(QWidget):
         header_layout = QHBoxLayout(header)
         header_layout.setContentsMargins(0, 0, 0, 0)
         header_layout.setSpacing(10)
-        header_layout.addWidget(BodyLabel("点击任务可标记完成/取消完成"), 1)
+        header_layout.addStretch(1)
         self.reset_btn = PrimaryPushButton("重置本周进度")
         header_layout.addWidget(self.reset_btn, 0)
         root.addWidget(header, 0)
@@ -2204,8 +2294,15 @@ class RiliInterface(QWidget):
         root.setContentsMargins(24, 18, 24, 18)
         root.setSpacing(12)
 
-        root.addWidget(SubtitleLabel("游戏日历"))
-        root.addWidget(BodyLabel("离线版：不需要联网也能用"))
+        root.addWidget(
+            _make_page_header(
+                self,
+                "游戏日历",
+                "游戏日历 - 使用说明",
+                "1. 使用“任务管理/活动日历”切换页面。\n2. 点击任务可标记完成或取消。\n3. 配置与进度均保存在本地。",
+            ),
+            0,
+        )
 
         config_row = QHBoxLayout()
         config_row.setContentsMargins(0, 0, 0, 0)
@@ -2537,8 +2634,15 @@ class TianshuInterface(QWidget):
         root.setContentsMargins(24, 18, 24, 18)
         root.setSpacing(12)
 
-        root.addWidget(SubtitleLabel("天书模拟器"), 0)
-        root.addWidget(BodyLabel("离线版：本地加点 + 本地存档（上限 31 点）"), 0)
+        root.addWidget(
+            _make_page_header(
+                self,
+                "天书模拟器",
+                "天书模拟器 - 使用说明",
+                "1. 左键点击节点加点，右键点击节点减点。\n2. 拖动空白处平移，Ctrl+滚轮缩放。\n3. 右侧查看属性/效果汇总，进度自动本地保存。",
+            ),
+            0,
+        )
 
         header_card = CardWidget()
         header_layout = QGridLayout(header_card)
@@ -2567,7 +2671,6 @@ class TianshuInterface(QWidget):
         left_layout.setContentsMargins(0, 0, 0, 0)
         left_layout.setSpacing(10)
 
-        left_layout.addWidget(BodyLabel("节点图：左键加点，右键减点；拖动空白处平移；Ctrl+滚轮缩放"), 0)
         self.graph = _TianshuGraphView(owner=self, parent=left)
         self.graph.setFrameShape(QFrame.Shape.NoFrame)
         left_layout.addWidget(self.graph, 1)
@@ -3347,12 +3450,675 @@ class WebViewBridge(QObject):
         )
 
 
+def _read_csv_rows(file_path: str) -> list[dict[str, str]]:
+    try:
+        with open(file_path, "r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            rows = []
+            for r in reader:
+                if not isinstance(r, dict):
+                    continue
+                rows.append({str(k or "").strip(): str(v or "").strip() for k, v in r.items()})
+            return rows
+    except Exception:
+        return []
+
+
+def _res2_image_to_rel(image_path: str) -> str:
+    raw = str(image_path or "").strip()
+    if not raw:
+        return ""
+    raw = raw.replace("\\", "/")
+    raw = raw.lstrip("/")
+    if raw.startswith("assets/"):
+        raw = raw.split("assets/", 1)[1]
+    return raw.replace("/", os.sep)
+
+
+def _load_res2_equipment_icon_map(res2_dir: str) -> dict[str, str]:
+    try:
+        placeholder = os.path.join("icons", "equipment", "e_0000.jpg")
+        placeholder_full = os.path.normpath(os.path.join(res2_dir, placeholder))
+        has_placeholder = os.path.isfile(placeholder_full)
+
+        db_path = os.path.join(res2_dir, "zhuxian_master_db.json")
+        if not os.path.isfile(db_path):
+            return {}
+        with open(db_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        items = data.get("equipment")
+        if not isinstance(items, list):
+            return {}
+
+        best_by_name: dict[str, tuple[bool, int, str]] = {}
+        for obj in items:
+            if not isinstance(obj, dict):
+                continue
+            name = str(obj.get("name") or "").strip()
+            if not name:
+                continue
+            raw_info = obj.get("raw_info") if isinstance(obj.get("raw_info"), dict) else {}
+            try:
+                item_lv = int(raw_info.get("item_lv") or 0)
+            except Exception:
+                item_lv = 0
+            rel = _res2_image_to_rel(str(obj.get("image_path") or ""))
+            full = os.path.normpath(os.path.join(res2_dir, rel)) if rel else ""
+            ok = bool(rel) and os.path.isfile(full)
+
+            prev = best_by_name.get(name)
+            if prev is None:
+                best_by_name[name] = (ok, item_lv, rel)
+                continue
+            prev_ok, prev_lv, _prev_rel = prev
+            if ok and not prev_ok:
+                best_by_name[name] = (ok, item_lv, rel)
+                continue
+            if ok == prev_ok and item_lv > prev_lv:
+                best_by_name[name] = (ok, item_lv, rel)
+
+        out: dict[str, str] = {}
+        for name, (ok, _lv, rel) in best_by_name.items():
+            if ok and rel:
+                out[name] = rel
+            elif has_placeholder:
+                out[name] = placeholder
+        return out
+    except Exception:
+        return {}
+
+
+def _load_res2_equipment_rows(res2_dir: str) -> list[dict[str, str]]:
+    try:
+        db_path = os.path.join(res2_dir, "zhuxian_master_db.json")
+        if not os.path.isfile(db_path):
+            return []
+        with open(db_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        items = data.get("equipment")
+        if not isinstance(items, list):
+            return []
+
+        rows: list[dict[str, str]] = []
+        for obj in items:
+            if not isinstance(obj, dict):
+                continue
+            name = str(obj.get("name") or "").strip()
+            if not name:
+                continue
+
+            raw_info = obj.get("raw_info") if isinstance(obj.get("raw_info"), dict) else {}
+            quality = str(obj.get("quality") or raw_info.get("quality") or "").strip()
+            part = str(raw_info.get("inventory_type") or "").strip()
+            lvl_raw = raw_info.get("item_lv")
+            lvl = str(lvl_raw).strip() if lvl_raw is not None else ""
+
+            stats = obj.get("stats")
+            if not isinstance(stats, list):
+                stats = raw_info.get("stats")
+            stat_lines: list[str] = []
+            if isinstance(stats, list):
+                for s in stats:
+                    if not isinstance(s, dict):
+                        continue
+                    ds = str(s.get("display_string") or "").strip()
+                    if ds:
+                        stat_lines.append(ds)
+            base_stats = " | ".join(stat_lines)
+
+            effs = obj.get("effects")
+            green_lines: list[str] = []
+            if isinstance(effs, list):
+                for e in effs:
+                    if not isinstance(e, dict):
+                        continue
+                    d = str(e.get("description") or "").strip()
+                    if d:
+                        green_lines.append(d)
+            green = " | ".join(green_lines)
+
+            source = raw_info.get("source")
+            source_text = ""
+            if isinstance(source, list):
+                source_text = " | ".join([str(x).strip() for x in source if str(x).strip()])
+            elif source:
+                source_text = str(source).strip()
+
+            req = raw_info.get("requirements") if isinstance(raw_info.get("requirements"), dict) else {}
+            basic_parts: list[str] = []
+            playable_classes = str(req.get("playable_classes") or "").strip()
+            if playable_classes:
+                basic_parts.append(f"门派需求：{playable_classes}")
+            basic_info = " | ".join(basic_parts)
+
+            rows.append(
+                {
+                    "时间": "",
+                    "名称": name,
+                    "品质信息": quality,
+                    "部位": part,
+                    "物品等级": lvl,
+                    "基础属性": base_stats,
+                    "绿字属性": green,
+                    "灌注属性": "",
+                    "基本信息": basic_info,
+                    "描述": "",
+                    "获取途径": source_text,
+                }
+            )
+
+        return rows
+    except Exception:
+        return []
+
+
+def _parse_equipment_level(value: str) -> int:
+    raw = str(value or "").strip()
+    if not raw:
+        return 0
+    nums = re.findall(r"\d+", raw)
+    if not nums:
+        return 0
+    try:
+        return max(int(n) for n in nums)
+    except Exception:
+        return 0
+
+
+
+def _configure_dark_table(table: QTableWidget) -> None:
+    table.setAlternatingRowColors(True)
+    table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+    table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
+    table.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
+    table.setSortingEnabled(True)
+    table.verticalHeader().setVisible(False)
+    header = table.horizontalHeader()
+    header.setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
+    header.setStretchLastSection(True)
+    table.setStyleSheet(
+        "QTableWidget{background:#0B0F14;color:#E0E0E0;gridline-color:rgba(0,229,255,0.10);border:1px solid rgba(0,229,255,0.16);border-radius:12px;}"
+        "QTableWidget::item{padding:6px 10px;}"
+        "QTableWidget::item:selected{background:rgba(0,229,255,0.18);}"
+        "QHeaderView::section{background:#1E1E1E;color:#E0E0E0;border:0;padding:7px 10px;}"
+        "QTableCornerButton::section{background:#1E1E1E;border:0;}"
+        "QTableWidget{alternate-background-color:rgba(255,255,255,0.03);}"
+    )
+
+
+class WikiMarketPage(QWidget):
+    def __init__(self, wiki_dir: str, res2_dir: str | None = None, parent=None):
+        super().__init__(parent=parent)
+        self.wiki_dir = wiki_dir
+        self.res2_dir = res2_dir
+        self.data = _read_csv_rows(os.path.join(wiki_dir, "market_data_2026-01-24_final.csv"))
+
+        root = QVBoxLayout(self)
+        root.setContentsMargins(0, 0, 0, 0)
+        root.setSpacing(12)
+
+        filter_card = CardWidget()
+        filter_card.setStyleSheet("background:#1E1E1E;border:1px solid rgba(0,229,255,0.15);border-radius:12px;")
+        f = QGridLayout(filter_card)
+        f.setContentsMargins(16, 14, 16, 14)
+        f.setHorizontalSpacing(10)
+        f.setVerticalSpacing(10)
+
+        f.addWidget(BodyLabel("搜索"), 0, 0, 1, 1)
+        self.search = LineEdit()
+        self.search.setPlaceholderText("物品名包含关键词")
+        self.search.setStyleSheet(
+            "QLineEdit{background:transparent;color:#E0E0E0;border:0;border-bottom:2px solid rgba(0,229,255,0.55);padding:6px 2px;}"
+            "QLineEdit:focus{border-bottom:2px solid #00E5FF;}"
+        )
+        f.addWidget(self.search, 0, 1, 1, 3)
+
+        f.addWidget(BodyLabel("品质"), 1, 0, 1, 1)
+        self.quality = QComboBox()
+        self.quality.setStyleSheet(
+            "QComboBox{background:#1E1E1E;color:#E0E0E0;border:1px solid rgba(0,229,255,0.22);border-radius:8px;padding:6px 10px;}"
+            "QComboBox::drop-down{border:0;}"
+            "QComboBox QAbstractItemView{background-color:#1E1E1E;color:#E0E0E0;selection-background-color:rgba(0,229,255,0.18);}"
+        )
+        self.quality.addItem("全部", "")
+        qualities = sorted({str(r.get("品质") or "").strip() for r in self.data if str(r.get("品质") or "").strip()})
+        for q in qualities:
+            self.quality.addItem(q, q)
+        f.addWidget(self.quality, 1, 1, 1, 1)
+
+        self.count = BodyLabel("")
+        self.count.setStyleSheet("color:#A0A0A0;")
+        f.addWidget(self.count, 1, 2, 1, 2)
+
+        root.addWidget(filter_card, 0)
+
+        splitter = QSplitter(Qt.Orientation.Horizontal, self)
+        splitter.setChildrenCollapsible(False)
+        splitter.setHandleWidth(1)
+        splitter.setStyleSheet("QSplitter::handle{background:rgba(0,229,255,0.22);}")
+        root.addWidget(splitter, 1)
+
+        left = QWidget()
+        left_layout = QVBoxLayout(left)
+        left_layout.setContentsMargins(0, 0, 0, 0)
+        left_layout.setSpacing(10)
+
+        self.table = QTableWidget()
+        self.table.setColumnCount(4)
+        self.table.setHorizontalHeaderLabels(["物品", "品质", "数量", "一口价"])
+        _configure_dark_table(self.table)
+        self.table.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeMode.Stretch)
+        self.table.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.ResizeToContents)
+        self.table.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeMode.ResizeToContents)
+        self.table.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeMode.ResizeToContents)
+        left_layout.addWidget(self.table, 1)
+
+        right = QWidget()
+        right_layout = QVBoxLayout(right)
+        right_layout.setContentsMargins(0, 0, 0, 0)
+        right_layout.setSpacing(10)
+
+        self.icon = QLabel("无图标")
+        self.icon.setFixedSize(160, 160)
+        self.icon.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.icon.setStyleSheet("background:#0B0F14;color:#A0A0A0;border:1px solid rgba(0,229,255,0.16);border-radius:12px;")
+        right_layout.addWidget(self.icon, 0, alignment=Qt.AlignmentFlag.AlignLeft)
+
+        self.detail = TextEdit()
+        self.detail.setReadOnly(True)
+        self.detail.setStyleSheet(
+            "QTextEdit,QPlainTextEdit{background:#0B0F14;color:#E0E0E0;border:1px solid rgba(0,229,255,0.16);border-radius:12px;padding:12px;font-family:Consolas, 'Courier New', monospace;}"
+        )
+        right_layout.addWidget(self.detail, 1)
+
+        splitter.addWidget(left)
+        splitter.addWidget(right)
+        splitter.setStretchFactor(0, 3)
+        splitter.setStretchFactor(1, 2)
+
+        self.search.textChanged.connect(self._render)
+        self.quality.currentIndexChanged.connect(self._render)
+        self.table.itemSelectionChanged.connect(self._sync_detail)
+        self._render()
+
+    def _match(self, row: dict[str, str], q: str, quality: str) -> bool:
+        if quality and str(row.get("品质") or "").strip() != quality:
+            return False
+        if q:
+            name = str(row.get("物品") or "").lower()
+            if q not in name:
+                return False
+        return True
+
+    def _render(self):
+        q = str(self.search.text() or "").strip().lower()
+        quality = str(self.quality.currentData() or "").strip()
+        filtered = [r for r in self.data if self._match(r, q, quality)]
+        self.count.setText(f"共 {len(filtered)} / {len(self.data)} 条")
+
+        self.table.setSortingEnabled(False)
+        self.table.setRowCount(len(filtered))
+        for i, r in enumerate(filtered):
+            name = str(r.get("物品") or "")
+            qual = str(r.get("品质") or "")
+            qty = str(r.get("数量") or "")
+            price = str(r.get("一口价") or "")
+            self.table.setItem(i, 0, QTableWidgetItem(name))
+            self.table.setItem(i, 1, QTableWidgetItem(qual))
+            self.table.setItem(i, 2, QTableWidgetItem(qty))
+            self.table.setItem(i, 3, QTableWidgetItem(price))
+            self.table.item(i, 0).setData(Qt.ItemDataRole.UserRole, r)
+        self.table.setSortingEnabled(True)
+        if filtered:
+            self.table.selectRow(0)
+        else:
+            self.icon.setText("无图标")
+            self.icon.setPixmap(QPixmap())
+            self.detail.setPlainText("")
+
+    def _sync_detail(self):
+        items = self.table.selectedItems()
+        if not items:
+            return
+        r = items[0].data(Qt.ItemDataRole.UserRole)
+        if not isinstance(r, dict):
+            return
+        lines = []
+        for k in ["物品", "品质", "等级", "数量", "一口价", "图标", "_notes"]:
+            v = str(r.get(k) or "").strip()
+            if v:
+                lines.append(f"{k}: {v}")
+        self.detail.setPlainText("\n".join(lines))
+
+        rel = str(r.get("图标") or "").strip()
+        if not rel:
+            self.icon.setText("无图标")
+            self.icon.setPixmap(QPixmap())
+            return
+        full = os.path.normpath(os.path.join(self.wiki_dir, rel))
+        if not os.path.isfile(full) and self.res2_dir:
+            res2_rel = _res2_image_to_rel(rel)
+            if res2_rel:
+                full = os.path.normpath(os.path.join(self.res2_dir, res2_rel))
+        if not os.path.isfile(full):
+            self.icon.setText("无图标")
+            self.icon.setPixmap(QPixmap())
+            return
+        pix = QPixmap(full)
+        if pix.isNull():
+            self.icon.setText("无图标")
+            self.icon.setPixmap(QPixmap())
+            return
+        scaled = pix.scaled(self.icon.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+        self.icon.setPixmap(scaled)
+        self.icon.setText("")
+
+
+class WikiEquipmentPage(QWidget):
+    def __init__(self, wiki_dir: str, res2_dir: str | None = None, parent=None):
+        super().__init__(parent=parent)
+        self.wiki_dir = wiki_dir
+        self.res2_dir = res2_dir
+        self._res2_equipment_icons = _load_res2_equipment_icon_map(res2_dir) if res2_dir else {}
+        res1_rows = _read_csv_rows(os.path.join(wiki_dir, "equipment_data.csv"))
+        res2_rows = _load_res2_equipment_rows(res2_dir) if res2_dir else []
+
+        by_name: dict[str, dict[str, str]] = {}
+        for r in res1_rows:
+            name = str(r.get("名称") or "").strip()
+            if not name:
+                continue
+            if name not in by_name:
+                by_name[name] = r
+
+        for r in res2_rows:
+            name = str(r.get("名称") or "").strip()
+            if not name:
+                continue
+            prev = by_name.get(name)
+            if prev is None:
+                by_name[name] = r
+                continue
+            for k, v in r.items():
+                if str(prev.get(k) or "").strip():
+                    continue
+                if str(v or "").strip():
+                    prev[k] = v
+
+        self.data = list(by_name.values())
+        self.data.sort(
+            key=lambda r: (
+                str(r.get("名称") or ""),
+                -_parse_equipment_level(str(r.get("物品等级") or "")),
+                str(r.get("部位") or ""),
+                str(r.get("品质信息") or ""),
+            )
+        )
+
+        root = QVBoxLayout(self)
+        root.setContentsMargins(0, 0, 0, 0)
+        root.setSpacing(12)
+
+        filter_card = CardWidget()
+        filter_card.setStyleSheet("background:#1E1E1E;border:1px solid rgba(0,229,255,0.15);border-radius:12px;")
+        f = QGridLayout(filter_card)
+        f.setContentsMargins(16, 14, 16, 14)
+        f.setHorizontalSpacing(10)
+        f.setVerticalSpacing(10)
+
+        f.addWidget(BodyLabel("搜索"), 0, 0, 1, 1)
+        self.search = LineEdit()
+        self.search.setPlaceholderText("名称包含关键词")
+        self.search.setStyleSheet(
+            "QLineEdit{background:transparent;color:#E0E0E0;border:0;border-bottom:2px solid rgba(0,229,255,0.55);padding:6px 2px;}"
+            "QLineEdit:focus{border-bottom:2px solid #00E5FF;}"
+        )
+        f.addWidget(self.search, 0, 1, 1, 3)
+
+        f.addWidget(BodyLabel("部位"), 1, 0, 1, 1)
+        self.part = QComboBox()
+        self.part.setStyleSheet(
+            "QComboBox{background:#1E1E1E;color:#E0E0E0;border:1px solid rgba(0,229,255,0.22);border-radius:8px;padding:6px 10px;}"
+            "QComboBox::drop-down{border:0;}"
+            "QComboBox QAbstractItemView{background-color:#1E1E1E;color:#E0E0E0;selection-background-color:rgba(0,229,255,0.18);}"
+        )
+        self.part.addItem("全部", "")
+        parts = sorted({str(r.get("部位") or "").strip() for r in self.data if str(r.get("部位") or "").strip()})
+        for p in parts:
+            self.part.addItem(p, p)
+        f.addWidget(self.part, 1, 1, 1, 1)
+
+        f.addWidget(BodyLabel("品质"), 1, 2, 1, 1)
+        self.quality = QComboBox()
+        self.quality.setStyleSheet(
+            "QComboBox{background:#1E1E1E;color:#E0E0E0;border:1px solid rgba(0,229,255,0.22);border-radius:8px;padding:6px 10px;}"
+            "QComboBox::drop-down{border:0;}"
+            "QComboBox QAbstractItemView{background-color:#1E1E1E;color:#E0E0E0;selection-background-color:rgba(0,229,255,0.18);}"
+        )
+        self.quality.addItem("全部", "")
+        qualities = sorted({str(r.get("品质信息") or "").strip() for r in self.data if str(r.get("品质信息") or "").strip()})
+        for q in qualities:
+            self.quality.addItem(q, q)
+        f.addWidget(self.quality, 1, 3, 1, 1)
+
+        f.addWidget(BodyLabel("等级≥"), 2, 0, 1, 1)
+        self.level = QComboBox()
+        self.level.setStyleSheet(
+            "QComboBox{background:#1E1E1E;color:#E0E0E0;border:1px solid rgba(0,229,255,0.22);border-radius:8px;padding:6px 10px;}"
+            "QComboBox::drop-down{border:0;}"
+            "QComboBox QAbstractItemView{background-color:#1E1E1E;color:#E0E0E0;selection-background-color:rgba(0,229,255,0.18);}"
+        )
+        self.level.addItem("全部", 0)
+        levels = sorted({_parse_equipment_level(str(r.get("物品等级") or "")) for r in self.data})
+        for lv in levels:
+            if lv > 0:
+                self.level.addItem(str(lv), lv)
+        f.addWidget(self.level, 2, 1, 1, 1)
+
+        self.count = BodyLabel("")
+        self.count.setStyleSheet("color:#A0A0A0;")
+        f.addWidget(self.count, 2, 2, 1, 2)
+
+        root.addWidget(filter_card, 0)
+
+        splitter = QSplitter(Qt.Orientation.Horizontal, self)
+        splitter.setChildrenCollapsible(False)
+        splitter.setHandleWidth(1)
+        splitter.setStyleSheet("QSplitter::handle{background:rgba(0,229,255,0.22);}")
+        root.addWidget(splitter, 1)
+
+        left = QWidget()
+        left_layout = QVBoxLayout(left)
+        left_layout.setContentsMargins(0, 0, 0, 0)
+        left_layout.setSpacing(10)
+
+        self.table = QTableWidget()
+        self.table.setColumnCount(4)
+        self.table.setHorizontalHeaderLabels(["名称", "品质", "部位", "物品等级"])
+        _configure_dark_table(self.table)
+        self.table.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeMode.Stretch)
+        self.table.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.ResizeToContents)
+        self.table.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeMode.ResizeToContents)
+        self.table.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeMode.ResizeToContents)
+        left_layout.addWidget(self.table, 1)
+
+        right = QWidget()
+        right_layout = QVBoxLayout(right)
+        right_layout.setContentsMargins(0, 0, 0, 0)
+        right_layout.setSpacing(10)
+
+        self.icon = QLabel("无图标")
+        self.icon.setFixedSize(160, 160)
+        self.icon.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.icon.setStyleSheet("background:#0B0F14;color:#A0A0A0;border:1px solid rgba(0,229,255,0.16);border-radius:12px;")
+        right_layout.addWidget(self.icon, 0, alignment=Qt.AlignmentFlag.AlignLeft)
+
+        self.detail = TextEdit()
+        self.detail.setReadOnly(True)
+        self.detail.setStyleSheet(
+            "QTextEdit,QPlainTextEdit{background:#0B0F14;color:#E0E0E0;border:1px solid rgba(0,229,255,0.16);border-radius:12px;padding:12px;font-family:Consolas, 'Courier New', monospace;}"
+        )
+        right_layout.addWidget(self.detail, 1)
+
+        splitter.addWidget(left)
+        splitter.addWidget(right)
+        splitter.setStretchFactor(0, 3)
+        splitter.setStretchFactor(1, 2)
+
+        self.search.textChanged.connect(self._render)
+        self.part.currentIndexChanged.connect(self._render)
+        self.quality.currentIndexChanged.connect(self._render)
+        self.level.currentIndexChanged.connect(self._render)
+        self.table.itemSelectionChanged.connect(self._sync_detail)
+        self._render()
+
+    def _match(self, row: dict[str, str], q: str, part: str, quality: str, min_level: int) -> bool:
+        if part and str(row.get("部位") or "").strip() != part:
+            return False
+        if quality and str(row.get("品质信息") or "").strip() != quality:
+            return False
+        if min_level > 0:
+            lv = _parse_equipment_level(str(row.get("物品等级") or ""))
+            if lv < min_level:
+                return False
+        if q:
+            name = str(row.get("名称") or "").lower()
+            if q not in name:
+                return False
+        return True
+
+    def _render(self):
+        q = str(self.search.text() or "").strip().lower()
+        part = str(self.part.currentData() or "").strip()
+        quality = str(self.quality.currentData() or "").strip()
+        try:
+            min_level = int(self.level.currentData() or 0)
+        except Exception:
+            min_level = 0
+        filtered = [r for r in self.data if self._match(r, q, part, quality, min_level)]
+        self.count.setText(f"共 {len(filtered)} / {len(self.data)} 条")
+
+        self.table.setSortingEnabled(False)
+        self.table.setRowCount(len(filtered))
+        for i, r in enumerate(filtered):
+            name = str(r.get("名称") or "")
+            qual = str(r.get("品质信息") or "")
+            p = str(r.get("部位") or "")
+            lvl_num = _parse_equipment_level(str(r.get("物品等级") or ""))
+            self.table.setItem(i, 0, QTableWidgetItem(name))
+            self.table.setItem(i, 1, QTableWidgetItem(qual))
+            self.table.setItem(i, 2, QTableWidgetItem(p))
+            lvl_item = QTableWidgetItem(str(lvl_num) if lvl_num > 0 else "")
+            lvl_item.setData(Qt.ItemDataRole.EditRole, lvl_num)
+            self.table.setItem(i, 3, lvl_item)
+            self.table.item(i, 0).setData(Qt.ItemDataRole.UserRole, r)
+        self.table.setSortingEnabled(True)
+        if filtered:
+            self.table.selectRow(0)
+        else:
+            self.icon.setText("无图标")
+            self.icon.setPixmap(QPixmap())
+            self.detail.setPlainText("")
+
+    def _sync_detail(self):
+        items = self.table.selectedItems()
+        if not items:
+            return
+        r = items[0].data(Qt.ItemDataRole.UserRole)
+        if not isinstance(r, dict):
+            return
+        order = ["名称", "品质信息", "部位", "物品等级", "基础属性", "绿字属性", "灌注属性", "基本信息", "描述", "获取途径", "时间"]
+        lines = []
+        for k in order:
+            v = str(r.get(k) or "").strip()
+            if v:
+                if k == "物品等级":
+                    lv = _parse_equipment_level(v)
+                    lines.append(f"{k}: {lv}" if lv > 0 else f"{k}: {v}")
+                else:
+                    lines.append(f"{k}: {v}")
+        self.detail.setPlainText("\n".join(lines))
+
+        name = str(r.get("名称") or "").strip()
+        rel = str(self._res2_equipment_icons.get(name) or "").strip()
+        if not rel or not self.res2_dir:
+            self.icon.setText("无图标")
+            self.icon.setPixmap(QPixmap())
+            return
+        full = os.path.normpath(os.path.join(self.res2_dir, rel))
+        if not os.path.isfile(full):
+            self.icon.setText("无图标")
+            self.icon.setPixmap(QPixmap())
+            return
+        pix = QPixmap(full)
+        if pix.isNull():
+            self.icon.setText("无图标")
+            self.icon.setPixmap(QPixmap())
+            return
+        scaled = pix.scaled(self.icon.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+        self.icon.setPixmap(scaled)
+        self.icon.setText("")
+
+
+class WikiInterface(QWidget):
+    def __init__(self, wiki_dir: str, res2_dir: str | None = None, parent=None):
+        super().__init__(parent=parent)
+        self.setObjectName("wiki")
+        self.wiki_dir = wiki_dir
+        self.res2_dir = res2_dir
+
+        root = QVBoxLayout(self)
+        root.setContentsMargins(24, 18, 24, 18)
+        root.setSpacing(12)
+
+        root.addWidget(
+            _make_page_header(
+                self,
+                "资料库",
+                "资料库 - 使用说明",
+                "1. 选择“交易行/装备”切换数据源。\n2. 使用搜索与筛选快速定位条目。\n3. 右侧查看详情与（若有）图标预览。",
+            ),
+            0,
+        )
+
+        self.segment = SegmentedWidget()
+        self.segment.addItem("market", "交易行", onClick=lambda: self.open("market"), icon=FluentIcon.MARKET)
+        self.segment.addItem("equipment", "装备", onClick=lambda: self.open("equipment"), icon=FluentIcon.TAG)
+        root.addWidget(self.segment, 0)
+
+        self.pages = {
+            "market": WikiMarketPage(wiki_dir=wiki_dir, res2_dir=res2_dir, parent=self),
+            "equipment": WikiEquipmentPage(wiki_dir=wiki_dir, res2_dir=res2_dir, parent=self),
+        }
+        self.stack = QWidget()
+        self.stack_layout = QVBoxLayout(self.stack)
+        self.stack_layout.setContentsMargins(0, 0, 0, 0)
+        self.stack_layout.setSpacing(0)
+        root.addWidget(self.stack, 1)
+
+        self.segment.setCurrentItem("market")
+        self.open("market")
+
+    def open(self, key: str):
+        widget = self.pages.get(key)
+        if widget is None:
+            return
+        while self.stack_layout.count():
+            item = self.stack_layout.takeAt(0)
+            w = item.widget()
+            if w is not None:
+                w.setParent(None)
+        self.stack_layout.addWidget(widget, 1)
+
+
 class WebViewInterface(QWidget):
     def __init__(
         self,
         *,
         title: str = "WebView",
-        desc: str = "用于承载非 Python 的工具页面（这次开始改用 React）。",
+        desc: str = "",
+        help_title: str = "",
+        help_content: str = "",
         default_hash: str = "",
         tool_id: str = "",
         rili_storage_dir: str | None = None,
@@ -3369,8 +4135,10 @@ class WebViewInterface(QWidget):
         root.setContentsMargins(24, 18, 24, 18)
         root.setSpacing(12)
 
-        root.addWidget(SubtitleLabel(title))
-        root.addWidget(BodyLabel(desc))
+        if str(help_content or "").strip():
+            root.addWidget(_make_page_header(self, str(title or ""), str(help_title or "使用说明"), str(help_content or "")), 0)
+        else:
+            root.addWidget(SubtitleLabel(str(title or "")), 0)
 
         self.reload_btn = QPushButton("刷新")
         if show_address_bar:
@@ -3419,8 +4187,10 @@ class WebViewInterface(QWidget):
         self._load_default()
 
     def _load_default(self) -> None:
-        base_dir = os.path.abspath(os.path.dirname(__file__))
-        html_path = os.path.join(base_dir, "webview_react.html")
+        html_path = os.path.join(_runtime_root(), "app", "ui", "webview_react.html")
+        if not os.path.isfile(html_path):
+            base_dir = os.path.abspath(os.path.dirname(__file__))
+            html_path = os.path.join(base_dir, "webview_react.html")
         if os.path.isfile(html_path):
             url = QUrl.fromLocalFile(html_path)
             if self._default_hash:
@@ -3447,7 +4217,7 @@ class WebViewInterface(QWidget):
             self.web.setUrl(QUrl.fromLocalFile(os.path.abspath(raw)))
             return
 
-        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+        base_dir = _runtime_root()
         guess = os.path.join(base_dir, raw)
         if os.path.exists(guess):
             self.web.setUrl(QUrl.fromLocalFile(os.path.abspath(guess)))
@@ -3457,7 +4227,16 @@ class WebViewInterface(QWidget):
 
 
 class MainWindow(FluentWindow):
-    def __init__(self, app_name: str, version: str, rili_storage_dir: str, tianshu_storage_dir: str, tianshu_talents_dir: str | None):
+    def __init__(
+        self,
+        app_name: str,
+        version: str,
+        rili_storage_dir: str,
+        tianshu_storage_dir: str,
+        tianshu_talents_dir: str | None,
+        wiki_dir: str,
+        wiki_res2_dir: str | None,
+    ):
         super().__init__()
         self.setWindowTitle(f"{app_name} v{version}")
         self.resize(1180, 720)
@@ -3467,7 +4246,9 @@ class MainWindow(FluentWindow):
 
         rili_web = WebViewInterface(
             title="游戏日历",
-            desc="离线版（React）：任务管理 + 活动日历",
+            desc="",
+            help_title="游戏日历 - 使用说明",
+            help_content="1. 页面内切换“任务管理/活动日历”。\n2. 点击任务可标记完成或取消。\n3. 数据与配置均保存在本地，无需联网。",
             default_hash="rili",
             tool_id="rili",
             rili_storage_dir=rili_storage_dir,
@@ -3478,7 +4259,9 @@ class MainWindow(FluentWindow):
 
         tianshu_web = WebViewInterface(
             title="天书模拟器",
-            desc="非主要用 Python：用 WebView 承载（React）。",
+            desc="",
+            help_title="天书模拟器 - 使用说明",
+            help_content="1. 左键加点，右键减点。\n2. 拖动空白处平移，Ctrl+滚轮缩放。\n3. 右侧查看汇总，进度自动本地保存。",
             default_hash="tianshu",
             tool_id="tianshu",
             tianshu_storage_dir=tianshu_storage_dir,
@@ -3486,17 +4269,58 @@ class MainWindow(FluentWindow):
             show_address_bar=False,
             parent=self,
         )
-        self.addSubInterface(tianshu_web, FluentIcon.DOCUMENT, "天书模拟器", position=NavigationItemPosition.TOP)
+        self.addSubInterface(tianshu_web, FluentIcon.LIBRARY, "天书模拟器", position=NavigationItemPosition.TOP)
+
+        wiki = WikiInterface(wiki_dir=wiki_dir, res2_dir=wiki_res2_dir, parent=self)
+        self.addSubInterface(wiki, FluentIcon.DICTIONARY, "资料库", position=NavigationItemPosition.TOP)
 
         hongjun = HongjunInterface(parent=self)
         self.addSubInterface(hongjun, FluentIcon.SETTING, "鸿钧", position=NavigationItemPosition.TOP)
 
-        about = PlaceholderInterface("关于", f"{app_name} {version}", self)
-        about.setObjectName("about")
+        about = AboutInterface(app_name=app_name, version=version, parent=self)
         self.addSubInterface(about, FluentIcon.INFO, "关于", position=NavigationItemPosition.BOTTOM)
 
 
-def start(app_name: str = "OK-ZhuXian World", version: str = "0.1.0"):
+class AboutInterface(QWidget):
+    def __init__(self, app_name: str, version: str, parent=None):
+        super().__init__(parent=parent)
+        self.setObjectName("about")
+        root = QVBoxLayout(self)
+        root.setContentsMargins(24, 18, 24, 18)
+        root.setSpacing(12)
+
+        root.addWidget(SubtitleLabel("关于"), 0)
+
+        summary = BodyLabel(f"{app_name} v{version}")
+        summary.setStyleSheet("color:#A0A0A0;")
+        root.addWidget(summary, 0)
+
+        text = TextEdit()
+        text.setReadOnly(True)
+        text.setPlainText(
+            "\n".join(
+                [
+                    "开源组件（部分）：",
+                    "- PyQt6 / PyQt6-WebEngine",
+                    "- PyQt6-Fluent-Widgets",
+                    "- numpy / opencv-python / mss / pydirectinput",
+                    "- websockets / pywebview",
+                    "",
+                    "开源协议与许可证说明：",
+                    "上述组件均遵循各自开源许可证，许可证文本以各组件发行版为准。",
+                    "",
+                    "免责声明：",
+                    "1. 本工具仅供个人学习、研究与交流使用。",
+                    "2. 由于运行环境、系统设置、第三方依赖等因素差异，作者不对使用结果作任何保证。",
+                    "3. 因使用本工具造成的任何直接或间接损失，作者不承担责任。",
+                    "4. 如涉及第三方内容或素材，其版权归原作者所有。",
+                ]
+            )
+        )
+        root.addWidget(text, 1)
+
+
+def start(app_name: str = "OK-ZhuXian World", version: str = "1.0"):
     app = QApplication.instance()
     if app is None:
         app = QApplication(sys.argv)
@@ -3515,16 +4339,27 @@ def start(app_name: str = "OK-ZhuXian World", version: str = "0.1.0"):
         "QTextEdit,QPlainTextEdit{background:#0B0F14;color:#E0E0E0;}"
     )
     app.setStyleSheet((app.styleSheet() or "") + extra_qss)
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    rili_storage_dir = os.path.join(project_root, "tools", "rili", "storage")
-    tianshu_storage_dir = os.path.join(project_root, "tools", "tianshu", "storage")
+    project_root = _runtime_root()
+    if _is_frozen():
+        storage_root = os.path.join(_user_data_root(app_name), "storage")
+        rili_storage_dir = os.path.join(storage_root, "rili")
+        tianshu_storage_dir = os.path.join(storage_root, "tianshu")
+    else:
+        rili_storage_dir = os.path.join(project_root, "tools", "rili", "storage")
+        tianshu_storage_dir = os.path.join(project_root, "tools", "tianshu", "storage")
     tianshu_talents_dir = find_tianshu_talents_dir(project_root)
+    wiki_dir = os.path.join(project_root, "tools", "wiki", "res1")
+    wiki_res2_dir = os.path.join(project_root, "tools", "wiki", "res2")
+    if not os.path.isdir(wiki_res2_dir):
+        wiki_res2_dir = None
     w = MainWindow(
         app_name=app_name,
         version=version,
         rili_storage_dir=rili_storage_dir,
         tianshu_storage_dir=tianshu_storage_dir,
         tianshu_talents_dir=tianshu_talents_dir,
+        wiki_dir=wiki_dir,
+        wiki_res2_dir=wiki_res2_dir,
     )
     w.show()
     app.exec()

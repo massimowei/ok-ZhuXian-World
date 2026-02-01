@@ -6,9 +6,19 @@ from datetime import datetime
 from typing import Any
 
 from PyQt6.QtCore import QObject, QThread, pyqtSignal
-from PyQt6.QtWidgets import QComboBox, QHBoxLayout, QLabel, QPushButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QDialog, QHBoxLayout, QVBoxLayout, QWidget
 
-from qfluentwidgets import BodyLabel, CardWidget, InfoBar, InfoBarPosition, PrimaryPushButton, SubtitleLabel, TextEdit
+from qfluentwidgets import (
+    BodyLabel,
+    CardWidget,
+    ComboBox,
+    InfoBar,
+    InfoBarPosition,
+    PrimaryPushButton,
+    PushButton,
+    SubtitleLabel,
+    TextEdit,
+)
 
 
 IMG_AIM = "stepA.png"
@@ -85,6 +95,8 @@ class HongjunWorker(QObject):
         self.last_step1_wait_log_time = 0.0
         self.aim_pos = None
         self.mission_start_time = None
+        self._step3_threshold = 0.7
+        self._step3_center_2k = (1510, 476)
 
     def stop(self):
         self._running = False
@@ -265,6 +277,37 @@ class HongjunWorker(QObject):
         roi_h = int(h * 0.75) + (padding * 2)
         self.dynamic_red_roi = {"left": max(0, roi_left), "top": max(0, roi_top), "width": roi_w, "height": roi_h}
 
+    def _get_step3_center(self) -> tuple[int, int]:
+        x = int(self.monitor.get("left") or 0) + int(self._step3_center_2k[0] * float(self.scale_factor or 1.0))
+        y = int(self.monitor.get("top") or 0) + int(self._step3_center_2k[1] * float(self.scale_factor or 1.0))
+        return x, y
+
+    def _get_step3_roi(self) -> dict:
+        cx, cy = self._get_step3_center()
+        enter = self.templates.get(IMG_ENTER) or {}
+        w = int(enter.get("w") or 320)
+        h = int(enter.get("h") or 140)
+
+        pad_x = int(w * 0.6) + 60
+        pad_y = int(h * 0.8) + 60
+
+        left = cx - (w // 2) - pad_x
+        top = cy - (h // 2) - pad_y
+        right = cx + (w // 2) + pad_x
+        bottom = cy + (h // 2) + pad_y
+
+        mon_left = int(self.monitor.get("left") or 0)
+        mon_top = int(self.monitor.get("top") or 0)
+        mon_right = mon_left + int(self.monitor.get("width") or 0)
+        mon_bottom = mon_top + int(self.monitor.get("height") or 0)
+
+        left = max(mon_left, left)
+        top = max(mon_top, top)
+        right = min(mon_right, right)
+        bottom = min(mon_bottom, bottom)
+
+        return {"left": int(left), "top": int(top), "width": int(max(1, right - left)), "height": int(max(1, bottom - top))}
+
     def _is_step1_fallback_allowed(self) -> bool:
         now = datetime.now()
         sec = now.hour * 3600 + now.minute * 60 + now.second
@@ -287,6 +330,7 @@ class HongjunWorker(QObject):
         self.last_step3_action_time = 0.0
         self.last_step3_log_time = 0.0
         self.last_step1_wait_log_time = 0.0
+        self._step3_threshold = float(self._th_enter)
 
         terminal = None
         try:
@@ -311,6 +355,7 @@ class HongjunWorker(QObject):
                     if self.status_code == 0:
                         self.status.emit("🔍 全屏搜索入口…")
                         self.mission_start_time = None
+                        self._step3_threshold = float(self._th_enter)
                         pos, mv = self._find_fast(sct, IMG_AIM, threshold=self._th_entry, multi_scale=True)
                         if pos:
                             now = time.time()
@@ -392,10 +437,12 @@ class HongjunWorker(QObject):
                             self._fast_click(pos[0], pos[1])
                             time.sleep(0.05)
                             self.status_code = 3
+                            self._step3_threshold = float(self._th_enter)
 
                     elif self.status_code == 3:
                         self.status.emit("🔥 暴力排队中…")
-                        pos, conf = self._find_fast(sct, IMG_ENTER, roi=self.monitor, threshold=self._th_enter, multi_scale=True)
+                        step3_roi = self._get_step3_roi()
+                        pos, conf = self._find_fast(sct, IMG_ENTER, roi=step3_roi, threshold=self._step3_threshold, multi_scale=True)
                         if pos:
                             now = time.time()
                             if now - self.last_step3_action_time < 0.2:
@@ -411,7 +458,7 @@ class HongjunWorker(QObject):
                                     break
                                 time.sleep(0.1)
                                 check_roi_dynamic = {"left": max(0, pos[0] - 100), "top": max(0, pos[1] - 50), "width": 200, "height": 100}
-                                still_pos, _ = self._find_fast(sct, IMG_ENTER, roi=check_roi_dynamic, threshold=self._th_enter, multi_scale=True)
+                                still_pos, _ = self._find_fast(sct, IMG_ENTER, roi=check_roi_dynamic, threshold=self._step3_threshold, multi_scale=True)
                                 if not still_pos:
                                     wait_success = True
                                     break
@@ -432,6 +479,7 @@ class HongjunWorker(QObject):
                                 self._emit_log("⚠️ 服务器卡顿/按钮未消失，继续重试…")
                                 self.last_step3_log_time = now
                         else:
+                            self._step3_threshold = max(0.6, float(self._step3_threshold) - 0.01)
                             if conf > 0.5:
                                 self._emit_log(f"Step 3 搜索中… 相似度: {conf:.2f}")
 
@@ -461,22 +509,37 @@ class HongjunInterface(QWidget):
         root.setContentsMargins(24, 18, 24, 18)
         root.setSpacing(12)
 
-        root.addWidget(SubtitleLabel("鸿钧"), 0)
-        root.addWidget(BodyLabel("在工具箱内启动/停止；需要管理员权限；首次使用请先安装依赖"), 0)
+        header = QWidget(self)
+        header_layout = QHBoxLayout(header)
+        header_layout.setContentsMargins(0, 0, 0, 0)
+        header_layout.setSpacing(10)
+        header_layout.addWidget(SubtitleLabel("鸿钧"), 0)
+        header_layout.addStretch(1)
+        help_btn = PushButton("?")
+        help_btn.setFixedSize(26, 26)
+        help_btn.setStyleSheet(
+            "QPushButton{color:#E0E0E0;background:rgba(255,255,255,0.06);border:1px solid rgba(0,229,255,0.22);border-radius:13px;}"
+            "QPushButton:hover{background:rgba(0,229,255,0.10);border:1px solid rgba(0,229,255,0.55);}"
+            "QPushButton:pressed{background:rgba(0,229,255,0.16);border:1px solid rgba(0,229,255,0.70);}"
+        )
+        help_btn.clicked.connect(self._show_help)
+        header_layout.addWidget(help_btn, 0)
+        root.addWidget(header, 0)
 
         card = CardWidget()
         card_layout = QVBoxLayout(card)
         card_layout.setContentsMargins(16, 16, 16, 16)
         card_layout.setSpacing(10)
 
-        self.status_lbl = QLabel("状态：等待指令")
+        self.status_lbl = BodyLabel("状态：等待指令")
         card_layout.addWidget(self.status_lbl, 0)
 
         monitor_row = QHBoxLayout()
         monitor_row.setSpacing(10)
-        monitor_row.addWidget(QLabel("显示器"), 0)
-        self.monitor_combo = QComboBox()
-        self.monitor_combo.addItem("1（默认）", 1)
+        monitor_row.addWidget(BodyLabel("显示器"), 0)
+        self.monitor_combo = ComboBox()
+        self.monitor_combo.addItem("1（默认）")
+        self.monitor_combo.setItemData(0, 1)
         monitor_row.addWidget(self.monitor_combo, 0)
         monitor_row.addStretch(1)
         card_layout.addLayout(monitor_row, 0)
@@ -485,7 +548,7 @@ class HongjunInterface(QWidget):
         btn_row.setSpacing(10)
 
         self.start_btn = PrimaryPushButton("启动挂机")
-        self.stop_btn = QPushButton("停止")
+        self.stop_btn = PushButton("停止")
         self.stop_btn.setEnabled(False)
 
         btn_row.addWidget(self.start_btn, 0)
@@ -493,9 +556,6 @@ class HongjunInterface(QWidget):
         btn_row.addStretch(1)
 
         card_layout.addLayout(btn_row, 0)
-
-        tip = BodyLabel("依赖：opencv-python / numpy / mss / pydirectinput")
-        card_layout.addWidget(tip, 0)
 
         root.addWidget(card, 0)
 
@@ -505,6 +565,45 @@ class HongjunInterface(QWidget):
 
         self.start_btn.clicked.connect(self._on_start)
         self.stop_btn.clicked.connect(self._on_stop)
+
+    def _show_help(self):
+        dialog = QDialog(self)
+        dialog.setWindowTitle("鸿钧 - 使用说明")
+        dialog.setModal(True)
+        dialog.resize(620, 420)
+        dialog.setStyleSheet(
+            "QDialog{background:#121212;}"
+            "QLabel{color:#E0E0E0;}"
+            "QTextEdit,QPlainTextEdit{background:#0B0F14;color:#E0E0E0;border:1px solid rgba(0,229,255,0.16);border-radius:12px;padding:12px;}"
+        )
+        root = QVBoxLayout(dialog)
+        root.setContentsMargins(18, 16, 18, 16)
+        root.setSpacing(12)
+        title = SubtitleLabel("鸿钧 - 使用说明")
+        title.setStyleSheet("color:#E0E0E0;")
+        root.addWidget(title, 0)
+        text = TextEdit()
+        text.setReadOnly(True)
+        text.setPlainText(
+            "\n".join(
+                [
+                    "1. 如遇到无法截图/点击，再用管理员身份运行工具箱。",
+                    "2. 选择正确的显示器，然后点击“启动挂机”。",
+                    "3. 运行中可点击“停止”中断任务。",
+                    "4. 首次使用请先在虚拟环境安装 requirements.txt 依赖。",
+                ]
+            )
+        )
+        root.addWidget(text, 1)
+        btn_row = QHBoxLayout()
+        btn_row.setContentsMargins(0, 0, 0, 0)
+        btn_row.setSpacing(10)
+        btn_row.addStretch(1)
+        ok_btn = PrimaryPushButton("关闭")
+        btn_row.addWidget(ok_btn, 0)
+        root.addLayout(btn_row, 0)
+        ok_btn.clicked.connect(dialog.accept)
+        dialog.exec()
 
     def _refresh_monitors(self):
         try:
@@ -522,7 +621,9 @@ class HongjunInterface(QWidget):
             cur = int(self.monitor_combo.currentData() or 1)
             self.monitor_combo.clear()
             for label, idx in items:
-                self.monitor_combo.addItem(label, idx)
+                row = self.monitor_combo.count()
+                self.monitor_combo.addItem(label)
+                self.monitor_combo.setItemData(row, idx)
             for i in range(self.monitor_combo.count()):
                 if int(self.monitor_combo.itemData(i) or 0) == cur:
                     self.monitor_combo.setCurrentIndex(i)
@@ -548,8 +649,13 @@ class HongjunInterface(QWidget):
             return
 
         if not _is_admin():
-            InfoBar.error("需要管理员权限", "请用“管理员身份运行”启动工具箱（否则无法截图/点击）", parent=self, position=InfoBarPosition.TOP, duration=3500)
-            return
+            InfoBar.warning(
+                "未使用管理员权限",
+                "若出现无法截图/点击的情况，再用“管理员身份运行”启动工具箱",
+                parent=self,
+                position=InfoBarPosition.TOP,
+                duration=3500,
+            )
 
         try:
             _load_deps()
