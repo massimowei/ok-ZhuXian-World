@@ -56,6 +56,7 @@ from qfluentwidgets import (
 
 from tools.danqing.entry import load_cards_export, run as run_danqing
 from tools.tianshu.entry import find_talents_dir as find_tianshu_talents_dir
+from tools.hongjun.qt_interface import HongjunInterface
 
 
 def _read_json(file_path: str, default):
@@ -3486,6 +3487,9 @@ class MainWindow(FluentWindow):
             parent=self,
         )
         self.addSubInterface(tianshu_web, FluentIcon.DOCUMENT, "天书模拟器", position=NavigationItemPosition.TOP)
+
+        hongjun = HongjunInterface(parent=self)
+        self.addSubInterface(hongjun, FluentIcon.SETTING, "鸿钧", position=NavigationItemPosition.TOP)
 
         about = PlaceholderInterface("关于", f"{app_name} {version}", self)
         about.setObjectName("about")
