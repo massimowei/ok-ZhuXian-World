@@ -52,9 +52,10 @@ class Aura:
 
 class CombatState:
     """战斗状态管理"""
-    def __init__(self, base_atk: float, base_dps: float):
+    def __init__(self, base_atk: float, base_dps: float, base_hp: float):
         self.base_atk = base_atk
         self.base_dps = base_dps
+        self.base_hp = base_hp
         self.current_time = 0.0
         self.total_damage = 0.0
         
@@ -102,9 +103,10 @@ class CombatState:
 class DanqingEventSimulator:
     """基于事件的丹青系统模拟器"""
     
-    def __init__(self, base_atk: float, base_dps: float):
+    def __init__(self, base_atk: float, base_dps: float, base_hp: float = 200000.0):
         self.base_atk = base_atk
         self.base_dps = base_dps
+        self.base_hp = base_hp
         self.target_damage = 10_000_000
         self.event_queue = []
         self.level = 6
@@ -118,7 +120,7 @@ class DanqingEventSimulator:
         self.card_levels = dict(card_levels or {})
         self.event_queue = []
         # 初始化战斗状态
-        state = CombatState(self.base_atk, self.base_dps)
+        state = CombatState(self.base_atk, self.base_dps, self.base_hp)
         
         # 计算静态修正
         self._calculate_static_modifiers(deck, state)
@@ -217,15 +219,16 @@ class DanqingEventSimulator:
         for card in deck:
             model = card.get('dpsModel') or {}
             model_type = model.get('type')
-            if model_type is None and card.get('id') in ['zhouyixian', 'tiger', 'banner', 'woodsword']:
+            card_id = card.get('id')
+            if model_type is None and card_id in ['zhouyixian', 'tiger', 'banner', 'woodsword']:
                 model_type = 'GLOBAL_MULTIPLIER'
             
-            if model_type == 'GLOBAL_MULTIPLIER' and card['id'] in ['zhouyixian', 'tiger', 'banner']:
+            if model_type == 'GLOBAL_MULTIPLIER' and card_id in ['zhouyixian', 'tiger', 'banner']:
                 cat = card.get('category')
                 race_count = composition.get(cat, 0) if cat else 0
                 bonus = self._calculate_card_value(card, self.level)
                 state.global_multiplier *= (1 + bonus * race_count)
-            elif model_type == 'GLOBAL_MULTIPLIER' and card['id'] == 'woodsword':
+            elif model_type == 'GLOBAL_MULTIPLIER' and card_id == 'woodsword':
                 bonus = self._calculate_card_value(card, self.level)
                 state.global_multiplier *= (1 + bonus)
             
@@ -239,8 +242,9 @@ class DanqingEventSimulator:
         for card in deck:
             model = card.get('dpsModel') or {}
             model_type = model.get('type')
+            card_id = card.get('id')
             
-            if card['id'] == 'wenmin':
+            if card_id == 'wenmin':
                 # 文敏的周期性冰箭
                 interval = self._calculate_card_value(card, self.level, 'interval')
                 self._schedule_event(Event(
@@ -250,7 +254,7 @@ class DanqingEventSimulator:
                     data={'count': 3, 'interval': interval}
                 ))
             
-            elif card['id'] == 'fan':
+            elif card_id == 'fan':
                 # 折扇的脉冲
                 self._schedule_event(Event(
                     time=15.0,
@@ -258,7 +262,7 @@ class DanqingEventSimulator:
                     source_card=card,
                     data={'interval': 15.0}
                 ))
-            elif card['id'] == 'dice':
+            elif card_id == 'dice':
                 self._schedule_event(Event(
                     time=0.2,
                     event_type=EventType.PULSE,
@@ -266,7 +270,7 @@ class DanqingEventSimulator:
                     data={'count': 3}
                 ))
             
-            elif card['id'] == 'ant':
+            elif card_id == 'ant':
                 interval = 3.0
                 self._schedule_event(Event(
                     time=0.5,
@@ -275,7 +279,8 @@ class DanqingEventSimulator:
                     data={'stacks': 1, 'interval': interval}
                 ))
             elif model_type == 'ATTACK_SCALING':
-                cd = model['params'].get('cd', 6)
+                params = model.get('params') or {}
+                cd = params.get('cd', 6)
                 self._schedule_event(Event(
                     time=0.1,
                     event_type=EventType.SKILL_CAST,
@@ -303,16 +308,20 @@ class DanqingEventSimulator:
     def _handle_skill_cast(self, event: Event, state: CombatState, deck: List[dict]):
         """处理技能释放"""
         card = event.source_card
+        if not isinstance(card, dict):
+            return
         damage_ratio = self._calculate_card_value(card, self.level)
         damage = damage_ratio * state.base_atk * state.global_multiplier
-        damage_key = card['name']
+        card_id = card.get('id')
+        card_name = card.get('name') or card_id or '未知'
+        damage_key = card_name
         dmg_type = None
-        if card['id'] == 'yanhong':
+        if card_id == 'yanhong':
             dmg_type = 'ICE_ARROW'
-            damage_key = f"{card['name']}-冰箭"
-        elif card['id'] == 'qihao':
+            damage_key = f"{card_name}-冰箭"
+        elif card_id == 'qihao':
             dmg_type = 'STORM'
-            damage_key = f"{card['name']}-玄冰风暴"
+            damage_key = f"{card_name}-玄冰风暴"
         if dmg_type in ('ICE_ARROW', 'STORM'):
             damage *= state.special_damage_multiplier
         if dmg_type == 'ICE_ARROW':
@@ -332,7 +341,7 @@ class DanqingEventSimulator:
         cd = event.data['cooldown']
         
         # 齐昊的冷却缩减
-        if card['id'] == 'qihao' and state.ice_arrow_total > 0:
+        if card_id == 'qihao' and state.ice_arrow_total > 0:
             cd = max(1.0, cd - state.ice_arrow_total)
         
         self._schedule_event(Event(

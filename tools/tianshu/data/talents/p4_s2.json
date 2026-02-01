@@ -1,0 +1,973 @@
+[
+    {
+        "talent_point_id": 564,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "无量寿",
+        "talent_point_max": 1,
+        "talent_point_desc": "无量寿",
+        "finish": 0,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "业力",
+                "child_id": 565
+            },
+            {
+                "child_name": "弘音",
+                "child_id": 566
+            },
+            {
+                "child_name": "无量寿·烛心",
+                "child_id": 567
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 565,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "业力",
+        "talent_point_max": 1,
+        "talent_point_desc": "持戒、醒世杖、镇罗刹、振锡渡世攻击命中后，根据预期伤害的50%治疗周围气血最低的3名队友",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "醒世杖·缘起",
+                "child_id": 568
+            },
+            {
+                "child_name": "醒世杖·心生",
+                "child_id": 569
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 566,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "弘音",
+        "talent_point_max": 1,
+        "talent_point_desc": "梵音上限增加至120点；天音受到怪物伤害降低15%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "渡厄",
+                "child_id": 570
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 567,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "无量寿·烛心",
+        "talent_point_max": 1,
+        "talent_point_desc": "无量寿治疗友方后，额外附加烛心效果 烛心：每1.2秒回复气血，效果持续6秒，效果最高叠加3层，每层效果单独计算持续时间",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "妙音",
+                "child_id": 571
+            },
+            {
+                "child_name": "烛心·不染",
+                "child_id": 572
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 568,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "醒世杖·缘起",
+        "talent_point_max": 2,
+        "talent_point_desc": "醒世杖的治疗效果和伤害效果增加15%;\n醒世杖的治疗效果和伤害效果增加30%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "镇罗刹·净",
+                "child_id": 573
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 569,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "醒世杖·心生",
+        "talent_point_max": 2,
+        "talent_point_desc": "醒世杖的冷却时间减少3秒;\n醒世杖的冷却时间减少6秒",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "镇罗刹·净",
+                "child_id": 573
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 570,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "渡厄",
+        "talent_point_max": 2,
+        "talent_point_desc": "队友最大气血上限增加5%;\n队友最大气血上限增加5%,天音对生命值低于30%的目标,造成治疗或伤害效果提高5%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "六字大明咒·有情",
+                "child_id": 574
+            },
+            {
+                "child_name": "莲花妙法",
+                "child_id": 575
+            },
+            {
+                "child_name": "般若心圈·三宝",
+                "child_id": 576
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 571,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "妙音",
+        "talent_point_max": 2,
+        "talent_point_desc": "天音每1秒自动增加1点梵音;\n天音每1秒自动增加2点梵音",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "慈心咒",
+                "child_id": 577
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 572,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "烛心·不染",
+        "talent_point_max": 2,
+        "talent_point_desc": "烛心生效期间使目标受到伤害降低3%;\n烛心生效期间使目标受到伤害降低6%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "慈心咒",
+                "child_id": 577
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 573,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "镇罗刹·净",
+        "talent_point_max": 1,
+        "talent_point_desc": "镇罗刹·净",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "一心不动",
+                "child_id": 578
+            },
+            {
+                "child_name": "持戒·清净心",
+                "child_id": 579
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 574,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "六字大明咒·有情",
+        "talent_point_max": 1,
+        "talent_point_desc": "六字大明咒能够对范围内的全部队友生效",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 575,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "莲花妙法",
+        "talent_point_max": 1,
+        "talent_point_desc": "莲花妙法",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "莲华妙法·莲生",
+                "child_id": 580
+            },
+            {
+                "child_name": "莲华妙法·并蒂",
+                "child_id": 581
+            },
+            {
+                "child_name": "莲华妙法·明镜",
+                "child_id": 582
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 576,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "般若心圈·三宝",
+        "talent_point_max": 1,
+        "talent_point_desc": "般若心圈能够对友方释放，但是冷却时间延长至120秒",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 577,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "慈心咒",
+        "talent_point_max": 1,
+        "talent_point_desc": "慈心咒",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "慈心咒·福爱",
+                "child_id": 583
+            },
+            {
+                "child_name": "心静",
+                "child_id": 584
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 578,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "一心不动",
+        "talent_point_max": 2,
+        "talent_point_desc": "镇罗刹、无量寿消耗梵音减少10点;\n镇罗刹、无量寿消耗梵音减少20点",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "振锡渡世",
+                "child_id": 585
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 579,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "持戒·清净心",
+        "talent_point_max": 2,
+        "talent_point_desc": "持戒释放后获得的梵音增加100%;\n持戒释放后获得的梵音增加200%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "振锡渡世",
+                "child_id": 585
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 580,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "莲华妙法·莲生",
+        "talent_point_max": 1,
+        "talent_point_desc": "莲华妙法召唤的莲花持续时间减少2秒，持续治疗效果增加100%,技能充能层数增加2层",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "明心",
+                "child_id": 586
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 581,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "莲华妙法·并蒂",
+        "talent_point_max": 1,
+        "talent_point_desc": "莲华妙法释放时，在天音的位置额外召唤一朵莲花",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "佛光普照",
+                "child_id": 587
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 582,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "莲华妙法·明镜",
+        "talent_point_max": 1,
+        "talent_point_desc": "莲华妙法持续治疗和绽放治疗的会心率增加30%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "禅定",
+                "child_id": 588
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 583,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "慈心咒·福爱",
+        "talent_point_max": 2,
+        "talent_point_desc": "慈心咒的治疗效果增加20%;\n慈心咒的治疗效果增加40%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "甘露法雨",
+                "child_id": 589
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 584,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "心静",
+        "talent_point_max": 2,
+        "talent_point_desc": "慈心咒释放时有概率获得慈悲为怀效果(每1%调息率能够增加1%该概率) 慈悲为怀：使下一个无量寿的治疗效果获得强化;\n慈心咒释放时有概率获得慈悲为怀效果(每1%调息率能够增加2%该概率) 慈悲为怀：使下一个无量寿的治疗效果获得强化",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "甘露法雨",
+                "child_id": 589
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 585,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "振锡渡世",
+        "talent_point_max": 1,
+        "talent_point_desc": "振锡渡世",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "业力·福报",
+                "child_id": 590
+            },
+            {
+                "child_name": "振锡渡世·净光",
+                "child_id": 591
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.03,
+                    "type_key": "critical_percent",
+                    "display_string": "+3.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 586,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "明心",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音的会心率增加3%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 587,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "佛光普照",
+        "talent_point_max": 1,
+        "talent_point_desc": "佛光普照",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "佛光普照·无量",
+                "child_id": 592
+            },
+            {
+                "child_name": "灵山妙相·显化",
+                "child_id": 593
+            },
+            {
+                "child_name": "渡生",
+                "child_id": 594
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 588,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "禅定",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音的调息率增加3%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.03,
+                    "type_key": "haste_percent",
+                    "display_string": "+3.0% 调息率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 589,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "甘露法雨",
+        "talent_point_max": 1,
+        "talent_point_desc": "甘露法雨",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "甘露法雨·烛心",
+                "child_id": 595
+            },
+            {
+                "child_name": "润世",
+                "child_id": 596
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 590,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "业力·福报",
+        "talent_point_max": 1,
+        "talent_point_desc": "业力的治疗转化率变为2倍，天音的最大气血增加10%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "观自在",
+                "child_id": 597
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 591,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "振锡渡世·净光",
+        "talent_point_max": 2,
+        "talent_point_desc": "振锡渡世的恢复效果和伤害效果增加15%;\n振锡渡世的恢复效果和伤害效果增加30%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "观自在",
+                "child_id": 597
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 592,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "佛光普照·无量",
+        "talent_point_max": 2,
+        "talent_point_desc": "佛光普照的会心率增加15%;\n佛光普照的会心率增加30%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "观自在",
+                "child_id": 597
+            },
+            {
+                "child_name": "无上法",
+                "child_id": 598
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 593,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "灵山妙相·显化",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵山妙相冷却时间降低60秒、持续时间减少7秒",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "无上法",
+                "child_id": 598
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 594,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "渡生",
+        "talent_point_max": 2,
+        "talent_point_desc": "天音的治疗效果增加3%;\n天音的治疗效果增加6%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "无上法",
+                "child_id": 598
+            },
+            {
+                "child_name": "真言护体",
+                "child_id": 599
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 595,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "甘露法雨·烛心",
+        "talent_point_max": 1,
+        "talent_point_desc": "甘露法雨对友方释放后也能附加烛心效果",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "真言护体",
+                "child_id": 599
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 596,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "润世",
+        "talent_point_max": 2,
+        "talent_point_desc": "甘露法雨、真言护体释放后获得的梵音增加10点;\n甘露法雨、真言护体释放后获得的梵音增加20点",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "真言护体",
+                "child_id": 599
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 597,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "观自在",
+        "talent_point_max": 1,
+        "talent_point_desc": "观自在",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "返本还源",
+                "child_id": 600
+            },
+            {
+                "child_name": "观自在·洞悉",
+                "child_id": 601
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 598,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "无上法",
+        "talent_point_max": 1,
+        "talent_point_desc": "无上法",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "无我",
+                "child_id": 602
+            },
+            {
+                "child_name": "不空",
+                "child_id": 603
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 599,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "真言护体",
+        "talent_point_max": 1,
+        "talent_point_desc": "真言护体",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "真言护体·正觉",
+                "child_id": 604
+            },
+            {
+                "child_name": "真言护体·烛心",
+                "child_id": 605
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 600,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "返本还源",
+        "talent_point_max": 1,
+        "talent_point_desc": "镇罗刹、无量寿会心时，增加10点梵音",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "观自在·无滞",
+                "child_id": 606
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 601,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "观自在·洞悉",
+        "talent_point_max": 1,
+        "talent_point_desc": "观自在效果持续期间增加的会心率提高至50%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "观自在·无滞",
+                "child_id": 606
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 602,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "无我",
+        "talent_point_max": 1,
+        "talent_point_desc": "下落攻击、空中攻击的冷却时间减少10秒",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "涅槃",
+                "child_id": 607
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 603,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "不空",
+        "talent_point_max": 1,
+        "talent_point_desc": "持戒、慈心咒、镇罗刹、振锡渡世攻击命中受到硬控的敌方时，能够击飞该目标1秒",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "涅槃",
+                "child_id": 607
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 604,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "真言护体·正觉",
+        "talent_point_max": 1,
+        "talent_point_desc": "真言护体的护盾效果增加20%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "无垢",
+                "child_id": 608
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 605,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "真言护体·烛心",
+        "talent_point_max": 1,
+        "talent_point_desc": "真言护体能够为受到效果的友方附加烛心",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "无垢",
+                "child_id": 608
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 606,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "观自在·无滞",
+        "talent_point_max": 1,
+        "talent_point_desc": "观自在的冷却时间减少60秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "往生极乐·行愿",
+                "child_id": 609
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 607,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "涅槃",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音气血低于30%时，获得自身最大气血20%的护盾(该效果每5分钟能够触发一次)",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "无上法·恒常",
+                "child_id": 610
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 608,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "无垢",
+        "talent_point_max": 1,
+        "talent_point_desc": "真言护体、甘露法雨技能充能层数增加1层",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "无量寿·正果",
+                "child_id": 611
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 609,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "往生极乐·行愿",
+        "talent_point_max": 1,
+        "talent_point_desc": "往生极乐的治疗效果、伤害效果增加25%",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 610,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "无上法·恒常",
+        "talent_point_max": 1,
+        "talent_point_desc": "无上法的冷却时间减少30秒",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 611,
+        "class": "天音",
+        "sub_class": "净",
+        "talent_point_name": "无量寿·正果",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放无量寿时，能够额外治疗1名周围气血最低的队友，治疗效果为原来的50%",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

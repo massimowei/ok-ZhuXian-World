@@ -1,0 +1,1001 @@
+[
+    {
+        "talent_point_id": 514,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "沙弥扫叶",
+        "talent_point_max": 1,
+        "talent_point_desc": "沙弥扫叶",
+        "finish": 0,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "业障",
+                "child_id": 515
+            },
+            {
+                "child_name": "镇罗刹·诛邪",
+                "child_id": 516
+            },
+            {
+                "child_name": "持戒·寂灭",
+                "child_id": 517
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 515,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "业障",
+        "talent_point_max": 1,
+        "talent_point_desc": "持戒攻击会心时有概率获得1层业障(每1%调息率增加2% 概率)；镇罗刹、降龙伏象释放时消耗最多20层业障，每消耗1层技能会心效果增加5%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "持戒·业火焚心",
+                "child_id": 518
+            },
+            {
+                "child_name": "破业",
+                "child_id": 519
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 516,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "镇罗刹·诛邪",
+        "talent_point_max": 1,
+        "talent_point_desc": "镇罗刹造成伤害增加20%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "加持",
+                "child_id": 520
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 517,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "持戒·寂灭",
+        "talent_point_max": 1,
+        "talent_point_desc": "持戒攻击释放后获得的梵音增加100%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "弘音",
+                "child_id": 521
+            },
+            {
+                "child_name": "沙弥扫叶·法音",
+                "child_id": 522
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 518,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "持戒·业火焚心",
+        "talent_point_max": 2,
+        "talent_point_desc": "持戒的会心率增加15%;\n持戒的会心率增加30%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "醒世杖·轮回",
+                "child_id": 523
+            },
+            {
+                "child_name": "沙弥扫叶·累业",
+                "child_id": 524
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 519,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "破业",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音的技能消耗业障时，增加自身0.5%破甲率，效果持续10秒，最高能够叠加10层",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 520,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "加持",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音造成的物理伤害增加2.5%，最大气血上限增加20%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "镇罗刹·心生",
+                "child_id": 525
+            },
+            {
+                "child_name": "金刚掷象",
+                "child_id": 526
+            },
+            {
+                "child_name": "镇罗刹·心灭",
+                "child_id": 527
+            }
+        ],
+        "parent": null,
+        "stats": [
+            [
+                {
+                    "type": "物理伤害加成",
+                    "value": 0.025,
+                    "type_key": "attack_damage_add",
+                    "display_string": "+2.5% 物理伤害加成"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 521,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "弘音",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音造成的物理伤害增加2.5%，梵音的上限增加至120点",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [],
+        "parent": null,
+        "stats": [
+            [
+                {
+                    "type": "物理伤害加成",
+                    "value": 0.025,
+                    "type_key": "attack_damage_add",
+                    "display_string": "+2.5% 物理伤害加成"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 522,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "沙弥扫叶·法音",
+        "talent_point_max": 2,
+        "talent_point_desc": "沙弥扫叶攻击命中后额外获得10点梵音;\n沙弥扫叶攻击命中后额外获得20点梵音",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "醒世杖·清音",
+                "child_id": 528
+            },
+            {
+                "child_name": "镇罗刹·发愿",
+                "child_id": 529
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 523,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "醒世杖·轮回",
+        "talent_point_max": 2,
+        "talent_point_desc": "醒世杖造成伤害增加20%;\n醒世杖造成伤害增加40%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "慧根",
+                "child_id": 530
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 524,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "沙弥扫叶·累业",
+        "talent_point_max": 2,
+        "talent_point_desc": "沙弥扫叶造成伤害增加20%;\n沙弥扫叶造成伤害增加40%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "降龙伏象",
+                "child_id": 531
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 525,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "镇罗刹·心生",
+        "talent_point_max": 2,
+        "talent_point_desc": "镇罗刹的会心率增加15%;\n镇罗刹的会心率增加30%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "降龙伏象",
+                "child_id": 531
+            },
+            {
+                "child_name": "精进",
+                "child_id": 532
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 526,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "金刚掷象",
+        "talent_point_max": 1,
+        "talent_point_desc": "镇罗刹、降龙伏象最后一击命中敌方时，能够将敌方击飞2秒",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "定神通",
+                "child_id": 533
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 527,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "镇罗刹·心灭",
+        "talent_point_max": 2,
+        "talent_point_desc": "镇罗刹会心效果增加15%;\n镇罗刹会心效果增加30%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "正欲",
+                "child_id": 534
+            },
+            {
+                "child_name": "天罡震地",
+                "child_id": 535
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 528,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "醒世杖·清音",
+        "talent_point_max": 2,
+        "talent_point_desc": "醒世杖释放后获得的梵音增加50%;\n醒世杖释放后获得的梵音增加100%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "天罡震地",
+                "child_id": 535
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 529,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "镇罗刹·发愿",
+        "talent_point_max": 2,
+        "talent_point_desc": "镇罗刹释放时额外消耗10点梵音，造成伤害增加20%;\n镇罗刹释放时额外消耗20点梵音，造成伤害增加40%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "澄心",
+                "child_id": 536
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 530,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "慧根",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音的会心率增加3%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 1,
+        "child": [],
+        "parent": null,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.03,
+                    "type_key": "critical_percent",
+                    "display_string": "+3.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 531,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "降龙伏象",
+        "talent_point_max": 1,
+        "talent_point_desc": "降龙伏象",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "降龙伏象·业障",
+                "child_id": 537
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 532,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "精进",
+        "talent_point_max": 2,
+        "talent_point_desc": "沙弥扫叶、醒世杖会心率增加15%;\n沙弥扫叶、醒世杖会心率增加30%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 533,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "定神通",
+        "talent_point_max": 1,
+        "talent_point_desc": "定神通",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "禅步生莲·莲华",
+                "child_id": 538
+            },
+            {
+                "child_name": "震禅",
+                "child_id": 539
+            },
+            {
+                "child_name": "般若心圈·自在",
+                "child_id": 540
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 534,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "正欲",
+        "talent_point_max": 2,
+        "talent_point_desc": "醒世杖、沙弥扫叶的会心效果增加15%;\n醒世杖、沙弥扫叶的会心效果增加30%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 535,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "天罡震地",
+        "talent_point_max": 1,
+        "talent_point_desc": "天罡震地",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "觉者",
+                "child_id": 541
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 536,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "澄心",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音的专精率增加3%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 9,
+        "child": [],
+        "parent": null,
+        "stats": [
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.03,
+                    "type_key": "mastery_percent",
+                    "display_string": "+3.0% 专精率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 537,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "降龙伏象·业障",
+        "talent_point_max": 1,
+        "talent_point_desc": "沙弥扫叶、醒世杖最后一次攻击会心时，自身获得10层业障；镇罗刹、降龙伏象释放时消耗最多20层业障，每消耗1层技能会心效果增加5%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "降龙伏象·正念",
+                "child_id": 542
+            },
+            {
+                "child_name": "降龙伏象·断业",
+                "child_id": 543
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 538,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "禅步生莲·莲华",
+        "talent_point_max": 1,
+        "talent_point_desc": "禅步生莲的治疗效果增加50%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "六字大明咒·慈悲",
+                "child_id": 544
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 539,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "震禅",
+        "talent_point_max": 1,
+        "talent_point_desc": "天音门派技能击飞敌方时，恢复自身60点梵音",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "持戒",
+                "child_id": 545
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 540,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "般若心圈·自在",
+        "talent_point_max": 1,
+        "talent_point_desc": "般若心圈能够在受到硬控期间释放",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "般若心圈·净体",
+                "child_id": 546
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 541,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "觉者",
+        "talent_point_max": 1,
+        "talent_point_desc": "每次释放法相技能获得1层觉者，每层觉者使下一次释放的镇罗刹造成伤害增加10%，效果最高叠加30层",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "显相",
+                "child_id": 547
+            },
+            {
+                "child_name": "威光",
+                "child_id": 548
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 542,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "降龙伏象·正念",
+        "talent_point_max": 2,
+        "talent_point_desc": "降龙伏象的会心率增加15%;\n降龙伏象的会心率增加30%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "菩提身",
+                "child_id": 549
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 543,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "降龙伏象·断业",
+        "talent_point_max": 2,
+        "talent_point_desc": "降龙伏象的会心效果增加15%;\n降龙伏象的会心效果增加30%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "菩提身",
+                "child_id": 549
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 544,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "六字大明咒·慈悲",
+        "talent_point_max": 1,
+        "talent_point_desc": "六字大明咒额外对1名友方生效",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 545,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "持戒",
+        "talent_point_max": 2,
+        "talent_point_desc": "天音对受到硬控的敌方造成伤害增加10%;\n天音对受到硬控的敌方造成伤害增加20%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "擒龙杖",
+                "child_id": 550
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 546,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "般若心圈·净体",
+        "talent_point_max": 1,
+        "talent_point_desc": "般若心圈效果持续期间，天音受到其他玩家伤害额外降低40%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 547,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "显相",
+        "talent_point_max": 2,
+        "talent_point_desc": "法相技能的会心率增加15%;\n法相技能的会心率增加30%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "如来神掌",
+                "child_id": 551
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 548,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "威光",
+        "talent_point_max": 2,
+        "talent_point_desc": "法相技能的会心效果增加25%;\n法相技能的会心效果增加50%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "如来神掌",
+                "child_id": 551
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 549,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "菩提身",
+        "talent_point_max": 1,
+        "talent_point_desc": "菩提身",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "怒佛像",
+                "child_id": 552
+            },
+            {
+                "child_name": "菩提身·顿悟",
+                "child_id": 553
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 550,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "擒龙杖",
+        "talent_point_max": 1,
+        "talent_point_desc": "擒龙杖",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "龙象护体",
+                "child_id": 554
+            },
+            {
+                "child_name": "缚念",
+                "child_id": 555
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 551,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "如来神掌",
+        "talent_point_max": 1,
+        "talent_point_desc": "如来神掌",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "刹那生灭",
+                "child_id": 556
+            },
+            {
+                "child_name": "舍身渡厄",
+                "child_id": 557
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 552,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "怒佛像",
+        "talent_point_max": 1,
+        "talent_point_desc": "业障层数上限增加至60层；法相技能不再消耗梵音；天罡震地攻击命中后获得20层业障、怒目金刚每次攻击命中获得5层业障",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "因果",
+                "child_id": 558
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 553,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "菩提身·顿悟",
+        "talent_point_max": 1,
+        "talent_point_desc": "菩提身的效果持续期间，门派技能获得的梵音增加100%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "因果",
+                "child_id": 558
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 554,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "龙象护体",
+        "talent_point_max": 1,
+        "talent_point_desc": "法相技能施法期间，自身受到伤害降低50%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "苦禅",
+                "child_id": 559
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 555,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "缚念",
+        "talent_point_max": 1,
+        "talent_point_desc": "持戒、醒世杖、降龙伏象、天罡震地攻击命中处于硬控状态下的敌方时，能够击飞该敌方1秒",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "苦禅",
+                "child_id": 559
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 556,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "刹那生灭",
+        "talent_point_max": 1,
+        "talent_point_desc": "每消耗10点梵音，减少所有法相技能冷却时间0.2秒",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "庄严",
+                "child_id": 560
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 557,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "舍身渡厄",
+        "talent_point_max": 1,
+        "talent_point_desc": "法相技能消耗的梵音增加10点，造成伤害增加20%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "庄严",
+                "child_id": 560
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 558,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "因果",
+        "talent_point_max": 1,
+        "talent_point_desc": "沙弥扫叶释放后获得因；醒世杖释放后获得果；镇罗刹释放时，消耗因、果获得降龙伏象·因果；菩提身效果持续期间，沙弥扫叶、醒世杖释放后获得因、果，降龙伏象·因果：能够不消耗梵音和冷却，立即释放一次降龙伏象",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "蕴生",
+                "child_id": 561
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 559,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "苦禅",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放杖法技能期间，天音受到伤害降低50%，解锁降龙伏象技能后：天音门派技能击飞敌方后5秒内，能够额外释放一次降龙伏象(该效果每10秒最多触发1次)，该次降龙伏象施法期间自身霸体",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "见我非我",
+                "child_id": 562
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 560,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "庄严",
+        "talent_point_max": 1,
+        "talent_point_desc": "镇罗刹每消耗10点梵音释放，攻击命中时减少醒世杖、沙弥扫叶0.25秒冷却时间",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "圆融",
+                "child_id": 563
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 561,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "蕴生",
+        "talent_point_max": 1,
+        "talent_point_desc": "菩提身、怒目金刚技能冷却时间减少30秒",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 562,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "见我非我",
+        "talent_point_max": 1,
+        "talent_point_desc": "天罡震地、怒目金刚能够打断闪避技能以外的其他技能释放，释放时不消耗梵音并位移至目标身前；怒目金刚冷却时间减少30秒",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 563,
+        "class": "天音",
+        "sub_class": "镇",
+        "talent_point_name": "圆融",
+        "talent_point_max": 1,
+        "talent_point_desc": "法相技能攻击命中时能够触发觉者的效果，该次攻击会心时额外触发1次",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": null,
+        "stats": []
+    }
+]

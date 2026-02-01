@@ -1,0 +1,1019 @@
+[
+    {
+        "talent_point_id": 366,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "看破",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会看破",
+        "finish": 0,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "罡风明王斩·叱咤",
+                "child_id": 367
+            },
+            {
+                "child_name": "虎贲",
+                "child_id": 368
+            },
+            {
+                "child_name": "罡风明王斩·降恶",
+                "child_id": 369
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 367,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "罡风明王斩·叱咤",
+        "talent_point_max": 1,
+        "talent_point_desc": "罡风明王斩攻击命中时为自身添加叱咤效果，每层叱咤效果使自身受到怪物伤害降低2%，对怪物造成伤害增加2%。效果能够叠加5层，持续15秒。",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "罡风·锁魂",
+                "child_id": 370
+            },
+            {
+                "child_name": "看破·降恶",
+                "child_id": 371
+            },
+            {
+                "child_name": "挑衅",
+                "child_id": 372
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 368,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "虎贲",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王的物理防御、法术防御，提高核心属性的6%;\n鬼王的物理防御、法术防御，提高核心属性的12%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "挑衅",
+                "child_id": 372
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "核心属性加成",
+                    "value": 0.06,
+                    "type_key": "main_stat_add",
+                    "display_string": "+6.0% 核心属性加成"
+                }
+            ],
+            [
+                {
+                    "type": "核心属性加成",
+                    "value": 0.12,
+                    "type_key": "main_stat_add",
+                    "display_string": "+12.0% 核心属性加成"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 369,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "罡风明王斩·降恶",
+        "talent_point_max": 1,
+        "talent_point_desc": "理性低于500时，释放罡风明王斩不再消耗理性；理性高于500时，罡风明王斩释放后不会进入冷却",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "挑衅",
+                "child_id": 372
+            },
+            {
+                "child_name": "盈脉",
+                "child_id": 373
+            },
+            {
+                "child_name": "魔盾固守·霸王",
+                "child_id": 374
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 370,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "罡风·锁魂",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王识破率增加7.5%,并且每1层叱咤效果和1%会心率，增加鬼王0.15%识破率;\n鬼王识破率增加15%,并且每1层叱咤效果和1%会心率，增加鬼王0.3%识破率",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "识破·讨逆",
+                "child_id": 375
+            },
+            {
+                "child_name": "识破·逐魄",
+                "child_id": 376
+            },
+            {
+                "child_name": "看破·碎心",
+                "child_id": 377
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 371,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "看破·降恶",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王进入看破状态时获得护盾，每有1%专精率护盾增加10%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "看破·碎心",
+                "child_id": 377
+            },
+            {
+                "child_name": "殷血法",
+                "child_id": 378
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 372,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "挑衅",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王造成的仇恨额外增加50%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "殷血法",
+                "child_id": 378
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 373,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "盈脉",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王的调息率增加4.5%;鬼王的调息率增加9%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "殷血法",
+                "child_id": 378
+            },
+            {
+                "child_name": "鬼跃·架海",
+                "child_id": 379
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.045,
+                    "type_key": "haste_percent",
+                    "display_string": "+4.5% 调息率"
+                }
+            ],
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.09,
+                    "type_key": "haste_percent",
+                    "display_string": "+9.0% 调息率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 374,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "魔盾固守·霸王",
+        "talent_point_max": 1,
+        "talent_point_desc": "魔盾固守持续时间增加3秒，减伤效果增加至40%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "鬼跃·架海",
+                "child_id": 379
+            },
+            {
+                "child_name": "明王降世咒·悍勇",
+                "child_id": 380
+            },
+            {
+                "child_name": "明王降世咒·傲骨",
+                "child_id": 381
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 375,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "识破·讨逆",
+        "talent_point_max": 1,
+        "talent_point_desc": "当鬼王识破率超过100%时，每高1%识破率增加鬼王0.2%识破减伤率。(该效果最多增加10%识破减伤率)",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 376,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "识破·逐魄",
+        "talent_point_max": 1,
+        "talent_point_desc": "敌方的攻击触发识破效果时，鬼王对该目标造成伤害",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 377,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "看破·碎心",
+        "talent_point_max": 1,
+        "talent_point_desc": "看破技能的充能层数增加1层",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "鬼啸",
+                "child_id": 382
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 378,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "殷血法",
+        "talent_point_max": 3,
+        "talent_point_desc": "气血上限提高10%，罡风明王斩、明王-迅雷斩治疗效果增加10%;\n气血上限提高20%，罡风明王斩、明王-迅雷斩治疗效果增加20%;\n气血上限提高30%，罡风明王斩、明王-迅雷斩治疗效果增加30%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "鬼啸",
+                "child_id": 382
+            },
+            {
+                "child_name": "凶煞",
+                "child_id": 383
+            },
+            {
+                "child_name": "劫魂爪",
+                "child_id": 384
+            },
+            {
+                "child_name": "震慑",
+                "child_id": 385
+            },
+            {
+                "child_name": "鬼斩·罡",
+                "child_id": 386
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 379,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "鬼跃·架海",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼跃每次攻击命中恢复50理性，鬼王每有1%调息率额外恢复1%理性;\n鬼跃每次攻击命中恢复100理性，鬼王每有1%调息率额外恢复2%理性;",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "鬼斩·罡",
+                "child_id": 386
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 380,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "明王降世咒·悍勇",
+        "talent_point_max": 1,
+        "talent_point_desc": "明王降世咒释放后，鬼王受到伤害降低25%，效果持续3秒。",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 381,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "明王降世咒·傲骨",
+        "talent_point_max": 2,
+        "talent_point_desc": "明王降世咒释放时，鬼王气血低于40%触发：恢复鬼王最大气血15%的气血(该效果每100最多触发1次);\n明王降世咒释放时，鬼王气血低于40%触发：恢复鬼王最大气血30%的气血(该效果每100最多触发1次)",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 382,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "鬼啸",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会鬼啸",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "鬼啸·飞沙",
+                "child_id": 387
+            },
+            {
+                "child_name": "杀伐",
+                "child_id": 388
+            },
+            {
+                "child_name": "护体",
+                "child_id": 389
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 383,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "凶煞",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王每有1%专精率，增加鬼跃、罡风明王斩、追魂斩、聚灵斩技能1%的伤害。",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 4,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 384,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "劫魂爪",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会劫魂爪",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "疾风",
+                "child_id": 390
+            },
+            {
+                "child_name": "劫魂爪·冥拘",
+                "child_id": 391
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 385,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "震慑",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王每次受到伤害使专精率增加1%，效果能够叠加5层，持续15秒;\n鬼王每次受到伤害使专精率增加1%，效果能够叠加10层，持续15秒。",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 6,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 386,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "鬼斩·罡",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会鬼斩",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "鬼斩·走石",
+                "child_id": 392
+            },
+            {
+                "child_name": "藏刀",
+                "child_id": 393
+            },
+            {
+                "child_name": "血盟",
+                "child_id": 394
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 387,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "鬼啸·飞沙",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼啸释放后鬼王对周围8米内的敌方持续造成伤害，效果持续8秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 388,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "杀伐",
+        "talent_point_max": 2,
+        "talent_point_desc": "大于500理性时，受到伤害降低2.5%;\n大于500理性时，受到伤害降低5%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "罡风明王斩·血脉",
+                "child_id": 395
+            },
+            {
+                "child_name": "罡袍",
+                "child_id": 396
+            },
+            {
+                "child_name": "聚灵斩",
+                "child_id": 397
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 389,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "护体",
+        "talent_point_max": 2,
+        "talent_point_desc": "20秒内鬼王受到伤害次数低于5次时，鬼王调息率增加6%;\n20秒内鬼王受到伤害次数低于5次时，鬼王调息率增加12%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 390,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "疾风",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王跑步速度增加20%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "聚灵斩",
+                "child_id": 397
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 391,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "劫魂爪·冥拘",
+        "talent_point_max": 1,
+        "talent_point_desc": "劫魂爪冷却时间降低至20秒，但是不再造成嘲讽效果并且仅对1个目标生效。",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "聚灵斩",
+                "child_id": 397
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 392,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "鬼斩·走石",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼斩技能的会心率增加25%;\n鬼斩技能的会心率增加50%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 393,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "藏刀",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼跃、罡风明王斩、聚灵斩、鬼斩夺命、鬼斩技能施法期间，鬼王受到伤害减少5%;\n鬼跃、罡风明王斩、聚灵斩、鬼斩夺命、鬼斩技能施法期间，鬼王受到伤害减少10%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "聚灵斩",
+                "child_id": 397
+            },
+            {
+                "child_name": "冥悟",
+                "child_id": 398
+            },
+            {
+                "child_name": "业报",
+                "child_id": 399
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 394,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "血盟",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王造成伤害时有1%概率使下1次鬼斩夺命不消耗魔性和冷却：聚灵斩释放时100%获得该效果，效果最多叠加3层。",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 395,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "罡风明王斩·血脉",
+        "talent_point_max": 2,
+        "talent_point_desc": "罡风明王斩攻击命中时，恢复周围3名友方气血;\n罡风明王斩攻击命中时，恢复周围3名友方气血。",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 396,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "罡袍",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王会心率增加4.5%;\n鬼王会心率增加9%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.045,
+                    "type_key": "critical_percent",
+                    "display_string": "+4.5% 会心率"
+                }
+            ],
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.09,
+                    "type_key": "critical_percent",
+                    "display_string": "+9.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 397,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "聚灵斩",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会聚灵斩",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "天煞血诀·罡",
+                "child_id": 400
+            },
+            {
+                "child_name": "镇狱鏖杀",
+                "child_id": 401
+            },
+            {
+                "child_name": "招架",
+                "child_id": 402
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 398,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "冥悟",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王气血低于60%时，受到伤害降低4%;\n鬼王气血低于60%时，受到伤害降低8%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 399,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "业报",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩·罡每次攻击命中目标，使目标对鬼王造成伤害降低5%，重复添加能够延长效果持续时间",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 400,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "天煞血诀·罡",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会天煞血诀·罡",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "聚灵斩·还魂",
+                "child_id": 403
+            },
+            {
+                "child_name": "执念",
+                "child_id": 404
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 401,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "镇狱鏖杀",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会镇狱鏖杀",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "刑天",
+                "child_id": 405
+            },
+            {
+                "child_name": "鬼跃·不屈",
+                "child_id": 406
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 402,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "招架",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会招架",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "看破·筹谋",
+                "child_id": 407
+            },
+            {
+                "child_name": "聚灵斩·净心",
+                "child_id": 408
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 403,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "聚灵斩·还魂",
+        "talent_point_max": 1,
+        "talent_point_desc": "聚灵斩蓄力释放时，恢复气血，每1%调息率增加2%恢复效果",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "魂噬",
+                "child_id": 476
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 404,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "执念",
+        "talent_point_max": 1,
+        "talent_point_desc": "每次罡风明王斩攻击命中每名敌方，减少天煞血诀·罡1秒的冷却时间(每次攻击最多减少3秒)",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "魂噬",
+                "child_id": 476
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 405,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "刑天",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼跃、罡风明王斩、聚灵斩能够延长目标受到硬控的持续时间",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "禁锢",
+                "child_id": 477
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 406,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "鬼跃·不屈",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼跃施法期间霸体，控制效果变为后一击能够击飞敌方2秒；鬼王攻击受到硬控的目标时，造成伤害增加15%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "禁锢",
+                "child_id": 477
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 407,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "看破·筹谋",
+        "talent_point_max": 1,
+        "talent_point_desc": "看破触发追魂斩时，获得聚灵斩·摧朽；鬼王每1%专精率增加0.5%看破状态的减伤效果",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "聚灵斩·灵铠",
+                "child_id": 478
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 408,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "聚灵斩·净心",
+        "talent_point_max": 1,
+        "talent_point_desc": "聚灵斩·摧朽的层数叠加上限增加2层；聚灵斩造成伤害增加10%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "聚灵斩·灵铠",
+                "child_id": 478
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 476,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "魂噬",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王根据造成伤害的3%恢复自身气血，每1%调息率增加2%该效果",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "天煞血诀·血噬",
+                "child_id": 479
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 477,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "禁锢",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王对玩家造成伤害增加15%，物理、法术防御降低30%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "无间",
+                "child_id": 480
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 478,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "聚灵斩·灵铠",
+        "talent_point_max": 1,
+        "talent_point_desc": "聚灵斩蓄力释放时获得护盾，每1%专精率增加2%护盾",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "聚灵斩·寂灭",
+                "child_id": 481
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 479,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "天煞血诀·血噬",
+        "talent_point_max": 1,
+        "talent_point_desc": "天煞血诀·罡持续期间，技能每次命中每名目标，都有概率获得聚灵斩·摧朽",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 480,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "无间",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王门派技能击飞敌方后：5秒内鬼斩夺命、罡风明王斩 释放不消耗魔性、理性且不进入冷却，解锁鬼斩·罡天赋后：3秒内能够额外释放1次鬼斩重锋·罡，并且该次鬼斩重锋·罡施法期间鬼王霸体",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 481,
+        "class": "鬼王",
+        "sub_class": "罡",
+        "talent_point_name": "聚灵斩·寂灭",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王造成伤害、受到伤害时，有概率获得聚灵斩·摧朽",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

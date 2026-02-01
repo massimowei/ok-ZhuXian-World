@@ -9,11 +9,11 @@
   {
     "id": "rili",
     "name": "游戏日历",
-    "type": "placeholder"
+    "type": "qt"
   },
   {
     "id": "tianshu",
     "name": "天书模拟器",
-    "type": "placeholder"
+    "type": "qt"
   }
 ]

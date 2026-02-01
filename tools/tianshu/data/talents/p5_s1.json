@@ -1,0 +1,986 @@
+[
+    {
+        "talent_point_id": 234,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵引",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会灵引",
+        "finish": 1,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "灵昧·神烁",
+                "child_id": 235
+            },
+            {
+                "child_name": "灵火炙魂·还珠",
+                "child_id": 236
+            }
+        ],
+        "parent": 1.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 235,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵昧·神烁",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵昧造成的伤害提高10%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "焚秽·天炽",
+                "child_id": 237
+            },
+            {
+                "child_name": "灵昧·阳韬",
+                "child_id": 238
+            },
+            {
+                "child_name": "聚烁",
+                "child_id": 239
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 236,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵火炙魂·还珠",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵火炙魂额外回复1颗玄火珠",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "聚烁",
+                "child_id": 239
+            },
+            {
+                "child_name": "灵引·丹心",
+                "child_id": 240
+            },
+            {
+                "child_name": "灵火炙魂·炽丹",
+                "child_id": 241
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 237,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "焚秽·天炽",
+        "talent_point_max": 1,
+        "talent_point_desc": "焚秽会心时额外触发一层灵昧效果",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "焚秽·炽煞",
+                "child_id": 242
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 238,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵昧·阳韬",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵昧的会心率提高15%;灵昧的会心率提高30%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 239,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "聚烁",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会聚烁",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "聚烁·回火",
+                "child_id": 243
+            },
+            {
+                "child_name": "聚烁·威势",
+                "child_id": 244
+            },
+            {
+                "child_name": "聚烁·珠衡",
+                "child_id": 245
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 240,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵引·丹心",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵引会心率提高15% 灵引会心率提高30%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 241,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵火炙魂·炽丹",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵火炙魂给与自身炽丹效果，使自身专精率增加5%，持续10秒",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "灵火炙魂·阳明",
+                "child_id": 246
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 242,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "焚秽·炽煞",
+        "talent_point_max": 2,
+        "talent_point_desc": "焚秽会心率提高15%;焚秽会心率提高30%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "焚秽·剑炎",
+                "child_id": 247
+            },
+            {
+                "child_name": "祭剑凝元",
+                "child_id": 248
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 243,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "聚烁·回火",
+        "talent_point_max": 2,
+        "talent_point_desc": "聚烁会心率提高15%;聚烁会心率提高30%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "祭剑凝元",
+                "child_id": 248
+            },
+            {
+                "child_name": "灵驰·焙刑",
+                "child_id": 249
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 244,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "聚烁·威势",
+        "talent_point_max": 2,
+        "talent_point_desc": "聚烁造成击飞时，恢复2颗玄火珠;聚烁造成击飞时，恢复4颗玄火珠",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "灵驰·焙刑",
+                "child_id": 249
+            },
+            {
+                "child_name": "祛邪法旨",
+                "child_id": 250
+            },
+            {
+                "child_name": "命灯",
+                "child_id": 251
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 245,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "聚烁·珠衡",
+        "talent_point_max": 2,
+        "talent_point_desc": "聚烁附加的灵昧层数增加5层;聚烁附加的灵昧层数增加10层",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "命灯",
+                "child_id": 251
+            },
+            {
+                "child_name": "玄阳天律",
+                "child_id": 252
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 246,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵火炙魂·阳明",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵火炙魂造成的伤害增加20%;灵火炙魂造成的伤害增加40%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "玄阳天律",
+                "child_id": 252
+            },
+            {
+                "child_name": "万炬",
+                "child_id": 253
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 247,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "焚秽·剑炎",
+        "talent_point_max": 1,
+        "talent_point_desc": "焚秽造成的伤害提高40%，焚秽现在变为普通技能，无法被其他技能打断(闪避技能除外)，施法时间减少0.2秒",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "日辰",
+                "child_id": 254
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 248,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "祭剑凝元",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会祭剑凝元",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "灵昧·晖耀",
+                "child_id": 255
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 249,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵驰·焙刑",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵驰结束后获得1秒霸体",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "灵驰·乘风",
+                "child_id": 256
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 250,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "祛邪法旨",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会祛邪法旨",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "阳璞",
+                "child_id": 257
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 251,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "命灯",
+        "talent_point_max": 1,
+        "talent_point_desc": "气血低于25%时，受到的伤害降低20%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "原灵·长明",
+                "child_id": 258
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 252,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "玄阳天律",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会玄阳天律",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "玄阳天律·熔坚",
+                "child_id": 259
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 253,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "万炬",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵引和聚烁造成会心时，额外给予敌人附加5层灵昧",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "卓尔",
+                "child_id": 260
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 254,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "日辰",
+        "talent_point_max": 1,
+        "talent_point_desc": "焚秽可以额外攻击到目标周围5米范围内的4个随机目标。",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 255,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵昧·晖耀",
+        "talent_point_max": 1,
+        "talent_point_desc": "每触发一层灵昧使下一个祭剑凝元会心率增加3%，最多叠加30层，释放祭剑凝元最多消耗10层，持续6秒",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "祭剑凝元·炽剑",
+                "child_id": 261
+            },
+            {
+                "child_name": "祭剑凝元·悟烽",
+                "child_id": 262
+            },
+            {
+                "child_name": "灵昧·戎机",
+                "child_id": 263
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 256,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵驰·乘风",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵驰恢复2颗玄火珠;灵驰恢复4颗玄火珠",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 257,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "阳璞",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵引和聚烁击飞敌人时，为其附加5层灵昧效果;灵引和聚烁击飞敌人时，为其附加10层灵昧效果",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "离火",
+                "child_id": 264
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 258,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "原灵·长明",
+        "talent_point_max": 2,
+        "talent_point_desc": "原灵的持续时间增加0.5秒;原灵的持续时间增加1秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 259,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "玄阳天律·熔坚",
+        "talent_point_max": 1,
+        "talent_point_desc": "玄阳天律每次攻击时，额外触发1层灵昧",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "玄阳天律·定晖",
+                "child_id": 265
+            },
+            {
+                "child_name": "万炎归宗·燃流",
+                "child_id": 266
+            },
+            {
+                "child_name": "玄阳天律·珠玑",
+                "child_id": 267
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 260,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "卓尔",
+        "talent_point_max": 1,
+        "talent_point_desc": "专精率提高3%",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.03,
+                    "type_key": "mastery_percent",
+                    "display_string": "+3.0% 专精率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 261,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "祭剑凝元·炽剑",
+        "talent_point_max": 2,
+        "talent_point_desc": "祭剑凝元的会心后减少灵火炙魂1秒冷却;祭剑凝元的会心后减少灵火炙魂2秒冷却",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "律令焚邪",
+                "child_id": 268
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 262,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "祭剑凝元·悟烽",
+        "talent_point_max": 2,
+        "talent_point_desc": "祭剑凝元会心后减少聚烁1秒冷却;祭剑凝元会心后减少聚烁2秒冷却",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "律令焚邪",
+                "child_id": 268
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 263,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "灵昧·戎机",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵昧对气血低于30%的目标伤害提高25%;灵昧对气血低于30%的目标伤害提高50%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "律令焚邪",
+                "child_id": 268
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 264,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "离火",
+        "talent_point_max": 1,
+        "talent_point_desc": "焚秽，玄阳天律对被硬控的目标会心率增加100%，灵昧对被硬控的目标会心率增加30%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "缚邪咒篆",
+                "child_id": 269
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 265,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "玄阳天律·定晖",
+        "talent_point_max": 2,
+        "talent_point_desc": "玄阳天律每次攻击造成会心时，额外触发1层灵昧;玄阳天律每次攻击造成会心时，额外触发2层灵昧",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "八荒火龙",
+                "child_id": 270
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 266,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "万炎归宗·燃流",
+        "talent_point_max": 2,
+        "talent_point_desc": "万炎归宗会心率增加15%，会心效果增加30%，伤害提高25%;万炎归宗会心率增加30%，会心效果增加60%，伤害提高50%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "八荒火龙",
+                "child_id": 270
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 267,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "玄阳天律·珠玑",
+        "talent_point_max": 2,
+        "talent_point_desc": "玄阳天律会心率增加15%，会心效果增加15%;玄阳天律会心率增加30%，会心效果增加30%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "八荒火龙",
+                "child_id": 270
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 268,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "律令焚邪",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会律令焚邪",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "律令焚邪·炎典",
+                "child_id": 271
+            },
+            {
+                "child_name": "律令焚邪·火敕",
+                "child_id": 272
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 269,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "缚邪咒篆",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会缚邪咒篆",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "缚邪咒篆·气焰",
+                "child_id": 273
+            },
+            {
+                "child_name": "百煅",
+                "child_id": 274
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 270,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "八荒火龙",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会八荒火龙",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "炤炤",
+                "child_id": 275
+            },
+            {
+                "child_name": "八荒火龙·余烬",
+                "child_id": 276
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 271,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "律令焚邪·炎典",
+        "talent_point_max": 1,
+        "talent_point_desc": "律令焚邪持续期间，每消耗1层灵昧，律令焚邪持续时间延长0.3秒",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "律令焚邪·灼心",
+                "child_id": 463
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 272,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "律令焚邪·火敕",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵昧会心效果提高10%，律令焚邪额外增加自身20%会心率",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "律令焚邪·灼心",
+                "child_id": 463
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 273,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "缚邪咒篆·气焰",
+        "talent_point_max": 1,
+        "talent_point_desc": "缚邪咒篆释放3秒后，可无消耗释放一次祛邪法旨",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "万炎归宗·玄守",
+                "child_id": 464
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 274,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "百煅",
+        "talent_point_max": 1,
+        "talent_point_desc": "焚秽、祭剑凝元和玄阳天律对硬控状态的目标造成伤害时，附带2秒击飞效果",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "万炎归宗·玄守",
+                "child_id": 464
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 275,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "炤炤",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵昧的叠加上限增加到120层，八荒火龙附带的灵昧数量增加20层，万炎归宗每次攻击造成会心时触发灵昧层数翻倍",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "玄阳天律·云焰",
+                "child_id": 465
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 276,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "八荒火龙·余烬",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放八荒火龙后，下4次灵引或聚烁额外为目标附加10层灵昧",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "玄阳天律·云焰",
+                "child_id": 465
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.05,
+                    "type_key": "critical_percent",
+                    "display_string": "+5.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 463,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "律令焚邪·灼心",
+        "talent_point_max": 1,
+        "talent_point_desc": "律令焚邪的冷却时间减少至40秒，律令焚邪额外附加10层灵昧",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "燎原",
+                "child_id": 466
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 464,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "万炎归宗·玄守",
+        "talent_point_max": 1,
+        "talent_point_desc": "万炎归宗期间减少受到的40%伤害",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "烽燹",
+                "child_id": 467
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 465,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "玄阳天律·云焰",
+        "talent_point_max": 1,
+        "talent_point_desc": "每次释放灵引、聚烁会心后，使玄阳天律的冷却时间减少2秒，灵昧的会心效果提高10%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "炯元",
+                "child_id": 468
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 466,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "燎原",
+        "talent_point_max": 1,
+        "talent_point_desc": "每次灵昧造成的伤害时，都有5%概率在目标身上产生一次爆炸，爆炸会对目标及周围6米范围内的敌人造成0.6*攻击法术伤害，每1%专精提高2%燎原伤害",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 467,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "烽燹",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放驱邪法旨后的3秒内，灵引、聚烁的施法距离提升至25米",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 468,
+        "class": "焚香",
+        "sub_class": "咒",
+        "talent_point_name": "炯元",
+        "talent_point_max": 1,
+        "talent_point_desc": "每触发1层灵昧，八荒火龙、万炎归宗、玄阳天律冷却时间减少0.2秒",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

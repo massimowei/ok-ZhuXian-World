@@ -1,0 +1,1017 @@
+[
+    {
+        "talent_point_id": 191,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "南巫天火",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会南巫天火",
+        "finish": 1,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "煌耀",
+                "child_id": 192
+            },
+            {
+                "child_name": "升阳",
+                "child_id": 193
+            },
+            {
+                "child_name": "南巫天火·砺火",
+                "child_id": 194
+            }
+        ],
+        "parent": 1.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 192,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "煌耀",
+        "talent_point_max": 2,
+        "talent_point_desc": "炎龙降世和轰焱的会心率提高7.5%;炎龙降世和轰焱的会心率提高15%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "无涯",
+                "child_id": 195
+            },
+            {
+                "child_name": "神照",
+                "child_id": 196
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 193,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "升阳",
+        "talent_point_max": 2,
+        "talent_point_desc": "对气血高于70%的敌人造成伤害增加5%;对气血高于70%的敌人造成伤害增加10%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "神照",
+                "child_id": 196
+            },
+            {
+                "child_name": "烈空",
+                "child_id": 197
+            },
+            {
+                "child_name": "南巫天火·三昧",
+                "child_id": 198
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 194,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "南巫天火·砺火",
+        "talent_point_max": 2,
+        "talent_point_desc": "南巫天火会心率提高15%，会心效果提高30%;南巫天火会心率提高30%，会心效果提高60%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "南巫天火·三昧",
+                "child_id": 198
+            },
+            {
+                "child_name": "南巫天火·不灭",
+                "child_id": 199
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 195,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "无涯",
+        "talent_point_max": 1,
+        "talent_point_desc": "会心率提高3%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "驭火诀·指玄",
+                "child_id": 200
+            },
+            {
+                "child_name": "凝神百炼",
+                "child_id": 201
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.03,
+                    "type_key": "critical_percent",
+                    "display_string": "+3.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 196,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "神照",
+        "talent_point_max": 1,
+        "talent_point_desc": "使用灵火炙魂或业火难灭后，南巫天火减少2秒冷却时间",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "凝神百炼",
+                "child_id": 201
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 197,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "烈空",
+        "talent_point_max": 1,
+        "talent_point_desc": "炎龙降世、轰焱的会心效果提高30%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "无铸",
+                "child_id": 202
+            },
+            {
+                "child_name": "轰炎",
+                "child_id": 203
+            },
+            {
+                "child_name": "浩瀚",
+                "child_id": 204
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 198,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "南巫天火·三昧",
+        "talent_point_max": 1,
+        "talent_point_desc": "南巫天火使目标每1.5秒受到0.05*攻击火属性伤害，持续12秒",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "驭火诀·仙烬",
+                "child_id": 205
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 199,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "南巫天火·不灭",
+        "talent_point_max": 1,
+        "talent_point_desc": "南巫天火会心使下一次炎龙降世或者轰焱的会心率提高15%，持续10秒",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "驭火诀·仙烬",
+                "child_id": 205
+            },
+            {
+                "child_name": "炼焰",
+                "child_id": 206
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 200,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "驭火诀·指玄",
+        "talent_point_max": 3,
+        "talent_point_desc": "驭火诀造成的伤害提高30%;驭火诀造成的伤害提高60%;驭火诀造成的伤害提高90%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 201,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "凝神百炼",
+        "talent_point_max": 1,
+        "talent_point_desc": "玄火珠存储上限增加2颗，专精率增加3%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "轩焱",
+                "child_id": 207
+            },
+            {
+                "child_name": "炎龙印刻",
+                "child_id": 208
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.03,
+                    "type_key": "mastery_percent",
+                    "display_string": "+3.0% 专精率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 202,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "无铸",
+        "talent_point_max": 2,
+        "talent_point_desc": "驭火诀、灵火炙魂和业火难灭的会心率提高15%;驭火诀、灵火炙魂和业火难灭的会心率提高30%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "炎龙印刻",
+                "child_id": 208
+            },
+            {
+                "child_name": "意气风发·正气",
+                "child_id": 209
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 203,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "轰炎",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会轰炎",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "意气风发·正气",
+                "child_id": 209
+            },
+            {
+                "child_name": "幻火迷觉",
+                "child_id": 210
+            },
+            {
+                "child_name": "原灵·刑羁",
+                "child_id": 211
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 204,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "浩瀚",
+        "talent_point_max": 2,
+        "talent_point_desc": "驭火诀、灵火炙魂和业火难灭的会心效果提高30%;驭火诀、灵火炙魂和业火难灭的会心效果提高60%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "原灵·刑羁",
+                "child_id": 211
+            },
+            {
+                "child_name": "业火难灭",
+                "child_id": 212
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 205,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "驭火诀·仙烬",
+        "talent_point_max": 1,
+        "talent_point_desc": "驭火诀命中时使目标每1.5秒受到0.05*攻击火属性伤害，持续15秒",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "业火难灭",
+                "child_id": 212
+            },
+            {
+                "child_name": "焰光",
+                "child_id": 213
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 206,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "炼焰",
+        "talent_point_max": 3,
+        "talent_point_desc": "灵火炙魂和业火难灭造成伤害的提高20%;灵火炙魂和业火难灭造成伤害的提高40%;灵火炙魂和业火难灭造成伤害的提高60%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 207,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "轩焱",
+        "talent_point_max": 1,
+        "talent_point_desc": "造成伤害时，会心率超过100%的部分按80%转化为会心效果",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 208,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "炎龙印刻",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会炎龙印刻",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "炎龙印刻·巨阙",
+                "child_id": 214
+            },
+            {
+                "child_name": "炎龙印刻·无间",
+                "child_id": 215
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 209,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "意气风发·正气",
+        "talent_point_max": 1,
+        "talent_point_desc": "意气风发施放期间自身受到源自玩家的伤害降低50%；在浮空状态下使用意气风发恢复200点体力值",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "至烈阳炎",
+                "child_id": 216
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 210,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "幻火迷觉",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会幻火迷觉",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "幻火迷觉·叱邪",
+                "child_id": 217
+            },
+            {
+                "child_name": "幻焰",
+                "child_id": 469
+            },
+            {
+                "child_name": "幻火迷觉·幻灵",
+                "child_id": 218
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 211,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "原灵·刑羁",
+        "talent_point_max": 1,
+        "talent_point_desc": "原灵冷却时间减少10秒",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "原灵·开阳",
+                "child_id": 219
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 212,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "业火难灭",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会业火难灭",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "业火难灭·连魁",
+                "child_id": 220
+            },
+            {
+                "child_name": "南巫天火·玄黄",
+                "child_id": 221
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 213,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "焰光",
+        "talent_point_max": 1,
+        "talent_point_desc": "炎龙降世和轰焱使目标每1.5秒受到0.05*攻击火属性伤害，持续15秒",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 214,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "炎龙印刻·巨阙",
+        "talent_point_max": 2,
+        "talent_point_desc": "炎龙印刻的结算伤害由30%提升到40%;炎龙印刻的结算伤害从40%提升到50%",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "劫火傲诀",
+                "child_id": 222
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 215,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "炎龙印刻·无间",
+        "talent_point_max": 2,
+        "talent_point_desc": "施放炎龙印刻6秒内增加自身专精率7.5%;施放炎龙印刻6秒内增加自身专精率15%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "劫火傲诀",
+                "child_id": 222
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 216,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "至烈阳炎",
+        "talent_point_max": 1,
+        "talent_point_desc": "炎龙降世和轰焱使目标伤害下降6%，持续5秒，此效果对首领不生效",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 217,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "幻火迷觉·叱邪",
+        "talent_point_max": 2,
+        "talent_point_desc": "幻火迷觉冷却时间减少2.5秒;幻火迷觉冷却时间减少5秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "滔天",
+                "child_id": 223
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 218,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "幻火迷觉·幻灵",
+        "talent_point_max": 2,
+        "talent_point_desc": "幻火迷觉成功定身敌人时，炎龙印刻冷却时间减少5秒;幻火迷觉成功定身敌人时，炎龙印刻冷却时间减少10秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "滔天",
+                "child_id": 223
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 219,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "原灵·开阳",
+        "talent_point_max": 1,
+        "talent_point_desc": "原灵减伤由20%提升到40%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 220,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "业火难灭·连魁",
+        "talent_point_max": 2,
+        "talent_point_desc": "业火难灭的持续伤害效果，可叠加至2层;业火难灭的持续伤害效果，可叠加至3层",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "灭厄",
+                "child_id": 224
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 221,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "南巫天火·玄黄",
+        "talent_point_max": 2,
+        "talent_point_desc": "南巫天火造成伤害时额外恢复1颗玄火珠;南巫天火造成伤害时额外恢复2颗玄火珠",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "灭厄",
+                "child_id": 224
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 222,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "劫火傲诀",
+        "talent_point_max": 1,
+        "talent_point_desc": "炎龙降世或轰焱造成会心后，使下一个炎龙降世或轰焱伤害提高30%，效果持续15秒",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "五龙御焰",
+                "child_id": 225
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 223,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "滔天",
+        "talent_point_max": 1,
+        "talent_point_desc": "驭火诀、灵火炙魂和南巫天火对控制状态的目标造成伤害时，额外恢复3颗玄火珠。南巫天火造成击飞时也会生效该效果",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "劫波三昧",
+                "child_id": 226
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 224,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "灭厄",
+        "talent_point_max": 1,
+        "talent_point_desc": "焚香的持续效果造成伤害时，获得一层灭厄效果，当灭厄达到80层时，使下一次轰焱或炎龙降世的会心率提高80%。",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "阳炎火卷",
+                "child_id": 227
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 225,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "五龙御焰",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会五龙御焰",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "五龙御焰·赤苍",
+                "child_id": 228
+            },
+            {
+                "child_name": "炎龙珠",
+                "child_id": 229
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 226,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "劫波三昧",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会劫波三昧",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "劫波三昧·纵横",
+                "child_id": 230
+            },
+            {
+                "child_name": "日湮",
+                "child_id": 231
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 227,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "阳炎火卷",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会阳炎火卷",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "重光",
+                "child_id": 232
+            },
+            {
+                "child_name": "阳炎火卷·灼霄",
+                "child_id": 233
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 228,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "五龙御焰·赤苍",
+        "talent_point_max": 1,
+        "talent_point_desc": "五龙御焰效果期间会心率额外提高20%",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "炎龙印刻·炽羽",
+                "child_id": 470
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 229,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "炎龙珠",
+        "talent_point_max": 1,
+        "talent_point_desc": "驭火诀、灵火炙魂、南巫天火、炎龙降世和轰炎造成会心效果后，恢复1颗玄火珠",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "炎龙印刻·炽羽",
+                "child_id": 470
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 230,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "劫波三昧·纵横",
+        "talent_point_max": 1,
+        "talent_point_desc": "施放劫波三昧后原地留下分身，再次释放技能回到分身处，持续4秒。该位移期间霸体，但不可解定身",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "劫波三昧·回烬",
+                "child_id": 471
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 231,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "日湮",
+        "talent_point_max": 1,
+        "talent_point_desc": "驭火诀、灵火炙魂和劫波三昧对硬控状态的目标造成伤害时，附带2秒击飞效果",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "劫波三昧·回烬",
+                "child_id": 471
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 232,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "重光",
+        "talent_point_max": 1,
+        "talent_point_desc": "炎龙降世或者轰焱施放时会消耗所有玄火珠，每消耗1颗额外的玄火珠伤害提升25%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "阳炎火卷·烬燃",
+                "child_id": 472
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 233,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "阳炎火卷·灼霄",
+        "talent_point_max": 1,
+        "talent_point_desc": "目标身上每有1层三昧、仙烬、焰光和业火难灭的持续伤害效果，阳炎火卷造成的伤害增加15%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "阳炎火卷·烬燃",
+                "child_id": 472
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 469,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "幻焰",
+        "talent_point_max": 1,
+        "talent_point_desc": "焚香每次击败或者参与击败敌对玩家减少5秒意气风发冷却时间",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "滔天",
+                "child_id": 223
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 470,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "炎龙印刻·炽羽",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放炎龙印刻后，下3次轰焱、炎龙降世会心率提高40%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "赤诚",
+                "child_id": 473
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 471,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "劫波三昧·回烬",
+        "talent_point_max": 1,
+        "talent_point_desc": "劫波三昧期间受到的伤害减少30%，释放技能时回复2%最大气血",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "劫波三昧·炎缚",
+                "child_id": 474
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 472,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "阳炎火卷·烬燃",
+        "talent_point_max": 1,
+        "talent_point_desc": "阳炎火卷使目标身上的三昧、仙烬、焰光、业火难灭变为基础每1秒造成1次伤害",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "归炎",
+                "child_id": 475
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 473,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "赤诚",
+        "talent_point_max": 1,
+        "talent_point_desc": "五龙御焰和意气风发的冷却时间减少20秒，轰焱、炎龙降世对玩家造成的伤害降低50%",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 474,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "劫波三昧·炎缚",
+        "talent_point_max": 1,
+        "talent_point_desc": "劫波三昧每次造成伤害会延长0.75秒定身",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 475,
+        "class": "焚香",
+        "sub_class": "炎",
+        "talent_point_name": "归炎",
+        "talent_point_max": 1,
+        "talent_point_desc": "焚香所有持续伤害效果每造成15次伤害时，恢复1颗玄火珠",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

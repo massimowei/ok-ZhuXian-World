@@ -1,0 +1,1048 @@
+[
+    {
+        "talent_point_id": 321,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "风切",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会风切",
+        "finish": 1,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "月刃之息·绽放",
+                "child_id": 322
+            },
+            {
+                "child_name": "半月斩·情贞",
+                "child_id": 323
+            },
+            {
+                "child_name": "绝情·情驰",
+                "child_id": 324
+            },
+            {
+                "child_name": "月刃之息·连绵",
+                "child_id": 325
+            }
+        ],
+        "parent": 1.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 322,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月刃之息·绽放",
+        "talent_point_max": 2,
+        "talent_point_desc": "月刃之息的会心率提高15%,会心伤害提高15%;\n月刃之息的会心率提高30%,会心伤害提高30%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "绝情·银环",
+                "child_id": 326
+            },
+            {
+                "child_name": "瞬殇·怆伤",
+                "child_id": 327
+            },
+            {
+                "child_name": "风花雪月·邀明月",
+                "child_id": 328
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 323,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "半月斩·情贞",
+        "talent_point_max": 2,
+        "talent_point_desc": "半月斩的伤害提高25%，命中时有10%概率推进1层月相;\n半月斩的伤害提高50%，命中时有20%概率推进1层月相",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "风花雪月·邀明月",
+                "child_id": 328
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 324,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "绝情·情驰",
+        "talent_point_max": 2,
+        "talent_point_desc": "绝情月能消耗降低2.5点;\n绝情月能消耗降低5点",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "闰盈",
+                "child_id": 329
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 325,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月刃之息·连绵",
+        "talent_point_max": 2,
+        "talent_point_desc": "月刃之息伤害提高10%;\n月刃之息伤害提高20%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "闰盈",
+                "child_id": 329
+            },
+            {
+                "child_name": "绝情·长恨",
+                "child_id": 330
+            },
+            {
+                "child_name": "相见欢",
+                "child_id": 331
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 326,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "绝情·银环",
+        "talent_point_max": 1,
+        "talent_point_desc": "绝情有20%概率造成额外物理伤害",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "绝情·月曜",
+                "child_id": 332
+            },
+            {
+                "child_name": "月刃之息·望舒",
+                "child_id": 333
+            },
+            {
+                "child_name": "怒愿",
+                "child_id": 334
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 327,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "瞬殇·怆伤",
+        "talent_point_max": 1,
+        "talent_point_desc": "瞬殇命中血量低于20%的目标时，获得一次月刃之息，并且使下次月刃之息伤害提升50%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "怒愿",
+                "child_id": 334
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 328,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "风花雪月·邀明月",
+        "talent_point_max": 1,
+        "talent_point_desc": "风花雪月命中的目标气血高于50%时，伤害提高50%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "怒愿",
+                "child_id": 334
+            },
+            {
+                "child_name": "月刃·采蝶",
+                "child_id": 335
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 329,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "闰盈",
+        "talent_point_max": 1,
+        "talent_point_desc": "击败或参与击败敌对玩家，可以让合欢在3秒内无冷却消耗 释放风花雪月",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "月刃·采蝶",
+                "child_id": 335
+            },
+            {
+                "child_name": "风切·云阶",
+                "child_id": 336
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 330,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "绝情·长恨",
+        "talent_point_max": 1,
+        "talent_point_desc": "绝情从背面攻击到目标时，使自身会心率提高6%，持续12秒",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "风切·云阶",
+                "child_id": 336
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 331,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "相见欢",
+        "talent_point_max": 1,
+        "talent_point_desc": "风花雪月，风切会心率提高30%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "风切·云阶",
+                "child_id": 336
+            },
+            {
+                "child_name": "绝情·决绝",
+                "child_id": 337
+            },
+            {
+                "child_name": "缠绵",
+                "child_id": 338
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 332,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "绝情·月曜",
+        "talent_point_max": 2,
+        "talent_point_desc": "每1%专精率可以提高绝情0.3%伤害;\n每1%专精率可以提高绝情0.6%伤害",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 333,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月刃之息·望舒",
+        "talent_point_max": 2,
+        "talent_point_desc": "月刃之息有5%概率造成额外物理伤害，每有1%专精率概率提高1%;\n月刃之息有5%概率造成额外物理伤害，每有1%专精率概率提高2%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 334,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "怒愿",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放扶摇时获得8层绝情·怒愿效果。绝情·怒愿使下次绝情不消耗月能、施法时间减少至0.4秒，伤害提高33%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "月袭",
+                "child_id": 339
+            },
+            {
+                "child_name": "怒愿·萧肃",
+                "child_id": 340
+            },
+            {
+                "child_name": "断月",
+                "child_id": 341
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 335,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月刃·采蝶",
+        "talent_point_max": 1,
+        "talent_point_desc": "月刃命中第一个目标时回复自身2.5%已经损失的气血，并且每次弹射中一个目标可以使自己的移动速度增加20%，持续5秒，该效果最多叠加3层",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "断月",
+                "child_id": 341
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 336,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "风切·云阶",
+        "talent_point_max": 1,
+        "talent_point_desc": "风切造成的伤害提高50%，并且释放后还会在2秒内回复24月能",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "断月",
+                "child_id": 341
+            },
+            {
+                "child_name": "影替身",
+                "child_id": 342
+            },
+            {
+                "child_name": "月无情",
+                "child_id": 343
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 337,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "绝情·决绝",
+        "talent_point_max": 2,
+        "talent_point_desc": "绝情的溅射伤害如果命中了目标，获得决绝效果，10秒内的所有月刃之息伤害会心率提高20%;\n绝情的溅射伤害如果命中了目标，会额外推进一层月相，并获得决绝效果，10秒内的所有月刃之息伤害会心率提高40%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 338,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "缠绵",
+        "talent_point_max": 2,
+        "talent_point_desc": "释放风切后，使下次月刃之息的伤害提高50%;\n释放风切后，使下次月刃之息的伤害提高100%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 339,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月袭",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会月袭·月刹",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "绝情·奔月",
+                "child_id": 344
+            },
+            {
+                "child_name": "风花雪月·皓月当空",
+                "child_id": 345
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 340,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "怒愿·萧肃",
+        "talent_point_max": 1,
+        "talent_point_desc": "绝情·怒愿的伤害提高20%，会心率提高20%",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 341,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "断月",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会断月",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "断月·贯珠",
+                "child_id": 346
+            },
+            {
+                "child_name": "风切·天籁",
+                "child_id": 347
+            },
+            {
+                "child_name": "断月·月升",
+                "child_id": 348
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 342,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "影替身",
+        "talent_point_max": 1,
+        "talent_point_desc": "触发影替身后，额外回复气血",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 343,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月无情",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会月无情",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "月无情·情澜",
+                "child_id": 349
+            },
+            {
+                "child_name": "月无情·同归",
+                "child_id": 350
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 344,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "绝情·奔月",
+        "talent_point_max": 1,
+        "talent_point_desc": "绝情伤害提高30%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 345,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "风花雪月·皓月当空",
+        "talent_point_max": 2,
+        "talent_point_desc": "每释放4次绝情·怒愿，使15秒内的下一次风花雪月提高25%伤害，最多提高50%伤害;\n每释放4次绝情·怒愿，使15秒内的下一次风花雪月提高50%伤害，最多提高100%伤害",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "月袭·良宵",
+                "child_id": 351
+            },
+            {
+                "child_name": "月蚀",
+                "child_id": 352
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 346,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "断月·贯珠",
+        "talent_point_max": 1,
+        "talent_point_desc": "断月伤害提高50%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 347,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "风切·天籁",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会风切·天籁",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "月刃之息·情致",
+                "child_id": 353
+            },
+            {
+                "child_name": "断月·余香",
+                "child_id": 354
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 348,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "断月·月升",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放断月时获得满月，并且在命中被控制的目标时伤害增加10%。",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 349,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月无情·情澜",
+        "talent_point_max": 2,
+        "talent_point_desc": "月无情命中的目标，受到来自合欢的伤害增加3%，持续30秒;\n月无情命中的目标，受到来自合欢的伤害增加6%，持续30秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "倾心",
+                "child_id": 355
+            },
+            {
+                "child_name": "月无情·婵娟",
+                "child_id": 356
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 350,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月无情·同归",
+        "talent_point_max": 1,
+        "talent_point_desc": "月无情2段伤害命中同一目标，恢复自身2.5%最大气血",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 351,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月袭·良宵",
+        "talent_point_max": 2,
+        "talent_point_desc": "月袭的伤害提高40%;\n月袭的伤害提高80%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "祈福",
+                "child_id": 357
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 352,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月蚀",
+        "talent_point_max": 2,
+        "talent_point_desc": "专精率提高3%;\n专精率提高6%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "祈福",
+                "child_id": 357
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.03,
+                    "type_key": "mastery_percent",
+                    "display_string": "+3.0% 专精率"
+                }
+            ],
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.06,
+                    "type_key": "mastery_percent",
+                    "display_string": "+6.0% 专精率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 353,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月刃之息·情致",
+        "talent_point_max": 2,
+        "talent_point_desc": "战斗中每过15秒，下次月刃之息的伤害提高40%;\n战斗中每过15秒，下次月刃之息的伤害提高80%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "缥缈",
+                "child_id": 358
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 354,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "断月·余香",
+        "talent_point_max": 2,
+        "talent_point_desc": "断月的攻击范围内如果存在3名及以上目标，断月的释放过程中霸体，并且断月每多攻击到1个目标，伤害提高10%;\n断月的攻击范围内如果存在3名及以上目标，断月的释放过程中霸体，并且断月每多攻击到1个目标，伤害提高20%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "缥缈",
+                "child_id": 358
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 355,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "倾心",
+        "talent_point_max": 2,
+        "talent_point_desc": "调息率提高3%;\n调息率提高6%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "激励",
+                "child_id": 359
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.03,
+                    "type_key": "haste_percent",
+                    "display_string": "+3.0% 调息率"
+                }
+            ],
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.06,
+                    "type_key": "haste_percent",
+                    "display_string": "+6.0% 调息率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 356,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月无情·婵娟",
+        "talent_point_max": 2,
+        "talent_point_desc": "月无情会心率提高12.5%，若目标血量低于30%，会心率再额外提高12.5%;\n月无情会心率提高25%，若目标血量低于30%，会心率再额外提高25%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "激励",
+                "child_id": 359
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 357,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "祈福",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会祈福",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "风花雪月·断肠",
+                "child_id": 360
+            },
+            {
+                "child_name": "祈福·拜月",
+                "child_id": 361
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 358,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "缥缈",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会缥缈",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "风花雪月·风流",
+                "child_id": 362
+            },
+            {
+                "child_name": "驻云",
+                "child_id": 363
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 359,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "激励",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会激励",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "如霜",
+                "child_id": 364
+            },
+            {
+                "child_name": "月无情·风月不羁",
+                "child_id": 365
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 360,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "风花雪月·断肠",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放扶摇后的20秒内，每释放1次月刃之息，使下次风花雪月的会心率提高10%，会心效果提高20%，该效果最多叠加3次",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "月痕",
+                "child_id": 508
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 361,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "祈福·拜月",
+        "talent_point_max": 1,
+        "talent_point_desc": "开启祈福后，获得满月，祈福期间破甲率提高10%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "月痕",
+                "child_id": 508
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 362,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "风花雪月·风流",
+        "talent_point_max": 1,
+        "talent_point_desc": "扶摇不再使合欢可以释放风花雪月，扶摇的冷却时间减少10秒。当目标处于击飞状态，即可使用风花雪月·风流，风花雪月·风流拥有10秒冷却时间。合欢对被控制的敌人伤害增加7.5%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "浮光·缝绻",
+                "child_id": 509
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 363,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "驻云",
+        "talent_point_max": 1,
+        "talent_point_desc": "月刃之息伤害提高10%，月刃之息、绝情命中控制中的敌人可以延长控制，合欢对被控制的敌人伤害增加7.5%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "浮光·缝绻",
+                "child_id": 509
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 364,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "如霜",
+        "talent_point_max": 1,
+        "talent_point_desc": "每有1%调息率，风花雪月增加2点月能恢复，并且还会增加激励期间月刃之息0.5点月能回复（最多额外恢复17.5点）",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "窥月",
+                "child_id": 510
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 365,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月无情·风月不羁",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放月无情可以为自身叠加一层风月不羁。每层风月不羁提高1%物理攻击力，持续60秒，最多叠加5层。开启激励后，强化的月无情叠加的风月不羁最多可以叠加15层。",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "窥月",
+                "child_id": 510
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 508,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月痕",
+        "talent_point_max": 1,
+        "talent_point_desc": "绝情、月袭、月刃之息、风花雪月的会心率提高20%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "祈福·月漪",
+                "child_id": 511
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 509,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "浮光·缝绻",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放浮光后，自身受到的伤害降低30%，持续3秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "浮光·回风",
+                "child_id": 512
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 510,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "窥月",
+        "talent_point_max": 1,
+        "talent_point_desc": "月无情、风花雪月、风切会心效果提升30%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "月汐",
+                "child_id": 513
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 511,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "祈福·月漪",
+        "talent_point_max": 1,
+        "talent_point_desc": "祈福的持续时间增加至14秒，祈福期间释放扶摇可以获得12层绝情·怒愿效果，风花雪月·皓月当空效果的最大可叠加层数增加至3层",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 512,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "浮光·回风",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放浮光时，会朝面朝方向释放一次风切·天籁",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 513,
+        "class": "合欢",
+        "sub_class": "月",
+        "talent_point_name": "月汐",
+        "talent_point_max": 1,
+        "talent_point_desc": "激励期间释放月无情减少6秒风切的冷却时间",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

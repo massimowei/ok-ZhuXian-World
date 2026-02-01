@@ -5,6 +5,7 @@ __pycache__/
 
 .vscode/
 .idea/
+.old/
 
 tools/rili/storage/
 tools/tianshu/storage/

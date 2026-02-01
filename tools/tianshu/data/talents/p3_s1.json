@@ -1,0 +1,1093 @@
+[
+    {
+        "talent_point_id": 277,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影相生",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会影相生",
+        "finish": 1,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "拂袖千星·本色",
+                "child_id": 278
+            },
+            {
+                "child_name": "情动",
+                "child_id": 279
+            },
+            {
+                "child_name": "暗香",
+                "child_id": 280
+            }
+        ],
+        "parent": 1.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 278,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·本色",
+        "talent_point_max": 1,
+        "talent_point_desc": "拂袖千星、拂袖千星·影的伤害提高10%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "绝情·情急",
+                "child_id": 281
+            },
+            {
+                "child_name": "月华",
+                "child_id": 282
+            },
+            {
+                "child_name": "月刃之息·霄晖",
+                "child_id": 283
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 279,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "情动",
+        "talent_point_max": 1,
+        "talent_point_desc": "半月斩的第四段攻击使下3次绝情的伤害提高30%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "月刃之息·霄晖",
+                "child_id": 283
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 280,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "暗香",
+        "talent_point_max": 1,
+        "talent_point_desc": "绝情获得拂袖千星·暗香的概率提高5%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "月刃之息·霄晖",
+                "child_id": 283
+            },
+            {
+                "child_name": "拂袖千星·魅香",
+                "child_id": 284
+            },
+            {
+                "child_name": "阴月",
+                "child_id": 285
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 281,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "绝情·情急",
+        "talent_point_max": 2,
+        "talent_point_desc": "绝情、绝情·影会心率提高15%，伤害提高15%;\n绝情、绝情·影会心率提高30%，伤害提高30%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "地久天长",
+                "child_id": 286
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 282,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月华",
+        "talent_point_max": 2,
+        "talent_point_desc": "月能上限提高25点，月能恢复速度提高每秒1点;\n月能上限提高50点，月能恢复速度提高每秒2点",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "地久天长",
+                "child_id": 286
+            },
+            {
+                "child_name": "拂袖千星·影盟",
+                "child_id": 287
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 283,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月刃之息·霄晖",
+        "talent_point_max": 2,
+        "talent_point_desc": "月刃之息、月刃之息·影会心率提高10%;\n月刃之息、月刃之息·影会心率提高20%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "拂袖千星·影盟",
+                "child_id": 287
+            },
+            {
+                "child_name": "破月·繁光",
+                "child_id": 288
+            },
+            {
+                "child_name": "影契",
+                "child_id": 289
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 284,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·魅香",
+        "talent_point_max": 2,
+        "talent_point_desc": "拂袖千星使下一次月刃之息伤害提高20%;\n拂袖千星使下一次月刃之息伤害提高40%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "影契",
+                "child_id": 289
+            },
+            {
+                "child_name": "月刃之息·月弦",
+                "child_id": 290
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 285,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "阴月",
+        "talent_point_max": 2,
+        "talent_point_desc": "阴属性伤害提高5%;\n阴属性伤害提高10%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "月刃之息·月弦",
+                "child_id": 290
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "阴属性",
+                    "value": 0.05,
+                    "type_key": "dark_damage",
+                    "display_string": "+5.0% 阴属性"
+                }
+            ],
+            [
+                {
+                    "type": "阴属性",
+                    "value": 0.1,
+                    "type_key": "dark_damage",
+                    "display_string": "+10.0% 阴属性"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 286,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "地久天长",
+        "talent_point_max": 1,
+        "talent_point_desc": "会心率影响绝情触发拂袖千星·暗香的概率，每1%会心率提高0.3%几率",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "影舞",
+                "child_id": 291
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 287,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·影盟",
+        "talent_point_max": 1,
+        "talent_point_desc": "拂袖千星、拂袖千星·影会心效果提高40%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "影舞",
+                "child_id": 291
+            },
+            {
+                "child_name": "黯祭",
+                "child_id": 292
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 288,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "破月·繁光",
+        "talent_point_max": 1,
+        "talent_point_desc": "破月的飞行速度提高50%，伤害提高20%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "黯祭",
+                "child_id": 292
+            },
+            {
+                "child_name": "瞬流光",
+                "child_id": 293
+            },
+            {
+                "child_name": "影无踪·影佑",
+                "child_id": 294
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 289,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影契",
+        "talent_point_max": 1,
+        "talent_point_desc": "战斗中每过60秒，使下次月刃之息变为阴属性伤害,调息属性可以减少该效果获得的间隔时间",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "影无踪·影佑",
+                "child_id": 294
+            },
+            {
+                "child_name": "月碎",
+                "child_id": 295
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 290,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月刃之息·月弦",
+        "talent_point_max": 1,
+        "talent_point_desc": "月刃之息和月刃之息·影伤害提高6%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "月碎",
+                "child_id": 295
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 291,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影舞",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会影舞",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "拂袖千星·寒芒",
+                "child_id": 296
+            },
+            {
+                "child_name": "拂袖千星·未央",
+                "child_id": 297
+            },
+            {
+                "child_name": "影替身",
+                "child_id": 298
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 292,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "黯祭",
+        "talent_point_max": 1,
+        "talent_point_desc": "物理攻击力提高2%",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "影替身",
+                "child_id": 298
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "物理攻击加成",
+                    "value": 0.02,
+                    "type_key": "attack_add",
+                    "display_string": "+2.0% 物理攻击加成"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 293,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "瞬流光",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会瞬流光",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "影替身",
+                "child_id": 298
+            },
+            {
+                "child_name": "破月·璀璨",
+                "child_id": 299
+            },
+            {
+                "child_name": "月魄",
+                "child_id": 300
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 294,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影无踪·影佑",
+        "talent_point_max": 1,
+        "talent_point_desc": "影无踪期间受到的伤害减少20%，并且影无踪期间每次受到伤害可以回复气血，该效果有1秒冷却",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "月魄",
+                "child_id": 300
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 295,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月碎",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会月碎",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "月魄",
+                "child_id": 300
+            },
+            {
+                "child_name": "月碎·夜明",
+                "child_id": 301
+            },
+            {
+                "child_name": "月碎·群玉",
+                "child_id": 302
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 296,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·寒芒",
+        "talent_point_max": 2,
+        "talent_point_desc": "拂袖千星、拂袖千星·影的会心率提高20%;\n拂袖千星、拂袖千星·影的会心率提高40%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 297,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·未央",
+        "talent_point_max": 2,
+        "talent_point_desc": "拂袖千星全部命中还会额外造成伤害;\n拂袖千星全部命中还会额外造成伤害",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "影舞·冷月",
+                "child_id": 303
+            },
+            {
+                "child_name": "本色",
+                "child_id": 304
+            },
+            {
+                "child_name": "拂袖千星·痴情",
+                "child_id": 305
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 298,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影替身",
+        "talent_point_max": 1,
+        "talent_point_desc": "触发影替身后，额外回复气血",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 299,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "破月·璀璨",
+        "talent_point_max": 1,
+        "talent_point_desc": "破月·月冲命中目标后还会获得一次拂袖千星·暗香，并击飞敌人2秒,但破月标记时间降低至2秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "赴情",
+                "child_id": 306
+            },
+            {
+                "child_name": "枭影",
+                "child_id": 307
+            },
+            {
+                "child_name": "拂袖千星·添香",
+                "child_id": 308
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 300,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月魄",
+        "talent_point_max": 1,
+        "talent_point_desc": "合欢15米范围内，有敌人气血低于30%时，对该目标造成的伤害提升10%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 301,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月碎·夜明",
+        "talent_point_max": 2,
+        "talent_point_desc": "月碎、月碎·影造成的伤害提高10%，获得拂袖千星·暗香的概率提高至75%;\n月碎、月碎·影造成的伤害提高20%，获得拂袖千星·暗香的概率提高至100%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "纵情",
+                "child_id": 309
+            },
+            {
+                "child_name": "月碎·流辉",
+                "child_id": 310
+            },
+            {
+                "child_name": "飘逸",
+                "child_id": 311
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 302,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月碎·群玉",
+        "talent_point_max": 2,
+        "talent_point_desc": "月碎、月碎·影伤害提高10%，并且月碎的充能层数增加1层，月碎第三段每次释放获得满月;\n月碎、月碎·影伤害提高20%，并且月碎的充能层数增加1层，月碎第三段每次释放获得满月",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 303,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影舞·冷月",
+        "talent_point_max": 2,
+        "talent_point_desc": "影舞、影舞·影的伤害提高10%，月能恢复提高6点;\n影舞、影舞·影的伤害提高20%，月能恢复提高12点",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "销魂",
+                "child_id": 312
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 304,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "本色",
+        "talent_point_max": 2,
+        "talent_point_desc": "专精率提高3%;\n专精率提高6%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "销魂",
+                "child_id": 312
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.03,
+                    "type_key": "mastery_percent",
+                    "display_string": "+3.0% 专精率"
+                }
+            ],
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.06,
+                    "type_key": "mastery_percent",
+                    "display_string": "+6.0% 专精率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 305,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·痴情",
+        "talent_point_max": 2,
+        "talent_point_desc": "拂袖千星·暗香、拂袖千星·销魂第一段命中时，为目标添加1层痴情效果，该效果使自身对目标的伤害提高0.5%，持续20秒，最多叠加10层，每层独立叠加;\n拂袖千星·暗香、拂袖千星·销魂第一段命中时，为目标添加1层痴情效果，该效果使自身对目标的伤害提高1%，持续20秒，最多叠加10层，每层独立叠加",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "销魂",
+                "child_id": 312
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 306,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "赴情",
+        "talent_point_max": 1,
+        "talent_point_desc": "合欢对被控制中敌人伤害增加7.5%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "烟罗",
+                "child_id": 313
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 307,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "枭影",
+        "talent_point_max": 2,
+        "talent_point_desc": "每次成功用移形换影、格挡成功格挡控制后，减少影舞1秒冷却，并使下次影舞伤害增加20%;\n每次成功用移形换影、格挡成功格挡控制后，减少影舞2秒冷却，并使下次影舞伤害增加40%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "烟罗",
+                "child_id": 313
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 308,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·添香",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放拂袖千星后，回复气血，该效果每30秒可以触发一次",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "烟罗",
+                "child_id": 313
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 309,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "纵情",
+        "talent_point_max": 2,
+        "talent_point_desc": "会心率提高3%;\n会心率提高6%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "影繁",
+                "child_id": 314
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.03,
+                    "type_key": "critical_percent",
+                    "display_string": "+3.0% 会心率"
+                }
+            ],
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.06,
+                    "type_key": "critical_percent",
+                    "display_string": "+6.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 310,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月碎·流辉",
+        "talent_point_max": 2,
+        "talent_point_desc": "月碎、月碎·影、月刃之息·影的会心效果提高20%;\n月碎、月碎·影、月刃之息·影的会心效果提高40%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "影繁",
+                "child_id": 314
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 311,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "飘逸",
+        "talent_point_max": 2,
+        "talent_point_desc": "月刃之息每段攻击会心时，减少0.25秒月碎冷却时间;\n月刃之息每段攻击会心时，减少0.5秒月碎冷却时间",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "影繁",
+                "child_id": 314
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 312,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "销魂",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会销魂",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "销魂·醉风",
+                "child_id": 315
+            },
+            {
+                "child_name": "拂袖千星·情切",
+                "child_id": 316
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 313,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "烟罗",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会烟罗",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "怒放",
+                "child_id": 317
+            },
+            {
+                "child_name": "影舞·不渝",
+                "child_id": 318
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 314,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影繁",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会影繁",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "拂袖千星·还情",
+                "child_id": 319
+            },
+            {
+                "child_name": "影繁·鸠舞",
+                "child_id": 320
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 315,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "销魂·醉风",
+        "talent_point_max": 1,
+        "talent_point_desc": "销魂命中的目标如果气血低于30%或在60秒内气血降低至30%以下，减少30秒销魂的冷却时间",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "销魂·凝神",
+                "child_id": 502
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 316,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·情切",
+        "talent_point_max": 1,
+        "talent_point_desc": "拂袖千星·暗香释放后获得满月",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "销魂·凝神",
+                "child_id": 502
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 317,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "怒放",
+        "talent_point_max": 1,
+        "talent_point_desc": "绝情、月刃之息、拂袖千星、拂袖千星·影可以延长控制，拂袖千星命中控制中的目标后，会获得满月",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "影壁",
+                "child_id": 503
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 318,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影舞·不渝",
+        "talent_point_max": 1,
+        "talent_point_desc": "影舞基础伤害提高25%，并且释放过程中获得20%伤害减免和霸体，释放后获得拂袖千星·暗香，使用门派技能硬控到敌人后，获得2层拂袖千星·暗香，该效果有8秒冷却时间",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "影壁",
+                "child_id": 503
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 319,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·还情",
+        "talent_point_max": 1,
+        "talent_point_desc": "拂袖千星·暗香最多叠加上限提升至8层，每次释放拂袖千星会消耗全部暗香层数，释放时每消耗1层拂袖千星·暗香，造成相当于拂袖千星、拂袖千星·影75%的伤害和10%下次月碎、月碎·影、月刃之息、月刃 之息·影伤害，拂袖千星·暗香达到8层时，释放的拂袖千星会被强化，施法时间增加至1.3秒，造成物理伤害，拂袖千星·影造成阴属性伤害",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "月碎·忘忧",
+                "child_id": 504
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 320,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影繁·鸠舞",
+        "talent_point_max": 1,
+        "talent_point_desc": "影繁会心率提升20%，释放影繁后，获得3次不消耗满月即可释放月刃之息的机会",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "月碎·忘忧",
+                "child_id": 504
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 502,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "销魂·凝神",
+        "talent_point_max": 1,
+        "talent_point_desc": "拂袖千星 影舞可以获得拂袖千星·暗香,销魂命中时，减少15秒影舞冷却时间",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "拂袖千星·信手",
+                "child_id": 505
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 503,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "影壁",
+        "talent_point_max": 1,
+        "talent_point_desc": "受到的伤害降低3%，瞬流光的冷却减少1秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "移形换影·绝恋",
+                "child_id": 506
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 504,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "月碎·忘忧",
+        "talent_point_max": 1,
+        "talent_point_desc": "月碎每段攻击命中回复5点月能，月碎、月碎·影会心率提高20%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "顾影",
+                "child_id": 507
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 505,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "拂袖千星·信手",
+        "talent_point_max": 1,
+        "talent_point_desc": "拂袖千星·销魂每命中一次，获得一层拂袖千星·信手，每层拂袖千星·信手可以使6秒内的拂袖千星和月刃之息伤害提高12%",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 506,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "移形换影·绝恋",
+        "talent_point_max": 1,
+        "talent_point_desc": "移形换影现在可以打断其他技能",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 507,
+        "class": "合欢",
+        "sub_class": "影",
+        "talent_point_name": "顾影",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放月碎会使下一次影繁的伤害提高12%，释放影繁时会消耗所有效果，最多叠加6层",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

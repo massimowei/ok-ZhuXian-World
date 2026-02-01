@@ -1,0 +1,1159 @@
+[
+    {
+        "talent_point_id": 100,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会鬼斩",
+        "finish": 1,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "湮魂爪",
+                "child_id": 101
+            },
+            {
+                "child_name": "醒神",
+                "child_id": 102
+            },
+            {
+                "child_name": "歃血",
+                "child_id": 103
+            }
+        ],
+        "parent": 1.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 101,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "湮魂爪",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼斩重锋攻击命中时，有15%的几率触发湮魂爪，对鬼王周围的敌人造成伤害;\n鬼斩重锋攻击命中时，有30%的几率触发湮魂爪，对鬼王周围的敌人造成伤害",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "湮魂爪·战气",
+                "child_id": 104
+            },
+            {
+                "child_name": "罡风明王斩·万剐",
+                "child_id": 105
+            },
+            {
+                "child_name": "诛星刺",
+                "child_id": 106
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 102,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "醒神",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王的专精率增加3%;鬼王的专精率增加6%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "诛星刺",
+                "child_id": 106
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.03,
+                    "type_key": "mastery_percent",
+                    "display_string": "+3.0% 专精率"
+                }
+            ],
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.06,
+                    "type_key": "mastery_percent",
+                    "display_string": "+6.0% 专精率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 103,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "歃血",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼斩重锋攻击命中对目标添加1层伤口；鬼斩乱舞攻击命中对目标添加3层伤口，伤口：在30秒内每4秒受到血属性伤害，最大10层，每有1层伤口伤害增加100%;\n鬼斩重锋攻击命中对目标添加1层伤口；鬼斩乱舞攻击命中对目标添加3层伤口，伤口：在30秒内每2秒受到血属性伤害，最大10层，每有1层伤口伤害增加100%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "诛星刺",
+                "child_id": 106
+            },
+            {
+                "child_name": "伤口·勠力",
+                "child_id": 107
+            },
+            {
+                "child_name": "煞劫",
+                "child_id": 108
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 104,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "湮魂爪·战气",
+        "talent_point_max": 1,
+        "talent_point_desc": "湮魂爪每次触发时额外造成1次伤害。",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "贯星刺·妄念",
+                "child_id": 109
+            },
+            {
+                "child_name": "鬼斩·疾刀",
+                "child_id": 110
+            },
+            {
+                "child_name": "奇袭",
+                "child_id": 111
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 105,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "罡风明王斩·万剐",
+        "talent_point_max": 1,
+        "talent_point_desc": "罡风明王斩额外消耗500理性并且造成伤害增加100%，但是冷却时间延长18秒",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "奇袭",
+                "child_id": 111
+            },
+            {
+                "child_name": "魔威",
+                "child_id": 112
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 106,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "诛星刺",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会诛星刺",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "魔威",
+                "child_id": 112
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 107,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "伤口·勠力",
+        "talent_point_max": 1,
+        "talent_point_desc": "伤口造成伤害时，增加20魔性，该效果最多每0.5秒触发一次",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "魔威",
+                "child_id": 112
+            },
+            {
+                "child_name": "伤口·饮血",
+                "child_id": 113
+            },
+            {
+                "child_name": "狂戾",
+                "child_id": 114
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 108,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "煞劫",
+        "talent_point_max": 1,
+        "talent_point_desc": "伤口的层数上限增加5层",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "狂戾",
+                "child_id": 114
+            },
+            {
+                "child_name": "喋血诀",
+                "child_id": 115
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 109,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "贯星刺·妄念",
+        "talent_point_max": 2,
+        "talent_point_desc": "贯星刺造成伤害增加30%，恢复的魔性增加25%;\n贯星刺造成伤害增加60%，恢复的魔性增加50%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 110,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩·疾刀",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩施法期间专精率增加10%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "鬼斩·阎罗",
+                "child_id": 116
+            },
+            {
+                "child_name": "连星",
+                "child_id": 117
+            },
+            {
+                "child_name": "狂神",
+                "child_id": 118
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 111,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "奇袭",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王的破甲率增加4%;\n鬼王的破甲率增加8%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "狂神",
+                "child_id": 118
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "破甲率",
+                    "value": 0.04,
+                    "type_key": "vers_percent",
+                    "display_string": "+4.0% 破甲率"
+                }
+            ],
+            [
+                {
+                    "type": "破甲率",
+                    "value": 0.08,
+                    "type_key": "vers_percent",
+                    "display_string": "+8.0% 破甲率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 112,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "魔威",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王造成物理伤害增加5%；鬼王气血上限增加20%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "狂神",
+                "child_id": 118
+            },
+            {
+                "child_name": "戮风挑",
+                "child_id": 119
+            },
+            {
+                "child_name": "鬼斩·魔觉",
+                "child_id": 120
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 113,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "伤口·饮血",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王门派技能会心时，立即触发一次伤口效果",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "鬼斩·魔觉",
+                "child_id": 120
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 114,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "狂戾",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王对目标添加伤口时，当伤口层数乘以每层沸血增加的会心率，加天魔咒血技能会心率大于100%时触发：目标受到一次额外伤害。",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "鬼斩·魔觉",
+                "child_id": 120
+            },
+            {
+                "child_name": "天魔咒血",
+                "child_id": 121
+            },
+            {
+                "child_name": "断邪",
+                "child_id": 122
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 115,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "喋血诀",
+        "talent_point_max": 2,
+        "talent_point_desc": "伤口、狂戾、天魔咒血伤害系数增加10%;\n伤口、狂戾、天魔咒血伤害系数增加20%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "血属性",
+                    "value": 0.1,
+                    "type_key": "blood_damage",
+                    "display_string": "+10.0% 血属性"
+                }
+            ],
+            [
+                {
+                    "type": "血属性",
+                    "value": 0.2,
+                    "type_key": "blood_damage",
+                    "display_string": "+20.0% 血属性"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 116,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩·阎罗",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩重锋造成伤害提高10%；鬼斩乱舞释放期间破甲率提高10%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 117,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "连星",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会连星",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "鬼斩一气·丧门",
+                "child_id": 123
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 118,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "狂神",
+        "talent_point_max": 2,
+        "talent_point_desc": "罡风明王斩、聚灵斩·煞会心率增加20%;\n罡风明王斩、聚灵斩·煞会心率增加40%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "聚灵斩·煞",
+                "child_id": 124
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 119,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "戮风挑",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会戮风挑",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "鬼斩·破军",
+                "child_id": 125
+            },
+            {
+                "child_name": "修罗",
+                "child_id": 126
+            },
+            {
+                "child_name": "天煞血诀·血渴",
+                "child_id": 127
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 120,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩·魔觉",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩重锋、鬼斩乱舞对玩家造成伤害增加5%,激活湮魂爪后：鬼斩攻击命中玩家后鬼斩必定触发湮魂爪",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "苍劫阵·乱舞",
+                "child_id": 128
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 121,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "天魔咒血",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会天魔咒血",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "沸血咒",
+                "child_id": 129
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 122,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "断邪",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼王的会心率增加2.5%;\n鬼王的会心率增加5%",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.025,
+                    "type_key": "critical_percent",
+                    "display_string": "+2.5% 会心率"
+                }
+            ],
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.05,
+                    "type_key": "critical_percent",
+                    "display_string": "+5.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 123,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩一气·丧门",
+        "talent_point_max": 2,
+        "talent_point_desc": "鬼斩一气释放后，使下一次鬼斩重锋、鬼斩乱舞施法期间湮魂爪的触发概率变为1.5倍;\n鬼斩一气释放后，使下一次鬼斩重锋、鬼斩乱舞施法期间湮魂爪的触发概率变为2倍",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "鬼斩夺命·无赦",
+                "child_id": 130
+            },
+            {
+                "child_name": "湮魂爪·篡命",
+                "child_id": 131
+            },
+            {
+                "child_name": "连星·雄姿",
+                "child_id": 132
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 124,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "聚灵斩·煞",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会聚灵斩·煞",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "索命",
+                "child_id": 133
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 125,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩·破军",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩开始施法时，攻击范围内存在1名以上敌方目标则鬼斩施法期间霸体",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "九幽血影斩",
+                "child_id": 134
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 126,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "修罗",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩夺命、鬼斩、罡风明王斩、聚灵斩·煞能够持续击飞硬控状态下的敌人",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "九幽血影斩",
+                "child_id": 134
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 127,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "天煞血诀·血渴",
+        "talent_point_max": 1,
+        "talent_point_desc": "天煞血诀生效目标数量增加1名",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "九幽血影斩",
+                "child_id": 134
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 128,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "苍劫阵·乱舞",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会苍劫阵·乱舞",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "明王降世咒·俱灭",
+                "child_id": 135
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 129,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "沸血咒",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会沸血咒",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "昂扬",
+                "child_id": 136
+            },
+            {
+                "child_name": "九幽血影斩·沸血",
+                "child_id": 137
+            },
+            {
+                "child_name": "天魔咒血·血誓",
+                "child_id": 138
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 130,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩夺命·无赦",
+        "talent_point_max": 1,
+        "talent_point_desc": "每有一级鬼斩等级，鬼斩夺命造成的伤害增加10%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "鬼斩乱舞",
+                "child_id": 139
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 131,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "湮魂爪·篡命",
+        "talent_point_max": 1,
+        "talent_point_desc": "湮魂爪造成伤害后，鬼王造成的伤害增加0.1%，该效果最高能够叠加25层，效果持续30秒。",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "鬼斩乱舞",
+                "child_id": 139
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 132,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "连星·雄姿",
+        "talent_point_max": 1,
+        "talent_point_desc": "连星释放后，2秒内鬼斩夺命释放所需的魔性减少500。",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "鬼斩乱舞",
+                "child_id": 139
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 133,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "索命",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼跃、罡风明王斩、聚灵斩·煞施法期间，鬼王受到伤害降低40%，受到玩家伤害额外降低40%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 4,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 134,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "九幽血影斩",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会九幽血影斩",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "苍劫阵",
+                "child_id": 140
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 135,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "明王降世咒·俱灭",
+        "talent_point_max": 1,
+        "talent_point_desc": "迅雷斩的气血恢复效果，能够根据命中敌方的数量多次生效，幻血噬心咒同时命中3名及以上敌人时，鬼王不会退出明王降世咒状态并且持续时间延长3秒(该效果每30秒最多触发1次)",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 6,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 136,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "昂扬",
+        "talent_point_max": 2,
+        "talent_point_desc": "受到伤口伤害的目标，8秒内受到来自鬼王的伤害增加2.5%;\n受到伤口伤害的目标，8秒内受到来自鬼王的伤害增加5%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "魔性大发",
+                "child_id": 141
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 137,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "九幽血影斩·沸血",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会九幽血影斩·沸血",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "魔性大发",
+                "child_id": 141
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 138,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "天魔咒血·血誓",
+        "talent_point_max": 2,
+        "talent_point_desc": "天魔咒血最后1次攻击会心后，下一次释放的鬼斩重锋、聚灵斩·煞技能会心率增加15%;\n天魔咒血最后1次攻击会心后，下一次释放的鬼斩重锋、聚灵斩·煞技能会心率增加30%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "魔性大发",
+                "child_id": 141
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 139,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩乱舞",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会鬼斩乱舞",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "明王降世咒·决死",
+                "child_id": 142
+            },
+            {
+                "child_name": "鬼斩乱舞·斗魁",
+                "child_id": 143
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 140,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "苍劫阵",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会苍劫阵",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "狂魔",
+                "child_id": 144
+            },
+            {
+                "child_name": "力骋",
+                "child_id": 145
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 141,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "魔性大发",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会魔性大发",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "明王降世咒·刃裂",
+                "child_id": 146
+            },
+            {
+                "child_name": "沸血咒·源魔",
+                "child_id": 147
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 142,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "明王降世咒·决死",
+        "talent_point_max": 1,
+        "talent_point_desc": "明王降世咒的持续时间延长至6秒，且释放技能后不再退出变身状态；迅雷斩只命中一个目标时伤害提高，幻血噬心咒命中超过一个目标时伤害提高，万魔归一斩的伤害提高，伤害提高效果为50%，每有1%专精率额外增加1%造成的伤害",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "连星·爪音",
+                "child_id": 482
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 143,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩乱舞·斗魁",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩乱舞释放后，下一次鬼斩一气释放不需要消耗鬼斩等级",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "连星·爪音",
+                "child_id": 482
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 144,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "狂魔",
+        "talent_point_max": 1,
+        "talent_point_desc": "疾影、连星、戮风挑、诛星刺释放后鬼王立即获得一级鬼斩等级",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "密云",
+                "child_id": 483
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 145,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "力骋",
+        "talent_point_max": 1,
+        "talent_point_desc": "被动：鬼跃技能替换为鬼跃·煞；连星技能冷却时间降低至10秒,鬼跃·煞：跃起后进行一次强力落地攻击，落地攻击能够击飞范围内的敌人，施法期间鬼王获得霸体效果 冷却时间：12秒，效果：施法期间霸体；最后一击能够击飞敌方2秒",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "密云",
+                "child_id": 483
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 146,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "明王降世咒·刃裂",
+        "talent_point_max": 1,
+        "talent_point_desc": "迅雷斩、幻血噬心咒、万魔归一斩攻击命中会添加最多10层伤口",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "鬼斩·劈穿",
+                "child_id": 484
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 147,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "沸血咒·源魔",
+        "talent_point_max": 1,
+        "talent_point_desc": "每层沸血的会心率提升效果增加至20%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "鬼斩·劈穿",
+                "child_id": 484
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 482,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "连星·爪音",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩释放时，有概率使下一次连星不消耗冷却释放。 (湮魂爪的触发率、鬼王的会心率能够增加该几率)",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "狂刃",
+                "child_id": 485
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 483,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "密云",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼王受到伤害降低5%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "九幽血影斩·血戮",
+                "child_id": 486
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 484,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "鬼斩·劈穿",
+        "talent_point_max": 1,
+        "talent_point_desc": "鬼斩重锋、湮魂爪的会心效果增加50%；鬼斩重锋触发湮魂爪的概率变为原来的1.5倍。",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "天魔咒血·反响",
+                "child_id": 487
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 485,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "狂刃",
+        "talent_point_max": 1,
+        "talent_point_desc": "罡风明王斩、聚灵斩·煞会心效果增加20%，激活聚灵斩·煞后，鬼斩乱舞释放时有概率立即刷新聚灵斩·煞的冷却时间：该次聚灵斩·煞不需要蓄力释放，并且释放后下一次释放鬼斩乱舞不消耗鬼斩等级。(该效果释放的鬼斩乱舞不会触发狂刃、连星·爪音)",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 486,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "九幽血影斩·血戮",
+        "talent_point_max": 1,
+        "talent_point_desc": "九幽血影斩冷却时间减少10秒",
+        "finish": 1,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 487,
+        "class": "鬼王",
+        "sub_class": "煞",
+        "talent_point_name": "天魔咒血·反响",
+        "talent_point_max": 1,
+        "talent_point_desc": "每1%基础会心率增加天魔咒血技能1%会心率。(最高增加天魔咒血会心率至60%)",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

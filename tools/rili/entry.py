@@ -6,4 +6,3 @@ RILI_PAGES = {
 
 def get_pages():
     return dict(RILI_PAGES)
-

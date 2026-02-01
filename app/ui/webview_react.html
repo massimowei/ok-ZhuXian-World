@@ -1,0 +1,1831 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>OK WebView (React)</title>
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --panel: rgba(255, 255, 255, 0.06);
+        --panel-2: rgba(255, 255, 255, 0.04);
+        --line: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --accent: rgba(0, 214, 214, 1);
+        --accent-2: rgba(0, 214, 214, 0.18);
+        --red-2: rgba(244, 80, 80, 0.15);
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+        --r: 16px;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: transparent;
+        color: var(--text);
+        font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+        overflow: auto;
+        overflow-x: hidden;
+        scrollbar-width: none;
+      }
+
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      #root {
+        min-height: 100%;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .shell {
+        width: 100%;
+        padding: 0;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 0 0 12px;
+      }
+
+      .btn {
+        border: 1px solid var(--line);
+        background: var(--panel-2);
+        color: var(--text);
+        padding: 10px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        user-select: none;
+      }
+
+      .btn.primary {
+        border-color: rgba(0, 214, 214, 0.5);
+        background: var(--accent-2);
+      }
+
+      .btn.danger {
+        border-color: rgba(244, 80, 80, 0.35);
+        background: var(--red-2);
+      }
+
+      .btn:hover {
+        border-color: rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .btn.primary:hover {
+        border-color: rgba(0, 214, 214, 0.62);
+        background: rgba(0, 214, 214, 0.24);
+      }
+
+      .btn.danger:hover {
+        border-color: rgba(244, 80, 80, 0.5);
+        background: rgba(244, 80, 80, 0.22);
+      }
+
+      .btn:focus-visible {
+        outline: 3px solid rgba(0, 214, 214, 0.35);
+        outline-offset: 2px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr;
+      }
+
+      @media (min-width: 920px) {
+        .grid.two {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: 14px;
+        box-shadow: none;
+        padding: 14px 14px;
+      }
+
+      .panelTitle {
+        font-weight: 800;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .row.space {
+        justify-content: space-between;
+      }
+
+      .hint {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      input,
+      select {
+        min-height: 44px;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        outline: none;
+      }
+
+      input:focus-visible,
+      select:focus-visible {
+        outline: 3px solid rgba(0, 214, 214, 0.35);
+        outline-offset: 2px;
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .item {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 14px;
+        padding: 12px 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 52px;
+      }
+
+      .check {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.06);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+
+      .check.on {
+        border-color: rgba(0, 214, 214, 0.58);
+        background: rgba(0, 214, 214, 0.18);
+      }
+
+      .itemMain {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .itemName {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .itemSub {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .count {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex: 0 0 auto;
+      }
+
+      .miniBtn {
+        border: 1px solid var(--line);
+        background: var(--panel-2);
+        color: var(--text);
+        padding: 6px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        min-height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+      }
+
+      .miniBtn:disabled {
+        opacity: 0.45;
+        cursor: default;
+      }
+
+      .tianshuControls {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex: 0 0 auto;
+      }
+
+      .tianshuRank {
+        min-width: 54px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .tianshuSummary {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 14px;
+        padding: 12px 12px;
+        white-space: pre-wrap;
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .menuWrap {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        min-width: 220px;
+      }
+
+      .menuBtn {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .menuPopup {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 100%;
+        max-height: 320px;
+        overflow: auto;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(12, 16, 22, 0.98);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 6px;
+        z-index: 10;
+      }
+
+      .menuItem {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        border: 1px solid transparent;
+        background: transparent;
+        color: var(--text);
+        border-radius: 10px;
+        min-height: 38px;
+        padding: 8px 10px;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .menuItem:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.10);
+      }
+
+      .menuItem.active {
+        background: rgba(0, 214, 214, 0.18);
+        border-color: rgba(0, 214, 214, 0.35);
+      }
+
+      .tsStage {
+        height: 520px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+        user-select: none;
+      }
+
+      .tsStage.grab {
+        cursor: grab;
+      }
+
+      .tsStage.grabbing {
+        cursor: grabbing;
+      }
+
+      .tsWorld {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 0 0;
+      }
+
+      .tsEdges {
+        position: absolute;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+      }
+
+      .tsNode {
+        position: absolute;
+        width: 46px;
+        height: 46px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .tsNode.locked {
+        opacity: 0.55;
+      }
+
+      .tsNode.on {
+        border-color: rgba(0, 214, 214, 0.55);
+        background: rgba(0, 214, 214, 0.14);
+      }
+
+      .tsNodeVal {
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.2px;
+      }
+
+      .tsOverlayBar {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .tsOverlayBar > * {
+        pointer-events: auto;
+      }
+
+      .tsOverlaySpacer {
+        flex: 1 1 auto;
+        pointer-events: none;
+      }
+
+      .tsTooltip {
+        position: absolute;
+        max-width: 360px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(12, 16, 22, 0.98);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 10px 12px;
+        z-index: 40;
+        pointer-events: none;
+      }
+
+      .tsTooltipTitle {
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 1.25;
+      }
+
+      .tsTooltipMeta {
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.35;
+        white-space: pre-wrap;
+      }
+
+      .tsTooltipBlock {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 1.35;
+        white-space: pre-wrap;
+      }
+
+      .tsTooltipKey {
+        color: var(--muted);
+      }
+
+      .tsThreeCol {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      @media (min-width: 980px) {
+        .tsThreeCol {
+          grid-template-columns: 2.4fr 1fr;
+        }
+        .tsThreeCol.collapsed {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .tsSidePanel {
+        height: 520px;
+        overflow: auto;
+      }
+
+      .pill {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        color: var(--text);
+        min-height: 36px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .weekGrid {
+        display: none;
+        gap: 10px;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        overflow: hidden;
+      }
+
+      @media (min-width: 980px) {
+        .weekGrid {
+          display: grid;
+        }
+        .dayPicker {
+          display: none;
+        }
+      }
+
+      .dayPicker {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .col {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 14px;
+        padding: 10px;
+        min-height: 380px;
+        min-width: 0;
+      }
+
+      .colHead {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .colTitle {
+        font-weight: 800;
+        font-size: 13px;
+      }
+
+      .colDate {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .act {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 10px 10px;
+        margin-bottom: 8px;
+        min-height: 48px;
+        cursor: pointer;
+        min-width: 0;
+      }
+
+      .act.done {
+        border-color: rgba(0, 214, 214, 0.55);
+        background: rgba(0, 214, 214, 0.16);
+      }
+
+      .act.disabled {
+        opacity: 0.55;
+        cursor: default;
+      }
+
+      .actName {
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 1.25;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }
+
+      .actMain {
+        flex: 1 1 0%;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .actTime {
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .actMeta {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        flex: 0 0 64px;
+        min-width: 0;
+        justify-content: flex-end;
+        margin-left: auto;
+      }
+
+      .time {
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+        min-width: 52px;
+        max-width: 64px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: right;
+      }
+
+      .singleDay {
+        margin-top: 10px;
+      }
+
+      @media (min-width: 980px) {
+        .singleDay {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+      ;(function () {
+        const e = React.createElement
+
+        ;(function () {
+          function onWheel(ev) {
+            if (!ev) return
+            if (ev.ctrlKey || ev.metaKey) {
+              try {
+                ev.preventDefault()
+              } catch (e) {}
+            }
+          }
+          function onKeyDown(ev) {
+            if (!ev) return
+            if (!(ev.ctrlKey || ev.metaKey)) return
+            const k = String(ev.key || '')
+            if (k === '+' || k === '-' || k === '=' || k === '_' || k === '0') {
+              try {
+                ev.preventDefault()
+              } catch (e) {}
+            }
+          }
+          function onGesture(ev) {
+            if (!ev) return
+            try {
+              ev.preventDefault()
+            } catch (e) {}
+          }
+          try {
+            window.addEventListener('wheel', onWheel, { passive: false, capture: true })
+            window.addEventListener('keydown', onKeyDown, true)
+            window.addEventListener('gesturestart', onGesture, { passive: false, capture: true })
+            window.addEventListener('gesturechange', onGesture, { passive: false, capture: true })
+            window.addEventListener('gestureend', onGesture, { passive: false, capture: true })
+          } catch (e) {}
+        })()
+
+        function connectBridge(setBridge) {
+          try {
+            if (!window.qt || !window.qt.webChannelTransport) {
+              setBridge(null)
+              return
+            }
+            new QWebChannel(window.qt.webChannelTransport, function (channel) {
+              setBridge(channel.objects.bridge || null)
+            })
+          } catch (err) {
+            setBridge(null)
+          }
+        }
+
+        function getToolFromHash() {
+          const raw = String(window.location.hash || '').replace(/^#/, '').trim().toLowerCase()
+          if (raw === 'rili') return { id: 'rili', name: '游戏日历' }
+          if (raw === 'tianshu') return { id: 'tianshu', name: '天书模拟器' }
+          return { id: 'webview', name: 'WebView 示例页' }
+        }
+
+        function pad2(n) {
+          return String(n).padStart(2, '0')
+        }
+
+        function toLocalIsoNoMs(d) {
+          const y = d.getFullYear()
+          const m = pad2(d.getMonth() + 1)
+          const dd = pad2(d.getDate())
+          const hh = pad2(d.getHours())
+          const mm = pad2(d.getMinutes())
+          const ss = pad2(d.getSeconds())
+          return `${y}-${m}-${dd}T${hh}:${mm}:${ss}`
+        }
+
+        function isoWeekday(d) {
+          return ((d.getDay() + 6) % 7) + 1
+        }
+
+        function mondayStart(d) {
+          const day = isoWeekday(d)
+          const monday = new Date(d.getFullYear(), d.getMonth(), d.getDate() - (day - 1), 0, 0, 0, 0)
+          return monday
+        }
+
+        function formatMMDD(d) {
+          return `${pad2(d.getMonth() + 1)}/${pad2(d.getDate())}`
+        }
+
+        function dailyCycleStart(now) {
+          const effective = new Date(now.getTime() - 7 * 60 * 60 * 1000)
+          return toLocalIsoNoMs(new Date(effective.getFullYear(), effective.getMonth(), effective.getDate(), 7, 0, 0, 0))
+        }
+
+        function weeklyCycleStart(now) {
+          const effective = new Date(now.getTime() - 7 * 60 * 60 * 1000)
+          const daysSinceWed = (effective.getDay() - 3 + 7) % 7
+          return toLocalIsoNoMs(new Date(effective.getFullYear(), effective.getMonth(), effective.getDate() - daysSinceWed, 7, 0, 0, 0))
+        }
+
+        function nextDailyReset(now) {
+          const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0, 0)
+          if (now < today) return today
+          return new Date(today.getTime() + 24 * 60 * 60 * 1000)
+        }
+
+        function nextWeeklyReset(now) {
+          const anchor = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0, 0)
+          const daysUntilWed = (3 - now.getDay() + 7) % 7
+          let candidate = new Date(anchor.getTime() + daysUntilWed * 24 * 60 * 60 * 1000)
+          if (candidate <= now) candidate = new Date(candidate.getTime() + 7 * 24 * 60 * 60 * 1000)
+          return candidate
+        }
+
+        function formatTimeLeft(now, target) {
+          const diff = target.getTime() - now.getTime()
+          const totalMinutes = Math.max(0, Math.floor(diff / 60000))
+          const days = Math.floor(totalMinutes / (60 * 24))
+          const hours = Math.floor((totalMinutes % (60 * 24)) / 60)
+          const minutes = totalMinutes % 60
+          if (days > 0) return `${days}天 ${hours}小时`
+          return `${hours}小时 ${minutes}分`
+        }
+
+        function uuid() {
+          return Math.random().toString(16).slice(2) + Date.now().toString(16)
+        }
+
+        function safeJsonParse(raw, fallback) {
+          try {
+            const parsed = JSON.parse(raw)
+            return parsed === undefined ? fallback : parsed
+          } catch (e) {
+            return fallback
+          }
+        }
+
+        function callBridgeResult(bridge, method, args) {
+          return new Promise(function (resolve, reject) {
+            if (!bridge || typeof bridge[method] !== 'function') {
+              reject(new Error('bridge method missing'))
+              return
+            }
+            try {
+              const cb = function (res) {
+                resolve(res)
+              }
+              const res = bridge[method].apply(bridge, (args || []).concat([cb]))
+              if (res !== undefined) resolve(res)
+            } catch (e) {
+              reject(e)
+            }
+          })
+        }
+
+        function makeLocalStore(prefix) {
+          function getKey(suffix) {
+            return `${prefix}:${suffix}`
+          }
+          return {
+            async getTaskDefaults() {
+              return null
+            },
+            async getActivityDefinitions() {
+              return null
+            },
+            async getTaskManager() {
+              return safeJsonParse(localStorage.getItem(getKey('taskManager')) || '', {})
+            },
+            async saveTaskManager(data) {
+              localStorage.setItem(getKey('taskManager'), JSON.stringify(data))
+            },
+            async getActivityCalendar() {
+              return safeJsonParse(localStorage.getItem(getKey('activityCalendar')) || '', {})
+            },
+            async saveActivityCalendar(data) {
+              localStorage.setItem(getKey('activityCalendar'), JSON.stringify(data))
+            },
+          }
+        }
+
+        function makeBridgeStore(bridge) {
+          return {
+            async getTaskDefaults() {
+              const raw = await callBridgeResult(bridge, 'riliGetTaskDefaults', [])
+              const parsed = typeof raw === 'string' ? safeJsonParse(raw, null) : raw
+              return parsed && typeof parsed === 'object' ? parsed : null
+            },
+            async getActivityDefinitions() {
+              const raw = await callBridgeResult(bridge, 'riliGetActivityDefinitions', [])
+              const parsed = typeof raw === 'string' ? safeJsonParse(raw, null) : raw
+              return Array.isArray(parsed) ? parsed : null
+            },
+            async getTaskManager() {
+              const raw = await callBridgeResult(bridge, 'riliGetTaskManager', [])
+              const parsed = typeof raw === 'string' ? safeJsonParse(raw, {}) : raw
+              return parsed && typeof parsed === 'object' ? parsed : {}
+            },
+            async saveTaskManager(data) {
+              try {
+                bridge.riliSaveTaskManager(JSON.stringify(data))
+              } catch (e) {}
+            },
+            async getActivityCalendar() {
+              const raw = await callBridgeResult(bridge, 'riliGetActivityCalendar', [])
+              const parsed = typeof raw === 'string' ? safeJsonParse(raw, {}) : raw
+              return parsed && typeof parsed === 'object' ? parsed : {}
+            },
+            async saveActivityCalendar(data) {
+              try {
+                bridge.riliSaveActivityCalendar(JSON.stringify(data))
+              } catch (e) {}
+            },
+          }
+        }
+
+        function syncRole(role, defs) {
+          const dailyById = new Map()
+          const weeklyById = new Map()
+          if (role && Array.isArray(role.dailyTasks)) {
+            role.dailyTasks.forEach(function (t) {
+              if (t && t.id) dailyById.set(String(t.id), t)
+            })
+          }
+          if (role && Array.isArray(role.weeklyTasks)) {
+            role.weeklyTasks.forEach(function (t) {
+              if (t && t.id) weeklyById.set(String(t.id), t)
+            })
+          }
+
+          const syncedDaily = (defs.daily || []).map(function (defTask) {
+            const saved = dailyById.get(String(defTask.id))
+            return {
+              id: String(defTask.id),
+              name: String(defTask.name || defTask.id),
+              type: String(defTask.type || 'check'),
+              completed: !!(saved && saved.completed),
+            }
+          })
+
+          const syncedWeekly = (defs.weekly || []).map(function (defTask) {
+            const saved = weeklyById.get(String(defTask.id)) || {}
+            if (String(defTask.type) === 'group') {
+              const savedSubMap = new Map()
+              if (saved && Array.isArray(saved.subTasks)) {
+                saved.subTasks.forEach(function (s) {
+                  if (s && s.id) savedSubMap.set(String(s.id), s)
+                })
+              }
+              const subTasks = (defTask.subTasks || []).map(function (sub) {
+                const ss = savedSubMap.get(String(sub.id)) || {}
+                return {
+                  id: String(sub.id),
+                  name: String(sub.name || sub.id),
+                  total: Number(sub.total || 1),
+                  completed: Number(ss.completed || 0),
+                }
+              })
+              return { id: String(defTask.id), name: String(defTask.name || defTask.id), type: 'group', subTasks }
+            }
+
+            return {
+              id: String(defTask.id),
+              name: String(defTask.name || defTask.id),
+              type: String(defTask.type || ''),
+              total: Number(defTask.total || 1),
+              completed: Number(saved.completed || 0),
+            }
+          })
+
+          return {
+            id: String(role && role.id ? role.id : uuid()),
+            name: String(role && role.name ? role.name : '未命名'),
+            dailyTasks: syncedDaily,
+            weeklyTasks: syncedWeekly,
+          }
+        }
+
+        function createNewRole(name, defs) {
+          const role = {
+            id: uuid(),
+            name: String(name || '默认角色'),
+            dailyTasks: (defs.daily || []).map(function (t) {
+              return { id: String(t.id), name: String(t.name || t.id), type: String(t.type || 'check'), completed: false }
+            }),
+            weeklyTasks: (defs.weekly || []).map(function (t) {
+              if (String(t.type) === 'group') {
+                return {
+                  id: String(t.id),
+                  name: String(t.name || t.id),
+                  type: 'group',
+                  subTasks: (t.subTasks || []).map(function (s) {
+                    return { id: String(s.id), name: String(s.name || s.id), total: Number(s.total || 1), completed: 0 }
+                  }),
+                }
+              }
+              return { id: String(t.id), name: String(t.name || t.id), type: String(t.type || ''), total: Number(t.total || 1), completed: 0 }
+            }),
+          }
+          return role
+        }
+
+        function ensureTaskDefaults(defs) {
+          if (!defs || typeof defs !== 'object') return null
+          const daily = Array.isArray(defs.daily) ? defs.daily : []
+          const weekly = Array.isArray(defs.weekly) ? defs.weekly : []
+          return { daily, weekly }
+        }
+
+        function applyResetsIfNeeded(taskManager, now) {
+          const meta = taskManager && typeof taskManager.meta === 'object' && taskManager.meta ? { ...taskManager.meta } : {}
+          const currentDaily = dailyCycleStart(now)
+          const currentWeekly = weeklyCycleStart(now)
+          let changed = false
+
+          if (meta.dailyCycleStart !== currentDaily) {
+            ;(taskManager.roles || []).forEach(function (r) {
+              ;(r.dailyTasks || []).forEach(function (t) {
+                t.completed = false
+              })
+            })
+            meta.dailyCycleStart = currentDaily
+            changed = true
+          }
+
+          if (meta.weeklyCycleStart !== currentWeekly) {
+            ;(taskManager.roles || []).forEach(function (r) {
+              ;(r.weeklyTasks || []).forEach(function (t) {
+                if (String(t.type) === 'group') {
+                  ;(t.subTasks || []).forEach(function (s) {
+                    s.completed = 0
+                  })
+                } else {
+                  t.completed = 0
+                }
+              })
+            })
+            meta.weeklyCycleStart = currentWeekly
+            changed = true
+          }
+
+          if (!changed) return taskManager
+          return { ...taskManager, meta }
+        }
+
+        function taskKey(defTask, dayIndex, timeIndex) {
+          if (!defTask) return ''
+          const type = String(defTask.type || '')
+          const id = String(defTask.id || '')
+          if (!id) return ''
+          if (type === 'once_weekly') return `weekly_${id}`
+          return `${id}_d${dayIndex}_t${timeIndex}`
+        }
+
+        function tasksForDay(activityDefs, dayIndex) {
+          const dayTasks = []
+          ;(activityDefs || []).forEach(function (task) {
+            if (!task || !task.schedule) return
+            const schedule = Array.isArray(task.schedule) ? task.schedule : []
+            schedule.forEach(function (slot, idx) {
+              if (Number(slot.day) === dayIndex) {
+                dayTasks.push({
+                  id: String(task.id),
+                  name: String(task.name || task.id),
+                  type: String(task.type || ''),
+                  time: String(slot.time || ''),
+                  timeIndex: idx,
+                })
+              }
+            })
+          })
+          dayTasks.sort(function (a, b) {
+            const ta = String(a.time || '')
+            const tb = String(b.time || '')
+            const ka = ta === '全天' ? '99:99' : ta
+            const kb = tb === '全天' ? '99:99' : tb
+            if (ka < kb) return -1
+            if (ka > kb) return 1
+            return String(a.name).localeCompare(String(b.name))
+          })
+          return dayTasks
+        }
+
+        function RiliPage(props) {
+          const tool = props.tool
+          const bridge = props.bridge
+          const store = bridge ? makeBridgeStore(bridge) : makeLocalStore(`okzx:${tool.id}`)
+
+          const [activityDefs, setActivityDefs] = React.useState([])
+          const [activityCal, setActivityCal] = React.useState(null)
+          const [activeDay, setActiveDay] = React.useState(isoWeekday(new Date()))
+
+          const saveAcTimer = React.useRef(null)
+          const lastSavedAc = React.useRef('')
+
+          React.useEffect(
+            function () {
+              let disposed = false
+
+              async function loadAll() {
+                const rawAC = await store.getActivityCalendar()
+                const completed = rawAC && typeof rawAC.completed === 'object' && rawAC.completed ? rawAC.completed : {}
+                const ac = { completed: { ...completed }, lastUpdated: String(rawAC.lastUpdated || '') }
+                if (!disposed) {
+                  setActivityCal(ac)
+                  lastSavedAc.current = JSON.stringify(ac)
+                }
+
+                const defsList = await store.getActivityDefinitions()
+                if (!disposed) setActivityDefs(Array.isArray(defsList) ? defsList : [])
+              }
+
+              loadAll().catch(function () {})
+              return function () {
+                disposed = true
+              }
+            },
+            [bridge, tool.id]
+          )
+
+          React.useEffect(
+            function () {
+              if (!activityCal) return
+              const serialized = JSON.stringify(activityCal)
+              if (serialized === lastSavedAc.current) return
+              if (saveAcTimer.current) clearTimeout(saveAcTimer.current)
+              saveAcTimer.current = setTimeout(function () {
+                store.saveActivityCalendar(activityCal).catch(function () {})
+                lastSavedAc.current = serialized
+              }, 260)
+              return function () {
+                if (saveAcTimer.current) clearTimeout(saveAcTimer.current)
+              }
+            },
+            [activityCal, store]
+          )
+
+          function onKeyToggle(fn) {
+            return function (ev) {
+              if (ev.key === 'Enter' || ev.key === ' ') {
+                ev.preventDefault()
+                fn()
+              }
+            }
+          }
+
+          function toggleActivity(dayIndex, task, done) {
+            if (!activityCal) return
+            const key = taskKey(task, dayIndex, task.timeIndex)
+            if (!key) return
+            if (String(task.type) === 'display_only') return
+            setActivityCal(function (prev) {
+              const completed = prev && prev.completed ? { ...prev.completed } : {}
+              if (done) delete completed[key]
+              else completed[key] = true
+              return { completed, lastUpdated: toLocalIsoNoMs(new Date()) }
+            })
+          }
+
+          function resetActivity() {
+            if (!confirm('重置本周进度？')) return
+            setActivityCal({ completed: {}, lastUpdated: toLocalIsoNoMs(new Date()) })
+          }
+
+          const weekStart = mondayStart(new Date())
+          const dayMeta = []
+          for (let i = 0; i < 7; i++) {
+            const d = new Date(weekStart.getTime() + i * 24 * 60 * 60 * 1000)
+            dayMeta.push({ dayIndex: i + 1, title: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][i], date: formatMMDD(d) })
+          }
+
+          function renderCalendarTab() {
+            const completed = activityCal && activityCal.completed ? activityCal.completed : {}
+
+            function renderDayList(dayIndex) {
+              const list = tasksForDay(activityDefs, dayIndex)
+              if (!list.length) return e('div', { className: 'hint' }, '这一天没有安排。')
+              return e(
+                'div',
+                null,
+                list.map(function (t) {
+                  const key = taskKey(t, dayIndex, t.timeIndex)
+                  const done = !!completed[key]
+                  const disabled = String(t.type) === 'display_only'
+                  return e(
+                    'div',
+                    {
+                      key: key || `${t.id}-${dayIndex}-${t.timeIndex}`,
+                      className: disabled ? 'act disabled' : done ? 'act done' : 'act',
+                      role: disabled ? undefined : 'button',
+                      tabIndex: disabled ? undefined : 0,
+                      onClick: disabled
+                        ? undefined
+                        : function () {
+                            toggleActivity(dayIndex, t, done)
+                          },
+                      onKeyDown: disabled
+                        ? undefined
+                        : onKeyToggle(function () {
+                            toggleActivity(dayIndex, t, done)
+                          }),
+                    },
+                    e(
+                      'div',
+                      { className: 'actMain' },
+                      e('div', { className: 'actName' }, t.name),
+                      e('div', { className: 'actTime' }, t.time)
+                    )
+                  )
+                })
+              )
+            }
+
+            return e(
+              'div',
+              { className: 'panel' },
+              e(
+                'div',
+                { className: 'row space' },
+                e('div', null, e('div', { className: 'panelTitle' }, '活动日历（本周）'), e('div', { className: 'hint' }, '点击活动可标记完成/取消完成。')),
+                e('button', { className: 'btn danger', onClick: resetActivity }, '重置本周进度')
+              ),
+              e('div', { style: { height: '10px' } }),
+              e(
+                'div',
+                { className: 'dayPicker' },
+                dayMeta.map(function (d) {
+                  const active = d.dayIndex === activeDay
+                  return e(
+                    'button',
+                    {
+                      key: d.dayIndex,
+                      className: active ? 'btn primary' : 'btn',
+                      onClick: function () {
+                        setActiveDay(d.dayIndex)
+                      },
+                    },
+                    d.title,
+                    e('span', { style: { opacity: 0.75 } }, d.date)
+                  )
+                })
+              ),
+              e(
+                'div',
+                { className: 'weekGrid' },
+                dayMeta.map(function (d) {
+                  return e(
+                    'div',
+                    { key: d.dayIndex, className: 'col' },
+                    e('div', { className: 'colHead' }, e('div', { className: 'colTitle' }, d.title), e('div', { className: 'colDate' }, d.date)),
+                    renderDayList(d.dayIndex)
+                  )
+                })
+              ),
+              e(
+                'div',
+                { className: 'singleDay col' },
+                e(
+                  'div',
+                  { className: 'colHead' },
+                  e('div', { className: 'colTitle' }, dayMeta[activeDay - 1] ? dayMeta[activeDay - 1].title : ''),
+                  e('div', { className: 'colDate' }, dayMeta[activeDay - 1] ? dayMeta[activeDay - 1].date : '')
+                ),
+                renderDayList(activeDay)
+              )
+            )
+          }
+
+          return e(
+            'div',
+            { className: 'shell' },
+            renderCalendarTab()
+          )
+        }
+
+        function TianshuPage(props) {
+          const bridge = props.bridge
+
+          const [loading, setLoading] = React.useState(true)
+          const [error, setError] = React.useState('')
+          const [trees, setTrees] = React.useState([])
+          const [treeId, setTreeId] = React.useState('')
+          const [tree, setTree] = React.useState(null)
+          const [ranks, setRanks] = React.useState({})
+          const [points, setPoints] = React.useState(0)
+          const [maxPoints, setMaxPoints] = React.useState(31)
+          const [summary, setSummary] = React.useState('')
+          const [pickerOpen, setPickerOpen] = React.useState(false)
+          const [panning, setPanning] = React.useState(false)
+          const [tooltip, setTooltip] = React.useState(null)
+          const [rightHidden, setRightHidden] = React.useState(false)
+
+          const stageRef = React.useRef(null)
+          const panRef = React.useRef({ panning: false, lastX: 0, lastY: 0 })
+          const [view, setView] = React.useState({ x: 0, y: 0, scale: 1 })
+          const [world, setWorld] = React.useState({ w: 1000, h: 800, pad: 90, minX: 0, minY: 0 })
+
+          function notify(msg) {
+            try {
+              if (bridge && typeof bridge.log === 'function') bridge.log(String(msg || ''))
+            } catch (e) {}
+          }
+
+          React.useEffect(
+            function () {
+              let disposed = false
+              async function load() {
+                setLoading(true)
+                setError('')
+                try {
+                  if (!bridge) {
+                    setError('需要用 Qt 版本启动（python main.py）')
+                    return
+                  }
+                  const raw = await callBridgeResult(bridge, 'tianshuInit', [])
+                  const parsed = typeof raw === 'string' ? safeJsonParse(raw, null) : raw
+                  if (!parsed || !parsed.ok) {
+                    setTrees(Array.isArray(parsed && parsed.trees) ? parsed.trees : [])
+                    setMaxPoints(Number((parsed && parsed.maxPoints) || 31))
+                    setError(String((parsed && parsed.error) || '加载失败'))
+                    return
+                  }
+
+                  setTrees(Array.isArray(parsed.trees) ? parsed.trees : [])
+                  setTreeId(String(parsed.treeId || ''))
+                  setTree(parsed.tree && typeof parsed.tree === 'object' ? parsed.tree : null)
+                  setRanks(parsed.ranks && typeof parsed.ranks === 'object' ? parsed.ranks : {})
+                  setPoints(Number(parsed.points || 0))
+                  setMaxPoints(Number(parsed.maxPoints || 31))
+                  setSummary(String(parsed.summary || ''))
+                } catch (e) {
+                  setError('加载失败')
+                } finally {
+                  if (!disposed) setLoading(false)
+                }
+              }
+              load()
+              return function () {
+                disposed = true
+              }
+            },
+            [bridge]
+          )
+
+          React.useEffect(
+            function () {
+              if (!pickerOpen) return
+              function onDown(ev) {
+                const el = ev.target
+                if (!el) return
+                const wrap = document.getElementById('tianshuPickerWrap')
+                if (wrap && wrap.contains(el)) return
+                setPickerOpen(false)
+              }
+              document.addEventListener('mousedown', onDown, true)
+              return function () {
+                document.removeEventListener('mousedown', onDown, true)
+              }
+            },
+            [pickerOpen]
+          )
+
+          async function selectTree(nextTreeId) {
+            const tid = String(nextTreeId || '')
+            if (!tid) return
+            setPickerOpen(false)
+            setLoading(true)
+            try {
+              const raw = await callBridgeResult(bridge, 'tianshuSelectTree', [tid])
+              const parsed = typeof raw === 'string' ? safeJsonParse(raw, null) : raw
+              if (!parsed || !parsed.ok) {
+                notify((parsed && parsed.error) || '切换失败')
+                return
+              }
+              setTreeId(String(parsed.treeId || tid))
+              setTree(parsed.tree && typeof parsed.tree === 'object' ? parsed.tree : null)
+              setRanks(parsed.ranks && typeof parsed.ranks === 'object' ? parsed.ranks : {})
+              setPoints(Number(parsed.points || 0))
+              setMaxPoints(Number(parsed.maxPoints || 31))
+              setSummary(String(parsed.summary || ''))
+            } catch (e) {
+              notify('切换失败')
+            } finally {
+              setLoading(false)
+            }
+          }
+
+          const nodes = (tree && Array.isArray(tree.nodes) ? tree.nodes : []).filter(function (n) {
+            return n && n.id
+          })
+
+          const nodeById = new Map()
+          nodes.forEach(function (n) {
+            nodeById.set(String(n.id), n)
+          })
+
+          function isUnlocked(node) {
+            if (!node) return false
+            const prereqs = Array.isArray(node.prereqs) ? node.prereqs : []
+            if (!prereqs.length) return true
+            for (let i = 0; i < prereqs.length; i++) {
+              const pid = String(prereqs[i] || '')
+              if (!pid) continue
+              const parent = nodeById.get(pid)
+              if (!parent) continue
+              const pr = Number(ranks && ranks[pid] ? ranks[pid] : 0)
+              const pm = Number(parent.maxRank || 1)
+              if (pr >= pm) return true
+            }
+            return false
+          }
+
+          function formatNumber(value) {
+            if (typeof value !== 'number' || !isFinite(value)) return String(value || 0)
+            const v = Math.round((value + Number.EPSILON) * 100) / 100
+            const s = String(v)
+            if (s.indexOf('.') >= 0) return s.replace(/\.?0+$/, '')
+            return s
+          }
+
+          function getNodeDesc(node, rank) {
+            const lines = Array.isArray(node && node.descLines) ? node.descLines : []
+            if (!lines.length) return ''
+            const idx = Math.max(0, Math.min(lines.length - 1, (Number(rank || 0) > 0 ? Number(rank || 0) - 1 : 0)))
+            return String(lines[idx] || '')
+          }
+
+          function getNodeStats(node, rank) {
+            const byRank = Array.isArray(node && node.statsByRank) ? node.statsByRank : []
+            const r = Number(rank || 0)
+            if (r <= 0) return []
+            const idx = r - 1
+            const list = idx >= 0 && idx < byRank.length ? byRank[idx] : []
+            return Array.isArray(list) ? list.filter(function (s) { return s && (s.key || s.label) }) : []
+          }
+
+          function setTooltipFromEvent(ev, node) {
+            const el = stageRef.current
+            if (!el) return
+            const rect = el.getBoundingClientRect()
+            const x = Math.max(10, Math.min(rect.width - 12, ev.clientX - rect.left + 14))
+            const y = Math.max(10, Math.min(rect.height - 12, ev.clientY - rect.top + 14))
+            setTooltip({ nodeId: String(node && node.id ? node.id : ''), x: x, y: y })
+          }
+
+          function clearTooltip() {
+            setTooltip(null)
+          }
+
+          React.useEffect(
+            function () {
+              const list = nodes
+              if (!list.length) return
+              let minX = Infinity
+              let minY = Infinity
+              let maxX = -Infinity
+              let maxY = -Infinity
+              list.forEach(function (n) {
+                const x = Number(n.x || 0)
+                const y = Number(n.y || 0)
+                if (x < minX) minX = x
+                if (y < minY) minY = y
+                if (x > maxX) maxX = x
+                if (y > maxY) maxY = y
+              })
+              if (!isFinite(minX) || !isFinite(minY) || !isFinite(maxX) || !isFinite(maxY)) return
+              const pad = 120
+              const w = Math.max(600, (maxX - minX) + pad * 2 + 160)
+              const h = Math.max(460, (maxY - minY) + pad * 2 + 120)
+              setWorld({ w, h, pad, minX, minY })
+            },
+            [treeId, tree]
+          )
+
+          function fitToStage() {
+            const el = stageRef.current
+            if (!el) return
+            const rect = el.getBoundingClientRect()
+            const stageW = Math.max(1, rect.width)
+            const stageH = Math.max(1, rect.height)
+            const scale = Math.max(0.28, Math.min(1.6, Math.min(stageW / world.w, stageH / world.h) * 0.96))
+            const x = (stageW - world.w * scale) / 2
+            const y = (stageH - world.h * scale) / 2
+            setView({ x, y, scale })
+          }
+
+          React.useEffect(
+            function () {
+              fitToStage()
+            },
+            [world.w, world.h]
+          )
+
+          React.useEffect(
+            function () {
+              const el = stageRef.current
+              if (!el) return
+              let ro = null
+              if (typeof ResizeObserver !== 'undefined') {
+                ro = new ResizeObserver(function () {
+                  fitToStage()
+                })
+                ro.observe(el)
+              }
+              return function () {
+                if (ro) ro.disconnect()
+              }
+            },
+            [world.w, world.h]
+          )
+
+          function onStageDown(ev) {
+            if (ev.button !== 0) return
+            if (ev.target && ev.target.closest && ev.target.closest('.tsNode')) return
+            panRef.current.panning = true
+            panRef.current.lastX = ev.clientX
+            panRef.current.lastY = ev.clientY
+            setPanning(true)
+            try {
+              ev.currentTarget.setPointerCapture(ev.pointerId)
+            } catch (e) {}
+          }
+
+          function onStageMove(ev) {
+            if (!panRef.current.panning) return
+            const dx = ev.clientX - panRef.current.lastX
+            const dy = ev.clientY - panRef.current.lastY
+            panRef.current.lastX = ev.clientX
+            panRef.current.lastY = ev.clientY
+            setView(function (prev) {
+              return { ...prev, x: prev.x + dx, y: prev.y + dy }
+            })
+          }
+
+          function onStageUp(ev) {
+            panRef.current.panning = false
+            setPanning(false)
+            try {
+              ev.currentTarget.releasePointerCapture(ev.pointerId)
+            } catch (e) {}
+          }
+
+          function onStageWheel(ev) {
+            if (!ev.ctrlKey) return
+            ev.preventDefault()
+            const el = stageRef.current
+            if (!el) return
+            const rect = el.getBoundingClientRect()
+            const px = ev.clientX - rect.left
+            const py = ev.clientY - rect.top
+            const direction = ev.deltaY > 0 ? -1 : 1
+            const factor = direction > 0 ? 1.12 : 0.88
+            setView(function (prev) {
+              const nextScale = Math.max(0.28, Math.min(2.6, prev.scale * factor))
+              const worldX = (px - prev.x) / prev.scale
+              const worldY = (py - prev.y) / prev.scale
+              const nextX = px - worldX * nextScale
+              const nextY = py - worldY * nextScale
+              return { x: nextX, y: nextY, scale: nextScale }
+            })
+          }
+
+          async function resetCurrent() {
+            setLoading(true)
+            try {
+              const raw = await callBridgeResult(bridge, 'tianshuResetCurrentTree', [])
+              const parsed = typeof raw === 'string' ? safeJsonParse(raw, null) : raw
+              if (!parsed || !parsed.ok) {
+                notify((parsed && parsed.error) || '重置失败')
+                return
+              }
+              setRanks(parsed.ranks && typeof parsed.ranks === 'object' ? parsed.ranks : {})
+              setPoints(Number(parsed.points || 0))
+              setMaxPoints(Number(parsed.maxPoints || 31))
+              setSummary(String(parsed.summary || ''))
+            } catch (e) {
+              notify('重置失败')
+            } finally {
+              setLoading(false)
+            }
+          }
+
+          async function upgrade(nodeId) {
+            const nid = String(nodeId || '')
+            if (!nid) return
+            setLoading(true)
+            try {
+              const raw = await callBridgeResult(bridge, 'tianshuUpgrade', [nid])
+              const parsed = typeof raw === 'string' ? safeJsonParse(raw, null) : raw
+              if (!parsed || !parsed.ok) {
+                notify((parsed && parsed.error) || '加点失败')
+                return
+              }
+              setRanks(parsed.ranks && typeof parsed.ranks === 'object' ? parsed.ranks : {})
+              setPoints(Number(parsed.points || 0))
+              setMaxPoints(Number(parsed.maxPoints || 31))
+              setSummary(String(parsed.summary || ''))
+            } catch (e) {
+              notify('加点失败')
+            } finally {
+              setLoading(false)
+            }
+          }
+
+          async function downgrade(nodeId) {
+            const nid = String(nodeId || '')
+            if (!nid) return
+            setLoading(true)
+            try {
+              const raw = await callBridgeResult(bridge, 'tianshuDowngrade', [nid])
+              const parsed = typeof raw === 'string' ? safeJsonParse(raw, null) : raw
+              if (!parsed || !parsed.ok) {
+                notify((parsed && parsed.error) || '减点失败')
+                return
+              }
+              setRanks(parsed.ranks && typeof parsed.ranks === 'object' ? parsed.ranks : {})
+              setPoints(Number(parsed.points || 0))
+              setMaxPoints(Number(parsed.maxPoints || 31))
+              setSummary(String(parsed.summary || ''))
+            } catch (e) {
+              notify('减点失败')
+            } finally {
+              setLoading(false)
+            }
+          }
+
+          const edges = []
+          nodes.forEach(function (n) {
+            const childId = String(n.id || '')
+            const prereqs = Array.isArray(n.prereqs) ? n.prereqs : []
+            prereqs.forEach(function (pid) {
+              const parentId = String(pid || '')
+              if (!parentId) return
+              if (nodeById.has(parentId)) edges.push({ from: parentId, to: childId })
+            })
+          })
+
+          const treeLabel = (trees || []).find(function (t) {
+            return String(t && t.id ? t.id : '') === String(treeId || '')
+          })
+          const currentTreeName = String((treeLabel && (treeLabel.name || treeLabel.id)) || treeId || '选择流派')
+          const tooltipNode = tooltip && tooltip.nodeId ? nodeById.get(String(tooltip.nodeId)) : null
+
+          return e(
+            'div',
+            { className: 'shell' },
+            e(
+              'div',
+              { className: 'panel' },
+              e('div', { className: 'row space' }, e('div', null, e('div', { className: 'panelTitle' }, '天书模拟器'), e('div', { className: 'hint' }, '鼠标悬浮节点查看说明；左键加点，右键减点。'))),
+              error ? e('div', { className: 'hint', style: { marginTop: '10px' } }, error) : null,
+              loading ? e('div', { className: 'hint', style: { marginTop: '10px' } }, '加载中…') : null
+            ),
+            e('div', { style: { height: '12px' } }),
+            e(
+              'div',
+              { className: rightHidden ? 'tsThreeCol collapsed' : 'tsThreeCol' },
+              e(
+                'div',
+                { className: panning ? 'tsStage grabbing' : 'tsStage grab', ref: stageRef, onPointerDown: onStageDown, onPointerMove: onStageMove, onPointerUp: onStageUp, onPointerCancel: onStageUp, onWheel: onStageWheel },
+                e(
+                  'div',
+                  {
+                    className: 'tsOverlayBar',
+                    onPointerDown: function (ev) {
+                      ev.stopPropagation()
+                    },
+                    onPointerMove: function (ev) {
+                      ev.stopPropagation()
+                    },
+                    onPointerUp: function (ev) {
+                      ev.stopPropagation()
+                    },
+                    onWheel: function (ev) {
+                      ev.stopPropagation()
+                    },
+                  },
+                  e(
+                    'div',
+                    { className: 'menuWrap', id: 'tianshuPickerWrap' },
+                    e(
+                      'button',
+                      {
+                        className: 'btn menuBtn',
+                        type: 'button',
+                        onClick: function () {
+                          if (!trees.length || !bridge) return
+                          setPickerOpen(function (v) {
+                            return !v
+                          })
+                        },
+                        disabled: !trees.length || !bridge,
+                      },
+                      e('span', null, currentTreeName),
+                      e('span', { style: { opacity: 0.8 } }, pickerOpen ? '▲' : '▼')
+                    ),
+                    pickerOpen
+                      ? e(
+                          'div',
+                          { className: 'menuPopup' },
+                          (trees || []).map(function (t) {
+                            const id = String(t && t.id ? t.id : '')
+                            const label = String((t && (t.name || t.id)) || id)
+                            const active = id === String(treeId || '')
+                            return e(
+                              'button',
+                              {
+                                key: id,
+                                type: 'button',
+                                className: active ? 'menuItem active' : 'menuItem',
+                                onClick: function () {
+                                  selectTree(id)
+                                },
+                              },
+                              label
+                            )
+                          })
+                        )
+                      : null
+                  ),
+                  e('button', { className: 'btn danger', onClick: resetCurrent, disabled: !treeId || !bridge }, '重置'),
+                  e('div', { className: 'tsOverlaySpacer' }),
+                  e('div', { className: 'pill' }, `点数：${points} / ${maxPoints}`),
+                  e(
+                    'button',
+                    {
+                      className: 'btn',
+                      type: 'button',
+                      onClick: function () {
+                        setRightHidden(function (v) {
+                          return !v
+                        })
+                      },
+                    },
+                    rightHidden ? '显示右侧' : '隐藏右侧'
+                  )
+                ),
+                e(
+                  'div',
+                  {
+                    className: 'tsWorld',
+                    style: {
+                      width: `${world.w}px`,
+                      height: `${world.h}px`,
+                      transform: `translate(${view.x}px, ${view.y}px) scale(${view.scale})`,
+                    },
+                  },
+                  e(
+                    'svg',
+                    { className: 'tsEdges', width: world.w, height: world.h, viewBox: `0 0 ${world.w} ${world.h}` },
+                    e(
+                      'g',
+                      null,
+                      edges.map(function (edge, idx) {
+                        const from = nodeById.get(String(edge.from))
+                        const to = nodeById.get(String(edge.to))
+                        if (!from || !to) return null
+                        const fx = Number(from.x || 0) - world.minX + world.pad
+                        const fy = Number(from.y || 0) - world.minY + world.pad
+                        const tx = Number(to.x || 0) - world.minX + world.pad
+                        const ty = Number(to.y || 0) - world.minY + world.pad
+                        return e('line', {
+                          key: `${edge.from}->${edge.to}:${idx}`,
+                          x1: fx,
+                          y1: fy,
+                          x2: tx,
+                          y2: ty,
+                          stroke: 'rgba(255,255,255,0.16)',
+                          strokeWidth: 2,
+                        })
+                      })
+                    )
+                  ),
+                  nodes.map(function (n) {
+                    const nodeSize = 46
+                    const nodeHalf = nodeSize / 2
+                    const id = String(n.id || '')
+                    const current = Number(ranks && ranks[id] ? ranks[id] : 0)
+                    const maxRank = Number(n.maxRank || 1)
+                    const unlocked = isUnlocked(n)
+                    const x = Number(n.x || 0) - world.minX + world.pad - nodeHalf
+                    const y = Number(n.y || 0) - world.minY + world.pad - nodeHalf
+                    const cls = current > 0 ? (unlocked ? 'tsNode on' : 'tsNode on locked') : unlocked ? 'tsNode' : 'tsNode locked'
+                    return e(
+                      'div',
+                      {
+                        key: id,
+                        className: cls,
+                        style: { left: `${x}px`, top: `${y}px` },
+                        role: 'button',
+                        tabIndex: 0,
+                        onClick: function () {
+                          if (!bridge) return
+                          upgrade(id)
+                        },
+                        onContextMenu: function (ev) {
+                          ev.preventDefault()
+                          if (!bridge) return
+                          downgrade(id)
+                        },
+                        onPointerEnter: function (ev) {
+                          setTooltipFromEvent(ev, n)
+                        },
+                        onPointerMove: function (ev) {
+                          if (!tooltip || String(tooltip.nodeId || '') !== id) return
+                          setTooltipFromEvent(ev, n)
+                        },
+                        onPointerLeave: function () {
+                          clearTooltip()
+                        },
+                      },
+                      e('div', { className: 'tsNodeVal' }, `${current}/${maxRank}`)
+                    )
+                  })
+                )
+                ,
+                tooltip && tooltipNode
+                  ? (function () {
+                      const id = String(tooltipNode.id || '')
+                      const current = Number(ranks && ranks[id] ? ranks[id] : 0)
+                      const maxRank = Number(tooltipNode.maxRank || 1)
+                      const unlocked = isUnlocked(tooltipNode)
+                      const currentDesc = current > 0 ? getNodeDesc(tooltipNode, current) : '未加点'
+                      const nextDesc = current < maxRank ? getNodeDesc(tooltipNode, Math.min(maxRank, current + 1)) : '已满级'
+                      const curStats = getNodeStats(tooltipNode, current)
+                      const nextStats = current < maxRank ? getNodeStats(tooltipNode, current + 1) : []
+                      return e(
+                        'div',
+                        {
+                          className: 'tsTooltip',
+                          style: {
+                            left: `${tooltip.x}px`,
+                            top: `${tooltip.y}px`,
+                          },
+                        },
+                        e('div', { className: 'tsTooltipTitle' }, String(tooltipNode.name || tooltipNode.id || '')),
+                        e('div', { className: 'tsTooltipMeta' }, `${unlocked ? '已解锁' : '未解锁'}  ·  ${current}/${maxRank}`),
+                        e(
+                          'div',
+                          { className: 'tsTooltipBlock' },
+                          e('div', null, e('span', { className: 'tsTooltipKey' }, '当前：'), currentDesc || '—'),
+                          e('div', { style: { marginTop: '6px' } }, e('span', { className: 'tsTooltipKey' }, '下一阶：'), nextDesc || '—')
+                        ),
+                        curStats && curStats.length
+                          ? e(
+                              'div',
+                              { className: 'tsTooltipBlock' },
+                              e('div', null, e('span', { className: 'tsTooltipKey' }, '当前属性：')),
+                              e(
+                                'div',
+                                { className: 'tsTooltipMeta' },
+                                curStats
+                                  .map(function (s) {
+                                    const label = String(s.label || s.key || '')
+                                    const val = typeof s.value === 'number' ? formatNumber(s.value) : String(s.value || '')
+                                    const suffix = String(s.suffix || '')
+                                    return `${label}: ${val}${suffix}`
+                                  })
+                                  .join('\n')
+                              )
+                            )
+                          : null,
+                        nextStats && nextStats.length
+                          ? e(
+                              'div',
+                              { className: 'tsTooltipBlock' },
+                              e('div', null, e('span', { className: 'tsTooltipKey' }, '下一阶属性：')),
+                              e(
+                                'div',
+                                { className: 'tsTooltipMeta' },
+                                nextStats
+                                  .map(function (s) {
+                                    const label = String(s.label || s.key || '')
+                                    const val = typeof s.value === 'number' ? formatNumber(s.value) : String(s.value || '')
+                                    const suffix = String(s.suffix || '')
+                                    return `${label}: ${val}${suffix}`
+                                  })
+                                  .join('\n')
+                              )
+                            )
+                          : null
+                      )
+                    })()
+                  : null
+              ),
+              rightHidden
+                ? null
+                : e('div', { className: 'panel tsSidePanel' }, e('div', { className: 'panelTitle' }, '效果/属性汇总'), e('div', { style: { height: '10px' } }), e('div', { className: 'tianshuSummary' }, summary || '还没有加点。')),
+            ),
+            null
+          )
+        }
+
+        function App() {
+          const [bridge, setBridge] = React.useState(null)
+          const [tool, setTool] = React.useState(getToolFromHash())
+
+          React.useEffect(function () {
+            connectBridge(setBridge)
+          }, [])
+
+          React.useEffect(function () {
+            function onHashChange() {
+              setTool(getToolFromHash())
+            }
+            window.addEventListener('hashchange', onHashChange)
+            return function () {
+              window.removeEventListener('hashchange', onHashChange)
+            }
+          }, [])
+
+          if (tool.id === 'rili') return e(RiliPage, { tool, bridge })
+          if (tool.id === 'tianshu') return e(TianshuPage, { tool, bridge })
+          return e(
+            'div',
+            { className: 'shell' },
+            e('h1', { className: 'h1' }, tool.name),
+            e('div', { className: 'subtitle' }, '请在地址栏 hash 中使用 #rili 或 #tianshu。')
+          )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(e(App))
+      })()
+    </script>
+  </body>
+</html>

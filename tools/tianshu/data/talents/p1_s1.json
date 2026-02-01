@@ -1,0 +1,1132 @@
+[
+    {
+        "talent_point_id": 54,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "引雷诀",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会引雷诀",
+        "finish": 1,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "养剑",
+                "child_id": 55
+            },
+            {
+                "child_name": "太上雷觉",
+                "child_id": 56
+            },
+            {
+                "child_name": "剑气化阵",
+                "child_id": 57
+            }
+        ],
+        "parent": 1.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 55,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "养剑",
+        "talent_point_max": 1,
+        "talent_point_desc": "飞剑技能造成的伤害提高5%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "御六合",
+                "child_id": 58
+            },
+            {
+                "child_name": "怒剑劫·剑玄",
+                "child_id": 59
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 56,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "太上雷觉",
+        "talent_point_max": 1,
+        "talent_point_desc": "雷电技能造成的伤害提高4%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "引雷诀·砺雷",
+                "child_id": 61
+            },
+            {
+                "child_name": "奔雷",
+                "child_id": 62
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 57,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "剑气化阵",
+        "talent_point_max": 1,
+        "talent_point_desc": "飞剑技能造成伤害时，有20%概率使自身雷属性伤害提高8%，持续8秒，此效果有20秒冷却，释放神剑御雷真诀时，可无视冷却立刻获得此效果",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "怒剑劫·剑玄",
+                "child_id": 59
+            },
+            {
+                "child_name": "五气朝元",
+                "child_id": 60
+            },
+            {
+                "child_name": "引雷诀·砺雷",
+                "child_id": 61
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 58,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "御六合",
+        "talent_point_max": 2,
+        "talent_point_desc": "先天一气剑阵和千霆剑闪造成的伤害提高10%，真气恢复量提高25%;先天一气剑阵和千霆剑闪造成的伤害提高20%，真气恢复量提高50%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "易理",
+                "child_id": 63
+            },
+            {
+                "child_name": "太仪生势",
+                "child_id": 64
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 59,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "怒剑劫·剑玄",
+        "talent_point_max": 2,
+        "talent_point_desc": "怒剑劫命中超过2名敌人时，使目标受到自身伤害提高7.5%，持续15秒;怒剑劫命中超过2名敌人时，使目标受到自身伤害提高15%，持续15秒",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "太仪生势",
+                "child_id": 64
+            },
+            {
+                "child_name": "横剑凌空·剑岚",
+                "child_id": 65
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 60,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "五气朝元",
+        "talent_point_max": 2,
+        "talent_point_desc": "真气上限提高10%，真气恢复速度提高10%;真气上限提高20%，真气恢复速度提高20%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "横剑凌空·剑岚",
+                "child_id": 65
+            },
+            {
+                "child_name": "剑心",
+                "child_id": 66
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "气力恢复速度",
+                    "value": 0.1,
+                    "type_key": "mp_recover_add",
+                    "display_string": "+10.0% 气力恢复速度"
+                },
+                {
+                    "type": "气力上限",
+                    "value": 0.1,
+                    "type_key": "mp",
+                    "display_string": "+10.0% 气力上限"
+                }
+            ],
+            [
+                {
+                    "type": "气力恢复速度",
+                    "value": 0.2,
+                    "type_key": "mp_recover_add",
+                    "display_string": "+20.0% 气力恢复速度"
+                },
+                {
+                    "type": "气力上限",
+                    "value": 0.2,
+                    "type_key": "mp",
+                    "display_string": "+20.0% 气力上限"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 61,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "引雷诀·砺雷",
+        "talent_point_max": 2,
+        "talent_point_desc": "引雷诀造成的伤害提高12.5%，每额外命中1名敌人，此效果减少2.5%;\n引雷诀造成的伤害提高25%，每额外命中1名敌人，此效果减少5%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "剑心",
+                "child_id": 66
+            },
+            {
+                "child_name": "煌雷",
+                "child_id": 67
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 62,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "奔雷",
+        "talent_point_max": 2,
+        "talent_point_desc": "引雷诀和真霆雷动会心率提高7.5%;引雷诀和真霆雷动会心率提高15%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "煌雷",
+                "child_id": 67
+            },
+            {
+                "child_name": "雷化丹阙",
+                "child_id": 68
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 63,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "易理",
+        "talent_point_max": 1,
+        "talent_point_desc": "先天一气剑阵、千霆剑闪、真霆雷动造成的伤害提高10%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "怒剑劫·蕴霆",
+                "child_id": 69
+            },
+            {
+                "child_name": "太极玄天剑",
+                "child_id": 70
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 64,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "太仪生势",
+        "talent_point_max": 1,
+        "talent_point_desc": "先天一气剑阵和千霆剑闪获得额外1层充能",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "太极玄天剑",
+                "child_id": 70
+            },
+            {
+                "child_name": "雷煞",
+                "child_id": 71
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 65,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "横剑凌空·剑岚",
+        "talent_point_max": 1,
+        "talent_point_desc": "横剑凌空为自身恢复5枚天雷印",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "雷煞",
+                "child_id": 71
+            },
+            {
+                "child_name": "护元雷涌·疾",
+                "child_id": 72
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 66,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "剑心",
+        "talent_point_max": 1,
+        "talent_point_desc": "全局伤害提高2%，受到伤害降低5%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "护元雷涌·疾",
+                "child_id": 72
+            },
+            {
+                "child_name": "逍遥北斗",
+                "child_id": 73
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "伤害加成",
+                    "value": 0.02,
+                    "type_key": "damage_add",
+                    "display_string": "+2.0% 伤害加成"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 67,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "煌雷",
+        "talent_point_max": 1,
+        "talent_point_desc": "先天一气剑阵和千霆剑闪的最后一段攻击额外召唤一道落雷，对目标和目标周围5米内的所有敌人造成0.3*攻击雷属性伤害 落雷不会随命中目标数量提高而降低伤害，且每额外命中1名目标造成的伤害就会提高100%，最多提高300%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "逍遥北斗",
+                "child_id": 73
+            },
+            {
+                "child_name": "雷击",
+                "child_id": 74
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 68,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷化丹阙",
+        "talent_point_max": 1,
+        "talent_point_desc": "引雷诀和真霆雷动的会心效果提高40%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "雷击",
+                "child_id": 74
+            },
+            {
+                "child_name": "护元雷涌·过载",
+                "child_id": 75
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 69,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "怒剑劫·蕴霆",
+        "talent_point_max": 1,
+        "talent_point_desc": "怒剑劫和天雷缚造成的伤害提高200%",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "化雷",
+                "child_id": 76
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 70,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "太极玄天剑",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会太极玄天剑",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "剑风",
+                "child_id": 77
+            },
+            {
+                "child_name": "化雷",
+                "child_id": 76
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 71,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷煞",
+        "talent_point_max": 1,
+        "talent_point_desc": "战斗技能(除引雷诀外)、轻功攻击、玄冲诀成功定身或击飞敌人时为目标添加雷煞效果，持续5秒，下一个引雷诀会引爆雷煞，造成额外1*攻击雷属性伤害",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "真霆雷动·朔风",
+                "child_id": 78
+            },
+            {
+                "child_name": "雷煞·震符",
+                "child_id": 79
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 72,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "护元雷涌·疾",
+        "talent_point_max": 1,
+        "talent_point_desc": "护元雷涌·疾代替护元雷涌",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "千钧",
+                "child_id": 80
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 73,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "逍遥北斗",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放驭雷术恢复自身3枚天雷印",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "驭雷术·极",
+                "child_id": 81
+            },
+            {
+                "child_name": "驭雷术·刺邪",
+                "child_id": 82
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 74,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷击",
+        "talent_point_max": 1,
+        "talent_point_desc": "真霆雷动和神剑御雷真诀的最后一击对目标附加雷击效果，持续对目标和目标周围的另一名敌人造成伤害",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "暴雷",
+                "child_id": 83
+            },
+            {
+                "child_name": "雷元奇变",
+                "child_id": 84
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 75,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "护元雷涌·过载",
+        "talent_point_max": 1,
+        "talent_point_desc": "护元雷涌和护元雷涌·疾造成的伤害提高50%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "雷元奇变",
+                "child_id": 84
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 76,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "化雷",
+        "talent_point_max": 1,
+        "talent_point_desc": "每释放6个先天一气剑阵或千霆剑闪使自身获得化雷效果,化雷：下一次真霆雷动可无视冷却并无需消耗真气释放",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 77,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "剑风",
+        "talent_point_max": 1,
+        "talent_point_desc": "调息率提高2%；每拥有1%调息率，真气消耗也会降低1%，最多降低50%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "神剑御雷真诀·凌虚",
+                "child_id": 85
+            },
+            {
+                "child_name": "剑势如雷",
+                "child_id": 86
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.02,
+                    "type_key": "haste_percent",
+                    "display_string": "+2.0% 调息率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 78,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "真霆雷动·朔风",
+        "talent_point_max": 1,
+        "talent_point_desc": "真霆雷动造成的伤害提高5%；在蓄力期间进行移动可打断真霆雷动",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 79,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷煞·震符",
+        "talent_point_max": 1,
+        "talent_point_desc": "引爆雷煞造成的伤害提高25%，并恢复自身50真气",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 4,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 80,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "千钧",
+        "talent_point_max": 1,
+        "talent_point_desc": "战斗技能(除引雷诀外)、轻功攻击、玄冲诀成功击飞敌人时，恢复自身3枚天雷印",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "天玑",
+                "child_id": 87
+            },
+            {
+                "child_name": "剑韧",
+                "child_id": 88
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 81,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "驭雷术·极",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放驭雷术恢复自身150真气",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 6,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 82,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "驭雷术·刺邪",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放驭雷术后大幅缩短下一次引雷诀的施法时间，持续2秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 83,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "暴雷",
+        "talent_point_max": 1,
+        "talent_point_desc": "会心率提高2%，会心效果提高5%",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "引雷诀·霹雳",
+                "child_id": 89
+            },
+            {
+                "child_name": "玉衡",
+                "child_id": 90
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.02,
+                    "type_key": "critical_percent",
+                    "display_string": "+2.0% 会心率"
+                },
+                {
+                    "type": "会心效果",
+                    "value": 0.05,
+                    "type_key": "critical_damage",
+                    "display_string": "+5.0% 会心效果"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 84,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷元奇变",
+        "talent_point_max": 1,
+        "talent_point_desc": "护元雷涌的冷却时间缩短60秒;护元雷涌·疾的冷却时间缩短5秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 85,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "神剑御雷真诀·凌虚",
+        "talent_point_max": 2,
+        "talent_point_desc": "神剑御雷真诀的冷却时间减少20秒;神剑御雷真诀的冷却时间减少40秒",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "雷元爆发",
+                "child_id": 91
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 86,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "剑势如雷",
+        "talent_point_max": 2,
+        "talent_point_desc": "太极玄天剑、先天一气剑阵每次造成伤害时有25%概率触发雷暴，对所有命中目标及其周围的敌人造成额外0.11*攻击雷属性伤害。自身每拥有1%调息率，雷暴的触发概率也会提高1%，最多提高25%;\n太极玄天剑、先天一气剑阵每次造成伤害时有25%概率触发雷暴，对所有命中目标及其周围的敌人造成额外0.22*攻击雷属性伤害。自身每拥有1%调息率，雷暴的触发概率也会提高1%，最多提高25%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "雷元爆发",
+                "child_id": 91
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 87,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "天玑",
+        "talent_point_max": 2,
+        "talent_point_desc": "真霆雷动的真气消耗降低50;真霆雷动的真气消耗降低100",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "千霆剑闪",
+                "child_id": 92
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 88,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "剑韧",
+        "talent_point_max": 2,
+        "talent_point_desc": "专精率提高2%/4%，受到伤害降低5%/10%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "千霆剑闪",
+                "child_id": 92
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.02,
+                    "type_key": "mastery_percent",
+                    "display_string": "+2.0% 专精率"
+                }
+            ],
+            [
+                {
+                    "type": "专精率",
+                    "value": 0.04,
+                    "type_key": "mastery_percent",
+                    "display_string": "+4.0% 专精率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 89,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "引雷诀·霹雳",
+        "talent_point_max": 2,
+        "talent_point_desc": "引雷诀有概率造成额外60%伤害，触发概率等同于自身会心率;引雷诀有概率造成额外120%伤害，触发概率等同于自身会心率",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "雷光遁龙诀",
+                "child_id": 93
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 90,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "玉衡",
+        "talent_point_max": 2,
+        "talent_point_desc": "真霆雷动、神剑御雷真诀造成的伤害提高10%;真霆雷动、神剑御雷真诀造成的伤害提高20%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "雷光遁龙诀",
+                "child_id": 93
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 91,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷元爆发",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会雷元爆发",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "雷元爆发·天眷",
+                "child_id": 94
+            },
+            {
+                "child_name": "雷元爆发·正法",
+                "child_id": 95
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 92,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "千霆剑闪",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会千霆剑闪",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "天雷缚",
+                "child_id": 96
+            },
+            {
+                "child_name": "镇魔",
+                "child_id": 97
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 93,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷光遁龙诀",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会雷光遁龙诀",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "势若轰雷",
+                "child_id": 98
+            },
+            {
+                "child_name": "雷光遁龙诀·雷枢",
+                "child_id": 99
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 94,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷元爆发·天眷",
+        "talent_point_max": 1,
+        "talent_point_desc": "雷元爆发效果现在可以叠加，每层效果增加自身全局伤害提高2%，最多可叠加40层,雷元爆发期间,飞剑技能，引雷诀和神剑御雷真诀可叠加1层雷元爆发效果，但不会重置其持续时间",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "剑胆",
+                "child_id": 457
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 95,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷元爆发·正法",
+        "talent_point_max": 1,
+        "talent_point_desc": "雷元爆发期间自身调息率提高15%，释放雷元爆发时获得1层化雷效果,进入战斗后首次释放雷元爆发时，额外获得1层化雷效果，化雷：下一次真霆雷动可无视冷却并无需消耗真气释放",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "剑胆",
+                "child_id": 457
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 96,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "天雷缚",
+        "talent_point_max": 1,
+        "talent_point_desc": "天雷缚代替怒剑劫",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "惊雷",
+                "child_id": 458
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 97,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "镇魔",
+        "talent_point_max": 1,
+        "talent_point_desc": "自身对被控制的目标造成的全部伤害提高15%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "惊雷",
+                "child_id": 458
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 98,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "势若轰雷",
+        "talent_point_max": 1,
+        "talent_point_desc": "真霆雷动的基础伤害提高20%，释放后使下一次引雷诀的基础伤害提高20%，且无需消耗天雷印",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "化雷·雷音",
+                "child_id": 459
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 99,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "雷光遁龙诀·雷枢",
+        "talent_point_max": 1,
+        "talent_point_desc": "雷光遁龙诀持续期间自身会心率和会心效果提高20%，且雷击的基础生效频率缩减至1秒",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "化雷·雷音",
+                "child_id": 459
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 457,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "剑胆",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放真霆雷动时，先天一气剑阵的冷却时间缩短10秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "引雷诀·破咒",
+                "child_id": 460
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 458,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "惊雷",
+        "talent_point_max": 1,
+        "talent_point_desc": "怒剑劫和天雷缚的冷却时间减少3秒，千霆剑闪的冷却时间减少4秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "驭雷术·疾雷",
+                "child_id": 461
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 459,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "化雷·雷音",
+        "talent_point_max": 1,
+        "talent_point_desc": "神剑御雷真诀现在可消耗化雷效果，使其基础伤害提高20%并从专精率中获得额外100%收益,释放雷光遁龙诀时，自身获得1层化雷效果",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "神剑御雷真诀·增压",
+                "child_id": 462
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 460,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "引雷诀·破咒",
+        "talent_point_max": 1,
+        "talent_point_desc": "雷元爆发状态下，引雷诀可额外叠加1层雷元爆发效果,每层雷元爆发效果额外使引雷诀造成的基础伤害提高1.5%",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 461,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "驭雷术·疾雷",
+        "talent_point_max": 1,
+        "talent_point_desc": "驭雷术在进入冷却前可额外释放1次",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 462,
+        "class": "青云",
+        "sub_class": "雷",
+        "talent_point_name": "神剑御雷真诀·增压",
+        "talent_point_max": 1,
+        "talent_point_desc": "神剑御雷真诀造成伤害时，自身最终伤害提高15%，持续3秒，最多可叠加7次",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

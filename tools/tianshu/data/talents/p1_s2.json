@@ -1,0 +1,1255 @@
+[
+    {
+        "talent_point_id": 1,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "青霜剑华",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会青霜剑华",
+        "finish": 1,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "剑意",
+                "child_id": 2
+            },
+            {
+                "child_name": "玉真",
+                "child_id": 19
+            },
+            {
+                "child_name": "修元",
+                "child_id": 21
+            },
+            {
+                "child_name": "蓄势",
+                "child_id": 33
+            }
+        ],
+        "parent": 1.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 2,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑意",
+        "talent_point_max": 2,
+        "talent_point_desc": "造成伤害时，使目标受到来自自身的伤害提高2.5%，持续30秒;\n造成伤害时，使目标受到来自自身的伤害提高5%，持续30秒",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "入道",
+                "child_id": 4
+            },
+            {
+                "child_name": "青霜剑华·无量",
+                "child_id": 11
+            },
+            {
+                "child_name": "游龙",
+                "child_id": 13
+            },
+            {
+                "child_name": "真气护体·抱元",
+                "child_id": 23
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 19,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "玉真",
+        "talent_point_max": 2,
+        "talent_point_desc": "调息率提高3%;调息率提高6%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "真气护体·抱元",
+                "child_id": 23
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.03,
+                    "type_key": "haste_percent",
+                    "display_string": "+3.0% 调息率"
+                }
+            ],
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.06,
+                    "type_key": "haste_percent",
+                    "display_string": "+6.0% 调息率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 21,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "修元",
+        "talent_point_max": 2,
+        "talent_point_desc": "会心率提高3%;会心率提高6%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "真气护体·抱元",
+                "child_id": 23
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.03,
+                    "type_key": "critical_percent",
+                    "display_string": "+3.0% 会心率"
+                }
+            ],
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.06,
+                    "type_key": "critical_percent",
+                    "display_string": "+6.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 33,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "蓄势",
+        "talent_point_max": 2,
+        "talent_point_desc": "穿星，剑扫六合造成的伤害提高7.5%;穿星，剑扫六合造成的伤害提高15%",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "真气护体·抱元",
+                "child_id": 23
+            },
+            {
+                "child_name": "神锋磨砺",
+                "child_id": 35
+            },
+            {
+                "child_name": "真武",
+                "child_id": 37
+            },
+            {
+                "child_name": "道法自然",
+                "child_id": 38
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 4,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "入道",
+        "talent_point_max": 1,
+        "talent_point_desc": "御剑诀、纵剑诀、造成的伤害提高50%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "剑落繁星",
+                "child_id": 5
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 11,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "青霜剑华·无量",
+        "talent_point_max": 1,
+        "talent_point_desc": "青霜剑华向前方发射一道剑气，现在可击中前方20米内所有目标",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "剑落繁星",
+                "child_id": 5
+            },
+            {
+                "child_name": "青霜剑华·饮血",
+                "child_id": 12
+            },
+            {
+                "child_name": "剑意留痕",
+                "child_id": 14
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 13,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "游龙",
+        "talent_point_max": 1,
+        "talent_point_desc": "穿星和剑扫六合最后一击增伤20%，每1%调息额外增加1%伤害",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "剑意留痕",
+                "child_id": 14
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 23,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "真气护体·抱元",
+        "talent_point_max": 1,
+        "talent_point_desc": "真气护体被打破时，减伤20%持续4秒",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "剑意留痕",
+                "child_id": 14
+            },
+            {
+                "child_name": "剑心",
+                "child_id": 24
+            },
+            {
+                "child_name": "司命",
+                "child_id": 36
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 35,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "神锋磨砺",
+        "talent_point_max": 1,
+        "talent_point_desc": "碎星所需贯虹次数减少1，剑扫六合冷却减少10秒",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "司命",
+                "child_id": 36
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 37,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "真武",
+        "talent_point_max": 1,
+        "talent_point_desc": "青霜剑华和怒剑劫造成的伤害提高20%，每额外命中1名敌人，此效果减少4%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "司命",
+                "child_id": 36
+            },
+            {
+                "child_name": "太乙",
+                "child_id": 39
+            },
+            {
+                "child_name": "贯虹·造化",
+                "child_id": 40
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 38,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "道法自然",
+        "talent_point_max": 1,
+        "talent_point_desc": "真气恢复速度提高40%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "贯虹·造化",
+                "child_id": 40
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "气力恢复速度",
+                    "value": 0.4,
+                    "type_key": "mp_recover_add",
+                    "display_string": "+40.0% 气力恢复速度"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 5,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑落繁星",
+        "talent_point_max": 1,
+        "talent_point_desc": "御剑诀和纵剑诀的最后一段攻击额外恢复自身50真气，并召唤一枚落剑，造成0.7*攻击法术伤害",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "剑意离仙",
+                "child_id": 6
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 12,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "青霜剑华·饮血",
+        "talent_point_max": 1,
+        "talent_point_desc": "青霜剑华的基础伤害提高10%，现在造成法术伤害而非物理伤害",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "剑意离仙",
+                "child_id": 6
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 14,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑意留痕",
+        "talent_point_max": 1,
+        "talent_point_desc": "穿星和剑扫六合最后一击在1秒额外造成30%伤害",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "剑意离仙",
+                "child_id": 6
+            },
+            {
+                "child_name": "怒剑劫·北斗",
+                "child_id": 15
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 24,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑心",
+        "talent_point_max": 1,
+        "talent_point_desc": "全局伤害提高2%，受到伤害降低5%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "怒剑劫·北斗",
+                "child_id": 15
+            },
+            {
+                "child_name": "反朴",
+                "child_id": 25
+            },
+            {
+                "child_name": "清心",
+                "child_id": 26
+            },
+            {
+                "child_name": "贯天",
+                "child_id": 41
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "伤害加成",
+                    "value": 0.02,
+                    "type_key": "damage_add",
+                    "display_string": "+2.0% 伤害加成"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 36,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "司命",
+        "talent_point_max": 1,
+        "talent_point_desc": "对生命低于30%伤害提高10%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "贯天",
+                "child_id": 41
+            },
+            {
+                "child_name": "剑拂云",
+                "child_id": 42
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 39,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "太乙",
+        "talent_point_max": 1,
+        "talent_point_desc": "会心效果提高30%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "剑拂云",
+                "child_id": 42
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心效果",
+                    "value": 0.3,
+                    "type_key": "critical_damage",
+                    "display_string": "+30.0% 会心效果"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 40,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "贯虹·造化",
+        "talent_point_max": 1,
+        "talent_point_desc": "贯虹和截云基础伤害提高20%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "剑拂云",
+                "child_id": 42
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 6,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑意离仙",
+        "talent_point_max": 1,
+        "talent_point_desc": "纵剑诀替换御剑诀，剑扫六合替换穿星，贯虹和截云伤害降低50%",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "剑扫六合·龙啸",
+                "child_id": 7
+            },
+            {
+                "child_name": "道心澄明",
+                "child_id": 16
+            },
+            {
+                "child_name": "青霜剑华·逸韵",
+                "child_id": 52
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 15,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "怒剑劫·北斗",
+        "talent_point_max": 1,
+        "talent_point_desc": "150层北斗释放怒剑劫，伤害提高到400%，最多可储存300层",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "镇魔剑罡",
+                "child_id": 27
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 25,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "反朴",
+        "talent_point_max": 1,
+        "talent_point_desc": "法术攻击力提高5%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "镇魔剑罡",
+                "child_id": 27
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "法术攻击加成",
+                    "value": 0.05,
+                    "type_key": "spell_add",
+                    "display_string": "+5.0% 法术攻击加成"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 26,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "清心",
+        "talent_point_max": 1,
+        "talent_point_desc": "物理伤害提高5%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "镇魔剑罡",
+                "child_id": 27
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "物理伤害加成",
+                    "value": 0.05,
+                    "type_key": "attack_damage_add",
+                    "display_string": "+5.0% 物理伤害加成"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 41,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "贯天",
+        "talent_point_max": 1,
+        "talent_point_desc": "穿星与剑扫六合命中气血低于30%，会心率提高70%",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "镇魔剑罡",
+                "child_id": 27
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 42,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑拂云",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会剑拂云",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "穿星·奥义",
+                "child_id": 43
+            },
+            {
+                "child_name": "剑拂云·冰心",
+                "child_id": 44
+            },
+            {
+                "child_name": "剑拂云·云霓",
+                "child_id": 45
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 7,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑扫六合·龙啸",
+        "talent_point_max": 1,
+        "talent_point_desc": "需要蓄力释放的剑扫六合会召唤一条飞龙对命中的所有敌人 造成2.4*攻击法术伤害并使自身获得1层澄明效果",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "青霜剑华·峥嵘",
+                "child_id": 8
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 16,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "道心澄明",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放青霜剑华有20%概率使自身获得1层澄明效果，调息率会提高此效果的触发概率，数值等同于自身调息率的100%；寰宇千锋期间，此效果触发概率翻倍",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "青霜剑华·峥嵘",
+                "child_id": 8
+            },
+            {
+                "child_name": "澄明·破妄",
+                "child_id": 17
+            },
+            {
+                "child_name": "横剑凌空·空我",
+                "child_id": 53
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 27,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "镇魔剑罡",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会镇魔剑罡",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "横剑凌空·空我",
+                "child_id": 53
+            },
+            {
+                "child_name": "剑走游龙",
+                "child_id": 28
+            },
+            {
+                "child_name": "摇光",
+                "child_id": 29
+            },
+            {
+                "child_name": "剑指乾坤",
+                "child_id": 46
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 43,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "穿星·奥义",
+        "talent_point_max": 1,
+        "talent_point_desc": "碎星可额外叠加1层，释放穿星消耗所有碎星，每层提高100%伤害",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "剑指乾坤",
+                "child_id": 46
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 44,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑拂云·冰心",
+        "talent_point_max": 1,
+        "talent_point_desc": "剑拂云使下次青霜剑华不消耗真气",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "剑指乾坤",
+                "child_id": 46
+            },
+            {
+                "child_name": "怒剑劫·问天",
+                "child_id": 47
+            },
+            {
+                "child_name": "截云",
+                "child_id": 48
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 45,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑拂云·云霓",
+        "talent_point_max": 1,
+        "talent_point_desc": "剑拂云的基础伤害提高50%，冷却时间缩短5秒",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "截云",
+                "child_id": 48
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 52,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "青霜剑华·逸韵",
+        "talent_point_max": 1,
+        "talent_point_desc": "真气上限提高200，青霜剑华的真气消耗降低100",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "横剑凌空·空我",
+                "child_id": 53
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 8,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "青霜剑华·峥嵘",
+        "talent_point_max": 1,
+        "talent_point_desc": "每释放3次青霜剑华，下1次青霜剑华无需消耗真气",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "寰宇千锋",
+                "child_id": 9
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 17,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "澄明·破妄",
+        "talent_point_max": 1,
+        "talent_point_desc": "澄明效果有15%概率不会被消耗",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "寰宇千锋",
+                "child_id": 9
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 28,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑走游龙",
+        "talent_point_max": 1,
+        "talent_point_desc": "击败或参与击败敌对玩家时，重置真气护体的冷却时间",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "剑在人在",
+                "child_id": 30
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 29,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "摇光",
+        "talent_point_max": 1,
+        "talent_point_desc": "镇魔剑罡冷却减少5秒",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "剑在人在",
+                "child_id": 30
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 46,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑指乾坤",
+        "talent_point_max": 1,
+        "talent_point_desc": "道剑纵横的冷却时间缩短30秒，基础伤害提高50%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "剑在人在",
+                "child_id": 30
+            },
+            {
+                "child_name": "剑心通明",
+                "child_id": 49
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 47,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "怒剑劫·问天",
+        "talent_point_max": 1,
+        "talent_point_desc": "怒剑劫伤害是物理伤害，可触发贯虹和截云",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "剑心通明",
+                "child_id": 49
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 48,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "截云",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会截云",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "剑心通明",
+                "child_id": 49
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 53,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "横剑凌空·空我",
+        "talent_point_max": 1,
+        "talent_point_desc": "横剑凌空的冷却时间缩短至20秒并拥有2层充能，对命中的所有目标添加1层剑痕效果；横剑凌空不再解除控制，并且释放时不再获得霸体效果",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "寰宇千锋",
+                "child_id": 9
+            },
+            {
+                "child_name": "剑在人在",
+                "child_id": 30
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 9,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "寰宇千锋",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会寰宇千锋",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "剑扫六合·大道",
+                "child_id": 10
+            },
+            {
+                "child_name": "寰宇千锋·归鞘",
+                "child_id": 18
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 30,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑在人在",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会剑在人在",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "剑虹所指",
+                "child_id": 31
+            },
+            {
+                "child_name": "寒锋断肠",
+                "child_id": 32
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 49,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑心通明",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会剑心通明",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "无双",
+                "child_id": 50
+            },
+            {
+                "child_name": "剑拂云·真解",
+                "child_id": 51
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 10,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑扫六合·大道",
+        "talent_point_max": 1,
+        "talent_point_desc": "需要蓄力释放的剑扫六合造成的基础伤害提高100%，并使自身获得6秒寰宇千锋效果，若自身已经处于寰宇千锋状态下则延长其持续时间",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "寰宇千锋·叠奏",
+                "child_id": 451
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 18,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "寰宇千锋·归鞘",
+        "talent_point_max": 1,
+        "talent_point_desc": "寰宇千锋·归尘使自身获得1层归鞘效果，持续10秒；归鞘：法术伤害提高3%，归鞘效果可以叠加，每层效果独立计算持续时间",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "寰宇千锋·叠奏",
+                "child_id": 451
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 31,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑虹所指",
+        "talent_point_max": 1,
+        "talent_point_desc": "御剑诀、青霜剑华、穿星、剑拂云、道剑纵横会持续击飞处于硬控状态下的敌人",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "道剑纵横·道韵",
+                "child_id": 452
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 32,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "寒锋断肠",
+        "talent_point_max": 1,
+        "talent_point_desc": "对受到控制的敌人造成的伤害提高15%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "道剑纵横·道韵",
+                "child_id": 452
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 50,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "无双",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放贯虹或截云时，使自身获得1层无双效果，持续15秒；无双：每层使贯虹、截云、青霜剑华的基础伤害提高5%，可叠加5层；道剑纵横会消耗所有无双效果，每层无双效果使此次攻击的基础伤害提高5%",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "剑心通明·明澈",
+                "child_id": 453
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 51,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑拂云·真解",
+        "talent_point_max": 1,
+        "talent_point_desc": "剑拂云使自身物理伤害提高15%，受到来自怪物的伤害降低20%，持续10秒",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "剑心通明·明澈",
+                "child_id": 453
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 451,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "寰宇千锋·叠奏",
+        "talent_point_max": 1,
+        "talent_point_desc": "主动释放寰宇千锋时，获得5层归鞘效果，持续10秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "寰宇千锋·灵衍",
+                "child_id": 454
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 452,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "道剑纵横·道韵",
+        "talent_point_max": 1,
+        "talent_point_desc": "道剑纵横的冷却时间缩短20秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "道剑纵横·逍遥",
+                "child_id": 455
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 453,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑心通明·明澈",
+        "talent_point_max": 1,
+        "talent_point_desc": "消耗剑心通明效果的穿星使下一次道剑纵横的基础伤害提高25%，可叠加2层",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "剑心通明·止水",
+                "child_id": 456
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 454,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "寰宇千锋·灵衍",
+        "talent_point_max": 1,
+        "talent_point_desc": "寰宇千锋将当前目标标记为灵衍，持续20秒；灵衍：受到来自自身造成的任意伤害时，有15%概率额外受到0.4*攻击法术伤害，灵衍仅可作用于1名敌人，每有1名受到剑意效果影响的敌人，灵衍造成的基础伤害就会提高50%",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 455,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "道剑纵横·逍遥",
+        "talent_point_max": 1,
+        "talent_point_desc": "道剑纵横可在定身状态下释放，释放时解除定身效果",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 456,
+        "class": "青云",
+        "sub_class": "剑",
+        "talent_point_name": "剑心通明·止水",
+        "talent_point_max": 1,
+        "talent_point_desc": "剑心通明可额外强化1次穿星或道剑纵横",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

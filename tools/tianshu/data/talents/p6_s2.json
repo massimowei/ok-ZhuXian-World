@@ -1,0 +1,1112 @@
+[
+    {
+        "talent_point_id": 148,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵豚咏",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会灵豚咏",
+        "finish": 1,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "静流",
+                "child_id": 149
+            },
+            {
+                "child_name": "灵豚咏·灵源",
+                "child_id": 150
+            },
+            {
+                "child_name": "灵爆·破浪",
+                "child_id": 488
+            }
+        ],
+        "parent": 1.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 149,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "静流",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放飞流总计减少甘霖4秒冷却时间",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "得心",
+                "child_id": 151
+            },
+            {
+                "child_name": "甘霖·潺鸣",
+                "child_id": 152
+            },
+            {
+                "child_name": "激湍",
+                "child_id": 153
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 150,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵豚咏·灵源",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵豚咏的会心率提高100%，并依据自身会心率进一步提高伤害，额外伤害提升：会心率x0.8",
+        "finish": 1,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "激湍",
+                "child_id": 153
+            },
+            {
+                "child_name": "灵豚咏·瑶池",
+                "child_id": 154
+            },
+            {
+                "child_name": "澎湃",
+                "child_id": 155
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 151,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "得心",
+        "talent_point_max": 1,
+        "talent_point_desc": "所有水流法术造成的基础伤害提高10%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "相欢",
+                "child_id": 156
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 152,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "甘霖·潺鸣",
+        "talent_point_max": 1,
+        "talent_point_desc": "甘霖使自身获得灵吟效果时，额外获得1层灵吟效果",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "相欢",
+                "child_id": 156
+            },
+            {
+                "child_name": "甘霖·镜名",
+                "child_id": 157
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 153,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "激湍",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会激湍",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "甘霖·镜名",
+                "child_id": 157
+            },
+            {
+                "child_name": "激湍·灵涡",
+                "child_id": 158
+            },
+            {
+                "child_name": "灵爆·鱼乐",
+                "child_id": 159
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 154,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵豚咏·瑶池",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵豚咏造成的伤害提高15%，每额外命中1名敌人，此效果减少3%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "灵爆·鱼乐",
+                "child_id": 159
+            },
+            {
+                "child_name": "碎雨·灵威",
+                "child_id": 160
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 155,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "澎湃",
+        "talent_point_max": 1,
+        "talent_point_desc": "会心效果提高30%",
+        "finish": 1,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "碎雨·灵威",
+                "child_id": 160
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心效果",
+                    "value": 0.3,
+                    "type_key": "critical_damage",
+                    "display_string": "+30.0% 会心效果"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 156,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "相欢",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵爆使下一次沧浪之潮造成的伤害提高250%;\n灵爆使下一次沧浪之潮造成的伤害提高500%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "相欢·云梦",
+                "child_id": 161
+            },
+            {
+                "child_name": "甘霖·疾雨",
+                "child_id": 162
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 157,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "甘霖·镜名",
+        "talent_point_max": 2,
+        "talent_point_desc": "甘霖造成的伤害提高25%;\n甘霖造成的伤害提高50%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "甘霖·疾雨",
+                "child_id": 162
+            },
+            {
+                "child_name": "潮歌",
+                "child_id": 163
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 158,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "激湍·灵涡",
+        "talent_point_max": 2,
+        "talent_point_desc": "激湍产生的第3道激流造成的伤害提高100%;\n激湍产生的第3道激流造成的伤害提高200%",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "潮歌",
+                "child_id": 163
+            },
+            {
+                "child_name": "激湍·碧渊",
+                "child_id": 164
+            },
+            {
+                "child_name": "幻梦气泡",
+                "child_id": 165
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 159,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵爆·鱼乐",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵爆的冷却时间缩短5秒;\n灵爆的冷却时间缩短10秒",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "幻梦气泡",
+                "child_id": 165
+            },
+            {
+                "child_name": "滂沱",
+                "child_id": 166
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 160,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "碎雨·灵威",
+        "talent_point_max": 2,
+        "talent_point_desc": "碎雨造成的伤害提高15%，并可额外命中目标周围8米范围内的1名敌方目标;\n碎雨造成的伤害提高30%，并可额外命中目标周围8米范围内的2名敌方目标",
+        "finish": 1,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "滂沱",
+                "child_id": 166
+            },
+            {
+                "child_name": "碎雨·灵机",
+                "child_id": 167
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 161,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "相欢·云梦",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放受到灵爆强化的沧浪之潮时，恢复周围最多5名队友气血并获得1层灵吟效果",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "飞流·镇脉",
+                "child_id": 168
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 162,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "甘霖·疾雨",
+        "talent_point_max": 1,
+        "talent_point_desc": "甘霖获得额外1层充能，释放时恢复自身1枚鱼灵",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "飞流·镇脉",
+                "child_id": 168
+            },
+            {
+                "child_name": "共生",
+                "child_id": 169
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 163,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "潮歌",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会潮歌",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "共生",
+                "child_id": 169
+            },
+            {
+                "child_name": "怒潮",
+                "child_id": 170
+            },
+            {
+                "child_name": "飞鳐笑·嬉戏",
+                "child_id": 171
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 164,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "激湍·碧渊",
+        "talent_point_max": 1,
+        "talent_point_desc": "激湍的产生的第3道激流会在原地生成一片水域，站在水域中的敌人1秒受到水属性伤害，持续4秒",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "飞鳐笑·嬉戏",
+                "child_id": 171
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 165,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "幻梦气泡",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会幻梦气泡",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "飞鳐笑·嬉戏",
+                "child_id": 171
+            },
+            {
+                "child_name": "鸿溟",
+                "child_id": 172
+            },
+            {
+                "child_name": "羡鱼",
+                "child_id": 173
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 166,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "滂沱",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵爆使下3次灵豚咏造成的伤害提高15%",
+        "finish": 1,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "羡鱼",
+                "child_id": 173
+            },
+            {
+                "child_name": "悠游",
+                "child_id": 174
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 167,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "碎雨·灵机",
+        "talent_point_max": 1,
+        "talent_point_desc": "碎雨使自身获得灵吟效果的概率提高10%；碎雨每额外命中1名敌人，基础伤害就会提高25%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "悠游",
+                "child_id": 174
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 168,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "飞流·镇脉",
+        "talent_point_max": 1,
+        "talent_point_desc": "使用飞流进行气血恢复时会消耗40真气，但气血恢复效果提高100%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 169,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "共生",
+        "talent_point_max": 1,
+        "talent_point_desc": "鱼灵恢复间隔缩短1秒",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "增长",
+                "child_id": 175
+            },
+            {
+                "child_name": "灵爆·心悦",
+                "child_id": 176
+            },
+            {
+                "child_name": "锦鲤谣·念海",
+                "child_id": 177
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "豆恢复速度",
+                    "value": 0.25,
+                    "type_key": "mp2_recover_add",
+                    "display_string": "+25.0% 豆恢复速度"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 170,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "怒潮",
+        "talent_point_max": 1,
+        "talent_point_desc": "甘霖和潮歌造成伤害时有100%概率使自身获得1层怒潮效果，碎雨造成伤害时有30%概率使自身获得1层怒潮效果，灵爆会消耗所有怒潮效果，每层怒潮效果使灵爆造成的基础伤害提高15%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "锦鲤谣·念海",
+                "child_id": 177
+            },
+            {
+                "child_name": "仙戈",
+                "child_id": 178
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 171,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "飞鳐笑·嬉戏",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放飞鳐笑使自身进入隐身状态",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "仙戈",
+                "child_id": 178
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 172,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "鸿溟",
+        "talent_point_max": 1,
+        "talent_point_desc": "激湍的冷却时间缩短5秒；沧浪之潮的冷却时间缩短2秒",
+        "finish": 1,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "仙戈",
+                "child_id": 178
+            },
+            {
+                "child_name": "灵璧",
+                "child_id": 179
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 173,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "羡鱼",
+        "talent_point_max": 1,
+        "talent_point_desc": "甘霖和碎雨使自身获得灵吟效果的概率提高，数值等同于自身会心率",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "灵璧",
+                "child_id": 179
+            },
+            {
+                "child_name": "万涛",
+                "child_id": 180
+            },
+            {
+                "child_name": "鲲息",
+                "child_id": 181
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 174,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "悠游",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放闪避后自身移动速度提高40%，受到玩家伤害降低40%，持续2秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 175,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "增长",
+        "talent_point_max": 2,
+        "talent_point_desc": "战斗每进行1分钟，自身法术攻击力提高1.2%，最多叠加5层，叠加至5层时还会使自身最大气血提高20%;\n战斗每进行1分钟，自身法术攻击力提高2.4%，最多叠加5层，叠加至5层时还会使自身最大气血提高20%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "泓镜",
+                "child_id": 182
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 176,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵爆·心悦",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵爆使自身造成的水属性伤害提高7.5%，持续12秒;\n灵爆使自身造成的水属性伤害提高15%，持续12秒",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "泓镜",
+                "child_id": 182
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 177,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "锦鲤谣·念海",
+        "talent_point_max": 1,
+        "talent_point_desc": "锦鲤谣可额外命中2名友方目标，但不再为目标添加锦鲤之助效果",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "泓镜",
+                "child_id": 182
+            },
+            {
+                "child_name": "沉鱼落",
+                "child_id": 183
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 178,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "仙戈",
+        "talent_point_max": 2,
+        "talent_point_desc": "对被控制的敌人造成的伤害提高7.5%;\n对被控制的敌人造成的伤害提高15%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "沉鱼落",
+                "child_id": 183
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 179,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵璧",
+        "talent_point_max": 1,
+        "talent_point_desc": "气血低于30%时受到伤害获得灵璧效果，在3秒内总计恢复自身气血,灵璧每间隔120秒仅能触发1次",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "沉鱼落",
+                "child_id": 183
+            },
+            {
+                "child_name": "玄水御灵",
+                "child_id": 184
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 180,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "万涛",
+        "talent_point_max": 2,
+        "talent_point_desc": "灵豚咏和灵爆使目标受到自身伤害提高5%，持续2秒;\n灵豚咏和灵爆使目标受到自身伤害提高10%，持续2秒",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "玄水御灵",
+                "child_id": 184
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 181,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "鲲息",
+        "talent_point_max": 2,
+        "talent_point_desc": "会心率提高3%;\n会心率提高6%",
+        "finish": 1,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "玄水御灵",
+                "child_id": 184
+            }
+        ],
+        "parent": 0.0,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.03,
+                    "type_key": "critical_percent",
+                    "display_string": "+3.0% 会心率"
+                }
+            ],
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.06,
+                    "type_key": "critical_percent",
+                    "display_string": "+6.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 182,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "泓镜",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会泓镜",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "泓镜·流景",
+                "child_id": 185
+            },
+            {
+                "child_name": "相生",
+                "child_id": 186
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 183,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "沉鱼落",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会沉鱼落",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "应手",
+                "child_id": 187
+            },
+            {
+                "child_name": "怒浪",
+                "child_id": 188
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 184,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "玄水御灵",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会玄水御灵",
+        "finish": 1,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "玄水御灵·激铮",
+                "child_id": 189
+            },
+            {
+                "child_name": "灵爆·滔天",
+                "child_id": 190
+            },
+            {
+                "child_name": "玄水御灵·天地",
+                "child_id": 489
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 185,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "泓镜·流景",
+        "talent_point_max": 1,
+        "talent_point_desc": "泓镜持续期间，自身水属性伤害额外提高20%",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "灵爆·曜灵",
+                "child_id": 490
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 186,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "相生",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放泓镜使自身获得4层相生效果，相生：下一次碎雨造成的伤害提高80%并必定获得2层灵吟，受到相生效果强化的碎雨可从专精率中额外获得100%增益",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "灵爆·曜灵",
+                "child_id": 490
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 187,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "应手",
+        "talent_point_max": 1,
+        "talent_point_desc": "成功眩晕或击飞敌人时立刻获得2层灵吟效果，此效果有6秒冷却,甘霖、灵豚咏、碎雨的最后一击在命中受到硬控效果影响的敌人时，会额外赋予其击飞效果",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "锦鲤谣·明澈",
+                "child_id": 491
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 188,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "怒浪",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵爆不再减速敌人，而是定身敌人2秒,释放沧浪之潮后的2秒内，可无视冷却释放一次瞬发沧浪之潮",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "锦鲤谣·明澈",
+                "child_id": 491
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 189,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "玄水御灵·激铮",
+        "talent_point_max": 1,
+        "talent_point_desc": "玄水御灵使自身全局伤害提高30%，持续5秒",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "玄水御灵·飞瀑",
+                "child_id": 492
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 190,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵爆·滔天",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵爆会标记目标4秒，并在标记结束时使目标受到额外伤害，数值等同于标记持续期间自身对目标造成伤害的45%",
+        "finish": 1,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "玄水御灵·飞瀑",
+                "child_id": 492
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 488,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵爆·破浪",
+        "talent_point_max": 2,
+        "talent_point_desc": "释放灵爆时，额外获得1层灵吟效果;\n释放灵爆时，额外获得2层灵吟效果",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "激湍",
+                "child_id": 153
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 489,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "玄水御灵·天地",
+        "talent_point_max": 1,
+        "talent_point_desc": "玄水御灵现在可以选点释放，生效范围提高100%，施法距离提升至50米，并且不再随命中目标数量增加而降低伤害",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 490,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵爆·曜灵",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵爆在自身周围召唤1面小型泓镜协同自身进行攻击，每次攻击造成水属性伤害，持续8秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "灵爆·共鸣",
+                "child_id": 493
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 491,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "锦鲤谣·明澈",
+        "talent_point_max": 1,
+        "talent_point_desc": "锦鲤谣可在硬控状态下使用，释放后使目标受到伤害降低20%，持续4秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "应手·霜穹",
+                "child_id": 494
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 492,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "玄水御灵·飞瀑",
+        "talent_point_max": 1,
+        "talent_point_desc": "玄水御灵获得额外1层充能，造成的伤害提高15%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "灵豚轰炸",
+                "child_id": 495
+            }
+        ],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 493,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵爆·共鸣",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵爆使自身获得4枚鱼灵，并获得强化效果：泓镜存在时，释放灵爆额外召唤1面小型泓镜,泓镜不存在时，释放灵爆使自身获得2层相生效果",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 494,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "应手·霜穹",
+        "talent_point_max": 1,
+        "talent_point_desc": "应手效果触发时，下一次甘霖可免费释放，且释放时必定获得3层灵吟效果",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    },
+    {
+        "talent_point_id": 495,
+        "class": "灵汐",
+        "sub_class": "灵",
+        "talent_point_name": "灵豚轰炸",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵爆从专精率中额外获得100%增益,释放灵爆时在目标位置召唤3只愤怒的灵豚，在短暂的延迟后额外造成法术伤害",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": 0.0,
+        "stats": []
+    }
+]

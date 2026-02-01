@@ -1,0 +1,1028 @@
+[
+    {
+        "talent_point_id": 409,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "飞流·汐",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会飞流·汐",
+        "finish": 0,
+        "row_index": 1,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "潺潺",
+                "child_id": 410
+            },
+            {
+                "child_name": "水元",
+                "child_id": 411
+            },
+            {
+                "child_name": "不息",
+                "child_id": 412
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 410,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "潺潺",
+        "talent_point_max": 1,
+        "talent_point_desc": "所有水流技能造成的气血恢复效果提高4%",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "醍醐",
+                "child_id": 413
+            },
+            {
+                "child_name": "润泽",
+                "child_id": 414
+            },
+            {
+                "child_name": "潮歌",
+                "child_id": 415
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 411,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "水元",
+        "talent_point_max": 1,
+        "talent_point_desc": "甘霖额外对4名气血较低的友方目标造成40%的气血恢复和专精：玄水效果",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "潮歌",
+                "child_id": 415
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 412,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "不息",
+        "talent_point_max": 1,
+        "talent_point_desc": "锦鲤谣使自身获得1层不息效果，不息：下一次甘霖变为瞬发且不消耗真气",
+        "finish": 0,
+        "row_index": 2,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "潮歌",
+                "child_id": 415
+            },
+            {
+                "child_name": "锦鲤谣·玉液",
+                "child_id": 416
+            },
+            {
+                "child_name": "锦鲤谣·沁心",
+                "child_id": 417
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 413,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "醍醐",
+        "talent_point_max": 2,
+        "talent_point_desc": "流水造成持续伤害或气血恢复效果时，有20%概率返还自身5真气，此效果每3秒最多触发1次;\n流水造成持续伤害或气血恢复效果时，有20%概率返还自身10真气，此效果每3秒最多触发1次",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "流水·灵犀",
+                "child_id": 418
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 414,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "润泽",
+        "talent_point_max": 2,
+        "talent_point_desc": "释放飞流时有5%概率使自身获得1层不息效果：下一次甘霖变为瞬发且不消耗真气;\n释放飞流时有10%概率使自身获得1层不息效果：下一次甘霖变为瞬发且不消耗真气",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "流水·灵犀",
+                "child_id": 418
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 415,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "潮歌",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会潮歌",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "潮歌·沧浪引",
+                "child_id": 419
+            },
+            {
+                "child_name": "灵愈",
+                "child_id": 420
+            },
+            {
+                "child_name": "潮歌·玲珑引",
+                "child_id": 421
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 416,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "锦鲤谣·玉液",
+        "talent_point_max": 2,
+        "talent_point_desc": "锦鲤谣的直接恢复效果提高15%;\n锦鲤谣的直接恢复效果提高30%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "甘泓",
+                "child_id": 422
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 417,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "锦鲤谣·沁心",
+        "talent_point_max": 2,
+        "talent_point_desc": "锦鲤谣的持续恢复效果的生效频率提高50%;\n锦鲤谣的持续恢复效果的生效频率提高100%",
+        "finish": 0,
+        "row_index": 3,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "甘泓",
+                "child_id": 422
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 418,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "流水·灵犀",
+        "talent_point_max": 2,
+        "talent_point_desc": "流水的气血恢复效果提高15%;\n流水的气血恢复效果提高30%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "丰沛",
+                "child_id": 423
+            },
+            {
+                "child_name": "福泽",
+                "child_id": 424
+            },
+            {
+                "child_name": "云水鳐歌",
+                "child_id": 425
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 419,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "潮歌·沧浪引",
+        "talent_point_max": 2,
+        "talent_point_desc": "潮歌使自身造成的气血恢复效果提高6%，持续6秒;\n潮歌使自身造成的气血恢复效果提高12%，持续6秒",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "云水鳐歌",
+                "child_id": 425
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 420,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "灵愈",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会灵愈",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "云水鳐歌",
+                "child_id": 425
+            },
+            {
+                "child_name": "灵愈·春潮引",
+                "child_id": 426
+            },
+            {
+                "child_name": "幻梦气泡",
+                "child_id": 427
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 421,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "潮歌·玲珑引",
+        "talent_point_max": 2,
+        "talent_point_desc": "释放甘霖或灵愈时，潮歌的冷却时间缩短0.5秒;\n释放甘霖或灵愈时，潮歌的冷却时间缩短1秒",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "幻梦气泡",
+                "child_id": 427
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 422,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "甘泓",
+        "talent_point_max": 2,
+        "talent_point_desc": "锦鲤谣和舞琼澜的会心率提高15%;\n锦鲤谣和舞琼澜的会心率提高30%",
+        "finish": 0,
+        "row_index": 4,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "幻梦气泡",
+                "child_id": 427
+            },
+            {
+                "child_name": "锦鲤谣·破困",
+                "child_id": 428
+            },
+            {
+                "child_name": "涧溯",
+                "child_id": 429
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 423,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "丰沛",
+        "talent_point_max": 1,
+        "talent_point_desc": "甘霖和灵愈的气血恢复效果提高8%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "回春",
+                "child_id": 430
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 424,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "福泽",
+        "talent_point_max": 1,
+        "talent_point_desc": "自身和自身周围的队友的气血上限提高5%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 2,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 425,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "云水鳐歌",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会云水鳐歌",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "回春",
+                "child_id": 430
+            },
+            {
+                "child_name": "甘霖·药神",
+                "child_id": 431
+            },
+            {
+                "child_name": "鸿瑞",
+                "child_id": 432
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 426,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "灵愈·春潮引",
+        "talent_point_max": 1,
+        "talent_point_desc": "流水造成伤害或气血恢复效果时，有5%概率获得1层潮生效果，此效果每8秒最多触发1次，消耗1层潮生效果可释放灵愈",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "鸿瑞",
+                "child_id": 432
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 427,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "幻梦气泡",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会幻梦气泡",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "鸿瑞",
+                "child_id": 432
+            },
+            {
+                "child_name": "济世",
+                "child_id": 433
+            },
+            {
+                "child_name": "磅礴",
+                "child_id": 434
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 428,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "锦鲤谣·破困",
+        "talent_point_max": 1,
+        "talent_point_desc": "锦鲤谣使目标的移动速度提高30%，持续5秒",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 8,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 429,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "涧溯",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵鱼技能的气血恢复效果提高10%",
+        "finish": 0,
+        "row_index": 5,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "磅礴",
+                "child_id": 434
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 430,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "回春",
+        "talent_point_max": 1,
+        "talent_point_desc": "流水持续时间延长3秒，锦鲤谣的持续时间延长2秒",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "欢心",
+                "child_id": 435
+            },
+            {
+                "child_name": "浩荡",
+                "child_id": 436
+            },
+            {
+                "child_name": "飞鳝笑·水形",
+                "child_id": 437
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 431,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "甘霖·药神",
+        "talent_point_max": 1,
+        "talent_point_desc": "消耗不息效果时，为当前目标添加一枚护盾，吸收伤害,不息：下一次甘霖变为瞬发且不消耗真气",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 3,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 432,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "鸿瑞",
+        "talent_point_max": 1,
+        "talent_point_desc": "自身造成的所有气血恢复效果提高3%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "飞鳝笑·水形",
+                "child_id": 437
+            },
+            {
+                "child_name": "灵豚佑·无竭",
+                "child_id": 438
+            },
+            {
+                "child_name": "碎雨·恒生",
+                "child_id": 439
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 433,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "济世",
+        "talent_point_max": 1,
+        "talent_point_desc": "对受到控制效果影响的友方目标造成的所有恢复效果提高10%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 7,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 434,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "磅礴",
+        "talent_point_max": 1,
+        "talent_point_desc": "会心效果提高15%，锦鲤谣的会心效果额外提高15%",
+        "finish": 0,
+        "row_index": 6,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "碎雨·恒生",
+                "child_id": 439
+            },
+            {
+                "child_name": "培育·渊渟",
+                "child_id": 440
+            },
+            {
+                "child_name": "春晓",
+                "child_id": 441
+            }
+        ],
+        "parent": null,
+        "stats": [
+            [
+                {
+                    "type": "会心效果",
+                    "value": 0.15,
+                    "type_key": "critical_damage",
+                    "display_string": "+15.0% 会心效果"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 435,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "欢心",
+        "talent_point_max": 1,
+        "talent_point_desc": "调息率提高2%，专精率提高2%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "灵泉",
+                "child_id": 442
+            }
+        ],
+        "parent": null,
+        "stats": [
+            [
+                {
+                    "type": "调息率",
+                    "value": 0.02,
+                    "type_key": "haste_percent",
+                    "display_string": "+2.0% 调息率"
+                },
+                {
+                    "type": "专精率",
+                    "value": 0.02,
+                    "type_key": "mastery_percent",
+                    "display_string": "+2.0% 专精率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 436,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "浩荡",
+        "talent_point_max": 1,
+        "talent_point_desc": "飞流和碎雨造成伤害时有50%概率返还5真气",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "灵泉",
+                "child_id": 442
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 437,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "飞鳝笑·水形",
+        "talent_point_max": 1,
+        "talent_point_desc": "飞摇笑立刻恢复自身气血，飞摇笑期间触碰到友方目标也会为其恢复等量气血,每名友方目标仅可受到1次气血恢复效果影响",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 3,
+        "child": [
+            {
+                "child_name": "灵泉",
+                "child_id": 442
+            },
+            {
+                "child_name": "清溪引",
+                "child_id": 443
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 438,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "灵豚佑·无竭",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵豚佑的冷却时间缩短30秒",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "清溪引",
+                "child_id": 443
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 439,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "碎雨·恒生",
+        "talent_point_max": 1,
+        "talent_point_desc": "碎雨每段攻击造成伤害时，为周围3名气血较低的队友恢复气血",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 7,
+        "child": [
+            {
+                "child_name": "清溪引",
+                "child_id": 443
+            },
+            {
+                "child_name": "舞琼澜",
+                "child_id": 444
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 440,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "培育·渊渟",
+        "talent_point_max": 1,
+        "talent_point_desc": "引导培育期间持续恢复自身40%气血和4枚鱼灵",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "舞琼澜",
+                "child_id": 444
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 441,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "春晓",
+        "talent_point_max": 1,
+        "talent_point_desc": "会心率提高4%",
+        "finish": 0,
+        "row_index": 7,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "舞琼澜",
+                "child_id": 444
+            }
+        ],
+        "parent": null,
+        "stats": [
+            [
+                {
+                    "type": "会心率",
+                    "value": 0.04,
+                    "type_key": "critical_percent",
+                    "display_string": "+4.0% 会心率"
+                }
+            ]
+        ]
+    },
+    {
+        "talent_point_id": 442,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "灵泉",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会灵泉",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "泉韵",
+                "child_id": 445
+            },
+            {
+                "child_name": "灵泉·趵突",
+                "child_id": 446
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 443,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "清溪引",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会清溪引",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "锦鲤谣·水佑",
+                "child_id": 447
+            },
+            {
+                "child_name": "云水鳝歌·蔚然",
+                "child_id": 448
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 444,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "舞琼澜",
+        "talent_point_max": 1,
+        "talent_point_desc": "学会舞琼澜",
+        "finish": 0,
+        "row_index": 8,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "舞琼澜·欢畅",
+                "child_id": 449
+            },
+            {
+                "child_name": "舞琼澜·大巧",
+                "child_id": 450
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 445,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "泉韵",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放潮歌或灵愈时，额外减少灵泉的冷却时间2秒",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 1,
+        "child": [
+            {
+                "child_name": "灵泉·潮涌",
+                "child_id": 496
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 446,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "灵泉·趵突",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵泉造成的气血恢复效果提高15%；释放灵泉时立刻为10名气血较低的队友添加流水效果",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "灵泉·潮涌",
+                "child_id": 496
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 447,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "锦鲤谣·水佑",
+        "talent_point_max": 1,
+        "talent_point_desc": "锦鲤谣的持续恢复效果生效期间，目标受到的全伤害降低30%",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 4,
+        "child": [
+            {
+                "child_name": "定元",
+                "child_id": 497
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 448,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "云水鳝歌·蔚然",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放云水歌立刻解除目标所有控制效果；云水摇歌持续期间，目标获得霸体效果",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 6,
+        "child": [
+            {
+                "child_name": "定元",
+                "child_id": 497
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 449,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "舞琼澜·欢畅",
+        "talent_point_max": 1,
+        "talent_point_desc": "舞琼澜获得额外1层充能，最后1段气血恢复效果为所有命中的目标添加流水效果",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "鳝豚和鸣",
+                "child_id": 498
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 450,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "舞琼澜·大巧",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放舞琼澜使自身专精率提高15%，持续15秒",
+        "finish": 0,
+        "row_index": 9,
+        "col_index": 9,
+        "child": [
+            {
+                "child_name": "鳝豚和鸣",
+                "child_id": 498
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 496,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "灵泉·潮涌",
+        "talent_point_max": 1,
+        "talent_point_desc": "释放灵泉时，获得2层潮生效果，消耗1层潮生效果可释放灵愈",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 2,
+        "child": [
+            {
+                "child_name": "灵泉·痊愈",
+                "child_id": 499
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 497,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "定元",
+        "talent_point_max": 1,
+        "talent_point_desc": "下落攻击和轻功攻击的冷却时间缩短10秒",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 5,
+        "child": [
+            {
+                "child_name": "碎雨·断浪",
+                "child_id": 500
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 498,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "鳝豚和鸣",
+        "talent_point_max": 1,
+        "talent_point_desc": "灵豚佑的护盾吸收量提高20%，云水鳝歌的减伤效果提高20%",
+        "finish": 0,
+        "row_index": 10,
+        "col_index": 8,
+        "child": [
+            {
+                "child_name": "锦鲤共舞",
+                "child_id": 501
+            }
+        ],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 499,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "灵泉·痊愈",
+        "talent_point_max": 1,
+        "talent_point_desc": "召唤灵泉时，立刻恢复所有队友气血",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 2,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 500,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "碎雨·断浪",
+        "talent_point_max": 1,
+        "talent_point_desc": "碎雨命中受到硬控效果影响的敌人时，为目标添加断浪效果，持续6秒，断浪：受到任何来源伤害时会额外受到水属性伤害，此效果有1秒冷却",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 5,
+        "child": [],
+        "parent": null,
+        "stats": []
+    },
+    {
+        "talent_point_id": 501,
+        "class": "灵汐",
+        "sub_class": "汐",
+        "talent_point_name": "锦鲤共舞",
+        "talent_point_max": 1,
+        "talent_point_desc": "锦鲤谣和舞琼澜的气血恢复效果提高10%，锦鲤谣和舞琼澜的溢出气血恢复效果的100%会转化为锦鲤护盾，持续30秒，锦鲤护盾最多可吸收伤害",
+        "finish": 0,
+        "row_index": 11,
+        "col_index": 8,
+        "child": [],
+        "parent": null,
+        "stats": []
+    }
+]

@@ -21,48 +21,42 @@ def _load_ver1_module():
     _VER1_MODULE = mod
     return mod
 
-def _load_cards_data():
-    # 优先读取本地数据文件（若你将 cards_export.json 复制到 tools/danqing/data/）
+def load_cards_export() -> dict:
     local_json = os.path.abspath(
         os.path.join(os.path.dirname(__file__), 'data', 'cards_export.json')
     )
-    if os.path.exists(local_json):
-        import json
-        with open(local_json, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        cards = data.get('cards', [])
-        return {c['id']: c for c in cards}
-    # 兜底：内置少量关键卡定义，便于本地最小运行
-    return {
-        "yanhong": {
-            "id": "yanhong", "name": "燕虹", "category": "human", "cost": 2,
-            "dpsModel": {"type": "ATTACK_SCALING", "scaling": {"base": 0.28, "step": 0.02}, "params": {"cd": 6}}
-        },
-        "wenmin": {
-            "id": "wenmin", "name": "文敏", "category": "human", "cost": 2,
-            "dpsModel": {"type": "ATTACK_SCALING", "scaling": {"base": 0.0, "step": 0.0}, "params": {"cd": 0}}
-        },
-        "linfeng": {"id": "linfeng", "name": "林峰", "category": "human", "cost": 3, "dpsModel": {"type": "PASSIVE", "scaling": {"base": 0.0, "step": 0.0}}},
-        "shangguance": {"id": "shangguance", "name": "上官策", "category": "human", "cost": 2, "dpsModel": {"type": "PASSIVE", "scaling": {"base": 0.0, "step": 0.0}}},
-        "fan": {"id": "fan", "name": "折扇", "category": "item", "cost": 2, "dpsModel": {"type": "PASSIVE", "scaling": {"base": 0.52, "step": 0.02}}},
-        "dice": {"id": "dice", "name": "神木骰", "category": "item", "cost": 2, "dpsModel": {"type": "PASSIVE", "scaling": {"base": 0.7, "step": 0.05}}},
-        "mirror": {"id": "mirror", "name": "六合镜", "category": "item", "cost": 3, "dpsModel": {"type": "PASSIVE", "scaling": {"base": 1.4, "step": 0.1}}},
-        "ant": {"id": "ant", "name": "猩红巨蚁", "category": "beast", "cost": 2, "dpsModel": {"type": "PASSIVE", "scaling": {"base": 0.014, "step": 0.001}}},
-        "sixtails": {"id": "sixtails", "name": "六尾魔狐", "category": "beast", "cost": 3, "dpsModel": {"type": "PASSIVE", "scaling": {"base": 0.52, "step": 0.03}}},
-        "zhouyixian": {"id": "zhouyixian", "name": "周一仙", "category": "human", "cost": 2, "dpsModel": {"type": "GLOBAL_MULTIPLIER", "scaling": {"base": 0.012, "step": 0.002}}},
-        "tiger": {"id": "tiger", "name": "猛虎", "category": "beast", "cost": 2, "dpsModel": {"type": "GLOBAL_MULTIPLIER", "scaling": {"base": 0.012, "step": 0.002}}},
-        "banner": {"id": "banner", "name": "仙人布幡", "category": "item", "cost": 2, "dpsModel": {"type": "GLOBAL_MULTIPLIER", "scaling": {"base": 0.012, "step": 0.002}}},
-        "woodsword": {"id": "woodsword", "name": "木剑", "category": "item", "cost": 1, "dpsModel": {"type": "GLOBAL_MULTIPLIER", "scaling": {"base": 0.008, "step": 0.001}}},
-        "bear": {"id": "bear", "name": "雪地熊", "category": "beast", "cost": 2, "dpsModel": {"type": "PASSIVE", "scaling": {"base": 1.2, "step": 0.05}}},
-        "qihao": {"id": "qihao", "name": "齐昊", "category": "human", "cost": 3, "dpsModel": {"type": "ATTACK_SCALING", "scaling": {"base": 1.5, "step": 0.1}, "params": {"cd": 60}}},
-        "icearrow_card": {"id": "icearrow_card", "name": "寒冰箭", "category": "item", "cost": 2, "dpsModel": {"type": "ATTACK_SCALING", "scaling": {"base": 0.28, "step": 0.02}, "params": {"cd": 6}}}
-    }
+    if not os.path.exists(local_json):
+        raise FileNotFoundError(f"找不到数据文件: {local_json}")
+    import json
+    with open(local_json, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    if not isinstance(data, dict):
+        raise ValueError("cards_export.json 格式不正确：根节点应为对象")
+    cards = data.get('cards')
+    if not isinstance(cards, list) or not cards:
+        raise ValueError("cards_export.json 格式不正确：缺少 cards 数组或为空")
+    return data
+
+def _load_cards_data():
+    data = load_cards_export()
+    cards = data.get('cards') or []
+    out = {}
+    for c in cards:
+        if not isinstance(c, dict):
+            continue
+        cid = c.get('id')
+        if not isinstance(cid, str) or not cid:
+            continue
+        out[cid] = c
+    if not out:
+        raise ValueError("cards_export.json 中没有可用的卡牌数据")
+    return out
 
 def run_demo():
     mod = _load_ver1_module()
     cards_map = _load_cards_data()
     deck_cards = [cards_map["yanhong"]]
-    sim = mod.DanqingEventSimulator(10000.0, 50000.0)
+    sim = mod.DanqingEventSimulator(10000.0, 50000.0, 200000.0)
     result = sim.simulate(deck_cards, level=6, max_time=60.0, seed=42, stop_on_target=False, card_levels={})
     return {
         "dps": int((result.get("total_damage") or 0) / (result.get("combat_time") or 60)),
@@ -70,18 +64,28 @@ def run_demo():
         "details": result.get("damage_breakdown")
     }
 
-def run(deck_ids, level=6, base_atk=10000.0, base_dps=50000.0, max_time=180.0, seed=None):
+def run(deck_ids, level=6, base_atk=10000.0, base_hp=200000.0, base_dps=50000.0, max_time=180.0, seed=None):
     mod = _load_ver1_module()
     cards_map = _load_cards_data()
-    deck_cards = [cards_map[cid] for cid in deck_ids if cid in cards_map]
+    raw_ids = [str(x).strip() for x in (deck_ids or []) if str(x).strip()]
+    if not raw_ids:
+        raise ValueError("请先输入卡组ID（用英文逗号分隔）")
+    unknown = [cid for cid in raw_ids if cid not in cards_map]
+    deck_cards = [cards_map[cid] for cid in raw_ids if cid in cards_map]
     if not deck_cards:
-        deck_cards = [cards_map["yanhong"]]
-    sim = mod.DanqingEventSimulator(float(base_atk), float(base_dps))
+        raise ValueError(f"没有找到任何有效卡牌ID：{', '.join(unknown[:12])}{'…' if len(unknown) > 12 else ''}")
+    sim = mod.DanqingEventSimulator(float(base_atk), float(base_dps), float(base_hp))
     result = sim.simulate(deck_cards, level=int(level), max_time=float(max_time), seed=seed, stop_on_target=False, card_levels={})
     return {
-        "deck": deck_ids,
+        "deck": raw_ids,
         "level": int(level),
+        "base_atk": float(base_atk),
+        "base_hp": float(base_hp),
+        "base_dps": float(base_dps),
+        "unknown": unknown,
         "dps": int((result.get("total_damage") or 0) / (result.get("combat_time") or max_time)),
+        "combat_time": float(result.get("combat_time") or max_time),
+        "total_cost": int(result.get("total_cost") or 0),
         "events": result.get("event_counts"),
         "details": result.get("damage_breakdown")
     }
